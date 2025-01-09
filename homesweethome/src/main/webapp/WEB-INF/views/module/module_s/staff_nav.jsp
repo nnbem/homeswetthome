@@ -28,8 +28,7 @@
          </ul>
       </nav>
 
-	<div class="innerWrapper">
-		
+	
 		
 
 	<!-- /.sidebar -->

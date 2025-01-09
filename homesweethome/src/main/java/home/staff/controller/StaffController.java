@@ -20,4 +20,10 @@ public class StaffController {
 		return url;
 	}
 	
+	@GetMapping("/employee/regist")
+	public String employee_regi() {
+		String url = "staff/employee/regist";
+		return url;
+	}
+	
 }

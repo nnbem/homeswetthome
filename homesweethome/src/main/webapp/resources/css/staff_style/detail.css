@@ -1,5 +1,23 @@
 @charset "UTF-8";
 
+/* Main Content */
+.main-content {
+    display: flex;
+    gap: 20px;
+}
+
+.ineerWrapper{
+	padding: 20px 0;
+}
+
+/* Search Container */
+.search-container {
+    background-color: white;
+ 	border-bottom: 1px solid #c6c6c6;
+    border-radius: 10px;
+    padding: 40px ;
+}
+
 /* Detail Table */
 .detail-table {
 	width: 100%;

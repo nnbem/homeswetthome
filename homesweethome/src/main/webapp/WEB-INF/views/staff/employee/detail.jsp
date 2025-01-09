@@ -1,16 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <head>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/staff_style/staff_member.css">
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/css/staff_style/regist_style.css">
 </head>
 
-<body>
-	<!-- Main Content -->
+
+<!-- Main Content -->
+<div class="ineerWrapper">
 	<div class="content">
 		<div class="search-container">
-			<h2>공지사항</h2>
-			<hr/>
+			<h2>인계동물 정보</h2>
+			<br />
+			<hr />
+			<br />
 			
 			<table class="detail-table">
 				<thead>
@@ -40,5 +43,9 @@
 			<div class="st-list-button-container">
 				<button type="submit" class="button">목록</button>
 			</div>
-		</div>
-	</div>
+			
+			
+		</div> <!-- search-container -->
+	</div> <!-- content -->
+</div> <!-- innerWrapper -->
+
