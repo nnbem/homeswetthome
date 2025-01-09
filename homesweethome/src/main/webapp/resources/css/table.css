@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+/* Member Table */
+.table {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.table td {
+    color: #666;
+}
+
+.table td, .table th{
+	vertical-align: middle;
+}
+
+table.table td.injection-num{
+	padding-left: 20px;
+}
+
+table.table td.injection-num p,label{
+	margin: 0 20px;
+	display: inline-flex;
+	flex-direction: row;
+	align-items: center;
+	float: left;
+}
+
+table.table td.injection-num p{
+	width: 80px;
+}
+
+/* basic-table */
+table.table td{
+	width: 25%;
+}
+table.table td.basic-title{
+	background-color: #f4f4f4;
+	font-weight: bold;
+}
+
+
+/* table-input */
+input.table-input-text{
+	width: 100%;
+	text-align: center;
+	border: none;
+	outline: none;
+}
+input.table-input-date{
+	border: none;
+	outline: none;
+}
+
+input.table-input-radio{
+	margin: 0 10px;
+}
+input.table-input-checkbox{
+	margin: 0 10px;
+}
+
+
+/* 사용시 클래스 :
+테이블 외각 dav: table (필요시 card-body, table-responsive 추가 가능)
+table: table
+input text: table-input-text
+input date: table-input-date
+input radio: table-input-radio
+input checkbox: table-input-checkbox */
+
+
+
+
+
+
+

@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+/* Main Content */
+.main-content {
+    display: flex;
+    gap: 20px;
+}
+
+
+/* Search Container */
+.search-container {
+    background-color: white;
+ 	border-bottom: 1px solid #c6c6c6;
+    border-radius: 10px;
+    padding: 40px ;
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    justify-content: flex-end; /* 오른쪽 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    gap: 10px; /* 요소 간 간격 */
+    margin-bottom: 20px;
+}
+
+.refresh-button {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.sort-select, .search-input, .search-button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.search-input {
+    width: 250px; /* 입력 필드의 너비 */
+}
+
+.search-button {
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #555;
+}
+/* Member Table */
+.member-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.member-table th, .member-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.member-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.member-table td {
+    color: #666;
+} 
