@@ -13,5 +13,6 @@
 		<pattern>/module/*</pattern>
 		<pattern>/member/main</pattern>
 		<pattern>/staff/main</pattern>
+		<pattern>*/open_regist</pattern>
 	</excludes>
 </decorators>

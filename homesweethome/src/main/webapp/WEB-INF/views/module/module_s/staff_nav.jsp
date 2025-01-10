@@ -18,13 +18,13 @@
       <nav class="main_menu">
          <ul>
             <li><a href="#">보호동물관리</a></li>
-            <li><a href="#">회원관리</a></li>
-            <li><a href="#">인계관리</a></li>
-            <li><a href="#">입양신청관리</a></li>
-            <li><a href="#">유예신청관리</a></li>
-            <li><a href="#">게시판통합관리</a></li>
+            <li><a href="/staff/member/list">회원관리</a></li>
+            <li><a href="/staff/receive">인계관리</a></li>
+            <li><a href="/staff/adoption">입양신청관리</a></li>
+            <li><a href="/staff/graceperiod">유예신청관리</a></li>
+            <li><a href="/staff/bord/notice">게시판통합관리</a></li>
             <li><a href="#">방문예약관리</a></li>
-            <li><a href="#">사원관리</a></li>
+            <li><a href="/staff/employee">사원관리</a></li>
          </ul>
       </nav>
 

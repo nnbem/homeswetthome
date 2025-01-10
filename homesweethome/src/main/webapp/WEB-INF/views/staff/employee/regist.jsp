@@ -20,49 +20,57 @@
 					<div class="table card-body table-responsive p-0">
 						<table class="table" id="basic">
 							<tr>
-								<td class="basic-title">인계번호</td>
-								<td>-</td>
-								<td class="basic-title">접종일</td>
-								<td>-</td>
+								<td class="center_cell">이름</td>
+								<td class="left_cell" >
+									<input class="input_form" type="text" name="name" placeholder="" style="border: none;">
+								</td>
+								<td class="center_cell">입사일</td>
+								<td class="left_cell">
+									<input class="input_form" type="text" name="name" placeholder="" style="border: none;">
+								</td>
 							</tr>
 							<tr>
-								<td class="basic-title" rowspan="6">예방접종</td>
-								<td colspan="3" class="injection-num"><p>종합백신:</p>
-									<label>2차</label></td>
+								<td class="center_cell">부서</td>
+								<td class="left_cell" colspan="4">
+									<input class="input_form" type="text" name="name" placeholder="" style="border: none;">
+								</td>
 							</tr>
 							<tr>
-								<td colspan="3" class="injection-num"><p>광견병:</p>
-									<label>2차</label></td>
+								<td class="center_cell">아이디</td>
+								<td class="left_cell" colspan="4">
+									<input class="input_form" type="text" name="name" placeholder="st240101" style="border: none;">
+								</td>
 							</tr>
 							<tr>
-								<td colspan="3" class="injection-num"><p>코로나:</p>
-									<label>2차</label></td>
-							</tr>
-		
-							<tr>
-								<td colspan="3" class="injection-num"><p>인플루엔자:</p>
-									<label>2차</label></td>
+								<td class="center_cell">비밀번호</td>
+								<td class="left_cell" colspan="4">
+									<input class="input_form" type="text" name="name" placeholder="" style="border: none;">
+								</td>
 							</tr>
 							<tr>
-								<td colspan="3" class="injection-num"><p>켄넬코프:</p>
-									<label>2차</label></td>
+								<td class="center_cell">주소</td>
+								<td class="left_cell" colspan="4">
+									<input class="input_form" type="text" name="name" placeholder="" style="border: none;">
+								</td>
 							</tr>
 							<tr>
-								<td colspan="3" class="injection-num"><p>백혈병:</p>
-									<label>2차</label></td>
+								<td class="center_cell">상세주소</td>
+								<td class="left_cell" colspan="4">
+									<input class="input_form" type="text" name="name" placeholder="" style="border: none;">
+								</td>
 							</tr>
 							<tr>
-								<td class="basic-title">심장사상충 투약</td>
-								<td colspan="3" class="injection-num"><label>2차</label></td>
+								<td class="center_cell">이메일</td>
+								<td class="left_cell" colspan="4">
+									<input class="input_form" type="text" name="name" placeholder="" style="border: none;">
+								</td>
 							</tr>
 							<tr>
-								<td class="basic-title">구충제 투약</td>
-								<td colspan="3" class="injection-num" id="authelmintic"><p>몸무게:</p>
-									<label>-</label>
-								<p>투약일:</p>
-									<label>-</label></td>
+								<td colspan="4" style="text-align: right;">파일첨부</td>
 							</tr>
+						
 						</table>
+						<input type="file" name="file">
 					</div> <!-- table card-body table-responsive p-0 -->
 				</div> <!-- inner_container -->
 			<div class="st-list-button-container">

@@ -15,8 +15,9 @@
 /* Search Bar */
 .search-bar {
     display: flex;
-    gap: 12.5px; /* 요소 간 간격 */
+    gap: 17px; /* 요소 간 간격 */
     margin-bottom: 20px;
+    padding-left: 61.3%
 }
 
 .regi_button{
