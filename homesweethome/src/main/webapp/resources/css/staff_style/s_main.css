@@ -32,6 +32,24 @@ body {
     margin-left: 20px;
     margin-right: 5px;
 }
+.header span {
+	font-size: 24px;
+	font-weight: bold;
+	color: #ffffff;
+	font:bold;
+}
+.main a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 20px;
+}
+.header .logout a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 20px;
+}
 
 .header .logout a {
     color: white;

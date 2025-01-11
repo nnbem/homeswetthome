@@ -12,7 +12,8 @@
    <header class="header">
       <div class="logo">
          <img src="<%=request.getContextPath()%>/resources/image/logo.png"
-            alt="Logo" /> <span>관리자</span>
+            alt="Logo" />
+		<span>관리자</span>
       </div>
       <div class="logout">
          <a href="#">로그아웃</a>
@@ -25,13 +26,13 @@
       <nav class="main_menu">
          <ul>
             <li><a href="#">보호동물관리</a></li>
-            <li><a href="#">회원관리</a></li>
-            <li><a href="#">인계관리</a></li>
-            <li><a href="#">입양신청관리</a></li>
-            <li><a href="#">유예신청관리</a></li>
-            <li><a href="#">게시판관리</a></li>
-            <li><a href="#">방문예약관리</a></li>
-            <li><a href="#">사원관리</a></li>
+            <li><a href="/staff/member/list">회원관리</a></li>
+            <li><a href="/staff/receive">인계관리</a></li>
+            <li><a href="/staff/adoption">입양신청관리</a></li>
+            <li><a href="/staff/graceperiod">유예신청관리</a></li>
+            <li><a href="/staff/bord/notice">게시판통합관리</a></li>
+            <li><a href="/staff/reserve/">방문예약관리</a></li>
+            <li><a href="/staff/employee">사원관리</a></li>
          </ul>
       </nav>
 
@@ -75,19 +76,22 @@
             <div class="card stats">
                <h3>신청접수</h3>
                <div class="stats-grid">
-                  <a href="#"><div>
-                        <span>입양신청 대기</span>
-                        <p>12건</p>
-                     </div></a> <a href="#"><div>
-                        <span>신청취소</span>
-                        <p>8건</p>
-                     </div></a> <a href="#"><div>
-                        <span>유예신청 대기</span>
-                        <p>2건</p>
-                     </div></a> <a href="#"><div>
-                        <span>전체상담처리</span>
-                        <p>24건</p>
-                     </div></a>
+					<div class="clickable-div" onclick="location.href='/staff/adoption';">
+						<span>입양신청 대기</span>
+						<p>5건</p>
+					</div>
+					<div class="clickable-div" onclick="location.href='/staff/graceperiod';">
+						<span>유예신청 대기</span>
+						<p>5건</p>
+					</div>
+					<div class="clickable-div" onclick="location.href='/staff/reserve';">
+						<span>방문예약신청 대기</span>
+						<p>5건</p>
+					</div>
+					<div class="clickable-div" onclick="location.href='/staff/adoption';">
+						<span>전체상담 대기</span>
+						<p>5건</p>
+					</div>
                </div>
             </div>
             <div class="card calendar">

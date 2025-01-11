@@ -31,13 +31,15 @@
 			<br />
 		</div>
 		<p class="required-note">* 표시는 필수입력입니다.</p>
-		<!-- 회원정보 -->
+		<!-- 사원정보 -->
 		<div class="member-info">
 			<h3>사원정보</h3>
 			<table class="info-table">
 				<tr>
 					<th><span class="required">*</span>이름</th>
-					<td><input>최하나</td>
+					<td>
+					<input class="input_form" type="text" name="name" placeholder="2200001001" style="border: none;">
+					최하나</td>
 					<th><span class="required">*</span>입사일</th>
 					<td>2024년 12월 30일</td>
 				</tr>
@@ -74,16 +76,23 @@
 
 		<!-- 탈퇴 버튼 -->
 		<div class="withdrawal-submit">
-			<button type="submit" onclick="regist_go();">등록하기 →</button>
+			<button type="submit" onclick="regist_go();">수정하기 →</button>
 			<button type="submit" onclick="cancel_go();">취소하기 →</button>
 		</div>
 		
 	</section>
 	<script>
 		function regist_go() {
-			alert("사원정보가 등록되었습니다.");
-			window.close();
+			alert("사원정보가 수정되었습니다.");
+		    window.close();
+		    
+		    if (window.opener) {
+		        window.opener.location.href = "/staff/employee";
+		    } else {
+		        alert("시스템오류로 리스트 화면으로 이동할 수 없습니다.");
+		    }
 		}
+
 		function cancel_go() {
 			window.close();
 		}

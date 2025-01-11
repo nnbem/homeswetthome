@@ -11,7 +11,7 @@
 	<div class="content">
 		<div class="main-container">
 			<div class="st-list-button-container">
-				<button type="submit" class="button" onclick="back_receive();">목록</button>
+				<button type="submit" class="button" onclick="back_page();">목록</button>
 				<button type="submit" class="regi_button" onclick="reg_complet();">등록하기</button>
 			</div>
 			
@@ -75,16 +75,13 @@
 </div> <!-- ineerWrapper -->
 
 <script>
-function back_receive() {
+function back_page() {
     // 이동할 페이지 URL 설정
     window.location.href = "/staff/receive";
 }
-function goToPage() {
-    // 이동할 페이지 URL 설정
-    window.location.href = "/staff/receive/regist";
-}
 function reg_complet(){
-	alert("click regist");
+	alert("인계동물 정보가 등록되었습니다.");
+	location.href="/staff/receive";
 }
 </script>
 

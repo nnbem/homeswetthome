@@ -18,8 +18,11 @@
 				<button class="refresh-button">⟳&nbsp;&nbsp;</button>
 					<select class="sort-select">
 						<option value="">정렬개수</option>
-						<option value="all">전체</option>
-					</select> <select class="sort-select">
+						<option value="all">10개</option>
+						<option value="all">20개</option>
+						<option value="all">30개</option>
+					</select>
+					<select class="sort-select">
 						<option value="">전체</option>
 						<option value="specific">특정</option>
 					</select>
@@ -32,34 +35,100 @@
 				<thead>
 					<tr>
 						<th>입양번호</th>
-						<th>신청날짜</th>
 						<th>제목</th>
-						<th>내용</th>
+						<th>신청 날짜</th>
 						<th>아이디</th>
-						<th>보호동물관리번호</th>
+						<th>보호동물등록번호</th>
 						<th>방문예정일</th>
-						<th>승인여부</th>
+						<th>신청여부</th>
+						
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td>22000101</td>
-						<td>동구 가양동</td>
-						<td>암컷</td>
-						<td>7kg</td>
+						<td>입양신청합니다.</td>
+						<td>2025년01월09일</td>
+						<td>asdf</td>
 						<td>410060426700001</td>
-						<td>7kg</td>
-						<td>7kg</td>
+						<td>2025년01월013일</td>
 						<td>
-							<select class="sort-select">
-								<option value="">대기</option>
-								<option value="specific">승인</option>
-								<option value="specific">반려</option>
-							</select>
+						<select class="sort-select">
+						<option value="">대기</option>
+						<option value="specific">승인</option>
+						<option value="specific">반려</option>
+					</select>
 						</td>
 					</tr>
 				</tbody>
-				
+				<tbody>
+					<tr>
+						<td>22000101</td>
+						<td>입양신청합니다.</td>
+						<td>2025년01월09일</td>
+						<td>asdf</td>
+						<td>410060426700001</td>
+						<td>2025년01월013일</td>
+						<td>
+						<select class="sort-select">
+						<option value="">대기</option>
+						<option value="specific">승인</option>
+						<option value="specific">반려</option>
+					</select>
+						</td>
+					</tr>
+				</tbody>
+				<tbody>
+					<tr>
+						<td>22000101</td>
+						<td>입양신청합니다.</td>
+						<td>2025년01월09일</td>
+						<td>asdf</td>
+						<td>410060426700001</td>
+						<td>2025년01월013일</td>
+						<td>
+						<select class="sort-select">
+						<option value="">대기</option>
+						<option value="specific">승인</option>
+						<option value="specific">반려</option>
+					</select>
+						</td>
+					</tr>
+				</tbody>
+				<tbody>
+					<tr>
+						<td>22000101</td>
+						<td>입양신청합니다.</td>
+						<td>2025년01월09일</td>
+						<td>asdf</td>
+						<td>410060426700001</td>
+						<td>2025년01월013일</td>
+						<td>
+						<select class="sort-select">
+						<option value="">대기</option>
+						<option value="specific">승인</option>
+						<option value="specific">반려</option>
+					</select>
+						</td>
+					</tr>
+				</tbody>
+				<tbody>
+					<tr>
+						<td>22000101</td>
+						<td>입양신청합니다.</td>
+						<td>2025년01월09일</td>
+						<td>asdf</td>
+						<td>410060426700001</td>
+						<td>2025년01월013일</td>
+						<td>
+						<select class="sort-select">
+						<option value="">대기</option>
+						<option value="specific">승인</option>
+						<option value="specific">반려</option>
+					</select>
+						</td>
+					</tr>
+				</tbody>
 				
 				
 			</table>
@@ -70,7 +139,7 @@
 <script>
 function open_regist() {
     // 이동할 페이지 URL 설정
-    window.location.href = "/staff/adoption/regist"; // 여기에 이동할 페이지 경로를 넣으세요.
+    window.location.href = "/staff/receive/regist"; // 여기에 이동할 페이지 경로를 넣으세요.
 }
 </script>
 

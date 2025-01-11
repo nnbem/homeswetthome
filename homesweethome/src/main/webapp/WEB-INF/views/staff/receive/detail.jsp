@@ -9,43 +9,74 @@
 <!-- Main Content -->
 <div class="ineerWrapper">
 	<div class="content">
-		<div class="search-container">
-			<h2>인계동물 정보</h2>
-			<br />
-			<hr />
-			<br />
-			
-			<table class="detail-table">
-				<thead>
-					<tr>
-						<th>운영시간 변경안내(예정)
-						<div class="st-button-container">
-							<button type="submit" class="button">수정</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<button type="submit" class="button">삭제</button>
-						</div>
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>등록일: 2024-12-28</td>
-					</tr>
-					<tr>
-						<td style="padding:10%; font-size: 20px;">2025년 1월 21일부터 HomeSweetHome의 운영 시간이 변경됩니다. 새 운영 시간은 아래와 같습니다: <br/><br/>
-								- 월~금: 오전 10시 ~ 오후 7시 <br/>
-								- 토요일: 오전 10시 ~ 오후 5시 <br/>
-								- 일요일 및 공휴일: 휴무 <br/><br/>
-								아직 예정이오니 이 점 참고하시어 방문 시 불편함 없으시길 바라며 자세한 사항은 아래 번호로 전화주시기 바랍니다. <br/>
-								대표번호  042)-270-7239</td>
-					</tr>
-				</tbody>
-			</table><br/>
+		<div class="main-container">
 			<div class="st-list-button-container">
-				<button type="submit" class="button">목록</button>
+				<button type="submit" class="button" onclick="back_page();">목록</button>
 			</div>
 			
+				<div class="inner_container">
+					<h2>인계동물 정보</h2>
+					<div class="table card-body table-responsive p-0">
+						<table class="table" id="basic">
+							<tr>
+								<td class="center_cell">인계번호</td>
+								<td class="left_cell" >
+									<input class="input_form" type="text" name="name" placeholder="2200001001" style="border: none;">
+								</td>
+								<td class="center_cell">발견장소</td>
+								<td class="left_cell">
+									<input class="input_form" type="text" name="name" placeholder="대전 동구" style="border: none;">
+								</td>
+							</tr>
+							<tr>
+								<td class="center_cell">인계 센터 이름</td>
+								<td class="left_cell">
+									<input class="input_form" type="text" name="name" placeholder="대전유기견보호소" style="border: none;">
+								</td>
+								<td class="center_cell">발견날짜</td>
+								<td class="left_cell">
+									<input class="input_form" type="text" name="name" placeholder="2024년 12월 30일" style="border: none;">
+								</td>
+							</tr>
+							<tr>
+								<td class="center_cell">품종</td>
+								<td class="left_cell">
+									<input class="input_form" type="text" name="name" placeholder="진돗개" style="border: none;">
+								</td>
+								<td class="center_cell">성별</td>
+								<td class="left_cell">
+									<input class="input_form" type="text" name="name" placeholder="암컷/수컷" style="border: none;">
+								</td>
+							</tr>
+							<tr>
+								<td class="center_cell">계과목</td>
+								<td colspan="3" class="left_cell">
+									<input class="input_form" type="text" name="name" placeholder="강아지과" style="border: none;">
+								</td>
+							</tr>
+							<tr>
+								<td class="center_cell">보호동물관리번호</td>
+								<td colspan="3" class="left_cell">
+									<input class="input_form" type="text" name="name" placeholder="410060426700001" style="border: none;">
+								</td>
+							</tr>
+							<tr>
+								<td class="center_cell">발견사진</td>
+								<td colspan="3"><input type="file" name="file"></td>
+							</tr>
+						</table>
+						
+					</div> <!-- table card-body table-responsive p-0 -->
+				</div> <!-- inner_container -->
 			
-		</div> <!-- search-container -->
+		</div> <!-- main-container" -->
 	</div> <!-- content -->
-</div> <!-- innerWrapper -->
+</div> <!-- ineerWrapper -->
+
+<script>
+function back_page() {
+    // 이동할 페이지 URL 설정
+    window.location.href = "/staff/receive";
+}
+</script>
 

@@ -65,7 +65,7 @@
 
 <script>
 	function open_regist() {
-		window.open('/staff/employee/open_regist','글등록',700,800);
+		window.open('/staff/employee/open_regist','글등록',700,300);
 	}
 </script>
 
