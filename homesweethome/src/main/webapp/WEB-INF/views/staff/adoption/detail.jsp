@@ -17,7 +17,7 @@
 			</div>
 
 			<div class="inner_container">
-					<h2>유예신청 정보</h2>
+					<h2>입양신청 정보</h2>
 					<hr/>
 					<div class="small_container">
 						<div class="img">

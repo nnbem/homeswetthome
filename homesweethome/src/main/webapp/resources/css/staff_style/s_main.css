@@ -32,17 +32,11 @@ body {
     margin-left: 20px;
     margin-right: 5px;
 }
-.header span {
-	font-size: 24px;
-	font-weight: bold;
-	color: #ffffff;
-	font:bold;
-}
-.main a {
+.header .logo a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    margin-right: 20px;
+	font-size: 20px;
 }
 .header .logout a {
     color: white;
@@ -51,12 +45,7 @@ body {
     margin-right: 20px;
 }
 
-.header .logout a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    margin-right: 20px;
-}
+
 
 .wrapper {
     max-width: 1500px;

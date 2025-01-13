@@ -1,0 +1,164 @@
+@charset "UTF-8";
+
+.info-box {
+	width: 100%;
+	height: 100%;
+	margin: 10px auto;
+	padding: 18px;
+	display: flex;
+	justify-content: center;
+	border: solid 1px #E6E6E6;
+	font-family: NanumSquare_ac;
+}
+
+.info-box img {
+	width: 18px;
+	height: auto;
+	margin-right: 6px;
+}
+
+.post-container {
+    width: 100%;
+}
+
+.post-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.post-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.post-table .label {
+    width: 20%;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.post-table input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-btn {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #555;
+}
+
+.content-editor {
+    margin-bottom: 20px;
+}
+
+.toolbar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.tool-btn {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background-color: #f4f4f4;
+    cursor: pointer;
+}
+
+.tool-btn:hover {
+    background-color: #ddd;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+}
+
+.image-preview {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.image-preview img {
+    width: 300px;
+    height: auto;
+    display: none; /* 초기에는 숨김 */
+}
+
+.footer {
+    text-align: center;
+}
+
+.back-btn {
+    background-color: #aaa;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    background-color: #888;
+}
+
+
+
+.approval_button{
+	display: block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #ff6600;;
+    border: none;
+    border-radius: 5px;
+    margin-left: 89%;
+    transition: background-color 0.3s ease;
+}
+.approval_button:hover {
+    background-color: #FF3300;
+}
+.button-container {
+    display: flex;
+    justify-content: center; /* 버튼을 가운데 정렬 */
+    width: 100%;
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #555;
+}
+.st-button-container {
+    display: flex;
+    justify-content: right;
+    width: 70%;
+}
+
+.st-list-button-container {
+    display: flex;
+    width: 100%;
+    margin-bottom: 2%;
+}

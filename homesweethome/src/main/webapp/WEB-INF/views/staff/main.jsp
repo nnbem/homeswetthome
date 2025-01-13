@@ -13,7 +13,7 @@
       <div class="logo">
          <img src="<%=request.getContextPath()%>/resources/image/logo.png"
             alt="Logo" />
-		<span>관리자</span>
+		<a href="/staff/main">관리자</a>
       </div>
       <div class="logout">
          <a href="#">로그아웃</a>

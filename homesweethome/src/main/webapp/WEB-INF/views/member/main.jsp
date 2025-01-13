@@ -26,16 +26,16 @@
 				<div class="header_menu">
 					<!-- 로고 -->
 					<div class="logo">
-						<img src="<%=request.getContextPath()%>/resources/image/logo.png" alt="Logo">
-						<a href="#">HomeSweetHome</a>
+						<img src="<%=request.getContextPath()%>/resources/image/logo.png"
+							alt="Logo"> <a href="/member/main">HomeSweetHome</a>
 					</div>
 
 					<!-- 메인메뉴 -->
 					<ul class="menu_main">
 						<li><a href="#">센터 소개</a></li>
-						<li><a href="#">보호동물</a></li>
-						<li><a href="#">입양절차</a></li>
-						<li><a href="#">게시판</a></li>
+						<li><a href="/member/animal">보호동물</a></li>
+						<li><a href="/member/adoption/main">입양절차</a></li>
+						<li><a href="/member/board/main">게시판</a></li>
 						<li><a href="#">☰</a></li>
 					</ul>
 				</div>

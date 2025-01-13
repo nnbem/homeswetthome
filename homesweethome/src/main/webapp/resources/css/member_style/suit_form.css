@@ -1,0 +1,107 @@
+@charset "UTF-8";
+
+.info-box {
+	width: 100%;
+	height: 100%;
+	margin: 10px auto;
+	padding: 18px;
+	display: flex;
+	justify-content: center;
+	border: solid 1px #E6E6E6;
+	font-family: NanumSquare_ac;
+}
+
+.info-box img {
+	width: 18px;
+	height: auto;
+	margin-right: 6px;
+}
+#checklist-form{
+	width: 100%;	
+}
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 20px;
+}
+
+th, td {
+	border: 1px solid #ccc;
+	padding: 10px;
+	font-family: NanumSquare_ac;
+}
+
+th {
+	background-color: #4e4e4e;
+	text-align: center;
+	font-size: 18px;
+	color: #ffffff;
+}
+
+td {
+	text-align: left; /* 기본적으로 텍스트를 왼쪽 정렬 */
+}
+
+td.radio-cell {
+	text-align: center; /* 라디오 버튼이 들어간 셀은 가운데 정렬 */
+}
+
+.file-section {
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+    font-family: NanumSquare_ac;
+}
+
+.file-inputs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.file-input-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.file-input-row input[type="file"] {
+    flex-grow: 1;
+}
+
+.add-file-button,
+.remove-file-button {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 16px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-file-button:hover,
+.remove-file-button:hover {
+    background-color: #e0e0e0;
+}
+.submit_button {
+	display: inline-block;
+	padding: 10px 20px;
+	font-size: 20px;
+	color: #ffffff;
+	background-color: #ff6600;
+	border: none;
+	border-radius: 30px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	margin: 0 43%;
+	font-family: NanumSquare_ac;
+}
+
+.submit_button:hover {
+	background-color: #555;
+}

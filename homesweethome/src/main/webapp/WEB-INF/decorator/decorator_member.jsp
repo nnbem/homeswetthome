@@ -1,17 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator" %>
-    
-<%@ include file="/WEB-INF/views/module/module_m/member_header.jsp" %>
+<%@ taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator"%>
 
-<%@ include file="/WEB-INF/views/module/adminlteSource.jsp" %>
+<%
+    // 로그인 여부 확인 (세션을 통해 확인)
+    Boolean isLoggedIn = session.getAttribute("user") != null;
+%>
 
+<%@ include file="/WEB-INF/views/module/module_m/member_header.jsp"%>
 <decorator:head/>
+ <%-- 로그인 여부에 따른 탑바 변경 --%>
+<% if (isLoggedIn) { %>
+	<%@ include file="/WEB-INF/views/module/module_m/member_user_topbar.jsp" %>
+<% } else { %>
+	<%@ include file="/WEB-INF/views/module/module_m/member_guest_topbar.jsp" %>
+<% } %>
 
-<%@ include file="/WEB-INF/views/module/module_m/member_nav.jsp" %>
+<%-- 공통 네비게이션 바 --%>
+<%@ include file="/WEB-INF/views/module/module_m/member_nav.jsp"%>
 
-<body>
-<decorator:body />
-</body>
-<%@ include file="/WEB-INF/views/module/module_m/member_footer.jsp" %>
+<decorator:body/>
+<%@ include file="/WEB-INF/views/module/module_m/member_footer.jsp"%>
+
+
 

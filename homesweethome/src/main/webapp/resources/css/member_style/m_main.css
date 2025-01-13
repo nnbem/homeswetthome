@@ -7,7 +7,9 @@
 	box-sizing: border-box;
 	font-family: NanumSquare_ac ExtraBold;
 }
-
+.top_bar img{
+	width: 50px;
+}
 ul, ol {
 	list-style: none;
 }
@@ -36,8 +38,6 @@ header div.header_inner {
 	margin: 0 140px; /* 왼쪽에서 100px 떨어지기 */
 	text-align: right;
 	width: calc(100% - 240px);
-
-	
 }
 
 .top_bar a {
@@ -74,6 +74,7 @@ header div.header_inner {
 	font-size: 24px;
 	font-weight: bold;
 	color: #333;
+	letter-spacing: -1px;
 }
 
 .menu_main {
@@ -119,7 +120,7 @@ section {
 	height: 150%;
 }
 section .inner_cent{
-	width: calc(100% - 240px);
+	width: 1500px;
 	border-bottom: 1px solid #ddd;
 	padding-top: 30px;
 	margin: 0 auto;

@@ -33,6 +33,12 @@ body.body {
     margin-left: 20px;
     margin-right: 5px;
 }
+.header .logo a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+	font-size: 20px;
+}
 
 .header .logout a {
     color: white;

@@ -5,9 +5,7 @@
    <header class="header">
       <div class="logo">
          <img src="<%=request.getContextPath()%>/resources/image/logo.png"alt="Logo" />
-         <div class="main">
          	<a href="/staff/main">관리자</a>
-         </div>
       </div>
       <div class="logout">
          <a href="#">로그아웃</a>
