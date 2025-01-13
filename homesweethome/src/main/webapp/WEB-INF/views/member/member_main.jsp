@@ -15,10 +15,13 @@
 			<!-- 상단 바 -->
 			<div class="header_top">
 				<div class="top_bar" >
-					<a href="#">로그인</a>
-					<a href="#">회원가입</a>
+					<img id="time_img" src="<%=request.getContextPath()%>/resources/image/time_1.png" alt="time">
+						<span id="session-time" style="margin-right: 10px; font-size: 15px; color: #ffffff">60분</span>
+					<button id="extend-btn" onclick="extendSession()">연장하기</button>
+					
+					<a href="#">로그아웃</a>
 					<a href="#">우편함</a>
-					<a href="#">마이페이지</a>
+					<a href="/member/mypage/graceperiod">마이페이지</a>
 				</div>
 			</div>
 
@@ -48,10 +51,7 @@
 		<div class="inner_cent">
 			<div class="banner">
 				<div class="banner-content">
-					<h2>
-						반려동물, <span>사랑으로 입양하세요</span>
-					</h2>
-					<p>여러분의 삶이 행복해집니다</p>
+					<img src="<%=request.getContextPath()%>/resources/image/main_Banner_3.jpg" alt="강아지 이미지">
 				</div>
 			</div>
 			<!-- banner -->
@@ -255,22 +255,40 @@
 								alt="지도">
 						</div>
 					</div>
-				<div class="button_container">
-					<div class="button_item">
-						<img src="<%=request.getContextPath()%>/resources/image/cat_icon.png" alt="동물등록정보 연결 및 변경방법">
-						<p>동물등록정보 연결 및 변경방법</p>
-					</div>
-					<div class="button_item">
-						<img src="<%=request.getContextPath()%>/resources/image/siren_icon.png" alt="유기동물신고처">
-						<p>유기동물신고처</p>
-					</div>
-					<div class="button_item">
-						<img src="<%=request.getContextPath()%>/resources/image/online_icon.png" alt="온라인교육">
-						<p>온라인교육</p>
-					</div>
-				</div>
-				</div>
-			</div>
+					
+					<div class="button_container">
+						
+					    <!-- 첫 번째 카드 -->
+					    <a href="https://www.animal.go.kr/front/popup_reg_animal_modify.do" class="button_item_link">
+					        <div class="button_item">
+					            <img src="<%=request.getContextPath()%>/resources/image/cat_icon.png" alt="동물등록정보 연결 및 변경방법">
+					            <p>동물등록정보 연결 및 변경방법</p>
+					        </div>
+					    </a>
+					
+					    <!-- 두 번째 카드 -->
+					    <a href="/report/lost-animal" class="button_item_link">
+					        <div class="button_item">
+					            <img src="<%=request.getContextPath()%>/resources/image/siren_icon.png" alt="유기동물신고처">
+					            <p>유기동물신고처</p>
+					        </div>
+					    </a>
+					
+					    <!-- 세 번째 카드 -->
+					    <a href="/education/online" class="button_item_link">
+					        <div class="button_item_img">
+					            <img src="<%=request.getContextPath()%>/resources/image/adoption/online_1.png" alt="온라인교육">
+					            <div class="main_p">
+					                <p>온라인교육</p>
+					            </div>
+					        </div>
+					    </a>
+
+						
+						
+					</div> <!-- button_container -->
+				</div> <!-- container -->
+			</div> <!-- contact-section -->
 		</div>
 		<!-- inner -->
 

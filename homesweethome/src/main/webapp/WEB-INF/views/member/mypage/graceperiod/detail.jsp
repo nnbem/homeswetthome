@@ -77,11 +77,11 @@
 				<table class="table" id="basic">
 					<tr>
 						<td class="center_cell">신청자 성명</td>
-						<td class="left_cell"><input type="text" name="name"
-							placeholder="이름을 입력해주세요" required></td>
+						<td class="left_cell">
+							<input type="text" name="name" placeholder="이름을 입력해주세요" required></td>
 						<td class="center_cell">전화번호</td>
-						<td class="left_cell"><input type="text" name="phone"
-							placeholder="010-1234-1234" maxlength="13" required></td>
+						<td class="left_cell">
+							<input type="text" name="phone" placeholder="010-1234-1234" maxlength="13" required></td>
 					</tr>
 					<tr>
 						<td class="center_cell">방문예정일</td>

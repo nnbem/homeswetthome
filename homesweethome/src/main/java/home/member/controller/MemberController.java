@@ -9,9 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MemberController {
 
 
+	@GetMapping("/main/guest")
+	public String guest() {
+		String url = "/member/guest_main";
+		return url;
+	}
 	@GetMapping("/main")
 	public String main() {
-		String url = "/member/main";
+		String url = "/member/member_main";
 		return url;
 	}
 	
@@ -92,6 +97,11 @@ public class MemberController {
 	@GetMapping("/mypage/graceperiod")
 	public String mypage_graceperiod() {
 		String url = "/member/mypage/graceperiod/graceperiod";
+		return url;
+	}
+	@GetMapping("/mypage/graceperiod/regist")
+	public String mypage_graceperiod_regist() {
+		String url = "/member/mypage/graceperiod/regist";
 		return url;
 	}
 	@GetMapping("/mypage/graceperiod/detail")

@@ -27,7 +27,7 @@
 
 .button-container {
 	position: absolute; /* 이미지 위로 버튼을 배치 */
-	bottom: -62%;
+	bottom: -48%;
     left: 55%;
 	transform: translateX(-50%); /* 중앙 정렬을 위한 트릭 */
 	

@@ -8,7 +8,10 @@
 	font-family: NanumSquare_ac ExtraBold;
 }
 .top_bar img{
-	width: 50px;
+	width: 20px;
+    height: 20px;
+    position: relative;
+    top: 5px;
 }
 ul, ol {
 	list-style: none;
@@ -32,6 +35,11 @@ header div.header_inner {
 	background-color: #333;
 	/* #333 / #3b414d; */
 	padding: 10px; /* 탑바 높이*/
+}
+.header_top2 {
+	width: 100%;
+	background-color: #333;
+	padding: 16px; /* 탑바 높이*/
 }
 
 .top_bar {
@@ -57,6 +65,20 @@ header div.header_inner {
 	align-items: center;
 	padding: 10px 25px;
 	width: calc(100% - 240px);
+}
+#extend-btn{
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    color: #393939;
+    padding: 5px;
+    font-size: 15px;
+}
+#extend-btn:hover{
+    border: 1px solid #ff6600;
+    border-radius: 16px;
+    color: #ffffff;
+    background-color:#ff6600;
+    padding: 5px;
 }
 
 .logo {
@@ -127,27 +149,9 @@ section .inner_cent{
 	overflow: hidden;
 }
 
-.banner {
-    background-color: #ddd; /* 배너의 배경색 */
-    border-radius: 10px; /* 테두리 둥글게 */
-    padding: 20px; /* 위아래 간격 */
-    text-align: center; /* 텍스트 가운데 정렬 */
-
-}
-
-.banner-content h2 {
-    font-size: 24px; /* 제목 크기 */
-    font-weight: bold; /* 굵게 */
-    margin: 0;
-}
-
-.banner-content h2 span {
-    color: red; /* 강조 색상 */
-}
-
-.banner-content p {
-    font-size: 16px; /* 부제목 크기 */
-    margin-top: 10px; /* 위쪽 여백 */
+.banner-content img{
+	width: 100%;
+ border-radius: 5px;
 }
 
 
@@ -386,16 +390,43 @@ section .h1 small {
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
     height: 303px;
+    background-color: #f1f1f1;
 }
 
 .button_item:hover {
     transform: scale(1.05);
     background-color: #FBDED0;
 }
-
+.button_item_img {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 303px;
+    background-color: #f1f1f1;
+}
+.button_item_img:hover {
+    transform: scale(1.05);
+    background-color: #FBDED0;
+}
 .button_item img {
     width: 200px;
     margin-bottom: 10px;
+}
+.button_item_img img {
+	width: 36%;
+    margin-bottom: 10px;
+    padding-top: 19%;
+}
+.main_p p{
+	font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    padding-top: 15%;
 }
 
 .button_item p {

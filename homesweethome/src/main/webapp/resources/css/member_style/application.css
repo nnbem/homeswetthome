@@ -26,6 +26,12 @@
 	height: auto;
 	border-radius: 50%;
 }
+.body-image img{
+	width: 195px;
+	height: auto;
+	border-radius: 50%;
+	margin-top: 50%;
+}
 .info-text {
 	font-size: 14px;
 	line-height: 1.6;
@@ -44,7 +50,6 @@
 	list-style: none;
 	margin-bottom: 10px;
 	position: relative;
-	font-family: NanumSquare_ac;
 }
 
 .info-text img{
@@ -74,9 +79,8 @@
 }
 
 .info-text li.highlight {
-    background-color: #ff6600;
     padding: 3px;
     border-radius: 5px;
     display: block;
-    color: #ffffff;
+    font-family: NanumSquare_ac;
 }
