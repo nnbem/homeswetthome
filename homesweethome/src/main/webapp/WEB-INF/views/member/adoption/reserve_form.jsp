@@ -24,11 +24,8 @@
                         </td>
                         <td class="center_cell">전화번호</td>
                         <td class="left_cell">
-                            <input type="text" 
-                                   name="phone" 
-                                   placeholder="010-1234-1234" 
-                                   maxlength="13" 
-                                   required>
+                            <input type="text" name="phone" placeholder="010-1234-1234" 
+                                   maxlength="13" required>
                         </td>
                     </tr>
                     <tr>

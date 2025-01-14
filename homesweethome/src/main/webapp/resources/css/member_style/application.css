@@ -15,6 +15,13 @@
 	height: auto;
 	margin-right: 6px;
 }
+div.content-wrapper{
+	width: calc(100% - 250px);
+	height: 100%;
+	margin: 10px;
+	display: flex;
+	flex-direction: column;
+}
 
 
 .inner_container{
@@ -50,6 +57,7 @@
 	list-style: none;
 	margin-bottom: 10px;
 	position: relative;
+	font-size: 15px;
 }
 
 .info-text img{

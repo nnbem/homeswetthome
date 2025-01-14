@@ -5,7 +5,7 @@
 <%@ include file="/WEB-INF/views/module/module_m/member_header.jsp"%>
 <decorator:head/>
 
-<%@ include file="/WEB-INF/views/module/module_m/member_nav.jsp"%>
+<%-- <%@ include file="/WEB-INF/views/module/module_m/member_nav.jsp"%> --%>
 
 <body>
 <decorator:body />

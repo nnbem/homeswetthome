@@ -24,7 +24,7 @@ public class MenuMemberVO {
 	public String getMurl() {
 		return murl;
 	}
-	public void setMurl(String murl) {
+	public void setmMurl(String murl) {
 		this.murl = murl;
 	}
 	public String getMtext() {

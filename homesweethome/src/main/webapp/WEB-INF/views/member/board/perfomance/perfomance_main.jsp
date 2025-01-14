@@ -86,6 +86,9 @@
 	
 				</tbody>
 			</table>
+		</div>
+</div>
+			
 			
 <script>
 function open_regist() {

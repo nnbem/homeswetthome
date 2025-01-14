@@ -1,4 +1,4 @@
-package home.member.controller;
+  package home.member.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,27 +7,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/member")
 public class MemberController {
-
-
-	@GetMapping("/main/guest")
-	public String guest() {
-		String url = "/member/guest_main";
+	
+	@GetMapping("/main/header")
+	public String main_header() {
+		String url="/member_header";
 		return url;
 	}
-	@GetMapping("/main")
-	public String main() {
-		String url = "/member/member_main";
+	
+	@GetMapping("/intro")
+	public String intro_main() {
+		String url = "/member/intro/intro_main";
 		return url;
 	}
 	
 	@GetMapping("/animal")
 	public String animal_mmain() {
-		String url = "/member/animal/announcement";
+		String url = "/member/animal/animal";
 		return url;
 	}
 	
 	
-	@GetMapping("/adoption/main")
+	@GetMapping("/adoption")
 	public String adoption_mmain() {
 		String url = "/member/adoption/adoption_main";
 		return url;
@@ -72,7 +72,7 @@ public class MemberController {
 
 
 	
-	@GetMapping("/board/main")
+	@GetMapping("/board")
 	public String board_mmain() {
 		String url = "/member/board/board_main";
 		return url;

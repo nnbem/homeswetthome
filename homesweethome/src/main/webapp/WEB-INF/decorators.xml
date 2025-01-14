@@ -11,8 +11,8 @@
    
 	<excludes>
 		<pattern>/module/*</pattern>
-		<pattern>/member/main</pattern>
 		<pattern>*/main/guest</pattern>
+		<pattern>*/member/main</pattern>
 		<pattern>/staff/main</pattern>
 		<pattern>/member/popup</pattern>
 		<pattern>*/open_regist</pattern>

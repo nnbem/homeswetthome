@@ -10,7 +10,13 @@
 	border: solid 1px #E6E6E6;
 	font-family: NanumSquare_ac;
 }
-
+div.content-wrapper{
+	width: calc(100% - 235px);
+	height: 100%;
+	margin: 10px;
+	display: flex;
+	flex-direction: column;
+}
 .info-box img {
 	width: 18px;
 	height: auto;

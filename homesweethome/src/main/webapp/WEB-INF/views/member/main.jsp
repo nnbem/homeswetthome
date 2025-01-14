@@ -17,7 +17,6 @@
 				<div class="top_bar" >
 					<img id="time_img" src="<%=request.getContextPath()%>/resources/image/time_1.png" alt="time">
 						<span id="session-time" style="margin-right: 10px; font-size: 15px; color: #ffffff">60분</span>
-					<button id="extend-btn" onclick="extendSession()">연장하기</button>
 					
 					<a href="#">로그아웃</a>
 					<a href="#">우편함</a>
@@ -35,10 +34,10 @@
 
 					<!-- 메인메뉴 -->
 					<ul class="menu_main">
-						<li><a href="#">센터 소개</a></li>
-						<li><a href="/member/animal">보호동물</a></li>
-						<li><a href="/member/adoption/main">입양절차</a></li>
-						<li><a href="/member/board/main">게시판</a></li>
+						<li><a href="/member/main/iframe">센터 소개</a></li>
+						<li><a href="/member/main/iframe">보호동물</a></li>
+						<li><a href="/member/main/iframe">입양절차</a></li>
+						<li><a href="/member/main/iframe">게시판</a></li>
 						<li><a href="#">☰</a></li>
 					</ul>
 				</div>
@@ -311,5 +310,11 @@
 				RESERVED.</p>
 		</div>
 	</footer>
+	<script>
+function goPage(url){
+	//alert(url);
+	document.querySelector("iframe[name='iframe']").src=url;
+}
+</script>
 </body>
 </html>

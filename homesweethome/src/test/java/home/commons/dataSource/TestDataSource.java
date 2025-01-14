@@ -16,23 +16,24 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:home/commons/context/dataSource-context.xml")
 public class TestDataSource {
-	
-	@Autowired
-	private DataSource dataSource;
-	
-	private Connection conn;
-	
-	@Before
-	public void init()throws Exception{
-		conn = dataSource.getConnection();
-	}
-	
-	@Test
-	public void testConnection() {		
-		Assert.assertNotNull(conn);
-	}
-	@After
-	public void complete()throws Exception {
-		if(conn!=null) conn.close();
-	}
+
+   @Autowired
+   private DataSource dataSource;
+   
+   private Connection conn;
+   
+   @Before
+   public void initConnection() throws Exception {
+      conn = dataSource.getConnection();
+   }
+   
+   @After
+   public void closeConnection() throws Exception {
+      if(conn!=null) conn.close();
+   }
+   
+   @Test
+   public void testConnection() {
+      Assert.assertNotNull(conn);
+   }
 }

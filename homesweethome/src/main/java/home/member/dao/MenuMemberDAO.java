@@ -7,9 +7,11 @@ import home.member.dto.MenuMemberVO;
 
 public interface MenuMemberDAO {
 	
-	List<MenuMemberVO> selectMainMenu() throws SQLException;
+	 
+	List<MenuMemberVO> selectMainMenuMember() throws SQLException;
 	
-	List<MenuMemberVO> selectSubMenu(String mCode) throws SQLException;
+	
+	List<MenuMemberVO> selectSubMenuMember(String mCode) throws SQLException;
 	
 	MenuMemberVO selectMenuMemberByMcode(String mCode) throws SQLException;
 	
