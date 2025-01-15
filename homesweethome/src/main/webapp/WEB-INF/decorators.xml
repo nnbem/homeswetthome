@@ -4,11 +4,11 @@
 	<decorator name="staff" page="decorator_staff.jsp">
 		<pattern>/staff/*</pattern>
 	</decorator>
-	
+
 	<decorator name="member" page="decorator_member.jsp">
 		<pattern>/member/*</pattern>
 	</decorator>
-   
+
 	<excludes>
 		<pattern>/module/*</pattern>
 		<pattern>*/main/guest</pattern>
@@ -17,6 +17,15 @@
 		<pattern>/member/popup</pattern>
 		<pattern>*/open_regist</pattern>
 		<pattern>*/open_modify</pattern>
-		
+
+		<pattern>/member/join</pattern>
+		<pattern>/member/login</pattern>
+		<pattern>/member/login/find/*</pattern>
+		<pattern>/member/main</pattern>
+		<pattern>/member/bmain</pattern>
+		<pattern>/member/mypage/deactivation/open_cancel</pattern>
+		<pattern>/member/mypage/adopt/open_animal</pattern>
+		<pattern>/member/checkid*</pattern>
+
 	</excludes>
 </decorators>

@@ -258,7 +258,7 @@
 					<div class="button_container">
 						
 					    <!-- 첫 번째 카드 -->
-					    <a href="https://www.animal.go.kr/front/popup_reg_animal_modify.do" class="button_item_link">
+					    <a href="https://www.animal.go.kr/front/popup_reg_animal_modify.do" target="_blank" rel="noopener noreferrer" class="button_item_link">
 					        <div class="button_item">
 					            <img src="<%=request.getContextPath()%>/resources/image/cat_icon.png" alt="동물등록정보 연결 및 변경방법">
 					            <p>동물등록정보 연결 및 변경방법</p>

@@ -3,6 +3,8 @@
 <head>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/staff_style/adoption.css">
+<link rel="stylesheet"
+  href="<%=request.getContextPath()%>/resources/css/staff_style/staff_style2.css">
 </head>
 
 
@@ -142,8 +144,6 @@ function open_regist() {
     window.location.href = "/staff/receive/regist"; // 여기에 이동할 페이지 경로를 넣으세요.
 }
 </script>
-
-    
     
     
     

@@ -1,0 +1,89 @@
+// 아이디 중복 확인
+function idCheck_go() {
+    const id = $("#id").val().trim();
+    if (!id) {
+        alert("아이디를 입력해주세요.");
+        return;
+    }
+
+    $.ajax({
+        url: "/checkId",
+        type: "GET",
+        data: { id: id },
+        success: function(response) {
+            alert(response);
+        },
+        error: function() {
+            alert("중복 확인에 실패했습니다. 다시 시도해주세요.");
+        }
+    });
+}
+
+// 폼 유효성 검사
+document.querySelector('form').onsubmit = function (event) {
+    const id = document.getElementById("id").value.trim();
+    const pwd = document.getElementById("pwd").value.trim();
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const pictureInput = document.getElementById("picture");
+
+    if (!id || id.length < 4 || id.length > 10) {
+        alert("아이디는 4~10자의 영문자 또는 숫자로 입력해주세요.");
+        event.preventDefault();
+        return false;
+    }
+
+    if (!pwd || pwd.length < 4) {
+        alert("비밀번호는 최소 4자 이상이어야 합니다.");
+        event.preventDefault();
+        return false;
+    }
+
+    if (!name) {
+        alert("이름을 입력해주세요.");
+        event.preventDefault();
+        return false;
+    }
+
+    const phoneRegex = /^010-\d{4}-\d{4}$/;
+    if (!phoneRegex.test(phone)) {
+        alert("전화번호 형식이 잘못되었습니다. 예: 010-1234-5678");
+        event.preventDefault();
+        return false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert("유효한 이메일 주소를 입력해주세요. 예: example@naver.com");
+        event.preventDefault();
+        return false;
+    }
+
+    // 이미지 파일 검사
+    if (pictureInput.files.length > 0) {
+        const file = pictureInput.files[0];
+
+        // 파일 확장자 검사
+        const fileFormat = file.name.split('.').pop().toLowerCase();
+        if (!(fileFormat === "jpg" || fileFormat === "jpeg")) {
+            alert("이미지는 JPG/JPEG 형식만 가능합니다.");
+            event.preventDefault();
+            return false;
+        }
+
+        // 파일 크기 검사 (1MB 이하)
+        if (file.size > 1024 * 1024) {
+            alert("이미지 파일 크기는 1MB 이하만 가능합니다.");
+            event.preventDefault();
+            return false;
+        }
+    } else {
+        alert("이미지 파일을 선택해주세요.");
+        event.preventDefault();
+        return false;
+    }
+};s
+
+    return true; // 폼 제출 허용
+};

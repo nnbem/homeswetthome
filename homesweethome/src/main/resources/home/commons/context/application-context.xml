@@ -4,22 +4,58 @@
 	xmlns:c="http://www.springframework.org/schema/c"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<!-- member.picture -->
+	<bean id="picturePath" 
+		  class="java.lang.String"
+		  c:value="${savePath.member.picture}" 		
+	/>
+	
+	
+	<!-- repository -->
 	<bean id= "MenuMemberDAO"
 		  class="home.member.dao.MenuMemberDAOImpl"
 		  c:session-ref="sqlSession"
 	/>
+	<bean id="mybatisMemberDAO"
+		  class="home.member.dao.MybatisMemberDAOImpl"
+		  c:session-ref="sqlSession"
+	/>
+	<bean id="searchMybatisMemberDAO"
+		  class="home.member.dao.SearchMybatisMemberDAOImpl"
+		  c:session-ref="sqlSession"		  		  
+	/>
+	<bean id="EmployeeDAO"
+		  class="home.staff.dao.EmployeeDAOImpl"
+		  c:session-ref="sqlSession"
+	/>
+	<bean id="AnimalCareDAO"
+		  class="home.staff.dao.AnimalCareDAOImpl"
+		  c:session-ref="sqlSession"
+	/>
 	
+	
+	
+	<!-- service -->
 	<bean id="MenuMemberService"
 		  class="home.commons.service.MenuMemberServiceImpl"
 		  c:menuMemberDAO-ref="	MenuMemberDAO"
 		  />
+	<bean id="memberService"
+		  class="home.member.service.MemberServiceImpl"
+		  c:searchMemberDAO-ref="searchMybatisMemberDAO"
+	/>
+	<bean id="searchMemberService"
+		  class="home.member.service.SearchMemberServiceImpl"
+		  c:searchMemberDAO-ref="searchMybatisMemberDAO"
+	/>
+	<bean id="EmployeeService"
+		  class="home.staff.service.EmployeeServiceImpl"
+		  c:employeeDAO-ref="EmployeeDAO"
+	/>
+	<bean id="AnimalCareService"
+		  class="home.staff.service.AnimalCareServiceImpl"
+		  c:animalCareDAO-ref="AnimalCareDAO"
+	/>
 	
-
-    <!-- SqlSession 정의 -->
-    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
-        <constructor-arg ref="sqlSessionFactory" />
-    </bean>
-
-
 	
 </beans>

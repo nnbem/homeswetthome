@@ -1,0 +1,199 @@
+@charset "UTF-8";
+   div.content h1{
+      font-size: 25px;
+   }
+   div.search-wrapper{
+      width: 100%;
+      height: 150px;
+      padding: 20px 0;
+      display: inline-flex; 
+   }
+   
+   div.check{
+      display: inline-flex;
+      justify-content: flex-end;
+      flex-direction: column;
+      float: left;
+   }
+   div.date{
+      width: 400px;
+      height: 30px;
+      padding: 5px;
+      display: inline-flex;
+      align-items: center;
+      border: solid 1px;
+      background-color: white;
+   }
+   div.date p{
+      display: flex;
+      margin: 0;
+      padding: 0 10px;
+      text-align: center;
+   }
+   div.date select{
+      height: 28px;
+      padding: 0 10px;
+      border: none;
+   }
+   div.type{
+      display: inline-flex;
+   }
+   div.kind{
+      width: 300px;
+      height: 30px;
+      padding: 5px;
+      display: inline-flex;
+      align-items: center;
+      border: solid 1px;
+      background-color: white;
+   }
+   div.kind div{
+      display: inline-flex;
+      flex-direction: row;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+   }
+   div.kind p{
+      margin: 0;
+      padding: 0 10px;
+      display: flex;
+   }
+   div.kind label{
+      display: flex;
+      padding: 0 10px;
+      margin: 0;
+      text-align: center;
+   }
+   div.kind input{
+      padding: 0 10px;
+   }
+   
+   div.breed select{
+      width: 100px;
+      height: 30px;
+      padding: 5px;
+      border: solid 1px;
+      background-color: white;
+   }
+   div.state{
+      width: 580px;
+      height: 30px;
+      padding: 5px;
+      display: inline-flex;
+      flex-direction: row;
+      border: solid 1px ;
+      background-color: white;
+   }
+   div.state p{
+      margin: 0;
+      padding: 0 10px;   
+   }
+   div.state label{
+      margin: 0;
+      padding: 0 10px;
+   }
+   div.state input{
+      margin: 0;
+      padding: 0 10px;
+   }
+   div.right-wrapper{
+      width: 100%;
+      display: inline-flex;
+      justify-content: flex-end;
+      flex-direction: column;
+      float: right;
+      align-items: flex-end;
+   }
+   div.button{
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+   }
+   div.button button{
+      height: 30px;
+      padding: 5px;
+      margin: 10px;
+      display: flex;
+      align-items: center;
+      text-align: center ;
+      border-radius: 5px;
+      background-color: white;
+   }
+   div.search{
+      height:30px;
+      padding-left: 20px;
+      display: inline-flex;
+      flex-direction: row;
+      align-items: center;
+      text-align: center;
+   }
+   div.search button.back_button{
+      border: none;
+      background-color: white;
+   }
+   div.search button img{
+      width: 30px;
+      height: 30px;
+   }
+   div.search select{
+      width: 100px;
+      height:30px;
+      margin: 0 10px;
+      border-radius: 5px;
+   }
+   button.search_submit{
+      width: 100px;
+      height: 30px;
+      margin: 0 10px;
+      border: solid 1px;
+      border-radius: 5px;
+   }
+   div.search input{
+      height:30px;
+   }
+   
+   /* Main Content */
+.main-content {
+    display: flex;
+    gap: 20px;
+
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    justify-content: flex-end; /* 오른쪽 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    gap: 10px; /* 요소 간 간격 */
+    margin-bottom: 20px;
+}
+
+.refresh-button {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.sort-select, .search-input, .search-button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.search-input {
+    width: 250px; /* 입력 필드의 너비 */
+}
+
+.search-button {
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #555;
+}
+

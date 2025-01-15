@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="AnimalCare-Mapper">
+	<sql id="search">
+		<if test="name != null and name !=''">
+			and aid like '%'||#{keyword}||'%'
+		</if>	
+		<if test="regdateBefore != null and regdateBefore != '' and regdateAfter != null and regdateAfter != ''">
+			and regdate BETWEEN to_date(#{regdateBefore},'yyyy-MM-dd') and to_date(#{regdateAfter},'yyyy-MM-dd')
+		</if>
+		<if test="kindList != null ">
+			and kind in
+			<foreach item="kind" collection="kindList" index="index" open="(" close=")" separator=",">
+				#{kind}			
+			</foreach>
+		</if>
+		<if test="breed != null and breed != '' ">
+			and breed=#{breed}
+		</if>
+		<if test="stateList != null">
+			and state in 
+			<foreach item="state" collection="stateList" index="index" open="(" close=")" separator=",">
+				#{state}
+			</foreach>
+		</if>
+	</sql>
+
+	<select id="selectSearchAnimalList" parameterType="AnimalCarePageMaker" resultType="animalCare">
+		select *
+		from animal_list
+		where aid is not null
+		<include refid="search"/>
+		order by regdate desc
+	</select>	
+	
+	<select id="selectAnimalByEid" parameterType="AnimalCarePageMaker" resultType="animalCare">
+		select *
+		from animal_list
+		where aid is not null
+		and eid=#{eid}
+		order by regdate desc
+	</select>
+	
+	<select id="selectSearchAnimalListCount" parameterType="AnimalCarePageMaker" resultType="int">
+		select count(*)
+		from animal_list
+		where aid is not null
+		<include refid="search"/>                      
+	</select>
+	
+	<select id="selectAnimalNameByEid" parameterType="str" resultType="animalCare">
+		select name
+		from animal_list
+		where eid=#{eid}
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+

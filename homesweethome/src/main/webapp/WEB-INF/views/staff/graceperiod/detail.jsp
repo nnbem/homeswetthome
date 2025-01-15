@@ -3,6 +3,8 @@
 <head>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/staff_style/reserve_detail.css">
+<link rel="stylesheet"
+  href="<%=request.getContextPath()%>/resources/css/staff_style/staff_style2.css">
 </head>
 
 
