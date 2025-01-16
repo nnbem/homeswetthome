@@ -1,16 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/css/member_style/iframe.css">
-<body>
-	<!-- 상단 -->
-	<!-- jQuery 추가 -->
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<!-- Handlebars.js 추가 -->
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+<head>
+<link rel="stylesheet"	href="<%=request.getContextPath()%>/resources/css/member_style/iframe.css">
+<!-- jQuery 추가 -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	
+</head>	
+	
+<body>	
 	<header>
 		<div class=header_inner>
 			<!-- 상단 바 -->
@@ -29,22 +27,16 @@
 							alt="Logo"> <a href="/member/main">HomeSweetHome</a>
 					</div>
 
-					<c:forEach items="${menuList}" var="menu">
-						<li><a href="javascript:void(0);"
-							onclick="goPage('${menu.murl}', '${menu.mcode}'); Sub_go('${menu.mcode}');">
-								${menu.mname} </a></li>
-					</c:forEach>
+					
 					<!-- 메인메뉴 -->
 					<ul class="menu_main">
-						<li><a
-							href="javascript:goPage('<%=request.getContextPath() %>${menu.murl }','${menu.mcode }');Sub_go('${menu.mcode }');"
-							class="nav-link">센터 소개</a></li>
-						<li><a
-							href="javascript:goPage('/member/animal');Sub_go('${menu.mcode }');">보호동물</a></li>
-						<li><a
-							href="javascript:goPage('/member/adoption');Sub_go('${menu.mcode }');">입양절차</a></li>
-						<li><a
-							href="javascript:goPage('/member/board');Sub_go('${menu.mcode }');">게시판</a></li>
+					<c:forEach var="menu" items="${menuList }">
+						<li>
+							<a href="javascript:goPage('<%=request.getContextPath() %>${menu.murl }','${menu.mcode }');Sub_go('${menu.mcode }');"
+							class="nav-link">${menu.mname }
+							</a>
+						</li>
+					</c:forEach>
 						<li><a href="#">☰</a></li>
 					</ul>
 				</div>
@@ -58,17 +50,14 @@
 	<section>
 		<div class="inner_cent">
 			<!-- Sidebar -->
-			<div class="sidebar">
-				<h1>
-					<b>입양절차</b>
-				</h1>
+			<div class="sidebar subMenuList">
+				
 				
 			</div>
 			<!-- sidebar -->
 			<!-- 본문 iframe -->
 			<div class="content-wrapper">
-				<iframe name="iframe" frameborder="0"
-					style="width: 120%; height: 85vh;"></iframe>
+				<iframe name="iframe" frameborder="0" style=" height: 85vh;"></iframe>
 			</div>
 		</div>
 	</section>
@@ -93,12 +82,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
 <script type="text/x-handlebars-template"  id="subMenu-list-template" >
 {{#each .}}		
-<li class="nav-item subMenu" >
-	<a href="javascript:goPage('<%=request.getContextPath() %>{{murl}}','{{mcode }}');"	class="nav-link">
 
-		<p>{{mname}}</p>
+<li class="list">
+	
+	<a href="javascript:goPage('<%=request.getContextPath() %>{{murl}}','{{mcode }}');"	class="nav-link">
+		{{mname}}
 	</a>
 </li>
+
 {{/each}}
 </script>
 
@@ -120,21 +111,22 @@ var sub_func= Handlebars.compile($("#subMenu-list-template").html());
 
 function Sub_go(mcode){
 	//alert(mcode);
-	if(mcode=="M000000") {
-		$('.subMenuList').html("");
-		return;
-	}
 	
 	$.ajax({
-		url:"<%=request.getContextPath()%>/menu/subMenu?mcode="+mcode,
+		url:"<%=request.getContextPath()%>/member/subMenu?mcode="+mcode,
 		method:"get",
 		success:function(data){
 			$('.subMenuList').html(sub_func(data));
+			console.log(sub_func(data));
 		},
 		error:function(error){
 			AjaxErrorSecurityRedirectHandler(error.status);
 		}
 	});
+	if(mcode=="M000000") {
+		$('.subMenuList').html("");
+		return;
+	}
 }
 </script>
 

@@ -2,7 +2,6 @@
 
 section .inner_cent {
 	width: calc(100% - 240px);
-	border-bottom: 1px solid #ddd;
 	padding-top: 0px;
 	margin: 0 auto;
 	overflow: hidden;
@@ -11,7 +10,7 @@ section .inner_cent {
 }
 
 div.sidebar {
-	width: 200px;
+	width: 10%;
 	height: auto;
 	padding: 50px 0;
 	margin-right: 20px;

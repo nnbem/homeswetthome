@@ -9,7 +9,7 @@
 
 
 <!-- Main Content -->
-<div class="ineerWrapper">
+<div class="ineerWrapper2">
 	<div class="content">
 		<div class="search-container">
 			<h2>입양신청관리</h2>
@@ -144,6 +144,5 @@ function open_regist() {
     window.location.href = "/staff/receive/regist"; // 여기에 이동할 페이지 경로를 넣으세요.
 }
 </script>
-    
     
     

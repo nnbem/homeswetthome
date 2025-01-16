@@ -35,33 +35,5 @@
    </header>
 
    <!-- 본문 -->
-   <section>
-      <div class="inner_cent">
-      		<!-- Sidebar -->	
-		<div class="sidebar">
-			<h1><b>입양절차</b></h1>
-			<div class="sideMenu">
-				<ul class="sideMenu lists">
-					<li class="sideMenu">
-						<ul class="sideMenu list">
-							<li class="list">	
-								<a href="/member/adoption/main">절　차</a>
-							</li>
-							<li class="list">
-								<a href="/member/adoption/education">온라인교육</a>
-							</li>
-							<li class="list">
-								<a href="/member/adoption/suit">적합성점검표</a>
-							</li>
-							<li class="list">
-								<a href="/member/adoption/reserve">센터방문예약</a>
-							</li>
-							<li class="list">
-								<a href="/member/adoption/application">입양신청</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</div>
+
 		

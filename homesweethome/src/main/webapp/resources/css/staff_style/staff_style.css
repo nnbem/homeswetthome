@@ -161,6 +161,7 @@ body.body {
 .member-table {
    width: 100%;
    border-collapse: collapse;
+   margin-bottom: 2%;
 }
 
 .member-table th, .member-table td {
@@ -367,7 +368,7 @@ div.responsible-buttons button p {
 }
 
 div.content {
-   width: 90%;
+   width: 100%;
    float: right;
    padding: 30px;
    border-bottom: 1px solid #C6C6C6;

@@ -4,11 +4,8 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/staff_style/staff_style.css">
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/css/staff_style/staff_style.css">
-<link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/staff_style/animalcare.css">
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/css/staff_style/staff_style.css">
+
 <%-- <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/table.css"> --%>
 <%@ include file="/WEB-INF/views/module/adminlteSource.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -17,54 +14,7 @@
 
 <div class="innerWrapper">
 	<!-- Sidebar -->
-	<div class="sidebar">
-		<h1>
-			<b>보호동물관리</b>
-		</h1>
-		<div class="sideMenu">
-			<ul class="sideMenu lists">
-				<li class="sideMenu">
-					<ul>
-						<li class="title"><a href="/staff/animalcare/basic"> <b>기본정보리스트</b>
-						</a></li>
-					</ul>
-					<ul class="sideMenu list">
-						<li class="list"><a href="/staff/animalcare/basic/treatment"> <b>-진료기록리스트</b>
-						</a></li>
-						<li class="list"><a href="/animalcare/basic/injection"> <b>-접종기록리스트</b>
-						</a></li>
-						<li class="list"><a href="/animalcare/basic/activity"> <b>-생활기록리스트</b>
-						</a></li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-		<ul class="nav nav-pills nav-sidebar flex-column"
-			data-widget="treeview" role="menu" data-accordion="false">
-			<li class="nav-item responsible"><a href="#"
-				class="responsible-header nav-link">
-					<p>
-						~의 관리동물 <i class="right fas fa-angle-left"></i>
-					</p>
-			</a>
-				<ul class="nav nav-treeview">
-					<li class="nav-item responsible-list"><a href="#"
-						class="responsible-name nav-link"> <b>잡스</b>
-					</a>
-						<div class="responsible-buttons">
-							<button>
-								<p>진료기록</p>
-							</button>
-							<button>
-								<p>접종기록</p>
-							</button>
-							<button>
-								<p>생활기록</p>
-							</button>
-						</div></li>
-				</ul></li>
-		</ul>
-	</div>
+
 	<!-- /.sidebar -->
 	<div class="content">
 		<h1>

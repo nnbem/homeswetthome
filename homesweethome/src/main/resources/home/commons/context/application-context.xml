@@ -32,29 +32,44 @@
 		  class="home.staff.dao.AnimalCareDAOImpl"
 		  c:session-ref="sqlSession"
 	/>
+	<bean id="SearchEmployeeDAO"
+		  class="home.staff.dao.SearchEmployeeDAOImpl"
+		  c:session-ref="sqlSession"
+	/>
+	  <bean id="noticeDAO"
+        class="home.staff.dao.NoticeDAOImpl"
+        c:session-ref="sqlSession"
+   />
+
 	
 	
 	
 	<!-- service -->
-	<bean id="MenuMemberService"
-		  class="home.commons.service.MenuMemberServiceImpl"
-		  c:menuMemberDAO-ref="	MenuMemberDAO"
-		  />
+	 <bean id="noticeService"
+        class="home.staff.service.NoticeServiceImpl"
+        c:noticeDAO-ref="noticeDAO"
+   />
+
+	
+	<bean id="searchMemberService"
+		  class="home.member.service.SearchMemberServiceImpl"
+		  c:searchMemberDAO-ref="searchMybatisMemberDAO"
+	/>
 	<bean id="memberService"
 		  class="home.member.service.MemberServiceImpl"
 		  c:searchMemberDAO-ref="searchMybatisMemberDAO"
 	/>
-	<bean id="searchMemberService"
-		  class="home.member.service.SearchMemberServiceImpl"
-		  c:searchMemberDAO-ref="searchMybatisMemberDAO"
+	<bean id="AnimalCareService"
+		  class="home.staff.service.AnimalCareServiceImpl"
+		  c:animalCareDAO-ref="AnimalCareDAO"
 	/>
 	<bean id="EmployeeService"
 		  class="home.staff.service.EmployeeServiceImpl"
 		  c:employeeDAO-ref="EmployeeDAO"
 	/>
-	<bean id="AnimalCareService"
-		  class="home.staff.service.AnimalCareServiceImpl"
-		  c:animalCareDAO-ref="AnimalCareDAO"
+	<bean id="MenuMemberService"
+		  class="home.member.service.MenuMemberServiceImpl"
+		  c:menuMemberDAO-ref="MenuMemberDAO"
 	/>
 	
 	

@@ -1,4 +1,4 @@
-package home.commons.service;
+package home.member.service;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -14,6 +14,8 @@ public interface MenuMemberService {
 	MenuMemberVO getMenuMemberByMcode(String mCode) throws SQLException;
 	
 	MenuMemberVO getMenuMemberByMname(String mName) throws SQLException;
+	
+	MenuMemberVO getMenuMemberByUpcode(String mName) throws SQLException;
 	 
 	
 }

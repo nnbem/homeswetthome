@@ -27,6 +27,7 @@
 					<select class="sort-select">
 						<option value="">전체</option>
 						<option value="specific">특정</option>
+						<option value="specific">사원번호</option>
 					</select>
 				
 				<input type="text" class="search-input" placeholder="검색어를 입력해주세요.">

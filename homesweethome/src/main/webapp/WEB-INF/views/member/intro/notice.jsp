@@ -8,32 +8,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/member_style/slidebar.css">
 </head>
 
-   <!-- 본문 -->
-   <section>
-      <div class="inner_cent">
-      		<!-- Sidebar -->	
-		<div class="sidebar">
-			<h1><b>센터소개</b></h1>
-			<div class="sideMenu">
-				<ul class="sideMenu lists">
-					<li class="sideMenu">
-						<ul class="sideMenu list">
-							<li class="list">	
-								<a href="/member/intro">소개</a>
-							</li>
-							<li class="list">
-								<a href="/member/intro/notice">공지사항</a>
-							</li>
-							<li class="list">
-								<a href="/member/intro/way">오시는 길</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</div>
 
-<div class="content-wrapper">
 	<div class="content-title">
 		<h1>
 			<b>공지사항</b>
@@ -125,4 +100,8 @@
 				</tbody>
 			</table>
 		</div>
-	</div>
+		<br/>
+<br/>
+<br/>
+<br/>
+<br/>

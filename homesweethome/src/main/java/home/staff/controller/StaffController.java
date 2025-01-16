@@ -20,21 +20,21 @@ public class StaffController {
 		String url = "/staff/main";
 		return url;
 	}
-	
+
 	private EmployeeService employee;
-	
+
 	@Autowired
 	public StaffController(EmployeeService employee) {
 		this.employee = employee;
 	}
-	
+
 	@GetMapping("/login")
-	public String loginget(@ModelAttribute(name = "retUrl") String retUrl, HttpServletResponse response)throws Exception{
+	public String loginget(@ModelAttribute(name = "retUrl") String retUrl, HttpServletResponse response)
+			throws Exception {
 		String url = "staff/commons/loginForm";
 		response.setStatus(302);
 		return url;
 	}
-	
 
 	@GetMapping("/member/list")
 	public String member_list() {
@@ -65,8 +65,6 @@ public class StaffController {
 	public String deactivation_detail() {
 		return "staff/member/list/deactivation_detail";
 	}
-	
-	
 
 	@GetMapping("/receive")
 	public String receive_m() {
@@ -151,66 +149,51 @@ public class StaffController {
 		String url = "staff/reserve/detail";
 		return url;
 	}
+
 	
-	
-	
-	 @GetMapping("/board/notice")
-	    public String notice() {
-	        return "staff/board/notice";
-	    }
-	    
-	    @GetMapping("/board/notice/regist")
-	    public String notice_regist() {
-	        return "staff/board/notice/regist";
-	    }
-	    
-	    @GetMapping("/board/notice/detail")
-	    public String notice_detail() {
-	    	return "staff/board/notice/detail";
-	    }
-	    
-	    @GetMapping("/board/report")
-	    public String report() {
-	        return "staff/board/report";
-	    }
-	    
-	    @GetMapping("/board/report/detail")
-	    public String report_detail() {
-	        return "staff/board/report/detail";
-	    }
-	    
-	    @GetMapping("/board/report/complete")
-	    public String report_complete() {
-	        return "staff/board/report/complete";
-	    }
-	    
-	    @GetMapping("/board/review")
-	    public String review() {
-	        return "staff/board/review";
-	    }
-	    
-	    @GetMapping("/board/review/detail")
-	    public String review_detail() {
-	        return "staff/board/review/detail";
-	    }
-	    
-	    @GetMapping("/board/review/complete")
-	    public String review_complete() {
-	        return "staff/board/review/complete";
-	    }
-	    
-	    @GetMapping("/board/inquiry")
-	    public String inquiry() {
-	        return "staff/board/inquiry";
-	    }
-	    
-	    @GetMapping("/board/inquiry/detail")
-	    public String inquiry_detail() {
-	        return "staff/board/inquiry/detail";
-	    }
-	    
-	    @GetMapping("/board/inquiry/complete")
-	    public String inquiry_complete() {
-	        return "staff/board/inquiry/complete";
-	    }
+
+	@GetMapping("/board/report")
+	public String report() {
+		return "staff/board/report";
+	}
+
+	@GetMapping("/board/report/detail")
+	public String report_detail() {
+		return "staff/board/report/detail";
+	}
+
+	@GetMapping("/board/report/complete")
+	public String report_complete() {
+		return "staff/board/report/complete";
+	}
+
+	@GetMapping("/board/review")
+	public String review() {
+		return "staff/board/review";
+	}
+
+	@GetMapping("/board/review/detail")
+	public String review_detail() {
+		return "staff/board/review/detail";
+	}
+
+	@GetMapping("/board/review/complete")
+	public String review_complete() {
+		return "staff/board/review/complete";
+	}
+
+	@GetMapping("/board/inquiry")
+	public String inquiry() {
+		return "staff/board/inquiry";
+	}
+
+	@GetMapping("/board/inquiry/detail")
+	public String inquiry_detail() {
+		return "staff/board/inquiry/detail";
+	}
+
+	@GetMapping("/board/inquiry/complete")
+	public String inquiry_complete() {
+		return "staff/board/inquiry/complete";
+	}
 }

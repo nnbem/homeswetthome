@@ -3,13 +3,13 @@
 <%@ taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator"%>
 
 <%@ include file="/WEB-INF/views/module/module_m/member_header.jsp"%>
-<decorator:head/>
+
 
 <%-- <%@ include file="/WEB-INF/views/module/module_m/member_nav.jsp"%> --%>
 
-<body>
+
 <decorator:body />
-</body>
+
 
 <%@ include file="/WEB-INF/views/module/module_m/member_footer.jsp"%>
 

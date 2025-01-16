@@ -3,6 +3,7 @@ package home.staff.dao;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 
 import home.commons.request.PageMaker;
@@ -73,5 +74,14 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		session.delete("Employee-Mapper.deleteEmployee", eid);
 
 	}
+
+	@Override
+	   public List<EmployeeVO> selectList(PageMaker pageMaker) throws SQLException {
+	      int offset = pageMaker.getStartRow();
+	      int limit = pageMaker.getPerPageNum();
+	      RowBounds bound = new RowBounds(offset, limit);
+	      
+	      return session.selectList("Employee-Mapper.selectEmployeeList", pageMaker, bound);
+	   }
 
 }

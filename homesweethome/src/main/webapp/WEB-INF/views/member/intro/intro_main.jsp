@@ -9,7 +9,7 @@
    <!-- 본문 -->
    <section>
 
-<div class="content-wrapper">
+
    <div class="content-title">
       <h1>
          <b style="font-size: 32px;">센터소개</b>
@@ -28,6 +28,12 @@
          <li style="color: red; font-size:14px;">※ (휴무일이 「관공서의 공휴일에 관한 규정」에 따른 공휴일과 겹칠 경우 위 공휴일 다음 첫 번째 비 공휴일을 휴무일로 한다.</li>
       </ul>
    </div>
-</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
 
 </section>

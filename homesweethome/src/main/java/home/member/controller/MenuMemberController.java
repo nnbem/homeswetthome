@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import home.commons.service.MenuMemberService;
 import home.member.dto.MenuMemberVO;
+import home.member.service.MenuMemberService;
 
 @RestController
 @RequestMapping("/menu")

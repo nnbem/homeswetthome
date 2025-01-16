@@ -18,4 +18,6 @@ public interface EmployeeDAO {
 	void updateEmployee(EmployeeVO employee)throws SQLException;
 	void deleteEmployee(String eid)throws SQLException;
 	
+	List<EmployeeVO> selectList(PageMaker pageMaker) throws SQLException;
+	
 }

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="Receive-Mapper">
+  	<sql id="search">
+  		<if test="searchType == 'rc'.toInt()">
+  			and rcno like '%' ||#{keyword}||'%'
+  		</if>
+  		<if test="searchType == 's'.toString()">
+  			and spot like '%' ||#{keyword}||'%'
+  		</if>
+  	</sql>
+  	
+  	<select id="SelectSearchReceiveList" parameterType="pageMaker" resultType="Receive">
+	  	select *
+	  	from receive
+	  	where rcno is not null
+	  	<include refid="search" />
+	  	order by rectiveDate desc
+  	</select>
+  	
+  	<select id="selectSearchReceiveListCount" parameterType="pageMaker" resultType="int">
+  		selece count(*)
+  		from receive
+  		where rcno is not null
+  		<include refid="search" />
+  	</select>
+  	
+  	<select id="selectReceiveByRcno" parameterType="int" resultType="receive">
+  		select *
+  		frome receive
+  		where rcno=#{rcno}
+  	</select>
+  	
+  	<insert id="insertReceive" parameterType="int">
+  		insert into receive(rcno, spot, picture, cantername, regdate, breed, kind, gender, aid, eid)
+  		values
+  		(#{rcno},#{spot},#{picture},#{cantername},#{regdate},#{breed},#{kind},#{gender},#{aid},#{eid})
+  	</insert>
+  	<update id="updateReceive" parameterType="int">
+  		update receive
+  		set
+  		spot=#{spot}, picture=#{picture}, cantername=#{cantername}, regdate=#{regdate}, breed=#{breed}, kind=#{kind}, genderd=#{genderd}
+  		where rcno=#{rcno}
+  	</update>
+  	<delete id="deleteReceive" parameterType="int">
+  		delete
+  		from receive
+  		where rcno=#{rcno}
+  	</delete>
+  	
+  	<select id="selectReceiveSeqNext" resultType="int">
+  		select receive_seq.nextval as rcno from dual
+  	</select>
+  </mapper>

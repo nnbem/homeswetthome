@@ -16,6 +16,7 @@
 		<typeAlias type="home.staff.dto.AnimalVO" alias="animal" />
 		<typeAlias type="home.staff.dto.ReceiveVO" alias="Receive" />
 		<typeAlias type="home.staff.dto.AnimalCareVO" alias="animalCare"/>
+		<typeAlias type="home.staff.dto.NoticeVO" alias="notice"/>
 
 		<typeAlias type="home.commons.request.PageMaker" alias="pageMaker" />
 		<typeAlias type="home.commons.request.AnimalCarePageMaker" alias="AnimalCarePageMaker"/>

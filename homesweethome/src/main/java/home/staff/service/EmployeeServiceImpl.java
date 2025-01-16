@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import home.commons.request.PageMaker;
 import home.staff.dao.EmployeeDAO;
 import home.staff.dto.EmployeeVO;
 
@@ -18,9 +19,8 @@ public class EmployeeServiceImpl implements EmployeeService{
 	}
 	
 	@Override
-	public List<EmployeeVO> list() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+	public List<EmployeeVO> list(PageMaker pageMaker) throws SQLException {
+		return employeeDAO.selectList(pageMaker);
 	}
 
 	@Override
@@ -51,6 +51,11 @@ public class EmployeeServiceImpl implements EmployeeService{
 	public void modifyAuthority(String eid, List<String> authorities) throws Exception {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public EmployeeVO getEmployee(String eid) throws SQLException {
+		return employeeDAO.selectEmployeeByEid(eid);
 	}
 
 }

@@ -1,161 +1,121 @@
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="home.member.dto.MemberVO" %>
+<%@ page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <head>
-<link rel="stylesheet"
-   href="<%=request.getContextPath()%>/resources/css/staff_style/staff_style.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/staff_style/staff_style.css">
 </head>
-<body>
 
+<!-- Main Content -->
 <div class="innerWrapper">
-	<!-- Sidebar -->	
-		<div class="sidebar">
-			<h1><b>게시판통합관리</b></h1>
-			<div class="sideMenu">
-						<ul class="sideMenu list">
-							<li class="list">
-								<a href="/staff/board/notice">
-									<b>공지사항</b>
-								</a>
-							</li>
-							<li class="list">
-								<a href="/staff/board/report">
-									<b>신고글</b>
-								</a>
-							</li>
-							<li class="list">
-								<a href="/staff/board/review">
-									<b>연락필요 사용자</b>
-								</a>
-							</li>
-							<li class="list">
-								<a href="/staff/board/inquiry">
-									<b>1:1 문의</b>
-								</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</div>
+<div class="content">
+   <div class="search-container">
+      <h2>공지사항 
+      
+      </h2>   
+      <hr />
+      <form id="searchForm">
+      <div class="search-bar" style="justify-content:flex-end;">
+          <button class="refresh-button">⟳&nbsp;&nbsp;</button>
+          <select class="sort-select" name="perPageNum" id="perPageNum">
+             <option value="10"  ${pageMaker.perPageNum eq 10 ? 'selected':'' } >정렬개수</option>
+              <option value="20" ${pageMaker.perPageNum eq 20 ? 'selected':'' } >20개씩 정렬</option>
+              <option value="30" ${pageMaker.perPageNum eq 30 ? 'selected':'' } >30개씩 정렬</option>
+           </select>
+          <select class="sort-select" name="searchType" id="searchType">
+             <option value=""  >검색구분</option>
+             <option value="t" ${pageMaker.searchType eq 't' ? 'selected':'' } >제목</option>
+            <option value="c" ${pageMaker.searchType eq 'c' ? 'selected':'' } >내용</option>
+            <option value="ei" ${pageMaker.searchType eq 'ei' ? 'selected':'' } >작성자</option>                               
+         </select>
+      
+          <input type="text" class="search-input" placeholder="검색어를 입력해주세요."
+                name="keyword" value="${pageMaker.keyword }"/>
+          <button class="search-button" type="submit" onclick="select(1);">검색</button>
+      </div>
+      </form>
+      
+      <table class="member-table">
+         <thead>
+            <tr>
+               <th style="width:10%;">번호</th>
+               <th style="width:45%;">제목</th>
+               <th style="width:35%;">등록날짜</th> <!-- yyyy-MM-dd  -->
+               <th>조회수</th>
+            </tr>
+         </thead>
+         <tbody>
+            <c:if test="${empty noticeList }">
+            <tr>
+               <td colspan="5" class="text-content">해당 내용이 없습니다.</td>
+            </tr>
+         </c:if>
+         
+         <c:if test="${not empty noticeList}">
+            <c:forEach var="notice" items="${noticeList}">
+                <fmt:formatDate var="regDate" value="${notice.regDate}" pattern="yyyy-MM-dd"/>
+                <c:url var="detailUrl" value="/staff/board/notice/detail">
+                    <c:param name="nno" value="${notice.nno}" />
+                </c:url>
+                
+                <tr onclick="location.href='${detailUrl}';" style="cursor:pointer;">
+                    <td>${notice.nno}</td>
+                    <td>${notice.title}</td>
+                    <td>${notice.regDate}</td>
+                    <td>${notice.viewcnt}</td>
+                </tr>
+            </c:forEach>
+         </c:if>
+         
+         </tbody>
+      </table>
+   </div>
+<%@ include file="/WEB-INF/views/module/pagination.jsp" %>
+</div>
+</div>
 
-	<!-- Main Content -->
-	<div class="content">
-		<div class="search-container">
-			<h2>공지사항</h2>
-			<hr />
-			<div class="search-bar">
-				<div class="left">
-					<button id="regist" class="regist-btn" onclick="regist_go();">등   록</button>
-				</div>
-				<div class="right">
-					<button class="refresh-button">⟳&nbsp;&nbsp;</button>
-					<select class="sort-select">
-						<option value="">정렬개수</option>
-						<option value="all">전체</option>
-					</select> <select class="sort-select">
-						<option value="">전체</option>
-						<option value="specific">특정</option>
-					</select> <input type="text" class="search-input" placeholder="검색어를 입력해주세요.">
-					<button class="search-button">검색</button>
-				</div>
-			</div>
-			<table class="member-table">
-				<thead>
-					<tr>
-						<th>번호</th>
-						<th>제목</th>
-						<th>등록날짜</th>
-						<th>조회수</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>공지</td>
-						<td><a href="/staff/board/notice/detail"
-							style="text-decoration: none; color: inherit;">운영시간 변경안내(예정)</a></td>
-						<td>2024-12-28</td>
-						<td>234</td>
-					</tr>
-					<tr>
-						<td>공지</td>
-						<td><a href="/staff/board/notice/detail"
-							style="text-decoration: none; color: inherit;">운영시간 변경안내(예정)</a></td>
-						<td>2024-12-28</td>
-						<td>234</td>
-					</tr>
-					<tr>
-						<td>공지</td>
-						<td><a href="/staff/board/notice/detail"
-							style="text-decoration: none; color: inherit;">운영시간 변경안내(예정)</a></td>
-						<td>2024-12-28</td>
-						<td>234</td>
-					</tr>
-					<tr>
-						<td>공지</td>
-						<td><a href="/staff/board/notice/detail"
-							style="text-decoration: none; color: inherit;">운영시간 변경안내(예정)</a></td>
-						<td>2024-12-28</td>
-						<td>234</td>
-					</tr>
-					<tr>
-						<td>공지</td>
-						<td><a href="/staff/board/notice/detail"
-							style="text-decoration: none; color: inherit;">운영시간 변경안내(예정)</a></td>
-						<td>2024-12-28</td>
-						<td>234</td>
-					</tr>
-					<tr>
-						<td>공지</td>
-						<td><a href="/staff/board/notice/detail"
-							style="text-decoration: none; color: inherit;">운영시간 변경안내(예정)</a></td>
-						<td>2024-12-28</td>
-						<td>234</td>
-					</tr>
-					<tr>
-						<td>공지</td>
-						<td><a href="/staff/board/notice/detail"
-							style="text-decoration: none; color: inherit;">운영시간 변경안내(예정)</a></td>
-						<td>2024-12-28</td>
-						<td>234</td>
-					</tr>
-					<tr>
-						<td>공지</td>
-						<td><a href="/staff/board/notice/detail"
-							style="text-decoration: none; color: inherit;">운영시간 변경안내(예정)</a></td>
-						<td>2024-12-28</td>
-						<td>234</td>
-					</tr>
-					<tr>
-						<td>공지</td>
-						<td><a href="/staff/board/notice/detail"
-							style="text-decoration: none; color: inherit;">운영시간 변경안내(예정)</a></td>
-						<td>2024-12-28</td>
-						<td>234</td>
-					</tr>
-					<tr>
-						<td>공지</td>
-						<td><a href="/staff/board/notice/detail"
-							style="text-decoration: none; color: inherit;">운영시간 변경안내(예정)</a></td>
-						<td>2024-12-28</td>
-						<td>234</td>
-					</tr>
-					<tr>
-						<td>공지</td>
-						<td><a href="/staff/board/notice/detail"
-							style="text-decoration: none; color: inherit;">운영시간 변경안내(예정)</a></td>
-						<td>2024-12-28</td>
-						<td>234</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
 
-	<script>
-		function regist_go() {
-			document.getElementBtId("regist").addEventListener("clcik",
-		function() {
-				window.location.href = "/staff/board/notice/regist";
-			});
-		}
-	</script>
+<form id="pageForm" style="display: none;">
+   <input type='text' name="page" value="" />
+</form>
+
+
+
+<script>
+document.querySelector('.refresh-button').addEventListener('click', function(event) {
+    // 검색 입력란과 선택 박스 초기화
+    document.querySelector('.search-input').value = '';  // 검색어 초기화
+    document.querySelectorAll('.sort-select').forEach(function(select) {
+        select.value = 'all';  // 모든 select 박스를 '전체'로 초기화
+    });
+});
+
+function select(page) {
+   let perPageNum = document.querySelector('select[name="perPageNum"]').value;
+   let searchType = document.querySelector('select[name="searchType"]').value;
+   let keyword = document.querySelector('input[name="keyword"]').value;
+    
+    let searchForm = document.querySelector("#searchForm");
+    let pageForm = document.querySelector("#pageForm");
+    pageForm.page.value = page;
+    
+    searchForm.perPageNum.value=perPageNum;
+    searchForm.searchType.value = searchType;
+    searchForm.keyword.value = keyword;
+    
+    searchForm.submit();
+    pageForm.submit();
+}
+</script>
+
+   <script>
+      function regist_go() {
+         document.getElementBtId("regist").addEventListener("clcik",
+      function() {
+            window.location.href = "/staff/board/notice/regist";
+         });
+      }
+   </script>

@@ -25,5 +25,4 @@
         from m_menu
         where mName = #{mName}
     </select>
-    
 </mapper>
