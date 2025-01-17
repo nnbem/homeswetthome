@@ -11,36 +11,30 @@ import home.member.dto.MemberVO;
 
 public class MemberDAOImpl implements MemberDAO {
 
-   @Autowired
-   private SqlSession session;
-   public MemberDAOImpl(SqlSession session) {
-      this.session = session;
-   }
-   @Override
-   public MemberVO selectMemberByMid(String id) throws SQLException {
-      return session.selectOne("home.member.mapper.MemberMapper.selectMemberByMid", id);
-   }
-   @Override
-   public List<MemberVO> selectList(PageMaker pageMaker) throws SQLException {
-      // TODO Auto-generated method stub
-      return null;
-   }
-   @Override
-   public void insertMember(MemberVO member) throws SQLException {
-      // TODO Auto-generated method stub
-      
-   }
-   @Override
-   public void updateMember(MemberVO member) throws SQLException {
-      // TODO Auto-generated method stub
-      
-   }
-   @Override
-   public void deleteMember(String mid) throws SQLException {
-      // TODO Auto-generated method stub
-      
-   }
-
-   
-   
+	@Autowired
+	private SqlSession session;
+	public MemberDAOImpl(SqlSession session) {
+		this.session = session;
+	}
+	@Override
+	public MemberVO selectMemberByMid(String mid) throws SQLException {
+		return session.selectOne("Member-Mapper.selectMemberByMid", mid);
+	}
+	@Override
+	public List<MemberVO> selectList(PageMaker pageMaker) throws SQLException {
+		return session.selectList("Member-Mapper.selectMemberList", pageMaker);
+	}
+	@Override
+	public void insertMember(MemberVO member) throws SQLException {
+		session.insert("Member-Mapper.insertMember", member);
+	}
+	@Override
+	public void updateMember(MemberVO member) throws SQLException {
+		session.update("Member-Mapper.updateMember", member);
+	}
+	@Override
+	public void deleteMember(String mid) throws SQLException {
+		session.delete("Member-Mapper.deleteMember", mid);
+	}
+	
 }

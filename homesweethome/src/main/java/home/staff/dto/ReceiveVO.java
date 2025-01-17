@@ -3,34 +3,22 @@ package home.staff.dto;
 import java.util.Date;
 
 public class ReceiveVO {
-	private int rcno;
+	private long rcno;
 	private String spot;
 	private String picture;
 	private String cantername;
-	private Date regdateBefore;
-	private Date regdateAfter;
+	private Date regdate;
 	private String breed;
 	private String kind;
 	private int gender;
-	private Date receive_date;
-	public Date getRegdateBefore() {
-		return regdateBefore;
-	}
-	public void setRegdateBefore(Date regdateBefore) {
-		this.regdateBefore = regdateBefore;
-	}
-	public Date getRegdateAfter() {
-		return regdateAfter;
-	}
-	public void setRegdateAfter(Date regdateAfter) {
-		this.regdateAfter = regdateAfter;
-	}
-	private int aid;
+	private long aid;
 	private String eid;
-	public int getRcno() {
+	private Date receive_date;
+	
+	public long getRcno() {
 		return rcno;
 	}
-	public void setRcno(int rcno) {
+	public void setRcno(long rcno) {
 		this.rcno = rcno;
 	}
 	public String getSpot() {
@@ -51,6 +39,12 @@ public class ReceiveVO {
 	public void setCantername(String cantername) {
 		this.cantername = cantername;
 	}
+	public Date getRegdate() {
+		return regdate;
+	}
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
+	}
 	public String getBreed() {
 		return breed;
 	}
@@ -69,16 +63,10 @@ public class ReceiveVO {
 	public void setGender(int gender) {
 		this.gender = gender;
 	}
-	public Date getReceive_date() {
-		return receive_date;
-	}
-	public void setReceive_date(Date receive_date) {
-		this.receive_date = receive_date;
-	}
-	public int getAid() {
+	public long getAid() {
 		return aid;
 	}
-	public void setAid(int aid) {
+	public void setAid(long aid) {
 		this.aid = aid;
 	}
 	public String getEid() {
@@ -87,4 +75,13 @@ public class ReceiveVO {
 	public void setEid(String eid) {
 		this.eid = eid;
 	}
+	public Date getReceive_date() {
+		return receive_date;
+	}
+	public void setReceive_date(Date receive_date) {
+		this.receive_date = receive_date;
+	}
+	
+	
+	
 }

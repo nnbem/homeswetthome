@@ -7,7 +7,7 @@
 </head>
 
    <!-- 본문 -->
-   <section>
+<section>
 
 
    <div class="content-title">
@@ -33,7 +33,5 @@
 <br/>
 <br/>
 <br/>
-
-
 
 </section>

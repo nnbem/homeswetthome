@@ -4,16 +4,33 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Member-Mapper">
 
-	<!-- <select id="selectSeachMemberList" parameterType="pageMaker" resultType="member">
+	<sql id="search">
+		<if test="searchType == 'i'.toString()">
+			where mid like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'n'.toString()">
+			where and name like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'p'.toString()">
+			where and phone like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'e'.toString()">
+			where and email like '%'||#{keyword}||'%'
+		</if>
+	</sql>
+
+	<select id="selectSearchMemberList" parameterType="pageMaker" resultType="member">
 		select *
-		from member		
+		from member
+		<include refid="search" />
 		order by regDate desc	
 	</select>
 	
 	<select id="selectSearchMemberListCount" parameterType="pageMaker" resultType="int">
 		select count(*)
-		from member	
-	</select> -->
+		from member
+		<include refid="search" />
+	</select>
 
 	<select id="selectMemberList" resultType="member">
 		select *
@@ -25,6 +42,12 @@
 		from member
 		where mid = #{mid}
 	</select>
+	
+	<select id="getMemberByMid" parameterType="string" resultType="member">
+        select *
+        from member
+        where mid = #{mid}
+    </select>
 
 	<insert id="insertMember" parameterType="member">
 		insert into
@@ -43,5 +66,10 @@
 		from member
 		where mid = #{mid}
 	</delete>
+	
+	<select id="selectMemberSeqNext" resultType="int">
+		select member_seq.nextval as mid from dual	
+	</select>
+	
 
 </mapper>

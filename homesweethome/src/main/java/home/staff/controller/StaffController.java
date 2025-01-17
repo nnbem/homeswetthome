@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,12 +16,6 @@ import home.staff.service.EmployeeService;
 @RequestMapping("/staff")
 public class StaffController {
 
-	@GetMapping("/main")
-	public String staff() {
-		String url = "/staff/main";
-		return url;
-	}
-
 	private EmployeeService employee;
 
 	@Autowired
@@ -28,13 +23,45 @@ public class StaffController {
 		this.employee = employee;
 	}
 
+	@GetMapping("/main")
+	public String staff() {
+		String url = "/staff/main";
+		return url;
+	}
+
 	@GetMapping("/login")
-	public String loginget(@ModelAttribute(name = "retUrl") String retUrl, HttpServletResponse response)
-			throws Exception {
+	public String loginget(@ModelAttribute(name = "retUrl") String retUrl, HttpServletResponse response)throws Exception{
 		String url = "staff/commons/loginForm";
 		response.setStatus(302);
 		return url;
 	}
+	
+	@GetMapping("/index")
+	public String index() {
+		String url = "/staff/main";
+		return url;
+	}
+
+
+	@GetMapping("/accessDenied")
+	public void accessDenied() {}
+	
+	@GetMapping("/loginTimeOut")
+	public String loginTimeOut(Model model) throws Exception{
+		String url = "/staff/commons/loginSessionOut";
+		model.addAttribute("message","세션이 만료되었습니다.\\n다시 로그인 해 주세요");
+		return url;
+	}
+	
+	@GetMapping("/loginExpired")
+	public String loginExpired(Model model)throws Exception{
+		String url = "/staff/commons/loginSessionOut";
+		model.addAttribute("message", "다른 장치에서 중복 로그인이 확인되었습니다.");
+		return url;
+	}
+	
+	
+	
 
 	@GetMapping("/member/list")
 	public String member_list() {
@@ -64,30 +91,6 @@ public class StaffController {
 	@GetMapping("/member/list/deactivation_detail")
 	public String deactivation_detail() {
 		return "staff/member/list/deactivation_detail";
-	}
-
-	@GetMapping("/receive")
-	public String receive_m() {
-		String url = "staff/receive/receive";
-		return url;
-	}
-
-	@GetMapping("/receive/regist")
-	public String receive_r() {
-		String url = "staff/receive/regist";
-		return url;
-	}
-
-	@GetMapping("/receive/detail")
-	public String receive_detail() {
-		String url = "staff/receive/detail";
-		return url;
-	}
-
-	@GetMapping("/receive/detail/modify")
-	public String receive_modify() {
-		String url = "staff/receive/modify";
-		return url;
 	}
 
 	@GetMapping("/employee")
@@ -149,8 +152,6 @@ public class StaffController {
 		String url = "staff/reserve/detail";
 		return url;
 	}
-
-	
 
 	@GetMapping("/board/report")
 	public String report() {

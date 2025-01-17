@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 
 import home.commons.request.AnimalCarePageMaker;
 import home.staff.dto.AnimalCareVO;
+import home.staff.dto.AnimalVO;
+import home.staff.dto.BasicVO;
 
 public class AnimalCareDAOImpl implements AnimalCareDAO {
 	
@@ -40,7 +42,40 @@ public class AnimalCareDAOImpl implements AnimalCareDAO {
 
 	@Override
 	public AnimalCareVO selectAnimalByEid(String eid) throws SQLException {
-		return session.selectOne("selectAnimalByEid", eid);
+		return session.selectOne("AnimalCare-Mapper.selectAnimalByEid", eid);
 	}
 
+	@Override
+	public BasicVO selectBasicListByAid(Long aid) throws SQLException {
+		return session.selectOne("AnimalCare-Mapper.selectBasicListByAid", aid);
+	}
+
+	@Override
+	public void insertAnimal(AnimalVO animal) throws SQLException {
+		session.insert("AnimalCare-Mapper.insertAnimal", animal);
+		
+	}
+
+	@Override
+	public void updateAnimal(AnimalVO animal) throws SQLException {
+		session.update("AnimalCare-Mapper.updateAnimal", animal);
+		
+	}
+
+	@Override
+	public void deleteAnimal(Long aid) throws SQLException {
+		session.delete("AnimalCare-Mapper.deleteAnimal", aid);
+	}
+
+	@Override
+	public Long selectAnimalSeqNext() throws SQLException {
+		return session.selectOne("AnimalCare-Mapper.selectAnimalSeqNext");
+	}
+
+	@Override
+	public AnimalVO selectAnimalByAid(Long aid) throws SQLException {
+		return session.selectOne("AnimalCare-Mapper.selectAnimalByAid", aid);
+	}
+
+	
 }

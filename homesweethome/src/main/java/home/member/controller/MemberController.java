@@ -27,19 +27,9 @@ public class MemberController {
 		return "member/intro/intro_main";
 	}
 
-	@GetMapping("/intro/notice")
-	public String notice() {
-		return "member/intro/notice";
-	}
-
 	@GetMapping("/intro/way")
 	public String way() {
 		return "member/intro/way";
-	}
-
-	@GetMapping("/intro/notice/detail")
-	public String notice_detail() {
-		return "member/intro/notice/detail";
 	}
 
 

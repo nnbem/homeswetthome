@@ -15,16 +15,16 @@ import home.staff.service.NoticeService;
 
 @Controller
 @RequestMapping("/staff")
-public class NoticeController {
-   
-   private NoticeService noticeService;
+public class StaffNoticeController {
+	
+	private NoticeService noticeService;
 
-   @Autowired
-   public NoticeController(NoticeService noticeService) {
-      this.noticeService = noticeService;
-   }
-   
-   @GetMapping("/board/notice")
+	@Autowired
+	public StaffNoticeController(NoticeService noticeService) {
+		this.noticeService = noticeService;
+	}
+	
+	@GetMapping("/board/notice")
     public void notice(@ModelAttribute PageMaker pageMaker, Model model) throws Exception {
         List<NoticeVO> noticeList = noticeService.list(pageMaker);
         model.addAttribute("noticeList", noticeList);
@@ -37,7 +37,6 @@ public class NoticeController {
     
     @GetMapping("/board/notice/detail")
     public String notice_detail() {
-       return "staff/board/notice/detail";
+        return "staff/board/notice/detail";
     }
-   
 }

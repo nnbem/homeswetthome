@@ -17,6 +17,8 @@
 		<pattern>/member/popup</pattern>
 		<pattern>*/open_regist</pattern>
 		<pattern>*/open_modify</pattern>
+		
+		<pattern>/staff/login</pattern>	
 
 		<pattern>/member/join</pattern>
 		<pattern>/member/login</pattern>

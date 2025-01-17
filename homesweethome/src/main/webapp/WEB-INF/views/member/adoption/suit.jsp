@@ -8,7 +8,7 @@
 	href="<%=request.getContextPath()%>/resources/css/member_style/suit.css">
 </head>
 
-<div class="content-wrapper">
+
 	<div class="content-title">	
 	<h1><b>적합성점검표</b></h1>
 </div>
@@ -53,7 +53,7 @@
         <div class="button-container">
             <a href="/member/adoption/suit/form" class="action-button">적합성검진표 시작하기 →</a>
         </div>
-    
+</div>
     
     
     

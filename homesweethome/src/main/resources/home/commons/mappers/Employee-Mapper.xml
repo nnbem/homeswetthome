@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
+
 <mapper namespace="Employee-Mapper">
 	<sql id="search">
 		<if test="searchType == 'i'.toString()">
@@ -15,53 +15,62 @@
 			where phone like '%'||#{keyword}||'%'
 		</if>
 		<if test="searchType == 'e'.toString()">
-			where email like '%'||#{keyword}||'%' 
+			where email like '%'||#{keyword}||'%'
 		</if>
 	</sql>
-	<select id="selectSearchEmployeeList" parameterType="pageMaker" resultType="employee">
+	<select id="selectSearchEmployeeList" parameterType="pageMaker"
+		resultType="employee">
 		select *
 		from employee
-		<include refid="search"/>
+		<include refid="search" />
 		order by regDate desc
 	</select>
-	<select id="selectSearchEmployeeListCount" parameterType="pageMaker" resultType="int">
+	<select id="selectSearchEmployeeListCount"
+		parameterType="pageMaker" resultType="int">
 		select count(*)
 		form employee
-		<include refid="search"/>
+		<include refid="search" />
 	</select>
-	
-	<select id="selectEmployeeAuthoritiesByEid" resultType="str">
-		select ad.role
-		from employee e, authority_employee ae, authority_detail ad
-		where e.eid = ae.eid and ae.role = ad.role and e.eid = #{eid}
-	</select>
-	<insert id="insertEmployeeAuthorities">
-		insert into authority(eid,role)
-		values (#{eid},#{authority})
-	</insert>
-	<delete id="deleteAllAuthorityByEid">
-		delete
-		from authority
-		where eid=#{eid) and authority != 'ROLE_ADMIN'
-	</delete>
-	
 	<select id="selectEmployeeList" resultType="employee">
 		select *
 		from employee
 		order by regDate desc
 	</select>
-	<select id="selectEmployeeByEid" parameterType="str" resultType="employee">
+	<select id="selectEmployeeByEid" parameterType="str"
+		resultType="employee">
 		select *
 		from employee
 		where eid=#{eid}
 	</select>
+
+	<select id="selectEmployeeAuthoritiesByEid" resultType="str">
+		select
+		ad.role
+		from employee e, authority_employee ae, authority_detail ad
+		where e.eid = ae.eid and ae.role = ad.role and e.eid = #{eid}
+	</select>
+	<insert id="insertEmployeeAuthorities">
+		insert into authority(eid,role)
+		values
+		(#{eid},#{authority})
+	</insert>
+	<delete id="deleteAllAuthorityByEid">
+		delete
+		from authority_employee
+		where eid=#{eid}
+	</delete>
+
+
 	<insert id="insertEmployee" parameterType="employee">
-		insert into employee(eid, pwd, name, phone, department, position, joid_date, picture, email)
+		insert into
+		employee(eid, pwd, name, phone, department, position, joid_date,
+		picture, email)
 		values(#{eid},#{pwd},#{name},#{phone},#{department},#{position},#{joid_date},#{picture},#{email})
 	</insert>
 	<update id="updateEmployee" parameterType="employee">
 		update
-		set pwd=#{pwd},phone=#{phone},department=#{department},position=#{position},picture=#{picture},email=#{email}
+		set
+		pwd=#{pwd},phone=#{phone},department=#{department},position=#{position},picture=#{picture},email=#{email}
 		where eid=#{eid}
 	</update>
 	<delete id="deleteEmployee" parameterType="employee">
@@ -69,5 +78,11 @@
 		from employee
 		where eid=#{eid}
 	</delete>
+	<select id="getEmployeeByEid" parameterType="pageMaker"
+		resultType="employee">
+		select *
+		from employee
+		where eid = #{eid}
+	</select>
 
 </mapper>

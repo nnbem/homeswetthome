@@ -112,14 +112,15 @@ div.submit button{
 			<!-- /.login-logo -->
 			<h5 class="login-box-msg">관리자 로그인</h5>
 	
-			<form method="post" class="login-form">
+			<form action="login/post" method="post" class="login-form">
+				<input name="retUrl" value="${retUrl }" type="hidden" />
 				<div class="input-group mb-3">
 					<label>사원번호</label>
-					<input type="email" class="form-control radius" placeholder="사원번호를 입력하세요">
+					<input type="text" class="form-control radius" name="eid" placeholder="사원번호를 입력하세요" value="">
 				</div>
 				<div class="input-group mb-3">
 					<label>비밀번호</label>
-					<input type="password" class="form-control radius" placeholder="비밀번호를 입력하세요">
+					<input type="password" class="form-control radius" name="pwd" placeholder="비밀번호를 입력하세요" value="">
 				</div>
 				<div class="row">
 					<!-- /.col -->
@@ -131,9 +132,6 @@ div.submit button{
 			</form>
 		</div>
 	</div>
-
-
-
 
 
 </body>

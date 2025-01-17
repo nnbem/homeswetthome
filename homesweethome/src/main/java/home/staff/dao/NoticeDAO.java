@@ -22,4 +22,5 @@ public interface NoticeDAO {
 	
 	int selectNoticeSeqNext() throws SQLException;
 	
+	NoticeVO selectByNoticeEid(String eid) throws SQLException;
 }

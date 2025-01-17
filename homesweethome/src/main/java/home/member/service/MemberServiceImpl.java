@@ -13,41 +13,41 @@ import home.member.dto.MemberVO;
 public class MemberServiceImpl implements MemberService{
 
 private SearchMemberDAO searchMemberDAO;
-   
-   public MemberServiceImpl(SearchMemberDAO searchMemberDAO) {
-      this.searchMemberDAO = searchMemberDAO;      
-   }
+	
+	public MemberServiceImpl(SearchMemberDAO searchMemberDAO) {
+		this.searchMemberDAO = searchMemberDAO;		
+	}
 
-   @Override
-   public List<MemberVO> list(PageMaker pageMaker) throws SQLException {
-      return searchMemberDAO.selectList(pageMaker);
-   }
+	@Override
+	public List<MemberVO> list(PageMaker pageMaker) throws SQLException {
+		return searchMemberDAO.selectList(pageMaker);
+	}
 
-   @Override
-   public MemberVO getMember(String mid) throws SQLException {
-      MemberVO member = searchMemberDAO.selectMemberByMid(mid);
-      return member;
-   }
+	@Override
+	public MemberVO getMember(String mid) throws SQLException {
+		MemberVO member = searchMemberDAO.selectMemberByMid(mid);
+		return member;
+	}
 
-   @Override
-   public void regist(MemberVO member) throws SQLException {
-      
-      if (searchMemberDAO.selectMemberByMid(member.getMid()) != null) {
-         throw new SQLException("사용중인 아이디입니다.");
-      }
-      
-      searchMemberDAO.insertMember(member);
-   }
+	@Override
+	public void regist(MemberVO member) throws SQLException {
+		
+		if (searchMemberDAO.selectMemberByMid(member.getMid()) != null) {
+			throw new SQLException("사용중인 아이디입니다.");
+		}
+		
+		searchMemberDAO.insertMember(member);
+	}
 
-   @Override
-   public void modify(MemberVO member) throws SQLException {
-      searchMemberDAO.updateMember(member);
-   }
+	@Override
+	public void modify(MemberVO member) throws SQLException {
+		searchMemberDAO.updateMember(member);
+	}
 
-   @Override
-   public void remove(String mid) throws SQLException {
-      searchMemberDAO.deleteMember(mid);
-   }
-   
-   
+	@Override
+	public void remove(String mid) throws SQLException {
+		searchMemberDAO.deleteMember(mid);
+	}
+	
+	
 }

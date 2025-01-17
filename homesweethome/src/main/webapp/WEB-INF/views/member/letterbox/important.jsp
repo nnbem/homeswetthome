@@ -8,7 +8,7 @@
 
 </head>
 
-<div class="content-wrapper">
+<body>
 	<div class="content-title">	
 		<h1><b>중요 우편함</b></h1>
 	</div>
@@ -71,17 +71,7 @@
 						<td><button class="search-button" style=" width: 80px;">삭제</button></td>
 					</tr>
 				</tbody>
-			</table>
-</div>			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+			</table>		
+</body>
 			
 			

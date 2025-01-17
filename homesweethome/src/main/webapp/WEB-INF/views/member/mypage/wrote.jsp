@@ -6,7 +6,6 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/common.css">
 </head>
-<div class="content-wrapper">
 	<div class="content-title">	
 		<h1><b>작성글 내역</b></h1>
 	</div>
@@ -71,4 +70,3 @@
 					</tr>
 				</tbody>
 			</table>
-		</div>

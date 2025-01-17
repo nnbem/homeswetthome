@@ -12,24 +12,30 @@ import home.member.dto.MemberVO;
 
 @Service
 public class SearchMemberServiceImpl extends MemberServiceImpl implements SearchMemberService {
-   
-   private final SearchMemberDAO searchMemberDAO;
+	
+	private final SearchMemberDAO searchMemberDAO;
 
-   @Autowired
-   public SearchMemberServiceImpl(SearchMemberDAO searchMemberDAO) {
-      super(searchMemberDAO);
-      this.searchMemberDAO = searchMemberDAO;
-   }
+	@Autowired
+	public SearchMemberServiceImpl(SearchMemberDAO searchMemberDAO) {
+		super(searchMemberDAO);
+		this.searchMemberDAO = searchMemberDAO;
+	}
 
-   @Override
-   public List<MemberVO> searchList(PageMaker pageMaker) throws SQLException {
-      List<MemberVO> memberList = searchMemberDAO.selectSearchMemberList(pageMaker);
-      
-      int totalCount = searchMemberDAO.selectSearchMemberListCount(pageMaker);
-      pageMaker.setTotalCount(totalCount);
-      
-      return memberList;
-   }
-   
-   
+	@Override
+	public List<MemberVO> searchList(PageMaker pageMaker) throws SQLException {
+		List<MemberVO> memberList = searchMemberDAO.selectSearchMemberList(pageMaker);
+		
+		int totalCount = searchMemberDAO.selectSearchMemberListCount(pageMaker);
+		pageMaker.setTotalCount(totalCount);
+		
+		return memberList;
+	}
+
+	@Override
+	public MemberVO getMemberByMid(String mid) {
+		return searchMemberDAO.getMemberByMid(mid);
+	}
+
+	
+	
 }

@@ -6,7 +6,6 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/common.css">
 </head>
-<div class="content-wrapper">
 	<div class="content-title">	
 		<h1><b>예약/신청 확인</b></h1>
 	</div>
@@ -51,4 +50,3 @@
 			</tr>
 		</tbody>
 	</table>
-</div>

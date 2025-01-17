@@ -81,9 +81,21 @@
 				</div>
 			</div>
 		</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 		
 <script>
-	function perfomance_go(){
-		 window.location.href = "/member/board/perfomance";
+	function review_go(){
+		 location.href="<%=request.getContextPath()%>/member/board/review";
 	}
+	function perfomance_go(){
+		location.href="<%=request.getContextPath()%>/member/board/perfomance";
+	}
+	
+	function sharing_go(){
+		   location.href="<%=request.getContextPath()%>/member/board/sharing";
+		}
 </script>

@@ -1,78 +1,124 @@
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="home.member.dto.MemberVO" %>
+<%@ page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<head>
-<link rel="stylesheet"
-   href="<%=request.getContextPath()%>/resources/css/staff_style/staff_style.css">
-</head>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <body>
 
 <div class="innerWrapper">
-	<!-- Sidebar -->	
-		<div class="sidebar">
-			<h1><b>게시판통합관리</b></h1>
-			<div class="sideMenu">
-						<ul class="sideMenu list">
-							<li class="list">
-								<a href="/staff/board/notice">
-									<b>공지사항</b>
-								</a>
-							</li>
-							<li class="list">
-								<a href="/staff/board/report">
-									<b>신고글</b>
-								</a>
-							</li>
-							<li class="list">
-								<a href="/staff/board/review">
-									<b>연락필요 사용자</b>
-								</a>
-							</li>
-							<li class="list">
-								<a href="/staff/board/inquiry">
-									<b>1:1 문의</b>
-								</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</div>
 
-	<!-- Main Content -->
-	<div class="content">
-			<h2>1:1 문의</h2>
-			<hr/>
-			<a href="/staff/board/inquiry/complete" style="text-decoration: none; color: inherit;">문의 완료 페이지 →</a>
-			<div class="search-bar" style="justify-content:flex-end;">
-				<button class="refresh-button">⟳&nbsp;&nbsp;</button>
-				<select class="sort-select">
-					<option value="">정렬개수</option>
-					<option value="all">전체</option>
-				</select> <select class="sort-select">
-					<option value="">전체</option>
-					<option value="specific">특정</option>
-				</select> <input type="text" class="search-input" placeholder="검색어를 입력해주세요.">
-				<button class="search-button">검색</button>
-			</div>
-
-			<table class="member-table">
-				<thead>
-					<tr>					
-						<th>제목</th>
-						<th>내용</th>
-						<th>작성자ID</th>
-						<th>작성일</th>
-						<th>답변일</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-					    <td>동물 입양 방법에 대해서 문의드립니다.</td>
-					    <td><a href="/staff/board/inquiry/detail" style="text-decoration: none; color: inherit;">이번에 입양하고싶은 동물이 생겨서 입양을 하려고 하는데 반려가 되서요, 이유를 알 수 있을까요?</a></td>
-					    <td>asdf</td>
-					    <td>2024-12-29</td>
-					    <td>2025-01-09</td>
-					</tr>
-				</tbody>
-			</table>
+<!-- Main Content -->
+<div class="content">
+	<div class="search-container">
+		<h2>1:1 문의</h2>
+		<hr/>
+		<form id="searchForm">
+		<div class="search-bar" style="justify-content:flex-end;">
+		<div class="left">
+			<button id="back" class="back-btn">이 전</button>
 		</div>
+		<div class="right" >
+			<button class="refresh-button">⟳&nbsp;&nbsp;</button>
+		<select class="sort-select" name="perPageNum" id="perPageNum">
+	    	<option value="10"  ${pageMaker.perPageNum eq 10 ? 'selected':'' } >정렬개수</option>
+	  		<option value="20" ${pageMaker.perPageNum eq 20 ? 'selected':'' } >20개씩 정렬</option>
+	  		<option value="30" ${pageMaker.perPageNum eq 30 ? 'selected':'' } >30개씩 정렬</option>
+	  	</select>
+	  	<select class="sort-select" name="searchType" id="searchType">
+		    <option value=""  >검색구분</option>
+	 		<option value="t" ${pageMaker.searchType eq 't' ? 'selected':'' } >제목</option>
+	 		<option value="c" ${pageMaker.searchType eq 'c' ? 'selected':'' } >내용</option>
+	 		<option value="i" ${pageMaker.searchType eq 'i' ? 'selected':'' } >작성자</option>								
+		</select>
+		
+		<input type="text" class="search-input" placeholder="검색어를 입력해주세요."
+	    		name="keyword" value="${pageMaker.keyword }"/>
+	    <button class="search-button" type="submit" onclick="select(1);">검색</button>
+		</div>
+		</div>
+		</form>
+
+		<table class="member-table">
+			<thead>
+				<tr>					
+					<th >번호</th>
+					<th style="width:20%;">제목</th>
+					<th style="width:30%;">내용</th>
+					<th >작성자ID</th>
+					<th >작성일</th>
+					<th>답변일</th>
+				</tr>
+			</thead>
+			<tbody>
+			<c:if test="${empty boardList }">
+				<tr>
+					<td colspan="6" class="text-content">해당 내용이 없습니다.</td>
+				</tr>
+			</c:if>
+			
+			<c:if test="${not empty boardList}">
+				<c:forEach var="board" items="${boardList}">
+				    <fmt:formatDate var="regDate" value="${inquiry.regDate }, ${inquriry-request.regDate }" pattern="yyyy-MM-dd"/>
+				    <c:url var="detailUrl" value="/staff/board/inquiry/detail">
+				        <c:param name="mid" value="${member.mid}" />
+				    </c:url>
+				    
+				    <tr onclick="location.href='${detailUrl}';" style="cursor:pointer;">
+				        <td>${inquiry.ino}</td>
+				        <td>${inquiry.title}</td>
+				        <td>${inquiry.content}</td>
+				        <td>${inquiry.regDate}</td>
+				        <td>${inquiry-request.regDate}</td>
+				    </tr>
+				</c:forEach>
+			</c:if>
+		</tbody>
+	</table>
+</div>
+	<%@ include file="/WEB-INF/views/module/pagination.jsp" %>
+</div>
+</div>
+
+<form id="pageForm" style="display: none;">
+   <input type='text' name="page" value="" />
+</form>
+
+
+<script>
+document.querySelector('.refresh-button').addEventListener('click', function(event) {
+    // 검색 입력란과 선택 박스 초기화
+    document.querySelector('.search-input').value = '';  // 검색어 초기화
+    document.querySelectorAll('.sort-select').forEach(function(select) {
+        select.value = 'all';  // 모든 select 박스를 '전체'로 초기화
+    });
+});
+
+function select(page) {
+	let perPageNum = document.querySelector('select[name="perPageNum"]').value;
+	let searchType = document.querySelector('select[name="searchType"]').value;
+	let keyword = document.querySelector('input[name="keyword"]').value;
+    
+    let searchForm = document.querySelector("#searchForm");
+    let pageForm = document.querySelector("#pageForm");
+    pageForm.page.value = page;
+    
+    searchForm.perPageNum.value=perPageNum;
+    searchForm.searchType.value = searchType;
+    searchForm.keyword.value = keyword;
+    
+    searchForm.submit();
+    pageForm.submit();
+}
+</script>
+
+<script>
+	function regist_go() {
+		document.getElementBtId("regist").addEventListener("clcik",
+	function() {
+			window.location.href = "/staff/board/notice/regist";
+		});
+	}
+</script>

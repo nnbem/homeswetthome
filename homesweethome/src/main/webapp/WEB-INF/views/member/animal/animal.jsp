@@ -5,7 +5,6 @@
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/member_style/animal.css">
 </head>
 <body>
-
 	<div class="content-title">	
 		<h1><b>보호동물</b></h1>
 	</div>
@@ -19,7 +18,7 @@
 					<li class="type-content">3. 입양10년차 ...</li>
 					<li class="type-content">4. 입양10년차 ...</li>
 				</ul>
-				<div class="type-link">
+				<div class="type-link" onclick="location.href='animal/announcement';" style="cursor:pointer;">
 					<div>
 						<a><b>공고중 게시판 <br/>바로가기</b></a>
 						<img alt="arrow" src="<%=request.getContextPath()%>/resources/image/p/arrow.png">
@@ -35,7 +34,7 @@
 					<li class="type-content">3. 입양10년차 ...</li>
 					<li class="type-content">4. 입양10년차 ...</li>
 				</ul>
-				<div class="type-link">
+				<div class="type-link" onclick="location.href='animal/care';" style="cursor:pointer;">
 					<div>
 						<a><b>치료중 게시판 <br/>바로가기</b></a>
 						<img alt="arrow" src="<%=request.getContextPath()%>/resources/image/p/arrow.png">
@@ -53,7 +52,7 @@
 					<li class="type-content">3. 입양10년차 ...</li>
 					<li class="type-content">4. 입양10년차 ...</li>
 				</ul>
-				<div class="type-link">
+				<div class="type-link" onclick="location.href='animal/possibility';" style="cursor:pointer;">
 					<div>
 						<a><b>입양가능 게시판 <br/>바로가기</b></a>
 						<img alt="arrow" src="<%=request.getContextPath()%>/resources/image/p/arrow.png">
@@ -69,7 +68,7 @@
 					<li class="type-content">3. 입양10년차 ...</li>
 					<li class="type-content">4. 입양10년차 ...</li>
 				</ul>
-				<div class="type-link">
+				<div class="type-link" onclick="location.href='animal/completion';" style="cursor:pointer;">
 					<div>
 						<a><b>입양완료 및 기타 게시판 바로가기</b></a>
 						<img alt="arrow" src="<%=request.getContextPath()%>/resources/image/p/arrow.png">
@@ -79,9 +78,4 @@
 			</div>
 		</div>
 	</div>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
 </body>

@@ -5,6 +5,7 @@
 <head>
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/member_style/animal.css">
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/member_style/body.css">
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 
 <body>
@@ -48,10 +49,9 @@
            <input type="text" class="search-input" placeholder="검색어를 입력해주세요.">
            <button class="search-button">검색</button>
         </div>
-	
 	<div class="content-wrapper">
 		<!-- 카드 컨테이너 -->
-		<div class="card-container">
+		<div class="card-container" onclick="location.href='completion/detail';" style="cursor:pointer;">
 			<!-- 여러 카드 -->
 			<div class="card-list">
 				<div class="image-animal" style="background-image: url('<%=request.getContextPath()%>/resources/image/dog_50.jpg');">
@@ -64,7 +64,7 @@
 					<p>관리번호: 24-4-154</p>
 				</div>
 			</div>
-			<div class="card-list">
+			<div class="card-list" onclick="location.href='completion/detail';" style="cursor:pointer;">
 				<div class="image-animal" style="background-image: url('<%=request.getContextPath()%>/resources/image/dog_50.jpg');">
 					<button class="heart-btn">❤️</button>
 				</div>
@@ -75,7 +75,7 @@
 					<p>관리번호: 24-4-154</p>
 				</div>
 			</div>
-			<div class="card-list">
+			<div class="card-list" onclick="location.href='completion/detail';" style="cursor:pointer;">
 				<div class="image-animal" style="background-image: url('<%=request.getContextPath()%>/resources/image/dog_50.jpg');">
 					<button class="heart-btn">❤️</button>
 				</div>
@@ -86,7 +86,7 @@
 					<p>관리번호: 24-4-154</p>
 				</div>
 			</div>
-			<div class="card-list">
+			<div class="card-list" onclick="location.href='completion/detail';" style="cursor:pointer;">
 				<div class="image-animal" style="background-image: url('<%=request.getContextPath()%>/resources/image/dog_50.jpg');">
 					<button class="heart-btn">❤️</button>
 				</div>
@@ -97,7 +97,7 @@
 					<p>관리번호: 24-4-154</p>
 				</div>
 			</div>
-			<div class="card-list">
+			<div class="card-list" onclick="location.href='completion/detail';" style="cursor:pointer;">
 				<div class="image-animal" style="background-image: url('<%=request.getContextPath()%>/resources/image/dog_50.jpg');">
 					<button class="heart-btn">❤️</button>
 				</div>
@@ -108,7 +108,7 @@
 					<p>관리번호: 24-4-154</p>
 				</div>
 			</div>
-			<div class="card-list">
+			<div class="card-list" onclick="location.href='completion/detail';" style="cursor:pointer;">
 				<div class="image-animal" style="background-image: url('<%=request.getContextPath()%>/resources/image/dog_50.jpg');">
 					<button class="heart-btn">❤️</button>
 				</div>
@@ -119,7 +119,7 @@
 					<p>관리번호: 24-4-154</p>
 				</div>
 			</div>
-			<div class="card-list">
+			<div class="card-list" onclick="location.href='completion/detail';" style="cursor:pointer;">
 				<div class="image-animal" style="background-image: url('<%=request.getContextPath()%>/resources/image/dog_50.jpg');">
 					<button class="heart-btn">❤️</button>
 				</div>
@@ -130,7 +130,7 @@
 					<p>관리번호: 24-4-154</p>	
 				</div>
 			</div>
-			<div class="card-list">
+			<div class="card-list" onclick="location.href='completion/detail';" style="cursor:pointer;">
 				<div class="image-animal" style="background-image: url('<%=request.getContextPath()%>/resources/image/dog_50.jpg');">
 					<button class="heart-btn">❤️</button>
 				</div>
@@ -141,7 +141,7 @@
 					<p>관리번호: 24-4-154</p>
 				</div>
 			</div>
-			<div class="card-list">
+			<div class="card-list" onclick="location.href='completion/detail';" style="cursor:pointer;">
 				<div class="image-animal" style="background-image: url('<%=request.getContextPath()%>/resources/image/dog_50.jpg');">
 					<button class="heart-btn">❤️</button>
 				</div>
@@ -185,7 +185,7 @@
 			</li>				
 		</ul>
 	</nav>
-	</div>
+</div>
 <br/>
 <br/>
 <br/>

@@ -3,7 +3,6 @@
 
 <head>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/staff_style/staff_member.css">
-<link rel="stylesheet"  href="<%=request.getContextPath()%>/resources/css/staff_style/staff_style.css">
 <!-- summernote -->
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/bootstrap/plugins/summernote/summernote-bs4.min.css">
 <!-- summernote -->

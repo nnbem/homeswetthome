@@ -3,6 +3,6 @@
 
     
 <script>
-   alert('${msg}');
-   location.href="login";
+	alert('${msg}');
+	location.href="login";
 </script>

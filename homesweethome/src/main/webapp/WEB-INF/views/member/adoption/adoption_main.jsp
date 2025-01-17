@@ -7,7 +7,7 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/member_style/adoption.css">
 </head>
-<div class="content-wrapper">
+
 	<div class="content-title">	
 	<h1><b>입양절차</b></h1>
 </div>
@@ -88,4 +88,5 @@
             </div>
             <a href="#" class="step-button">후기 작성 ➔</a>
         </div>
+    </div>
     </div>

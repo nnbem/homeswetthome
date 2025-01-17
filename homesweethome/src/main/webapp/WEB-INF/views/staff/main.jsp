@@ -27,7 +27,7 @@
          <ul>
             <li><a href="/staff/animalcare">보호동물관리</a></li>
             <li><a href="/staff/member/list">회원관리</a></li>
-            <li><a href="/staff/receive">인계관리</a></li>
+            <li><a href="/staff/receive/receive">인계관리</a></li>
             <li><a href="/staff/adoption">입양신청관리</a></li>
             <li><a href="/staff/graceperiod">유예신청관리</a></li>
             <li><a href="/staff/board/notice">게시판통합관리</a></li>

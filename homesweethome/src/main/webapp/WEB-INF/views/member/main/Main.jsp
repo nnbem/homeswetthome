@@ -14,8 +14,9 @@
 			<!-- 상단 바 -->
 			<div class="header_top">
 				<div class="top_bar">
-					<a href="#">로그인</a> <a href="#">회원가입</a> <a href="#">우편함</a> <a
-						href="/member/mypage/graceperiod">마이페이지</a>
+					<a href="/member/main/guest">로그아웃</a>
+					<a href="#">우편함</a>
+					<a href="/member/mypage/graceperiod">마이페이지</a>
 				</div>
 			</div>
 

@@ -6,7 +6,6 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/common.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/table.css">
 </head>
-<div class="content-wrapper">
 	<div class="content-title">	
 		<h1><b>1:1문의</b></h1>
 	</div>
@@ -61,4 +60,3 @@
 					</tr>
 				</tbody>
 			</table>
-			</div>

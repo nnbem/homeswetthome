@@ -2,5 +2,5 @@
     pageEncoding="UTF-8"%>
 
 <script>
-	location href="<%=request.getContextPath()%>/member/main";
+	location.href="<%=request.getContextPath()%>/member/main";
 </script>

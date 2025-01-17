@@ -6,7 +6,6 @@
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/table.css">
 </head>
 <body>
-<div class="content-wrapper">
 	<div class="content-title">	
 		<h1><b>입양가능-상세</b></h1>
 	</div>
@@ -87,7 +86,11 @@
 	<div class="buttons-wrapper">
 		<button class="rolback" onclick="location.href='/member/animal/announcement'">목록</button>
 	</div>
-</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <!-- JavaScript -->
 <script>
 	// 모든 하트 버튼에 클릭 이벤트 추가

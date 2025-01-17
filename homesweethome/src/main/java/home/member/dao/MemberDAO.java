@@ -8,14 +8,14 @@ import home.member.dto.MemberVO;
 
 public interface MemberDAO {
 
-   List<MemberVO> selectList(PageMaker pageMaker) throws SQLException; // 회원정보
+	List<MemberVO> selectList(PageMaker pageMaker) throws SQLException; // 회원정보
 
-   MemberVO selectMemberByMid(String mid) throws SQLException; // ID로 회원 조회
+	MemberVO selectMemberByMid(String mid) throws SQLException; // ID로 회원 조회
 
-   void insertMember(MemberVO member) throws SQLException; // 회원가입
+	void insertMember(MemberVO member) throws SQLException; // 회원가입
 
-   void updateMember(MemberVO member) throws SQLException; // 회원정보 수정
+	void updateMember(MemberVO member) throws SQLException; // 회원정보 수정
 
-   void deleteMember(String mid) throws SQLException; // 회원탈퇴
+	void deleteMember(String mid) throws SQLException; // 회원탈퇴
 
 }

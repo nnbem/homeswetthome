@@ -6,6 +6,8 @@ import java.util.List;
 import home.commons.request.AnimalCarePageMaker;
 import home.staff.dao.AnimalCareDAO;
 import home.staff.dto.AnimalCareVO;
+import home.staff.dto.AnimalVO;
+import home.staff.dto.BasicVO;
 
 public class AnimalCareServiceImpl implements AnimalCareService {
 
@@ -34,5 +36,31 @@ public class AnimalCareServiceImpl implements AnimalCareService {
 		return animalCareDAO.selectAnimalByEid(eid);
 	}
 
+	@Override
+	public BasicVO basic(Long aid) throws SQLException {
+		return animalCareDAO.selectBasicListByAid(aid);
+	}
 
+	@Override
+	public void registAnimal(AnimalVO animal) throws SQLException {
+		Long aid = animalCareDAO.selectAnimalSeqNext();
+		animal.setAid(aid);
+		animalCareDAO.insertAnimal(animal);
+	}
+
+	@Override
+	public void modifyAnimal(AnimalVO animal) throws SQLException {
+		animalCareDAO.updateAnimal(animal);
+	}
+
+	@Override
+	public void removeAnimal(Long aid) throws SQLException {
+		animalCareDAO.deleteAnimal(aid);
+	}
+
+	@Override
+	public AnimalVO animalByAid(Long aid) throws SQLException {
+		return animalCareDAO.selectAnimalByAid(aid);
+	}
+	
 }

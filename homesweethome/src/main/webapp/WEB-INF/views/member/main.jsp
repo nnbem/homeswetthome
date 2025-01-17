@@ -18,7 +18,7 @@
 					<img id="time_img" src="<%=request.getContextPath()%>/resources/image/time_1.png" alt="time">
 						<span id="session-time" style="margin-right: 10px; font-size: 15px; color: #ffffff">60분</span>
 					
-					<a href="#">로그아웃</a>
+					<a href="/member/main/guest">로그아웃</a>
 					<a href="#">우편함</a>
 					<a href="/member/mypage/graceperiod">마이페이지</a>
 				</div>

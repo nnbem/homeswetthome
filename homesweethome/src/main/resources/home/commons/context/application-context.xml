@@ -5,9 +5,14 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<!-- member.picture -->
-	<bean id="picturePath" 
-		  class="java.lang.String"
-		  c:value="${savePath.member.picture}" 		
+   <bean id="picturePath" 
+        class="java.lang.String"
+        c:value="${savePath.member.picture}"       
+   />
+	<!-- log saved path -->
+	<bean id="logSavedPath"
+	      class="java.lang.String"
+	      c:value="${savePath.log.files}"
 	/>
 	
 	
@@ -36,18 +41,35 @@
 		  class="home.staff.dao.SearchEmployeeDAOImpl"
 		  c:session-ref="sqlSession"
 	/>
-	  <bean id="noticeDAO"
-        class="home.staff.dao.NoticeDAOImpl"
+	<bean id="noticeDAO"
+          class="home.staff.dao.NoticeDAOImpl"
+          c:session-ref="sqlSession"
+   />
+   <bean id="ReceiveDAO"
+		 class="home.staff.dao.ReceiveDAOImpl"
+   		 c:session-ref="sqlSession"
+   />
+   <bean id="sharingDAO"
+        class="home.member.dao.SharingDAOImpl"
         c:session-ref="sqlSession"
    />
+
 
 	
 	
 	
 	<!-- service -->
-	 <bean id="noticeService"
-        class="home.staff.service.NoticeServiceImpl"
-        c:noticeDAO-ref="noticeDAO"
+	<bean id="sharingService"
+        class="home.member.service.SharingServiceImpl"
+        c:sharingDAO-ref="sharingDAO"
+    />
+	<bean id="ReceiveService"
+		  class="home.staff.service.ReceiveServiceImpl"
+		  c:receiveDAO-ref="ReceiveDAO"
+	/>
+	<bean id="noticeService"
+          class="home.staff.service.NoticeServiceImpl"
+          c:noticeDAO-ref="noticeDAO"
    />
 
 	
@@ -65,7 +87,7 @@
 	/>
 	<bean id="EmployeeService"
 		  class="home.staff.service.EmployeeServiceImpl"
-		  c:employeeDAO-ref="EmployeeDAO"
+		  c:employDAO-ref="EmployeeDAO" 
 	/>
 	<bean id="MenuMemberService"
 		  class="home.member.service.MenuMemberServiceImpl"

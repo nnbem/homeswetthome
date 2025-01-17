@@ -120,11 +120,11 @@ div.submit button{
 				<input name="retUrl" value="${retUrl }" type="hidden" />
 				<div class="input-group mb-3">
 					<label>아 이 디</label> &nbsp;
-					<input type="text" class="form-control radius" placeholder="아이디를 입력하세요">
+					<input type="text" name="mid" class="form-control radius" placeholder="아이디를 입력하세요">
 				</div>
 				<div class="input-group mb-3">
 					<label>비밀번호</label>
-					<input type="password" class="form-control radius" placeholder="비밀번호를 입력하세요">
+					<input type="password" name="pwd" class="form-control radius" placeholder="비밀번호를 입력하세요">
 				</div>
 				<div class="row">
 					<div class="col-12 submit" style="margin-bottom: 20px;">

@@ -11,12 +11,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import home.commons.request.AnimalCarePageMaker;
 import home.staff.dto.AnimalCareVO;
+import home.staff.dto.AnimalVO;
+import home.staff.dto.BasicVO;
 import home.staff.service.AnimalCareService;
 
 @Controller
 @RequestMapping("/staff")
 public class AnimalcareController {
-	
 	
 	private AnimalCareService animalCareService;
 	@Autowired
@@ -40,9 +41,31 @@ public class AnimalcareController {
 		return mnv;
 	}
 	
+	@GetMapping("/animalcare/rpb")
+	public ModelAndView animalcareRpb(@ModelAttribute(name = "pageMaker") AnimalCarePageMaker pageMaker, ModelAndView mnv)throws Exception {
+		String url="/staff/animalcare/rpb";
+		
+		List <AnimalCareVO> animalCareList = animalCareService.list(pageMaker);
+		mnv.addObject("animalCareList",animalCareList);
+		mnv.setViewName(url);
+		
+		return mnv;
+	}
+	
 	@GetMapping("/animalcare/basic")
-	public String manager() {
+	public ModelAndView basic(ModelAndView mnv, Long aid)throws Exception {
 		String url="/staff/animalcare/basic/basic";
+		
+		BasicVO basic = animalCareService.basic(aid);
+		mnv.addObject("basic", basic);
+		mnv.setViewName(url);
+		
+		return mnv;
+	}
+	
+	@GetMapping("/animalcare/regist")
+	public String animalRegist()throws Exception{
+		String url="/staff/animalcare/regist";
 		return url;
 	}
 	

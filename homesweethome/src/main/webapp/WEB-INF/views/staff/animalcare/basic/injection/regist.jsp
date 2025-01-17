@@ -15,7 +15,7 @@
 
 <body>
 	<div class="content">
-		<h1><b>접종기록 갱신</b></h1>
+		<h1><b>접종기록 등록</b></h1>
 		<div class="detail">
 			<div class="text-wrapper" id="text-wrapper">
 				<div class="id">
@@ -26,7 +26,7 @@
 				</div>
 			</div>
 			<div class="button-wrapper" id="button-wrapper">
-				<button>접종 기록 갱신</button>
+				<button>접종 기록 등록</button>
 				<button>취소</button>
 			</div>
 		</div>

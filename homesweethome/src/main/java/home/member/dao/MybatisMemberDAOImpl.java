@@ -11,42 +11,41 @@ import home.member.dto.MemberVO;
 
 public class MybatisMemberDAOImpl implements MemberDAO{
 
-   private SqlSession session;
+	private SqlSession session;
 
-   public MybatisMemberDAOImpl(SqlSession session) {
-      this.session = session;
-   }
+	public MybatisMemberDAOImpl(SqlSession session) {
+		this.session = session;
+	}
 
-   @Override
-   public List<MemberVO> selectList(PageMaker pageMaker) throws SQLException {
-      int offset = pageMaker.getStartRow();
-      int limit = pageMaker.getPerPageNum();
-      RowBounds bound = new RowBounds(offset, limit);
-      
-      return session.selectList("Member-Mapper.selectMemberList",pageMaker,bound);
-   }
+	@Override
+	public List<MemberVO> selectList(PageMaker pageMaker) throws SQLException {
+		int offset = pageMaker.getStartRow();
+		int limit = pageMaker.getPerPageNum();
+		RowBounds bound = new RowBounds(offset, limit);
+		
+		return session.selectList("Member-Mapper.selectMemberList",pageMaker,bound);
+	}
 
-   @Override
-   public MemberVO selectMemberByMid(String mid) throws SQLException {
-      return session.selectOne("Member-Mapper.selectMemberByMid", mid);
-   }
+	@Override
+	public MemberVO selectMemberByMid(String mid) throws SQLException {
+		return session.selectOne("Member-Mapper.selectMemberByMid", mid);
+	}
 
-   @Override
-   public void insertMember(MemberVO member) throws SQLException {
-      session.insert("Member-Mapper.insertMember", member);
-      
-   }
+	@Override
+	public void insertMember(MemberVO member) throws SQLException {
+		session.insert("Member-Mapper.insertMember", member);
+		
+	}
 
-   @Override
-   public void updateMember(MemberVO member) throws SQLException {
-      session.update("Member-Mapper.updateMEmber", member);
-   }
+	@Override
+	public void updateMember(MemberVO member) throws SQLException {
+		session.update("Member-Mapper.updateMEmber", member);
+	}
 
-   @Override
-   public void deleteMember(String mid) throws SQLException {
-      session.delete("Member-Mapper.deleteMember" ,mid);      
-   }
-   
-   
+	@Override
+	public void deleteMember(String mid) throws SQLException {
+		session.delete("Member-Mapper.deleteMember" ,mid);		
+	}
+	
 
 }

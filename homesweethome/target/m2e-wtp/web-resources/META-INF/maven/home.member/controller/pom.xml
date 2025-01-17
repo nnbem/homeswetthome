@@ -20,6 +20,7 @@
       <org.springframework.security-version>3.2.3.RELEASE</org.springframework.security-version>
       <oracle.ojdbc6-version>11.2.0.3</oracle.ojdbc6-version>
       <org.apache.commons.dbcp2-version>2.5.0</org.apache.commons.dbcp2-version>
+      <org.lazyluke.log4jdbc.remix-version>0.2.7</org.lazyluke.log4jdbc.remix-version>
       <org.mybatis-version>3.5.0</org.mybatis-version>
       <org.mybatis-spring-version>2.0.0</org.mybatis-spring-version>
       <commons.fileupload-version>1.5</commons.fileupload-version>
@@ -108,6 +109,11 @@
          <artifactId>sitemesh</artifactId>
          <version>${opensymphony.sitemesh-version}</version>
       </dependency>
+      <dependency>
+			<groupId>org.lazyluke</groupId>
+			<artifactId>log4jdbc-remix</artifactId>
+			<version>${org.lazyluke.log4jdbc.remix-version}</version>
+		</dependency>
       <!-- AspectJ -->
       <dependency>
          <groupId>org.aspectj</groupId>

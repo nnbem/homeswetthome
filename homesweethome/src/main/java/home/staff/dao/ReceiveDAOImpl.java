@@ -23,8 +23,8 @@ public class ReceiveDAOImpl implements ReceiveDAO{
 		int limit = pageMaker.getPerPageNum();
 		RowBounds bounds = new RowBounds(offset,limit);
 		
-		List<ReceiveVO> receiveList = session.selectList("Receive-Mapper");
-		return null;
+		List<ReceiveVO> receiveList = session.selectList("Receive-Mapper.SelectSearchReceiveList", pageMaker, bounds);
+		return receiveList;
 	}
 
 	@Override
@@ -34,7 +34,7 @@ public class ReceiveDAOImpl implements ReceiveDAO{
 	}
 
 	@Override
-	public ReceiveVO selectReceiveByRcno(int rcno) throws SQLException {
+	public ReceiveVO selectReceiveByRcno(long rcno) throws SQLException {
 		ReceiveVO receive = session.selectOne("Receive-Mapper.selectReceiveByRcno", rcno);
 		return receive;
 	}
@@ -51,7 +51,7 @@ public class ReceiveDAOImpl implements ReceiveDAO{
 	}
 
 	@Override
-	public void deleteReceive(int rcno) throws SQLException {
+	public void deleteReceive(long rcno) throws SQLException {
 		session.delete("Receive-Mapper.deleteReceive", rcno);
 	}
 

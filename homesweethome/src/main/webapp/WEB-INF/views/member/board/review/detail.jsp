@@ -8,7 +8,6 @@
 </head>
 
 <body>
-<div class="content-wrapper">
 	<div class="content-title">	
 		<h1><b>입양후기-상세</b></h1>
 	</div>
@@ -45,7 +44,6 @@
 	<div class="st-list-button-container">
 		<button type="submit" class="button">목록</button>
 	</div>
-</div>
 </body>
 
 	<script>

@@ -11,6 +11,7 @@ public class NoticeVO {
 	private int viewcnt;
 	private Date regDate;
 	private Date upload_Date;
+	private String eid;
 	
 	public int getNno() {
 		return nno;
@@ -49,9 +50,15 @@ public class NoticeVO {
 		this.upload_Date = upload_Date;
 	}
 	
-	public String getFormatRegDate() {
-	    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-	    return sdf.format(this.getRegDate()); // getRegDate()가 Date 타입 반환을 가정
+	public String getEid() {
+		return eid;
 	}
+	public void setEid(String eid) {
+		this.eid = eid;
+	}
+	public String getFormatRegDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(regDate);
+    }
 
 }

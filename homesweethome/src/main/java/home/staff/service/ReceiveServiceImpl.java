@@ -14,6 +14,7 @@ public class ReceiveServiceImpl implements ReceiveService{
 	public ReceiveServiceImpl(ReceiveDAO receiveDAO) {
 		this.receiveDAO = receiveDAO;
 	}
+	
 	@Override
 	public List<ReceiveVO> list(PageMaker pageMaker) throws SQLException {
 		List<ReceiveVO> receiveList = receiveDAO.selectSearchReceiveList(pageMaker);
@@ -27,13 +28,13 @@ public class ReceiveServiceImpl implements ReceiveService{
 	}
 
 	@Override
-	public ReceiveVO detail(int rcno) throws SQLException {
+	public ReceiveVO detail(long rcno) throws SQLException {
 		ReceiveVO receive = receiveDAO.selectReceiveByRcno(rcno);
 		return receive;
 	}
 
 	@Override
-	public ReceiveVO getReceive(int rcno) throws SQLException {
+	public ReceiveVO getReceive(long rcno) throws SQLException {
 		ReceiveVO receive = receiveDAO.selectReceiveByRcno(rcno);
 		return receive;
 	}
@@ -41,7 +42,7 @@ public class ReceiveServiceImpl implements ReceiveService{
 
 	@Override
 	public void regist(ReceiveVO receive) throws SQLException {
-		int rcno = receiveDAO.selectReceiveSeqNext();
+		long rcno = receiveDAO.selectReceiveSeqNext();
 		receive.setRcno(rcno);
 		receiveDAO.insertReceive(receive);
 	}
@@ -54,7 +55,7 @@ public class ReceiveServiceImpl implements ReceiveService{
 
 
 	@Override
-	public void remove(int rcno) throws SQLException {
+	public void remove(long rcno) throws SQLException {
 		receiveDAO.deleteReceive(rcno);	
 	}
 

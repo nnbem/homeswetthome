@@ -6,7 +6,7 @@
 <mapper namespace="AnimalCare-Mapper">
 	<sql id="search">
 		<if test="name != null and name !=''">
-			and aid like '%'||#{keyword}||'%'
+			and name like '%'||#{name}||'%'
 		</if>	
 		<if test="regdateBefore != null and regdateBefore != '' and regdateAfter != null and regdateAfter != ''">
 			and regdate BETWEEN to_date(#{regdateBefore},'yyyy-MM-dd') and to_date(#{regdateAfter},'yyyy-MM-dd')
@@ -25,6 +25,9 @@
 			<foreach item="state" collection="stateList" index="index" open="(" close=")" separator=",">
 				#{state}
 			</foreach>
+		</if>
+		<if test="eid != null and eid != ''">
+			and eid=#{eid}
 		</if>
 	</sql>
 
@@ -57,6 +60,37 @@
 		where eid=#{eid}
 	</select>
 	
+	<select id="selectBasicListByAid" parameterType="long" resultType="basic">
+		select *
+		from basic_list
+		where aid=#{aid}
+	</select>
+	
+	<select id="selectAnimalByAid" parameterType="long" resultType="animal">
+		select *
+		form animal
+		where aid=#{aid}
+	</select>
+	
+	<insert id="insertAnimal" parameterType="animal">
+		insert into animal(aid, name, character, color, other, state, weight, neutralization, age)
+		values aid=#{aid}, name=#{name}, character=#{character}, color=#{color}, 
+				other=#{other}, state=#{state}, weight=#{weight}, neutralization=#{neutralization}, age=#{age}
+	</insert>
+	<update id="updateAnimal" parameterType="animal">
+		update animal
+		set name=#{name}, character=#{character}, color=#{color}, other=#{other}, 
+			state=#{state}, weight=#{weight}, neutralization=#{neutralization}, age=#{age}
+		where aid=#{aid}
+	</update>
+	<delete id="deleteAnimal" parameterType="long">
+		delete
+		from board
+		where aid=#{aid}
+	</delete>
+	<select id="selectAnimalSeqNext" resultType="long">
+		select animal_seq.nextval as aid from dual
+	</select>
 </mapper>
 
 

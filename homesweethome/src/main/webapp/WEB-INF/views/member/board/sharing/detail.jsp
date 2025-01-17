@@ -11,31 +11,7 @@
 </head>
 
 <!-- 본문 -->
-   <section>
-      <div class="inner_cent">
-      		<!-- Sidebar -->	
-		<div class="sidebar">
-			<h1><b>게시판</b></h1>
-			<div class="sideMenu">
-				<ul class="sideMenu lists">
-					<li class="sideMenu">
-						<ul class="sideMenu list">
-							<li class="list">	
-								<a href="/member/board/review">입양후기</a>
-							</li>
-							<li class="list">
-								<a href="/member/board/perfomance">뽐내기</a>
-							</li>
-							<li class="list">
-								<a href="/member/board/sharing">정보공유</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</div>
 
-<div class="content-wrapper">
 	<div class="content-title">
 		<h1>
 			<b>정보공유</b>
@@ -75,8 +51,7 @@
 			<div class="st-list-button-container">
 				<button type="button" class="button" onclick="back_list();">목록</button>
 			</div>
-		</div>
-	</div>
+
 
 	<script>
 		function delete_go() {

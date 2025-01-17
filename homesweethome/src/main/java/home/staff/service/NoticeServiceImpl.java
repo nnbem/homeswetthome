@@ -35,7 +35,7 @@ public class NoticeServiceImpl implements NoticeService {
 	public void regist(NoticeVO notice) throws SQLException {
 		int nno = noticeDAO.selectNoticeSeqNext();
 		notice.setNno(nno);
-		noticeDAO.insertNotice(notice);	
+		noticeDAO.insertNotice(notice);
 	}
 
 	@Override
@@ -51,6 +51,11 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public void remove(int nno) throws SQLException {
 		NoticeVO notice = noticeDAO.selectNoticeByNno(nno);
+	}
+
+	@Override
+	public NoticeVO getEid(String eid) throws SQLException {
+		return noticeDAO.selectByNoticeEid(eid);
 	}
 	
 	

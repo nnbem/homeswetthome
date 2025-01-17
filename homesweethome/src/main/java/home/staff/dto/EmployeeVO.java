@@ -14,8 +14,16 @@ public class EmployeeVO {
 	private String position;
 	private Date joid_date;
 	private String picture;
+	private int enabled;
 	private List<String> authorities;
 	
+	
+	public int getEnabled() {
+		return enabled;
+	}
+	public void setEnabled(int enabled) {
+		this.enabled = enabled;
+	}
 	public List<String> getAuthorities() {
 		return authorities;
 	}

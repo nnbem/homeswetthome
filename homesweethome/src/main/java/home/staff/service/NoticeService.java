@@ -19,4 +19,6 @@ public interface NoticeService {
 	NoticeVO getnotice(int nno)throws SQLException;
 	
 	void remove(int nno)throws SQLException;
+	
+	NoticeVO getEid(String eid)throws SQLException;
 }

@@ -8,10 +8,23 @@ import home.staff.dto.EmployeeVO;
 
 public interface EmployeeService {
 	List<EmployeeVO> list(PageMaker pageMaker)throws SQLException;
-	EmployeeVO getMember(String eid)throws SQLException;
-	void regist(EmployeeVO employee)throws SQLException;
-	void modify(EmployeeVO employee)throws SQLException;
-	void remove(String eid)throws SQLException;
-	void modifyAuthority(String eid, List<String> authorities)throws Exception;
-	EmployeeVO getEmployee(String eid) throws SQLException;
+	
+	//사원목록
+	List<EmployeeVO> searchList(PageMaker page)throws SQLException;
+	
+	//사원등록
+	void regist(EmployeeVO Employee) throws SQLException;
+	
+	//사원수정
+	void modify(EmployeeVO Employee) throws SQLException;
+	
+	//사원삭제
+	void remove(String id) throws SQLException;
+	
+	//권한수정
+	void modifyAuthority(String id,List<String> authorities) throws SQLException;
+	
+	//사원조회
+	EmployeeVO getEmployee(String id) throws SQLException;
+	
 }

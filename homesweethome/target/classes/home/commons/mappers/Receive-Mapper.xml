@@ -5,10 +5,10 @@
   
   <mapper namespace="Receive-Mapper">
   	<sql id="search">
-  		<if test="searchType == 'rc'.toInt()">
+  		<if test="searchType == 'rc' ">
   			and rcno like '%' ||#{keyword}||'%'
   		</if>
-  		<if test="searchType == 's'.toString()">
+  		<if test="searchType == 's' ">
   			and spot like '%' ||#{keyword}||'%'
   		</if>
   	</sql>
@@ -16,36 +16,34 @@
   	<select id="SelectSearchReceiveList" parameterType="pageMaker" resultType="Receive">
 	  	select *
 	  	from receive
-	  	where rcno is not null
 	  	<include refid="search" />
-	  	order by rectiveDate desc
+	  	order by receive_Date desc
   	</select>
   	
   	<select id="selectSearchReceiveListCount" parameterType="pageMaker" resultType="int">
-  		selece count(*)
+  		select count(*)
   		from receive
-  		where rcno is not null
   		<include refid="search" />
   	</select>
   	
-  	<select id="selectReceiveByRcno" parameterType="int" resultType="receive">
+  	<select id="selectReceiveByRcno" parameterType="long" resultType="receive">
   		select *
-  		frome receive
+  		from receive
   		where rcno=#{rcno}
   	</select>
   	
-  	<insert id="insertReceive" parameterType="int">
+  	<insert id="insertReceive" parameterType="receive">
   		insert into receive(rcno, spot, picture, cantername, regdate, breed, kind, gender, aid, eid)
   		values
   		(#{rcno},#{spot},#{picture},#{cantername},#{regdate},#{breed},#{kind},#{gender},#{aid},#{eid})
   	</insert>
-  	<update id="updateReceive" parameterType="int">
+  	<update id="updateReceive" parameterType="receive">
   		update receive
   		set
   		spot=#{spot}, picture=#{picture}, cantername=#{cantername}, regdate=#{regdate}, breed=#{breed}, kind=#{kind}, genderd=#{genderd}
   		where rcno=#{rcno}
   	</update>
-  	<delete id="deleteReceive" parameterType="int">
+  	<delete id="deleteReceive" parameterType="str">
   		delete
   		from receive
   		where rcno=#{rcno}

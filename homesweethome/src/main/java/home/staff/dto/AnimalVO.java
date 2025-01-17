@@ -1,17 +1,21 @@
 package home.staff.dto;
 
 public class AnimalVO {
-	private int aid;
+	private Long aid;
 	private String name;
+	private String state;
 	private String character;
 	private String color;
+	private int weight;
+	private int neutralization;
+	private int age;
 	private String other;
 	private String eid;
 	
-	public int getAid() {
+	public Long getAid() {
 		return aid;
 	}
-	public void setAid(int aid) {
+	public void setAid(Long aid) {
 		this.aid = aid;
 	}
 	public String getName() {
@@ -62,8 +66,11 @@ public class AnimalVO {
 	public void setNeutralization(int neutralization) {
 		this.neutralization = neutralization;
 	}
-	private String state;
-	private int weight;
-	private int neutralization;
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
 	
 }

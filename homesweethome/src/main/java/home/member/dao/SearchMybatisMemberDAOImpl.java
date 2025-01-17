@@ -14,30 +14,35 @@ import home.member.dto.MemberVO;
 @Repository
 public class SearchMybatisMemberDAOImpl extends MybatisMemberDAOImpl implements SearchMemberDAO {
 
-   private SqlSession session;
+	private SqlSession session;
 
-   @Autowired
-   public SearchMybatisMemberDAOImpl(SqlSession session) {
-      super(session);
-      this.session = session;
-   }
+	@Autowired
+	public SearchMybatisMemberDAOImpl(SqlSession session) {
+		super(session);
+		this.session = session;
+	}
 
-   @Override
-   public List<MemberVO> selectSearchMemberList(PageMaker pageMaker) throws SQLException {
-      int offset = pageMaker.getStartRow()-1;
-      int limit = pageMaker.getPerPageNum();
-      
-      RowBounds rows = new RowBounds(offset,limit);
-      
-      List<MemberVO> memberList 
-      = session.selectList("Member-Mapper.selectSearchMemberList",pageMaker,rows);
-      return memberList;
-   }
+	@Override
+	public List<MemberVO> selectSearchMemberList(PageMaker pageMaker) throws SQLException {
+		int offset = pageMaker.getStartRow()-1;
+		int limit = pageMaker.getPerPageNum();
+		
+		RowBounds rows = new RowBounds(offset,limit);
+		
+		List<MemberVO> memberList 
+		= session.selectList("Member-Mapper.selectSearchMemberList",pageMaker,rows);
+		return memberList;
+	}
 
-   @Override
-   public int selectSearchMemberListCount(PageMaker pageMaker) throws SQLException {
-      return session.selectOne("Member-Mapper.selectSearchMemberListCount", pageMaker);
-   }
-   
-   
+	@Override
+	public int selectSearchMemberListCount(PageMaker pageMaker) throws SQLException {
+		return session.selectOne("Member-Mapper.selectSearchMemberListCount", pageMaker);
+	}
+
+	@Override
+	public MemberVO getMemberByMid(String mid) {
+		return session.selectOne("Member-Mapper.getMemberByMid", mid);
+	}
+	
+	
 }

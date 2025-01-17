@@ -28,15 +28,6 @@ public class BoardController {
 		return url;
 	}
 
-	@GetMapping("/board/sharing")
-	public String sharing() {
-		return "member/board/sharing";
-	}
-
-	@GetMapping("/board/sharing/detail")
-	public String sharing_detail() {
-		return "member/board/sharing/detail";
-	}
 
 	@GetMapping("/board/perfomance")
 	public String board_perfomance() {
