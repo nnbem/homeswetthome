@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <head>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/staff_style/regist_style.css">
 <link rel="stylesheet"
   href="<%=request.getContextPath()%>/resources/css/staff_style/staff_style2.css">
+  
 </head>
 
 
@@ -23,48 +26,50 @@
 							<tr>
 								<td class="center_cell">인계번호</td>
 								<td class="left_cell" >
-									<input class="input_form" type="text" name="name" placeholder="2200001001" style="border: none;">
+									<span  style="border: none;">${receive.rcno  != null ? receive.rcno : 'N/A'}</span>
 								</td>
 								<td class="center_cell">발견장소</td>
 								<td class="left_cell">
-									<input class="input_form" type="text" name="name" placeholder="대전 동구" style="border: none;">
+									<span style="border: none;">${receive.spot }</span>
 								</td>
 							</tr>
 							<tr>
 								<td class="center_cell">인계 센터 이름</td>
 								<td class="left_cell">
-									<input class="input_form" type="text" name="name" placeholder="대전유기견보호소" style="border: none;">
+									<span style="border: none;">${receive.cantername }</span>
 								</td>
 								<td class="center_cell">발견날짜</td>
 								<td class="left_cell">
-									<input class="input_form" type="text" name="name" placeholder="2024년 12월 30일" style="border: none;">
+									 <fmt:formatDate value="${receive.regdate}" pattern="yyyy-MM-dd" />
 								</td>
 							</tr>
 							<tr>
 								<td class="center_cell">품종</td>
 								<td class="left_cell">
-									<input class="input_form" type="text" name="name" placeholder="진돗개" style="border: none;">
+									<span style="border: none;">${receive.breed }</span>
 								</td>
 								<td class="center_cell">성별</td>
 								<td class="left_cell">
-									<input class="input_form" type="text" name="name" placeholder="암컷/수컷" style="border: none;">
+									<span style="border: none;">${receive.gender }</span>
 								</td>
 							</tr>
 							<tr>
-								<td class="center_cell">계과목</td>
+								<td class="center_cell">종류</td>
 								<td colspan="3" class="left_cell">
-									<input class="input_form" type="text" name="name" placeholder="강아지과" style="border: none;">
+									<span style="border: none;">${receive.kind }</span>
 								</td>
 							</tr>
 							<tr>
 								<td class="center_cell">보호동물관리번호</td>
 								<td colspan="3" class="left_cell">
-									<input class="input_form" type="text" name="name" placeholder="410060426700001" style="border: none;">
+									<span style="border: none;">${receive.aid }</span>
 								</td>
 							</tr>
 							<tr>
-								<td class="center_cell">발견사진</td>
-								<td colspan="3"><input type="file" name="file"></td>
+								<td class="center_cell">구조사진</td>
+								<td colspan="3">
+								<span style="border: none;">${receive.picture }</span>
+								</td>
 							</tr>
 						</table>
 						
@@ -78,7 +83,7 @@
 <script>
 function back_page() {
     // 이동할 페이지 URL 설정
-    window.location.href = "/staff/receive";
+    window.location.href = "/staff/receive/receive";
 }
 </script>
 

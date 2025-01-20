@@ -19,7 +19,8 @@
 			<hr />
 			<br />
 			<div class="search-bar">
-				<button type="submit" class="regi_button" onclick="open_regist();">등　록</button>
+				<button type="submit" class="regi_button" onclick="open_regist();">등
+					록</button>
 				<button class="refresh-button">⟳&nbsp;&nbsp;</button>
 				<select class="sort-select">
 					<option value="">정렬개수</option>
@@ -55,28 +56,25 @@
 						</tr>
 					</c:if>
 
-					<c:if test="${not empty receiveList }">
-						<c:forEach var="receive" items="${receiveList}">
-							<fmt:formatDate var="regDate" value="${receive.receive_date}"
-								pattern="yyyy-MM-dd" />
-							<c:url var="detailUrl" value="/staff/receive/detail/">
-								<c:param name="rcno" value="${receive.rcno}" />
-							</c:url>
-							<tr>
-								<td>${receive.rcno }</td>
-								<td>${receive.spot }</td>
-								<td>${receive.gender }</td>
-								<td>${receive.breed }</td>
-								<td>${receive.aid }</td>
-								<td>${regDate}</td>
-							</tr>
-						</c:forEach>
-					</c:if>
+					<c:forEach var="receive" items="${receiveList}">
+						<fmt:formatDate var="regDate" value="${receive.receive_date}"
+							pattern="yyyy-MM-dd" />
+						<c:url var="detailUrl" value="/staff/receive/detail">
+							<c:param name="rcno" value="${receive.rcno}" />
+						</c:url>
+						<tr style="cursor: pointer;" onclick="detail_go('${detailUrl}');">
+							<td>${receive.rcno }</td>
+							<td>${receive.spot }</td>
+							<td>${receive.gender }</td>
+							<td>${receive.breed }</td>
+							<td>${receive.aid }</td>
+							<td>${regDate}</td>
+						</tr>
+					</c:forEach>
 				</tbody>
-
-
-
 			</table>
+			<br />
+			<%@ include file="/WEB-INF/views/module/pagination.jsp"%>
 		</div>
 		<!-- search-container -->
 	</div>
@@ -88,6 +86,14 @@
 	function open_regist() {
 		// 이동할 페이지 URL 설정
 		window.location.href = "/staff/receive/regist"; // 여기에 이동할 페이지 경로를 넣으세요.
+	}
+	// 	function detail_go() {
+	// 		// 이동할 페이지 URL 설정
+	// 		window.location.href = "/staff/receive/detail"; // 여기에 이동할 페이지 경로를 넣으세요.
+	// 	}
+	function detail_go(url) {
+		// 전달받은 URL로 이동
+		window.location.href = url;
 	}
 </script>
 

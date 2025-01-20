@@ -18,8 +18,12 @@
 		<pattern>*/open_regist</pattern>
 		<pattern>*/open_modify</pattern>
 		
-		<pattern>/staff/login</pattern>	
-
+		<pattern>/staff/login</pattern>   
+		<pattern>/staff/index</pattern>
+		<pattern>/staff/accessDenied</pattern>
+		<pattern>/staff/loginTimeOut</pattern>
+		<pattern>/staff/loginExpired</pattern>
+		
 		<pattern>/member/join</pattern>
 		<pattern>/member/login</pattern>
 		<pattern>/member/login/find/*</pattern>
@@ -28,6 +32,7 @@
 		<pattern>/member/mypage/deactivation/open_cancel</pattern>
 		<pattern>/member/mypage/adopt/open_animal</pattern>
 		<pattern>/member/checkid*</pattern>
+		
 
 	</excludes>
 </decorators>

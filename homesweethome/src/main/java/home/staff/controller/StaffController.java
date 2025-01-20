@@ -1,6 +1,7 @@
 package home.staff.controller;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import home.staff.service.EmployeeService;
 
@@ -34,6 +36,26 @@ public class StaffController {
 		String url = "staff/commons/loginForm";
 		response.setStatus(302);
 		return url;
+	}
+	@PostMapping("/login")
+	public String loginpost(
+	    @RequestParam("username") String username,
+	    @RequestParam("password") String password,
+	    HttpSession session,
+	    HttpServletResponse response,
+	    Model model
+	) throws Exception {
+	    String url = "redirect:/staff/home"; // 로그인 성공 시 이동할 기본 페이지
+
+	    // 로그인 로직 (임시 검증 로직 사용)
+	    if (username.equals("admin") && password.equals("password123")) {
+	        session.setAttribute("loggedInUserId", username); // 세션에 사용자 ID 저장
+	        return url;
+	    } else {
+	        // 로그인 실패 시 처리
+	        model.addAttribute("loginError", "Invalid username or password.");
+	        return "staff/commons/loginForm";
+	    }
 	}
 	
 	@GetMapping("/index")
