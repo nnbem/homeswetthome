@@ -34,7 +34,7 @@ public class ReceiveDAOImpl implements ReceiveDAO{
 	}
 
 	@Override
-	public ReceiveVO selectReceiveByRcno(long rcno) throws SQLException {
+	public ReceiveVO selectReceiveByRcno(int rcno) throws SQLException {
 		ReceiveVO receive = session.selectOne("Receive-Mapper.selectReceiveByRcno", rcno);
 		return receive;
 	}
@@ -51,7 +51,7 @@ public class ReceiveDAOImpl implements ReceiveDAO{
 	}
 
 	@Override
-	public void deleteReceive(long rcno) throws SQLException {
+	public void deleteReceive(int rcno) throws SQLException {
 		session.delete("Receive-Mapper.deleteReceive", rcno);
 	}
 
@@ -59,6 +59,12 @@ public class ReceiveDAOImpl implements ReceiveDAO{
 	public int selectReceiveSeqNext() throws SQLException {
 		int rcno = session.selectOne("Receive-Mapper.selectReceiveSeqNext");
 		return rcno;
+	}
+
+	@Override
+	public ReceiveVO selectReceiveByAid(long aid) throws SQLException {
+		ReceiveVO receive = session.selectOne("Receive-Mapper.selectReceiveByAid",aid);
+		return receive;
 	}
 
 }

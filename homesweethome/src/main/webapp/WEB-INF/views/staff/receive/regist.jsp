@@ -7,7 +7,7 @@
   href="<%=request.getContextPath()%>/resources/css/staff_style/staff_style2.css">
 </head>
 
-<form name="registForm" method="post" id="registForm" action="/staff/receive/regist/post" enctype="multipart/form-data">
+<form name="registForm" method="post" id="registForm" action="/staff/receive/regist" enctype="multipart/form-data">
     <div class="ineerWrapper">
         <div class="content">
             <div class="main-container">
@@ -20,51 +20,42 @@
                     <div class="table card-body table-responsive p-0">
                         <table class="table" id="basic">
                             <tr>
-                                <td class="center_cell">인계번호</td>
-                                <td class="left_cell">
-                                    <input class="input_form_notNull" type="text" name="rcno" placeholder="2200001001" title="인계번호" style="border: none;">
-                                </td>
+                               <td class="center_cell">인계 센터 이름</td>
+								<td class="left_cell">
+									<input class="input_form_notnull" type="text" name="cantername" placeholder="" >
+								</td>
                                 <td class="center_cell">발견장소</td>
                                 <td class="left_cell">
-                                    <input class="input_form_notNull" type="text" name="spot" placeholder="대전 동구" title="발견장소" style="border: none;">
+                                    <input class="input_form_notnull" type="text" name="spot" placeholder="" >
                                 </td>
                             </tr>
                             <tr>
-								<td class="center_cell">인계 센터 이름</td>
+								<td class="center_cell">종류</td>
 								<td class="left_cell">
-									<input class="input_form_notnull" type="text" name="cantername" placeholder="대전유기견보호소" style="border: none;">
+									<input class="input_form_notnull" type="text" name="kind" placeholder="">
 								</td>
 								<td class="center_cell">발견날짜</td>
 								<td class="left_cell">
-									<input class="input_form_notnull" type="date" name="regdate" title="발견날짜" style="border: none;">
+									<input class="input_form_notnull" type="date" name="regdate" title="발견날짜">
 								</td>
 							</tr>
 							<tr>
 								<td class="center_cell">품종</td>
 								<td class="left_cell">
-									<input class="input_form_notnull" type="text" name="breed" placeholder="진돗개" style="border: none;">
+									<input class="input_form_notnull" type="text" name="breed" placeholder="">
 								</td>
 								<td class="center_cell">성별</td>
 								<td class="left_cell">
-									<input class="input_form_notnull" type="text" name="gender" placeholder="암컷/수컷" style="border: none;">
-								</td>
-							</tr>
-							<tr>
-								<td class="center_cell">종류</td>
-								<td colspan="3" class="left_cell">
-									<input class="input_form_notnull" type="text" name="kind" placeholder="강아지과" style="border: none;">
-								</td>
-							</tr>
-							<tr>
-								<td class="center_cell">보호동물관리번호</td>
-								<td colspan="3" class="left_cell">
-									<input class="input_form_notnull" type="text" name="aid" placeholder="410060426700001" style="border: none;">
+									<input class="input_form_notnull" type="text" name="gender" placeholder="">
 								</td>
 							</tr>
                             <tr>
                                 <td class="center_cell">발견사진</td>
-                                <td colspan="3"><input type="file" name="picture"></td>
+                                <td colspan="3">
+                                	<input type="file" name="picture"></td>
                             </tr>
+							
+							                            
                         </table>
                     </div>
                 </div>
@@ -81,17 +72,17 @@ function back_page() {
 
 function reg_complet() {
     var form = document.forms.registForm;
-    var input_form = document.querySelectorAll(".notNull");
-    for (var input of input_form) {
+    var inputs = document.querySelectorAll(".input_form_notnull");
+
+    for (var input of inputs) {
         if (!input.value) {
-            alert(input.getAttribute("centername") + "은 필수입니다.");
+            alert(input.placeholder + "은(는) 필수입니다."); // 필드 이름 표시
             input.focus();
             return;
         }
     }
-    form.action = "/staff/receive/regist/post";
-    form.method = "post";
-    form.submit();
+
+    form.submit(); // 폼 제출
 }
 
 </script>

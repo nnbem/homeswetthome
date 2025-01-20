@@ -28,13 +28,13 @@ public class ReceiveServiceImpl implements ReceiveService{
 	}
 
 	@Override
-	public ReceiveVO detail(long rcno) throws SQLException {
+	public ReceiveVO detail(int rcno) throws SQLException {
 		ReceiveVO receive = receiveDAO.selectReceiveByRcno(rcno);
 		return receive;
 	}
 
 	@Override
-	public ReceiveVO getReceive(long rcno) throws SQLException {
+	public ReceiveVO getReceive(int rcno) throws SQLException {
 		ReceiveVO receive = receiveDAO.selectReceiveByRcno(rcno);
 		return receive;
 	}
@@ -42,7 +42,7 @@ public class ReceiveServiceImpl implements ReceiveService{
 
 	@Override
 	public void regist(ReceiveVO receive) throws SQLException {
-		long rcno = receiveDAO.selectReceiveSeqNext();
+		int rcno = receiveDAO.selectReceiveSeqNext();
 		receive.setRcno(rcno);
 		receiveDAO.insertReceive(receive);
 	}
@@ -55,8 +55,15 @@ public class ReceiveServiceImpl implements ReceiveService{
 
 
 	@Override
-	public void remove(long rcno) throws SQLException {
+	public void remove(int rcno) throws SQLException {
 		receiveDAO.deleteReceive(rcno);	
 	}
+
+	@Override
+	public ReceiveVO getReceiveByAid(long aid) throws SQLException {
+		return receiveDAO.selectReceiveByAid(aid);
+	}
+
+	
 
 }

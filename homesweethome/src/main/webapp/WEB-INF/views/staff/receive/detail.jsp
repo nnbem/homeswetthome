@@ -17,6 +17,7 @@
 		<div class="main-container">
 			<div class="st-list-button-container">
 				<button type="submit" class="button" onclick="back_page();">목록</button>
+				<button type="button" class="regi_button" onclick="modify_go();">수정하기</button>
 			</div>
 			
 				<div class="inner_container">
@@ -84,6 +85,10 @@
 function back_page() {
     // 이동할 페이지 URL 설정
     window.location.href = "/staff/receive/receive";
+}
+function modify_go() {
+    // 이동할 페이지 URL 설정
+    window.location.href = "/staff/receive/modify";
 }
 </script>
 

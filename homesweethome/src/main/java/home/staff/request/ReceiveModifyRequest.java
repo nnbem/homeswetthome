@@ -1,21 +1,21 @@
-package home.staff.dto;
+package home.staff.request;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ReceiveVO {
+import org.springframework.web.multipart.MultipartFile;
+
+import home.staff.dto.ReceiveVO;
+
+public class ReceiveModifyRequest {
+
 	private int rcno; //인계번호
 	private String spot; //발견장소
-	private String picture; //발견사진
+	private MultipartFile picture; //발견사진
 	private String cantername; //인계센터이름
 	private Date regdate; //발견날짜
 	private String breed; //품종
 	private String kind; //종류
 	private String gender; //성별
-	private long aid; //동물보호등록번호
-	private String eid; //사원번호
-	private Date receive_date=new Date(); //인계등록날짜
-	
 	public int getRcno() {
 		return rcno;
 	}
@@ -28,10 +28,10 @@ public class ReceiveVO {
 	public void setSpot(String spot) {
 		this.spot = spot;
 	}
-	public String getPicture() {
+	public MultipartFile getPicture() {
 		return picture;
 	}
-	public void setPicture(String picture) {
+	public void setPicture(MultipartFile picture) {
 		this.picture = picture;
 	}
 	public String getCantername() {
@@ -64,30 +64,17 @@ public class ReceiveVO {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public long getAid() {
-		return aid;
-	}
-	public void setAid(long aid) {
-		this.aid = aid;
-	}
-	public String getEid() {
-		return eid;
-	}
-	public void setEid(String eid) {
-		this.eid = eid;
-	}
-	public Date getReceive_date() {
-		return receive_date;
-	}
-	public void setReceive_date(Date receive_date) {
-		this.receive_date = receive_date;
-	}
 	
-	
-	public String getFormatregdate() {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        return sdf.format(regdate);
+	public ReceiveVO toReceiveVO() {
+        ReceiveVO receive = new ReceiveVO();
+        receive.setRcno(rcno);
+        receive.setSpot(spot);
+        receive.setCantername(cantername);
+        receive.setRegdate(regdate);
+        receive.setBreed(breed);
+        receive.setKind(kind);
+        receive.setGender(gender);
+        
+        return receive;
     }
-	
-	
 }

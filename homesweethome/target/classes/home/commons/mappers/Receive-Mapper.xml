@@ -26,7 +26,7 @@
   		<include refid="search" />
   	</select>
   	
-  	<select id="selectReceiveByRcno" parameterType="long" resultType="receive">
+  	<select id="selectReceiveByRcno" parameterType="int" resultType="receive">
   		select *
   		from receive
   		where rcno=#{rcno}
@@ -35,14 +35,16 @@
   	<insert id="insertReceive" parameterType="receive">
   		insert into receive(rcno, spot, picture, cantername, regdate, breed, kind, gender, aid, eid)
   		values
-  		(#{rcno},#{spot},#{picture},#{cantername},#{regdate},#{breed},#{kind},#{gender},#{aid},#{eid})
+  		(#{rcno}, #{spot}, #{picture}, #{cantername}, #{regdate}, #{breed}, #{kind}, #{gender}, #{aid}, #{eid})
   	</insert>
   	<update id="updateReceive" parameterType="receive">
   		update receive
   		set
-  		spot=#{spot}, picture=#{picture}, cantername=#{cantername}, regdate=#{regdate}, breed=#{breed}, kind=#{kind}, genderd=#{genderd}
-  		where rcno=#{rcno}
+  		rcno=#{rcno}, spot=#{spot}, picture=#{picture}, cantername=#{cantername}, regdate=#{regdate}, breed=#{breed}, kind=#{kind}, genderd=#{genderd}
+  		where aid=#{aid}
   	</update>
+  	
+
   	<delete id="deleteReceive" parameterType="str">
   		delete
   		from receive
@@ -52,4 +54,10 @@
   	<select id="selectReceiveSeqNext" resultType="int">
   		select receive_seq.nextval as rcno from dual
   	</select>
+  	
+  	<select id="selectReceiveByAid" parameterType="long" resultType="receive">
+  	select *
+  	from receive
+  	where aid = #{aid}
+	</select>
   </mapper>

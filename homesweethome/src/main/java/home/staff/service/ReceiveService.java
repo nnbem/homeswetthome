@@ -12,15 +12,16 @@ public interface ReceiveService {
 		public List<ReceiveVO> list(PageMaker pageMaker) throws SQLException;
 		
 		//상세
-		public ReceiveVO detail(long rcno) throws SQLException;
+		public ReceiveVO detail(int rcno) throws SQLException;
 		
 		//수정
-		public ReceiveVO getReceive(long rcno) throws SQLException;
+		public ReceiveVO getReceive(int rcno) throws SQLException;
+		public ReceiveVO getReceiveByAid(long aid) throws SQLException;
 		public void modify(ReceiveVO receive) throws SQLException;
 		
 		//등록
 		public void regist (ReceiveVO receive) throws SQLException;
 		
 		//삭제
-		public void remove(long rcno) throws SQLException;
+		public void remove(int rcno) throws SQLException;
 }

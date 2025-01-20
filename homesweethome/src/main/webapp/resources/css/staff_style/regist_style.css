@@ -181,6 +181,10 @@ input.table-input-date{
 	border: none;
 	outline: none;
 }
+input.input_form_notnull{
+	outline: none;
+	border: none;
+}
 
 input.table-input-radio{
 	margin: 0 10px;

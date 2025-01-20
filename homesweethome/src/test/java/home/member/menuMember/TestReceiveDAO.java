@@ -19,19 +19,18 @@ public class TestReceiveDAO {
 
     @Test
     public void testSelectMember() throws Exception {
-        // 테스트할 rcno
-        long targetRcno = 410060426700015L; // 'L' 추가하여 long 타입 리터럴로 명시
+        int targetRcno = 1; // 테스트할 RCNO 값
 
         // Receive 데이터 가져오기
         ReceiveVO receive = receiveDAO.selectReceiveByRcno(targetRcno);
 
-        // receive가 null인지 확인 후 처리
+        // Null 체크
         Assert.assertNotNull("ReceiveVO is null. Check if data exists for rcno: " + targetRcno, receive);
 
-        // rcno 검증
+        // 값 확인
         Assert.assertEquals("RCNO does not match", targetRcno, receive.getRcno());
 
-        // 테스트 데이터 출력
+        // 출력
         System.out.println("Receive Data: " + receive);
     }
 }
