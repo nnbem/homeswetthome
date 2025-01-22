@@ -7,7 +7,7 @@
   href="<%=request.getContextPath()%>/resources/css/staff_style/staff_style2.css">
 </head>
 
-<form name="modifyForm" method="post" id="modifyForm" action="/staff/employee/modify/post" enctype="post">
+<form name="modifyForm" method="post" id="modifyForm" action="/staff/employee/modify/post">
     <div class="ineerWrapper">
         <div class="content">
             <div class="main-container">
@@ -33,15 +33,26 @@
                                 <td class="left_cell">
                                 	<input type="text" name="name" value="${employee.name }" readonly style="border: none; outline: none;">
                                 </td>
-                                <td class="center_cell">사원번호(아이디)</td>
+                                <td class="center_cell">부서</td>
+								<td class="left_cell">
+									<input class="input_form_notnull" type="text" name="position" value="${employee.position }" >
+								</td>
+                                
+                            </tr>
+                            <tr>
+								<td class="center_cell">사원번호(아이디)</td>
                                 <td class="left_cell">
                                     <input class="input_form_notNull" type="text" name="eid" value="${employee.eid }" readonly style="border: none; outline: none;">
                                 </td>
-                            </tr>
-                            <tr>
-								<td class="center_cell">부서</td>
+                                <td class="center_cell">비밀번호</td>
+                                <td class="left_cell">
+                                    <input class="input_form_notNull" type="text" name="pwd" value="${employee.pwd }" style="border: none; outline: none;">
+                                </td>
+							</tr>
+							<tr>
+								<td class="center_cell">생년월일</td>
 								<td class="left_cell">
-									<input class="input_form_notnull" type="text" name="position" value="${employee.position }" >
+									<input class="input_form_notnull" type="text" name="birth" value="${employee.birth }" readonly>
 								</td>
 								<td class="center_cell">입사일</td>
 								<td class="left_cell">
@@ -49,21 +60,15 @@
 								</td>
 							</tr>
 							<tr>
-								<td class="center_cell">생년월일</td>
+								<td class="center_cell">이메일</td>
 								<td class="left_cell">
-									<input class="input_form_notnull" type="text" name="birth" value="${employee.birth }" readonly>
+									<input class="input_form_notnull" type="text" name="birth" value="${employee.email }">
 								</td>
 								<td class="center_cell">전화번호</td>
 								<td class="left_cell">
 									<input class="input_form_notnull" type="text" name="phone"  value="${employee.phone }">
 								</td>
 							</tr>
-                            <tr>
-                                <td class="center_cell">이메일</td>
-                                <td colspan="3" class="left_cell">
-                                	<input class="input_form_notnull" type="text" name="email"  value="${employee.email }">
-                                </td>
-                            </tr>
                             <tr>
                             	<td class="center_cell">주소</td>
                             	<td colspan="3" class="left_cell">

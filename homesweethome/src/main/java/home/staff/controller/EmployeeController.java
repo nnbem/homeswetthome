@@ -65,27 +65,37 @@ public class EmployeeController {
 		return "staff/employee/modify";
 	}
 	@PostMapping("/employee/modify/post")
-	public String employee_modify_post(@ModelAttribute EmployeeModifyRequest modifyRequest, Model model) throws Exception{
-		
-		EmployeeVO employee = modifyRequest.toEmployeeVO();
-		
-		  System.out.println("Received eid: " + modifyRequest.getEid());
-		  
-		EmployeeVO existingEmployee = employeeService.getEmployee(employee.getEid());
-		if(existingEmployee == null) {
-			model.addAttribute("errorMessage", "해당 데이터를 찾을 수 없습니다.");
-			return "/errorPage";
-		}
-		
-		employee.setName(employee.getName() == null ? existingEmployee.getName() : employee.getName());
-		employee.setEid(employee.getEid() == null ? existingEmployee.getEid() : employee.getEid());
-		employee.setBirth(employee.getBirth() == null ? existingEmployee.getBirth() : employee.getBirth());
-		employee.setJoid_date(employee.getJoid_date() == null ? existingEmployee.getJoid_date() : employee.getJoid_date());
-		
-		employeeService.modify(employee);
-		model.addAttribute("message", "수정 되었습니다.");
-		return "/staff/employee/modify_success";
-		
+	public String employee_modify_post(@ModelAttribute EmployeeModifyRequest modifyRequest, Model model) throws Exception {
+
+	    // modifyRequest에서 데이터 확인
+	    System.out.println("Received modifyRequest: " + modifyRequest);
+	    System.out.println("Received pwd: " + modifyRequest.getPwd());
+
+	    // EmployeeVO 변환
+	    EmployeeVO employee = modifyRequest.toEmployeeVO();
+
+	    // 변환 후 EmployeeVO 확인
+	    System.out.println("Converted EmployeeVO: " + employee);
+	    System.out.println("EmployeeVO pwd: " + employee.getPwd());
+
+	    // 기존 로직 실행
+	    EmployeeVO existingEmployee = employeeService.getEmployee(employee.getEid());
+	    if (existingEmployee == null) {
+	        model.addAttribute("errorMessage", "해당 데이터를 찾을 수 없습니다.");
+	        return "/errorPage";
+	    }
+
+	    employee.setName(employee.getName() == null ? existingEmployee.getName() : employee.getName());
+	    employee.setPwd(employee.getPwd() == null ? existingEmployee.getPwd() : employee.getPwd());
+	    employee.setBirth(employee.getBirth() == null ? existingEmployee.getBirth() : employee.getBirth());
+	    employee.setJoid_date(employee.getJoid_date() == null ? existingEmployee.getJoid_date() : employee.getJoid_date());
+
+	    System.out.println("Final EmployeeVO for modification: " + employee);
+
+	    employeeService.modify(employee);
+	    model.addAttribute("message", "수정되었습니다.");
+	    return "/staff/employee/modify_success";
 	}
+
 
 }

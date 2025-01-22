@@ -64,7 +64,7 @@
 		values(#{eid}, #{pwd}, #{name}, #{phone}, #{email}, #{birth}, #{department}, #{position}, #{joid_date}, #{picture})
 	</insert>
 	<update id="updateEmployee" parameterType="employee">
-		update
+		update employee
 		set
 		pwd=#{pwd},phone=#{phone},email=#{email}, birth=#{birth}, department=#{department}, position=#{position}, picture=#{picture}
 		where eid=#{eid}

@@ -5,6 +5,7 @@ import home.staff.dto.EmployeeVO;
 public class EmployeeModifyRequest {
 
 	private String eid;
+	private String pwd;
 	private String phone;
 	private String email;
 	private String department;
@@ -12,6 +13,12 @@ public class EmployeeModifyRequest {
 	
 	
 	
+	public String getPwd() {
+		return pwd;
+	}
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
 	public String getEid() {
 		return eid;
 	}
@@ -46,6 +53,7 @@ public class EmployeeModifyRequest {
 	public EmployeeVO toEmployeeVO() {
 		EmployeeVO employee = new EmployeeVO();
 		employee.setEid(eid);
+		employee.setPwd(pwd);
 		employee.setPhone(phone);
 		employee.setEmail(email);
 		employee.setDepartment(department);

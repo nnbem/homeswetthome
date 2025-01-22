@@ -55,10 +55,11 @@
 		 class="home.staff.dao.ReceiveDAOImpl"
    		 c:session-ref="sqlSession"
    />
-	<bean id="sharingDAO"
-		  class="home.member.dao.SharingDAOImpl"
-		  c:session-ref="sqlSession"
-    />
+   <bean id="sharingDAO"
+   		 class="home.member.dao.SharingDAOImpl"
+   		 c:session-ref="sqlSession"
+   />
+	
 
 
 	

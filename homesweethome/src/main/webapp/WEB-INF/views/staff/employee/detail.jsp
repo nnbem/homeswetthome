@@ -28,19 +28,19 @@
 								<td class="left_cell" >
 									<span  style="border: none;">${employee.name }</span>
 								</td>
-								<td class="center_cell">사원번호(아이디)</td>
-								<td class="left_cell">
-									<span style="border: none;">${employee.eid }</span>
-								</td>
-							</tr>
-							<tr>
 								<td class="center_cell">부서</td>
 								<td class="left_cell">
 									<span style="border: none;">${employee.position }</span>
 								</td>
-								<td class="center_cell">입사일</td>
+							</tr>
+							<tr>
+								<td class="center_cell">사원번호(아이디)</td>
 								<td class="left_cell">
-									<span style="border: none;">${employee.joid_date }</span>
+									<span style="border: none;">${employee.eid }</span>
+								</td>
+								<td class="center_cell">비밀번호</td>
+								<td class="left_cell">
+									<span style="border: none;">${employee.pwd }</span>
 								</td>
 							</tr>
 							<tr>
@@ -48,15 +48,19 @@
 								<td class="left_cell">
 									<span style="border: none;">${employee.birth }</span> 
 								</td>
-								<td class="center_cell">전화번호</td>
+								<td class="center_cell">입사일</td>
 								<td class="left_cell">
-									<span style="border: none;">${employee.phone }</span>
+									<span style="border: none;">${employee.joid_date }</span>
 								</td>
 							</tr>
 							<tr>
 								<td class="center_cell">이메일</td>
-								<td colspan="3" class="left_cell">
+								<td class="left_cell">
 									<span style="border: none;">${employee.email }</span>
+								</td>
+								<td class="center_cell">전화번호</td>
+								<td class="left_cell">
+									<span style="border: none;">${employee.phone }</span>
 								</td>
 							</tr>
 							<tr>
