@@ -7,6 +7,7 @@ import home.commons.request.PageMaker;
 import home.staff.dto.EmployeeVO;
 
 public interface EmployeeService {
+	
 	List<EmployeeVO> list(PageMaker pageMaker)throws SQLException;
 	
 	//사원목록

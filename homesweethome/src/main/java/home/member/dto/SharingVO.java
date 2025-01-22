@@ -5,14 +5,14 @@ import java.util.Date;
 public class SharingVO {
 	
 	private int sno;
-	private String title = "";
-	private String content = "";
-	private int viewcnt = 0;
-	private Date regDate = new Date();
+	private String title;
+	private String content;
+	private int viewcount;
+	private Date created;
 	private Date sharing_UpDated;
 	private int report_cnt;
 	private String mid;
-	// private int likeNum;
+	private int likeNum;
 	
 	public int getSno() {
 		return sno;
@@ -33,16 +33,16 @@ public class SharingVO {
 		this.content = content;
 	}
 	public int getViewcnt() {
-		return viewcnt;
+		return viewcount;
 	}
-	public void setViewcnt(int viewcnt) {
-		this.viewcnt = viewcnt;
+	public void setViewcnt(int viewcount) {
+		this.viewcount = viewcount;
 	}
-	public Date getRegDate() {
-		return regDate;
+	public Date getcreated() {
+		return created;
 	}
-	public void setRegDate(Date regDate) {
-		this.regDate = regDate;
+	public void created(Date created) {
+		this.created = created;
 	}
 	public Date getSharing_UpDated() {
 		return sharing_UpDated;
@@ -62,8 +62,11 @@ public class SharingVO {
 	public void setMid(String mid) {
 		this.mid = mid;
 	}
-	/*
-	 * public int getLikeNum() { return likeNum; } public void setLikeNum(int
-	 * likeNum) { this.likeNum = likeNum; }
-	 */
+	public int getLikeNum() {
+		return likeNum;
+	}
+	public void setLikeNum(int likeNum) {
+		this.likeNum = likeNum;
+	}
+	 
 }

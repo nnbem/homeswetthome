@@ -8,20 +8,28 @@ import home.staff.dto.ReceiveVO;
 
 public interface ReceiveService {
 	
-		//목록
-		public List<ReceiveVO> list(PageMaker pageMaker) throws SQLException;
-		
-		//상세
-		public ReceiveVO detail(int rcno) throws SQLException;
-		
-		//수정
-		public ReceiveVO getReceive(int rcno) throws SQLException;
-		public ReceiveVO getReceiveByAid(long aid) throws SQLException;
-		public void modify(ReceiveVO receive) throws SQLException;
-		
-		//등록
-		public void regist (ReceiveVO receive) throws SQLException;
-		
-		//삭제
-		public void remove(int rcno) throws SQLException;
+	// 목록 조회
+    List<ReceiveVO> list(PageMaker pageMaker) throws SQLException;
+
+    // 상세 조회 (rcno로 Receive 데이터 조회)
+    ReceiveVO detail(int rcno) throws SQLException;
+
+    // 검색 조건에 맞는 데이터 개수 조회
+    int count(PageMaker pageMaker) throws SQLException;
+
+    // 수정할 데이터 조회 (rcno 기준)
+    ReceiveVO getReceive(int rcno) throws SQLException;
+
+    // aid로 Receive 데이터 조회
+    ReceiveVO getReceiveByAid(long aid) throws SQLException;
+
+    // Receive 데이터 수정
+    void update(ReceiveVO receive) throws SQLException;
+
+    // Receive 데이터 등록
+    void regist(ReceiveVO receive) throws SQLException;
+
+    // Receive 데이터 삭제
+    void remove(int rcno) throws SQLException;
+    
 }

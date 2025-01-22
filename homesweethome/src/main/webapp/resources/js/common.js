@@ -1,30 +1,30 @@
-function Summernote_go(target,context){
-	target.summernote({
-        placeholder:'여기에 내용을 적으세요.',
-        lang:'ko-KR',
-        height:350,
-        disableResizeEditor: false,
-        callbacks:{
-        	 onImageUpload : function(files, editor, welEditable) {
-       		   for(var file of files){
-                  if(file.name.substring(file.name.lastIndexOf(".")+1).toUpperCase() != "JPG"){
-                     alert("JPG 이미지형식만 가능합니다.");
-                     return;
-                  }
-                  if(file.size > 1024*1024*1){
-                     alert("이미지는 1MB 미만입니다.");
-                     return;
-                  }         
-               }
-       	       for (var file of files) {
-                 sendFile(file,this,context);
-               }
-        	 },
-        	 onMediaDelete : function(target) {
-        		 let fileName = target[0].src.split("=")[1];
-                 //alert(fileName);
-        		 deleteFile(fileName,context);
-        	 }
-        }
-	});
+
+//사진 썸네일 : contextPath -> context path parameter
+function PictureThumb(contextPath){
+	let elements = document.querySelectorAll('.person-info');
+	for(let element of elements){
+		let id = element.getAttribute("data-id");		
+	
+		element.style.cssText="display:block;" 
+					   +"width:40px; height:40px;"
+					   +"margin:0 auto; border-radius:20px;"
+					   +"background-image:url('"+contextPath+"/member/getPicture?id="+id+"');"
+					   +"background-position:center;"
+					   +"background-size:cover;"
+					   +"background-repeat:no-repeat;";		
+	
+	}
+}
+
+//사진 백그라운사진 : contextPath -> context path parameter
+function PictureBackground(contextPath){
+	let elements = document.querySelectorAll('.person-info');
+	for(let element of elements){
+		let id = element.getAttribute("data-id");		
+	
+		element.style.backgroundImage ="url('"+contextPath+"/member/getPicture?id="+id+"')";
+		element.style.backgroundPosition="center";
+		element.style.backgroundRepeat="no-repeat";
+		element.style.backgroundSize="cover";
+	}
 }

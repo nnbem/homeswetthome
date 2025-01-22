@@ -41,7 +41,9 @@
 								</td>
 								<td class="center_cell">발견날짜</td>
 								<td class="left_cell">
-									 <fmt:formatDate value="${receive.regdate}" pattern="yyyy-MM-dd" />
+									<span>
+									<fmt:formatDate value="${receive.regDate}" pattern="yyyy-MM-dd" />
+									</span>
 								</td>
 							</tr>
 							<tr>
@@ -56,20 +58,24 @@
 							</tr>
 							<tr>
 								<td class="center_cell">종류</td>
-								<td colspan="3" class="left_cell">
+								<td class="left_cell">
 									<span style="border: none;">${receive.kind }</span>
 								</td>
-							</tr>
-							<tr>
 								<td class="center_cell">보호동물관리번호</td>
-								<td colspan="3" class="left_cell">
+								<td class="left_cell">
 									<span style="border: none;">${receive.aid }</span>
 								</td>
 							</tr>
 							<tr>
-								<td class="center_cell">구조사진</td>
+								<td class="center_cell">발견사진</td>
+								<td colspan="3" class="left_cell">
+									<span style="border: none;">${receive.picture }</span>
+								</td>
+							</tr>
+							<tr>
+								<td class="center_cell">사원아이디</td>
 								<td colspan="3">
-								<span style="border: none;">${receive.picture }</span>
+								<span style="border: none;">${receive.eid }</span>
 								</td>
 							</tr>
 						</table>
@@ -88,7 +94,7 @@ function back_page() {
 }
 function modify_go() {
     // 이동할 페이지 URL 설정
-    window.location.href = "/staff/receive/modify";
+	window.location.href = "/staff/receive/modify?rcno=${receive.rcno}";
 }
 </script>
 

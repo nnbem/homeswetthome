@@ -3,6 +3,6 @@
     
 <script>
 alert("수정되었습니다.");
-location.href="detail?bno=${param.bno}";
+location.href="/staff/receive/receive";
 
 </script>

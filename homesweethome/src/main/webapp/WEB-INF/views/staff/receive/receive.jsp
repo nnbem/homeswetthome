@@ -19,8 +19,8 @@
 			<hr />
 			<br />
 			<div class="search-bar">
-				<button type="submit" class="regi_button" onclick="open_regist();">등
-					록</button>
+				<!-- <button type="submit" class="regi_button" onclick="open_regist();">등
+					록</button> -->
 				<button class="refresh-button">⟳&nbsp;&nbsp;</button>
 				<select class="sort-select">
 					<option value="">정렬개수</option>
@@ -29,11 +29,12 @@
 					<option value="30" ${pageMaker.perPageNum eq 30 ? 'seleceted':'' }>30개씩</option>
 				</select> <select class="sort-select">
 					<option value="">전체</option>
-					<option value="rc" ${pageMaker.searchType eq 'rc' ? 'selected':'' }>인계번호</option>
+					<option value="rc" ${pageMaker.searchType eq 'ac' ? 'selected':'' }>동물칩번호</option>
 					<option value="s" ${pageMaker.searchType eq 's' ? 'selected':'' }>발견장소</option>
-				</select> <input type="text" class="search-input" placeholder="검색어를 입력해주세요."
+				</select>
+					<input type="text" class="search-input" placeholder="검색어를 입력해주세요."
 					value="${pageMaker.keyword }">
-				<button class="search-button">검 색</button>
+				<button class="search-button" onclick="select(1);" >검 색</button>
 			</div>
 			<!-- search-bar -->
 
@@ -42,10 +43,8 @@
 					<tr>
 						<th>인계번호</th>
 						<th>발견장소</th>
-						<th>성별</th>
-						<th>품종</th>
-						<th>보호동물등록번호</th>
-						<th>등록날짜</th>
+						<th>동물칩번호</th>
+						<th>발견날짜</th>
 					</tr>
 				</thead>
 
@@ -57,16 +56,14 @@
 					</c:if>
 
 					<c:forEach var="receive" items="${receiveList}">
-						<fmt:formatDate var="regDate" value="${receive.receive_date}"
-							pattern="yyyy-MM-dd" />
+						<fmt:formatDate var="regDate" value="${receive.regDate}" pattern="yyyy-MM-dd" />
+						
 						<c:url var="detailUrl" value="/staff/receive/detail">
 							<c:param name="rcno" value="${receive.rcno}" />
 						</c:url>
 						<tr style="cursor: pointer;" onclick="detail_go('${detailUrl}');">
 							<td>${receive.rcno }</td>
 							<td>${receive.spot }</td>
-							<td>${receive.gender }</td>
-							<td>${receive.breed }</td>
 							<td>${receive.aid }</td>
 							<td>${regDate}</td>
 						</tr>

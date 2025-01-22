@@ -14,14 +14,16 @@ public interface SharingDAO {
 	
 	SharingVO selectSharingBySno(int sno) throws SQLException;
 	
+	SharingVO selectBySharingMid(String mid) throws SQLException;
+	
+	int selectSharingSeqNext() throws SQLException;
+	
 	void insertSharing(SharingVO sharing) throws SQLException;
 	void updateSharing(SharingVO sharing) throws SQLException;
 	void deleteSharing(int sno) throws SQLException;
 	
-	void increaseViewCnt(int sno) throws SQLException;
+	void increaseViewCount(int sno) throws SQLException;
 	
-	int selectSharingSeqNext() throws SQLException;
 	
-	SharingVO selectBySharingMid(String mid) throws SQLException;
 	
 }

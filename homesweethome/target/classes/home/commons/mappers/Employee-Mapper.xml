@@ -18,26 +18,23 @@
 			where email like '%'||#{keyword}||'%'
 		</if>
 	</sql>
-	<select id="selectSearchEmployeeList" parameterType="pageMaker"
-		resultType="employee">
+	<select id="selectSearchEmployeeList" parameterType="pageMaker" resultType="employee">
 		select *
 		from employee
 		<include refid="search" />
-		order by regDate desc
+		order by joid_date desc
 	</select>
-	<select id="selectSearchEmployeeListCount"
-		parameterType="pageMaker" resultType="int">
+	<select id="selectSearchEmployeeListCount" parameterType="pageMaker" resultType="int">
 		select count(*)
-		form employee
+		from employee
 		<include refid="search" />
 	</select>
 	<select id="selectEmployeeList" resultType="employee">
 		select *
 		from employee
-		order by regDate desc
+		order by joid_date desc
 	</select>
-	<select id="selectEmployeeByEid" parameterType="str"
-		resultType="employee">
+	<select id="selectEmployeeByEid" parameterType="str" resultType="employee">
 		select *
 		from employee
 		where eid=#{eid}
@@ -63,14 +60,13 @@
 
 	<insert id="insertEmployee" parameterType="employee">
 		insert into
-		employee(eid, pwd, name, phone, department, position, joid_date,
-		picture, email)
-		values(#{eid},#{pwd},#{name},#{phone},#{department},#{position},#{joid_date},#{picture},#{email})
+		employee(eid, pwd, name, phone, email, birth, department, position, joid_date, picture)
+		values(#{eid}, #{pwd}, #{name}, #{phone}, #{email}, #{birth}, #{department}, #{position}, #{joid_date}, #{picture})
 	</insert>
 	<update id="updateEmployee" parameterType="employee">
 		update
 		set
-		pwd=#{pwd},phone=#{phone},department=#{department},position=#{position},picture=#{picture},email=#{email}
+		pwd=#{pwd},phone=#{phone},email=#{email}, birth=#{birth}, department=#{department}, position=#{position}, picture=#{picture}
 		where eid=#{eid}
 	</update>
 	<delete id="deleteEmployee" parameterType="employee">
@@ -78,8 +74,7 @@
 		from employee
 		where eid=#{eid}
 	</delete>
-	<select id="getEmployeeByEid" parameterType="pageMaker"
-		resultType="employee">
+	<select id="getEmployeeByEid" parameterType="pageMaker" resultType="employee">
 		select *
 		from employee
 		where eid = #{eid}

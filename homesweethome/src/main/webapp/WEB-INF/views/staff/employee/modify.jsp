@@ -7,7 +7,7 @@
   href="<%=request.getContextPath()%>/resources/css/staff_style/staff_style2.css">
 </head>
 
-<form name="modifyForm" method="post" id="modifyForm" action="/staff/receive/modify/post" enctype="post">
+<form name="modifyForm" method="post" id="modifyForm" action="/staff/employee/modify/post" enctype="post">
     <div class="ineerWrapper">
         <div class="content">
             <div class="main-container">
@@ -16,60 +16,58 @@
                     <button type="button" class="regi_button" onclick="modify_submit();">수정하기</button>
                 </div>
                 <div class="inner_container">
-                    <h2>인계동물 정보 수정</h2>
+                    <h2>사원 정보 수정</h2>
+                    <div class="row" style="height: 200px;">
+							<div class="mailbox-attachments clearfix col-md-12"
+								style="text-align: center;">
+								<div id="pictureView"
+									style="border: 1px solid green; height: 260px; width: 200px; margin: 0 auto;"></div>
+							</div>
+						</div>
+						<br/>
+						<br/>
                     <div class="table card-body table-responsive p-0">
                         <table class="table" id="basic">
                             <tr>
-                                <td class="center_cell">인계번호</td>
+                                <td class="center_cell">이름</td>
                                 <td class="left_cell">
-                                	<input type="text" name="rcno" value="${receive.rcno}" readonly style="border: none; outline: none;">
+                                	<input type="text" name="name" value="${employee.name }" readonly style="border: none; outline: none;">
                                 </td>
-                                <td class="center_cell">발견장소</td>
+                                <td class="center_cell">사원번호(아이디)</td>
                                 <td class="left_cell">
-                                    <input class="input_form_notNull" type="text" name="spot" value="${receive.spot}" title="발견장소" style="border: none; outline: none;">
+                                    <input class="input_form_notNull" type="text" name="eid" value="${employee.eid }" readonly style="border: none; outline: none;">
                                 </td>
                             </tr>
                             <tr>
-								<td class="center_cell">인계 센터 이름</td>
+								<td class="center_cell">부서</td>
 								<td class="left_cell">
-									<input class="input_form_notnull" type="text" name="cantername" value="${receive.cantername}">
+									<input class="input_form_notnull" type="text" name="position" value="${employee.position }" >
 								</td>
-								<td class="center_cell">발견날짜</td>
+								<td class="center_cell">입사일</td>
 								<td class="left_cell">
-									<input class="input_form_notnull" type="date" name="regdate" title="발견날짜" value="${receive.regDate}" >
-								</td>
-							</tr>
-							<tr>
-								<td class="center_cell">품종</td>
-								<td class="left_cell">
-									<input class="input_form_notnull" type="text" name="breed" value="${receive.breed}" >
-								</td>
-								<td class="center_cell">성별</td>
-								<td class="left_cell">
-									<input class="input_form_notnull" type="text" name="gender"  value="${receive.gender}">
+									<input class="input_form_notnull" type="date" name="joid_date" value="${employee.joid_date }" readonly>
 								</td>
 							</tr>
 							<tr>
-								<td class="center_cell">종류</td>
+								<td class="center_cell">생년월일</td>
 								<td class="left_cell">
-									<input class="input_form_notnull" type="text" name="kind" value="${receive.kind}" readonly>
+									<input class="input_form_notnull" type="text" name="birth" value="${employee.birth }" readonly>
 								</td>
-								<td class="center_cell">동물칩번호</td>
+								<td class="center_cell">전화번호</td>
 								<td class="left_cell">
-									<input class="input_form_notnull" type="text" name="aid" value="${receive.aid}" readonly>
+									<input class="input_form_notnull" type="text" name="phone"  value="${employee.phone }">
 								</td>
 							</tr>
                             <tr>
-                                <td class="center_cell">발견사진</td>
-                                <td colspan="3"><input type="file" name="picture">
-                                <br/>
-                                <br/>
-                                <p>현재 사진: ${receive.picture}</p></td>
+                                <td class="center_cell">이메일</td>
+                                <td colspan="3" class="left_cell">
+                                	<input class="input_form_notnull" type="text" name="email"  value="${employee.email }">
+                                </td>
                             </tr>
                             <tr>
-                            	<td class="center_cell">사원아이디</td>
+                            	<td class="center_cell">주소</td>
                             	<td colspan="3" class="left_cell">
-									<input class="input_form_notnull" type="text" name="eid" >
+									<input class="input_form_notnull" type="text" name="department" value="${employee.department }">
 								</td>
                             </tr>
                         </table>
@@ -83,7 +81,7 @@
 <script>
 function back_page() {
 	// 이동할 페이지 URL 설정
-    window.location.href = "/staff/receive/receive";
+    window.location.href = "/staff/employee/employee";
 }
 
 function modify_submit() {

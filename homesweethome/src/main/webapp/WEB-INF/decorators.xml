@@ -32,6 +32,11 @@
 		<pattern>/member/mypage/deactivation/open_cancel</pattern>
 		<pattern>/member/mypage/adopt/open_animal</pattern>
 		<pattern>/member/checkid*</pattern>
+		<pattern>/summernote/*</pattern>
+		
+		<pattern>/member/board/sharing/regist</pattern>
+		<pattern>/member/board/sharing/modify*</pattern>
+		
 		
 
 	</excludes>

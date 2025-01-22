@@ -4,17 +4,17 @@ import java.sql.Date;
 import java.util.List;
 
 public class EmployeeVO {
-	private String eid;
-	private String pwd;
-	private String name;
-	private String phone;
-	private String email;
-	private Date birth;
-	private String department;
-	private String position;
-	private Date joid_date;
-	private String picture;
-	private int enabled;
+	private String eid; //사원아이디
+	private String pwd; //패스워드
+	private String name; //이름
+	private String phone; //전화번호
+	private String email; //이메일
+	private Date birth; //생년월일
+	private String department; //주소
+	private String position; //부서
+	private Date joid_date; //입사일
+	private String picture; //사진
+	private int enabled; //상태
 	private List<String> authorities;
 	
 	

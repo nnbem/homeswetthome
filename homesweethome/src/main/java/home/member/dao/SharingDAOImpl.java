@@ -44,7 +44,19 @@ public class SharingDAOImpl implements SharingDAO {
 	@Override
 	public SharingVO selectSharingBySno(int sno) throws SQLException {
 		SharingVO sharing = session.selectOne("Sharing-Mapper.selectSharingBySno", sno);
-		return null;
+		return sharing;
+	}
+	
+	@Override
+	public SharingVO selectBySharingMid(String mid) throws SQLException {
+		SharingVO sharing = session.selectOne("Sharing-Mapper.selectBySharingMid", mid);
+		return sharing;
+	}
+	
+	@Override
+	public int selectSharingSeqNext() throws SQLException {
+		int sno = session.selectOne("Sharing-Mapper.selectSharingSeqNext");
+		return sno;
 	}
 
 	@Override
@@ -59,25 +71,12 @@ public class SharingDAOImpl implements SharingDAO {
 
 	@Override
 	public void deleteSharing(int sno) throws SQLException {
-		session.delete("Sharing-Mapper.deleteSharing", session);
+		session.delete("Sharing-Mapper.deleteSharing", sno);
 	}
 
 	@Override
-	public void increaseViewCnt(int sno) throws SQLException {
-		session.update("Sharing-Mapper.increaseViewCnt", sno);
+	public void increaseViewCount(int sno) throws SQLException {
+		session.update("Sharing-Mapper.increaseViewCount", sno);
 	}
 
-	@Override
-	public int selectSharingSeqNext() throws SQLException {
-		int sno = session.selectOne("Sharing-Mapper.selectSharingSeqNext");
-		return sno;
-	}
-
-	@Override
-	public SharingVO selectBySharingMid(String mid) throws SQLException {
-		SharingVO sharing = session.selectOne("Sharing-Mapper.selectBySharingMid", mid);
-		return sharing;
-	}
-	
-	
 }

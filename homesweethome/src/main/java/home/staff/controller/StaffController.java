@@ -18,13 +18,6 @@ import home.staff.service.EmployeeService;
 @RequestMapping("/staff")
 public class StaffController {
 
-	private EmployeeService employee;
-
-	@Autowired
-	public StaffController(EmployeeService employee) {
-		this.employee = employee;
-	}
-
 	@GetMapping("/main")
 	public String staff() {
 		String url = "/staff/main";
@@ -115,29 +108,7 @@ public class StaffController {
 		return "staff/member/list/deactivation_detail";
 	}
 
-	@GetMapping("/employee")
-	public String employee() {
-		String url = "staff/employee/employee";
-		return url;
-	}
-
-	@GetMapping("/employee/open_regist")
-	public String employee_open_regist() {
-		String url = "staff/employee/open_regist";
-		return url;
-	}
-
-	@GetMapping("/employee/open_modify")
-	public String employee_open_modify() {
-		String url = "staff/employee/open_modify";
-		return url;
-	}
-
-	@GetMapping("/employee/detail")
-	public String employee_detail() {
-		String url = "staff/employee/detail";
-		return url;
-	}
+	
 
 	@GetMapping("/adoption")
 	public String adoption() {

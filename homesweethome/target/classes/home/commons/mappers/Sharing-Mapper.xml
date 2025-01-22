@@ -9,12 +9,12 @@
 		<if test="searchType == 't'.toString()">
 			and title like '%'||#{keyword}||'%'
 		</if>
-		<if test="searchType == 'i'">
+		<if test="searchType == 'i'.toString()">
 			and mid like '%'||#{keyword}||'%'
 		</if>
 	</sql>
 
-	<select id="selectSearchSharingList" resultType="sharing">
+	<select id="selectSearchSharingList" parameterType="pageMaker" resultType="sharing">
 	 	select *
 		from(
 		    select rownum as rnum,SearchSharingResult.*
@@ -23,7 +23,7 @@
 				from sharing
 				where sno is not null
 				<include refid="search" />				
-				order by sno asc
+				order by created desc
 		    )  SearchSharingResult
 		    <![CDATA[
 		    where rownum <= #{endRow}		 		    		    
@@ -39,8 +39,14 @@
 		<include refid="search" />
 	</select>
 	
-	<select id="selectSharingBySno" parameterType="int" resultType="sharing">
-		select *
+	<select id="selectSharingBySno" parameterType="pageMaker" resultType="sharing">
+		select sno, title, content, mid, created
+		from sharing
+		where sno = #{sno}
+	</select>
+	
+	<select id="selectBySharingMid" resultType="str">
+		select mid
 		from sharing
 		where sno = #{sno}
 	</select>
@@ -51,15 +57,20 @@
 		where content like '%'||#{imageFile}||'%'
 	</select>
 	
+	<select id="selectSharingSeqNext" resultType="int">
+		select sharing_seq.nextval
+		from dual
+	</select>
+	
 	<insert id="insertSharing" parameterType="sharing">
 		insert into
-		sharing(sno, title, content)
-		values (#{sno}, #{title}, #{content})
+		sharing(sno, title, mid, content)
+		values (#{sno}, #{title}, #{mid}, #{content})
 	</insert>
 	
 	<update id="updateSharing" parameterType="sharing">
 		update sharing
-		set title = #{title}, content = #{content}, updatedate = sysdate
+		set title = #{title}, content = #{content}, created = sysdate
 		where sno = #{sno}
 	</update>
 
@@ -69,15 +80,16 @@
 		where sno = #{sno}
 	</delete>
 
-	<update id="increaseViewCnt" parameterType="int">
+	<update id="increaseViewCount" parameterType="int">
 		update sharing
-		set viewcnt = viewcnt+1
+		set viewcount = viewcount+1
 		where sno = #{sno}
 	</update>
 	
-	<select id="selectSharingSeqNext" resultType="int">
-		select sharing_seq.nextval as sno from dual
+	<select id="selectSharingByViewCount" parameterType="int" resultType="map">
+	    select * 
+	    from sharing
+	    where viewcount = #{viewcount}
 	</select>
 	
-
 </mapper>

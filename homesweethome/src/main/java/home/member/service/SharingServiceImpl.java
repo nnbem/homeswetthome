@@ -1,19 +1,21 @@
 package home.member.service;
 
+import java.io.File;
 import java.sql.SQLException;
 import java.util.List;
 
 import home.commons.request.PageMaker;
 import home.member.dao.SharingDAO;
 import home.member.dto.SharingVO;
-import home.staff.dto.NoticeVO;
 
 public class SharingServiceImpl implements SharingService {
 
 	private SharingDAO sharingDAO;
+	private String summernotePath;
 
-	public SharingServiceImpl(SharingDAO sharingDAO) {
+	public SharingServiceImpl(SharingDAO sharingDAO, String summernotePath) {
 		this.sharingDAO = sharingDAO;
+		this.summernotePath = summernotePath;
 	}
 
 	@Override
@@ -28,7 +30,7 @@ public class SharingServiceImpl implements SharingService {
 
 	@Override
 	public SharingVO detail(int sno) throws SQLException {
-		sharingDAO.increaseViewCnt(sno);
+		sharingDAO.increaseViewCount(sno);
 		return sharingDAO.selectSharingBySno(sno);
 	}
 
@@ -51,7 +53,8 @@ public class SharingServiceImpl implements SharingService {
 
 	@Override
 	public void remove(int sno) throws SQLException {
-		SharingVO sharing = sharingDAO.selectSharingBySno(sno);
+		
+		sharingDAO.deleteSharing(sno);
 	}
 
 	@Override

@@ -8,62 +8,67 @@ import home.staff.dao.ReceiveDAO;
 import home.staff.dto.ReceiveVO;
 
 public class ReceiveServiceImpl implements ReceiveService{
+	
+	 private ReceiveDAO receiveDAO;
 
-	private ReceiveDAO receiveDAO;
-	
-	public ReceiveServiceImpl(ReceiveDAO receiveDAO) {
-		this.receiveDAO = receiveDAO;
-	}
-	
+	    // 생성자를 통한 의존성 주입
+	    public ReceiveServiceImpl(ReceiveDAO receiveDAO) {
+	        this.receiveDAO = receiveDAO;
+	    }
+	    
 	@Override
 	public List<ReceiveVO> list(PageMaker pageMaker) throws SQLException {
-		List<ReceiveVO> receiveList = receiveDAO.selectSearchReceiveList(pageMaker);
-		
-		int totalCount = receiveDAO.selectSearchReceiveListCount(pageMaker);
-		
-		pageMaker.setTotalCount(totalCount);
-		
-		return receiveList;
-		
+		// 검색 조건에 맞는 데이터 개수를 설정
+        int totalCount = receiveDAO.selectSearchReceiveListCount(pageMaker);
+        pageMaker.setTotalCount(totalCount);
+
+        // 데이터 목록 반환
+        return receiveDAO.selectSearchReceiveList(pageMaker);
 	}
 
 	@Override
-	public ReceiveVO detail(int rcno) throws SQLException {
-		ReceiveVO receive = receiveDAO.selectReceiveByRcno(rcno);
-		return receive;
-	}
+    public ReceiveVO detail(int rcno) throws SQLException {
+        return receiveDAO.selectReceiveByRcno(rcno);
+    }
 
-	@Override
-	public ReceiveVO getReceive(int rcno) throws SQLException {
-		ReceiveVO receive = receiveDAO.selectReceiveByRcno(rcno);
-		return receive;
-	}
+    @Override
+    public int count(PageMaker pageMaker) throws SQLException {
+        return receiveDAO.selectSearchReceiveListCount(pageMaker);
+    }
 
+    @Override
+    public ReceiveVO getReceive(int rcno) throws SQLException {
+        return receiveDAO.selectReceiveByRcno(rcno);
+    }
 
-	@Override
-	public void regist(ReceiveVO receive) throws SQLException {
-		int rcno = receiveDAO.selectReceiveSeqNext();
-		receive.setRcno(rcno);
-		receiveDAO.insertReceive(receive);
-	}
+    @Override
+    public ReceiveVO getReceiveByAid(long aid) throws SQLException {
+        return receiveDAO.selectReceiveByAid(aid);
+    }
 
-	@Override
-	public void modify(ReceiveVO receive) throws SQLException {
-		receiveDAO.updateReceive(receive);
-		
-	}
+    @Override
+    public void update(ReceiveVO receive) throws SQLException {
+        // 입력값 검증
+        if (receive.getRcno() <= 0) {
+            throw new IllegalArgumentException("유효하지 않은 rcno 값입니다.");
+        }
 
+        // DAO 호출하여 데이터 업데이트
+        receiveDAO.updateReceive(receive);
+    }
 
-	@Override
-	public void remove(int rcno) throws SQLException {
-		receiveDAO.deleteReceive(rcno);	
-	}
+    @Override
+    public void regist(ReceiveVO receive) throws SQLException {
+		if (receive.getRcno() <= 0) { // rcno가 없는 경우
+		throw new IllegalArgumentException("유효하지 않은 rcno 값입니다.");
+		}
 
-	@Override
-	public ReceiveVO getReceiveByAid(long aid) throws SQLException {
-		return receiveDAO.selectReceiveByAid(aid);
-	}
+        receiveDAO.insertReceive(receive);
+    }
 
-	
+    @Override
+    public void remove(int rcno) throws SQLException {
+        receiveDAO.deleteReceive(rcno);
+    }
 
 }
