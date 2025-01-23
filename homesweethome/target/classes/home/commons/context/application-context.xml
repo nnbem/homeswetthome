@@ -59,6 +59,10 @@
    		 class="home.member.dao.SharingDAOImpl"
    		 c:session-ref="sqlSession"
    />
+   <bean id="MypageMenuDAO"
+   		 class="home.member.dao.MypageMenuDAOImpl"
+   		 c:session-ref="sqlSession"
+   />
 	
 
 
@@ -66,6 +70,10 @@
 	
 	
 	<!-- service -->
+	<bean id="MypageMenuService"
+		  class="home.member.service.MypageMenuServiceImpl"
+		  c:mypageMenuDAO-ref="MypageMenuDAO"
+	/>
 	<bean id="sharingService"
 		  class="home.member.service.SharingServiceImpl"
 		  c:sharingDAO-ref="sharingDAO"

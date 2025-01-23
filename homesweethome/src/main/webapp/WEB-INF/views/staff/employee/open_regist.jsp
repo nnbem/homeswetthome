@@ -37,7 +37,9 @@
 			<table class="info-table">
 				<tr>
 					<th><span class="required">*</span>이름</th>
-					<td><input>최하나</td>
+                                <td class="left_cell">
+                                	<input type="text" name="name" value="${employee.name }" style="border: none; outline: none;">
+                                </td>
 					<th><span class="required">*</span>입사일</th>
 					<td>2024년 12월 30일</td>
 				</tr>

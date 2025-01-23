@@ -62,7 +62,7 @@
 							<tr>
 								<td class="center_cell">이메일</td>
 								<td class="left_cell">
-									<input class="input_form_notnull" type="text" name="birth" value="${employee.email }">
+									<input class="input_form_notnull" type="text" name="email" value="${employee.email }">
 								</td>
 								<td class="center_cell">전화번호</td>
 								<td class="left_cell">
@@ -86,7 +86,7 @@
 <script>
 function back_page() {
 	// 이동할 페이지 URL 설정
-    window.location.href = "/staff/employee/employee";
+    window.location.href = "/staff/employee";
 }
 
 function modify_submit() {

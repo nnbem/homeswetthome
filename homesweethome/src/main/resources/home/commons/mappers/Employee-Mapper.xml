@@ -65,11 +65,10 @@
 	</insert>
 	<update id="updateEmployee" parameterType="employee">
 		update employee
-		set
-		pwd=#{pwd},phone=#{phone},email=#{email}, birth=#{birth}, department=#{department}, position=#{position}, picture=#{picture}
+		set pwd=#{pwd},phone=#{phone},email=#{email}, birth=#{birth}, department=#{department}, position=#{position}
 		where eid=#{eid}
 	</update>
-	<delete id="deleteEmployee" parameterType="employee">
+	<delete id="deleteEmployee" parameterType="str">
 		delete
 		from employee
 		where eid=#{eid}

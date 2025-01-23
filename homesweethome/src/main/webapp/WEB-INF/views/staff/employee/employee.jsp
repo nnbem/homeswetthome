@@ -84,7 +84,7 @@
 	    window.location.href = url;
 	}
 	function open_regist() {
-		window.open('/staff/employee/open_regist','글등록',700,300);
+		window.open('/staff/employee/open_regist','사원등록','width=580,height=640');
 	}
 </script>
 

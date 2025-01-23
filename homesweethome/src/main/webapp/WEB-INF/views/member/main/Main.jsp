@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
 <link rel="stylesheet"	href="<%=request.getContextPath()%>/resources/css/member_style/iframe.css">
+<link rel="stylesheet"	href="<%=request.getContextPath()%>/resources/css/member_style/common.css">
 <!-- jQuery 추가 -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	
@@ -15,8 +16,14 @@
 			<div class="header_top">
 				<div class="top_bar">
 					<a href="/member/main/guest">로그아웃</a>
-					<a href="#">우편함</a>
-					<a href="/member/mypage/graceperiod">마이페이지</a>
+					<c:forEach var="mypage" items="${mypageMenuList }">
+						
+							<a href="javascript:goMypage('<%=request.getContextPath() %>${mypage.turl }', '${mypage.tcode }'); SubMypageMenu_go('${mypage.tcode }');"
+							class="mypage_nav-link">${mypage.tname }
+							</a>
+						
+					</c:forEach>
+					
 				</div>
 			</div>
 
@@ -93,9 +100,65 @@
 
 {{/each}}
 </script>
+<script type="text/x-handlebars-template"  id="subMypageMenu-list-template" >
+{{#each .}}		
+
+<li class="list">
+	
+	<a href="javascript:goPage('<%=request.getContextPath() %>{{turl}}','{{tcode }}');"	class="nav-link">
+		{{tname}}
+	</a>
+</li>
+
+{{/each}}
+</Script>
 
 <script>
+function goMypage(url, tcode){
+	var renewURL = location.href;
 
+	if(tcode != 'T000000'){
+		renewURL += "?tcode="+tcode;
+	}
+	history.pushState(tcode, renewURL);
+	$('iframe[name="iframe"]').attr("src",url);
+}
+
+var subMypageMenu_func = Handlebars.compile($("#subMypageMenu-list-template").html());
+
+function SubMypageMenu_go(tcode){
+	//alert(tcode);
+	
+	$.ajax({
+		url:"<%=request.getContextPath()%>/member/mypageMenu?tcode="+tcode,
+		method:"get",
+		success:function(data){
+			$('.subMypageMenuList').html(subMypageMenu_func(data));
+			console.log(subMypageMenu_func(data));
+		},
+		error:function(error){
+			AjaxErrorSecurityRedirectHandler(error.status);
+		}
+	});
+	if(tcode=="T000000") {
+		$('.subMenuList').html("");
+		return;
+	}
+}
+</script>
+<c:if test="${not empty mypgage }">
+	<script>
+	goMypage('<%=request.getContextPath()%>${mypage.turl}','${mypage.tcode}');
+	SubMypageMenu_go('${mypage.tcode}'.substring(0,3)+"0000");
+	
+	</script>
+</c:if>
+
+
+
+
+
+<script>
 function goPage(url, mcode) {
 	var renewURL = location.href;
 	
@@ -138,6 +201,5 @@ function Sub_go(mcode){
 	
 	</script>
 </c:if>
-
 </body>
 

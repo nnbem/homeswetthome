@@ -35,9 +35,6 @@ public class MenuMemberServiceImpl implements MenuMemberService{
 
 	@Override
 	public MenuMemberVO getMenuMemberByUpcode(String mName) throws SQLException {
-		
-		
-		
 		return null;
 	}
 	

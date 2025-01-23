@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import home.member.dto.MenuMemberVO;
+import home.member.dto.MypageMenuVO;
 import home.member.service.MenuMemberService;
+import home.member.service.MypageMenuService;
 
 @Controller
 @RequestMapping("/member")
@@ -20,6 +22,9 @@ public class MainController {
 	
 	@Autowired
 	private MenuMemberService menuMemberService;
+	
+	@Autowired
+	private MypageMenuService mypageMenuService;
 	
 	
 	
@@ -49,6 +54,19 @@ public class MainController {
 		return entity;
 	}
 	
+	@GetMapping("/mypageMenu")
+	@ResponseBody
+	public ResponseEntity<List<MypageMenuVO>> subMypageMenuList(String tcode) throws Exception {
+		ResponseEntity<List<MypageMenuVO>> entity = null;
+		
+		List<MypageMenuVO> subMypageMenuList = mypageMenuService.gettSubMypageMenuList(tcode);
+		
+		System.out.println(subMypageMenuList);
+		
+		entity = new ResponseEntity<List<MypageMenuVO>>(subMypageMenuList,HttpStatus.OK);
+		return entity;
+	}
+	
 	@GetMapping("/content")
 	public String content() {
 		String url="/member/main/content";
@@ -60,9 +78,11 @@ public class MainController {
 		String url="/member/main/Main";
 		
 		List<MenuMemberVO> menuList = menuMemberService.getMainMenuMemberList();
-		
-		
 		model.addAttribute("menuList", menuList);
+		
+		List<MypageMenuVO> mypageMenuList = mypageMenuService.getsMypageMenuList();
+		model.addAttribute("mypageMenuList", mypageMenuList);
+		
 		
 		return url;
 	}
