@@ -1,9 +1,0 @@
-@charset "UTF-8";
-
-div.treatment-search{
-	margin: 20px auto;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-}
