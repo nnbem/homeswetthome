@@ -1,6 +1,7 @@
 package home.staff.dto;
 
 import java.util.Date;
+import java.util.List;
 
 public class BasicVO {
 	private Long aid;
@@ -11,15 +12,31 @@ public class BasicVO {
 	private String eid;
 	private String state;
 	private int weight;
-	private int neutralization;
+	private String neutralization;
 	private int age;
 	private Date regdate;
 	private Date receive_date;
 	private String spot;
 	private String breed;
 	private String kind;
+	private String gender;
+	
+	private List<AnimalImgVO> animalImgList;
 	
 	
+	
+	public List<AnimalImgVO> getAnimalImgList() {
+		return animalImgList;
+	}
+	public void setAnimalImgList(List<AnimalImgVO> animalImgList) {
+		this.animalImgList = animalImgList;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 	public Long getAid() {
 		return aid;
 	}
@@ -68,10 +85,10 @@ public class BasicVO {
 	public void setWeight(int weight) {
 		this.weight = weight;
 	}
-	public int getNeutralization() {
+	public String getNeutralization() {
 		return neutralization;
 	}
-	public void setNeutralization(int neutralization) {
+	public void setNeutralization(String neutralization) {
 		this.neutralization = neutralization;
 	}
 	public int getAge() {

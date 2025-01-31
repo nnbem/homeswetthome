@@ -1,8 +1,7 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="home.member.dto.SharingVO"%>
 <%@ page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="/WEB-INF/views/module/adminlteSource.jsp" %>
@@ -94,16 +93,6 @@
 	
 </section>
 
-
-
-<form id="pageForm" style="display: none;">
-   <input type='text' name="page" value="" />
-   <input type='text' name="perpageNum" value="" />
-   <input type='text' name="searchType" value="" />
-   <input type='text' name="keyword" value="" />
-</form>
-
-
 <script>
 document.querySelector('.refresh-button').addEventListener('click', function(event) {
     // 검색 입력란과 선택 박스 초기화
@@ -113,22 +102,7 @@ document.querySelector('.refresh-button').addEventListener('click', function(eve
     });
 });
 
-function select(page) {
-	let perPageNum = document.querySelector('select[name="perPageNum"]').value;
-	let searchType = document.querySelector('select[name="searchType"]').value;
-	let keyword = document.querySelector('input[name="keyword"]').value;
-    
-    let searchForm = document.querySelector("#searchForm");
-    let pageForm = document.querySelector("#pageForm");
-    pageForm.page.value = page;
-    
-    searchForm.perPageNum.value=perPageNum;
-    searchForm.searchType.value = searchType;
-    searchForm.keyword.value = keyword;
-    
-    searchForm.submit();
-    pageForm.submit();
-}
+
 </script>
 
 <script>

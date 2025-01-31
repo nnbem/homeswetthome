@@ -45,9 +45,10 @@ private SearchMemberDAO searchMemberDAO;
 	}
 
 	@Override
-	public void remove(String mid) throws SQLException {
-		searchMemberDAO.deleteMember(mid);
+	public boolean checkPassword(String mid, String pwd) {
+	    String checkPwd = searchMemberDAO.getPwdByMid(mid);
+	    return checkPwd != null && checkPwd.equals(pwd);
 	}
-	
+
 	
 }

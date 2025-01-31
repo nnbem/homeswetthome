@@ -1,5 +1,8 @@
 package home.staff.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.List;
+
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -11,13 +14,28 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
-import home.staff.service.EmployeeService;
+import home.commons.request.PageMaker;
+import home.member.dto.MemberVO;
+import home.member.dto.Member_ListVO;
+import home.member.service.Member_ListService;
+import home.member.service.SearchMemberService;
 
 @Controller
 @RequestMapping("/staff")
 public class StaffController {
 
+	private SearchMemberService memberService;
+	private Member_ListService member_ListService;
+	
+	@Autowired
+    public StaffController(SearchMemberService memberService, Member_ListService member_ListService) {
+		this.memberService = memberService;
+		this.member_ListService = member_ListService;
+	}
+
+	
 	@GetMapping("/main")
 	public String staff() {
 		String url = "/staff/main";
@@ -79,48 +97,41 @@ public class StaffController {
 	
 
 	@GetMapping("/member/list")
-	public String member_list() {
-		return "staff/member/list";
-	}
+    public ModelAndView list(@ModelAttribute PageMaker pageMaker, ModelAndView mnv) throws Exception {
+    	String url = "/staff/member/list";
+    	// System.out.println(pageMaker);
+    	
+    	List<Member_ListVO> member_List = member_ListService.list(pageMaker);
+    	
+    	mnv.addObject("member_List", member_List);
+    	mnv.setViewName(url);
+    	return mnv;
+    }
+    
+    @PostMapping("/member/list")
+    public ModelAndView member_list(@ModelAttribute PageMaker pageMaker, ModelAndView mnv) throws Exception {
+        return list(pageMaker, mnv);
+    }
 
-	@PostMapping("/member/list")
-	public String member_list1() {
-		return "staff/member/list";
-	}
+    @GetMapping("/member/detail")
+    public String member_detail(String mid, Model model, PageMaker pageMaker) throws Exception {
+    	
+    	MemberVO member = memberService.getMember(mid);
+    	member.setPicture("/resources/image/member/" + member.getMid() + ".jpg");
+    	
+    	List<Member_ListVO> member_List = member_ListService.list(pageMaker);
+    	
+    	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-	@GetMapping("/member/list/detail")
-	public String member_detail() {
-		return "staff/member/list/detail";
-	}
+    	
+    	model.addAttribute("member", member);
+    	return "staff/member/detail";
+    }
+    
 
-	@GetMapping("/member/deactivation")
-	public String deactive() {
-		return "staff/member/deactivation";
-	}
 
-	@PostMapping("/member/deactivation")
-	public String deactive_detail() {
-		return "staff/member/deactivation";
-	}
-
-	@GetMapping("/member/list/deactivation_detail")
-	public String deactivation_detail() {
-		return "staff/member/list/deactivation_detail";
-	}
 
 	
-
-	@GetMapping("/adoption")
-	public String adoption() {
-		String url = "staff/adoption/adoption";
-		return url;
-	}
-
-	@GetMapping("/adoption/detail")
-	public String adoption_detail() {
-		String url = "staff/adoption/detail";
-		return url;
-	}
 
 	@GetMapping("/graceperiod")
 	public String graceperiod() {
@@ -132,62 +143,5 @@ public class StaffController {
 	public String graceperiod_detail() {
 		String url = "staff/graceperiod/detail";
 		return url;
-	}
-
-	@GetMapping("/reserve")
-	public String reserve() {
-		String url = "staff/reserve/reserve";
-		return url;
-	}
-
-	@GetMapping("/reserve/detail")
-	public String reserve_detail() {
-		String url = "staff/reserve/detail";
-		return url;
-	}
-
-	@GetMapping("/board/report")
-	public String report() {
-		return "staff/board/report";
-	}
-
-	@GetMapping("/board/report/detail")
-	public String report_detail() {
-		return "staff/board/report/detail";
-	}
-
-	@GetMapping("/board/report/complete")
-	public String report_complete() {
-		return "staff/board/report/complete";
-	}
-
-	@GetMapping("/board/review")
-	public String review() {
-		return "staff/board/review";
-	}
-
-	@GetMapping("/board/review/detail")
-	public String review_detail() {
-		return "staff/board/review/detail";
-	}
-
-	@GetMapping("/board/review/complete")
-	public String review_complete() {
-		return "staff/board/review/complete";
-	}
-
-	@GetMapping("/board/inquiry")
-	public String inquiry() {
-		return "staff/board/inquiry";
-	}
-
-	@GetMapping("/board/inquiry/detail")
-	public String inquiry_detail() {
-		return "staff/board/inquiry/detail";
-	}
-
-	@GetMapping("/board/inquiry/complete")
-	public String inquiry_complete() {
-		return "staff/board/inquiry/complete";
 	}
 }

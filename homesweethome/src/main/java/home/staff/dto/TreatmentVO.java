@@ -10,7 +10,7 @@ public class TreatmentVO {
 	private String sympton;
 	private String opinion;
 	private String other;
-	private int aid;
+	private Long aid;
 	private String eid;
 	private String disease;
 	
@@ -20,17 +20,17 @@ public class TreatmentVO {
 	public void setTno(int tno) {
 		this.tno = tno;
 	}
-	public Date getTreatment_date() {
-		return treatment_date;
-	}
-	public void setTreatment_date(Date treatment_date) {
-		this.treatment_date = treatment_date;
-	}
 	public String getCure() {
 		return cure;
 	}
 	public void setCure(String cure) {
 		this.cure = cure;
+	}
+	public Date getTreatment_date() {
+		return treatment_date;
+	}
+	public void setTreatment_date(Date treatment_date) {
+		this.treatment_date = treatment_date;
 	}
 	public Date getDisease_date() {
 		return disease_date;
@@ -56,10 +56,10 @@ public class TreatmentVO {
 	public void setOther(String other) {
 		this.other = other;
 	}
-	public int getAid() {
+	public Long getAid() {
 		return aid;
 	}
-	public void setAid(int aid) {
+	public void setAid(Long aid) {
 		this.aid = aid;
 	}
 	public String getEid() {

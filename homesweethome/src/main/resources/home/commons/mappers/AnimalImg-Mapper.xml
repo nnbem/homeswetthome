@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="AnimalImg-Mapper">
+	<select id="selectAnimalImgByAid" resultType="animalImg">
+		select *
+		from animal_img
+		where aid=#{aid}
+	</select>
+	<select id="selectAnimalImgByAino" resultType="animalImg">
+		select *
+		from animal_img
+		where aino=#{aino}
+	</select>
+	<insert id="insertAnimalImg" parameterType="animalImg">
+		insert into animal_img(aino, img_date, picture, aid, name, type)
+		values(animal_img_seq.nextval, sysdate, #{picture}, #{aid}, #{name}, #{type})
+	</insert>
+	<delete id="deleteAnimalImgByAino">
+		delete
+		from animal_img
+		where aino=#{aino}
+	</delete>
+	<delete id="deleteAnimalimgByAid">
+		delete
+		from animal_img
+		where aid=#{aid}
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+
+

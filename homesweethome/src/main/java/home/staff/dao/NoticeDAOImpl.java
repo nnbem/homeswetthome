@@ -1,6 +1,7 @@
 package home.staff.dao;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,9 +32,15 @@ public class NoticeDAOImpl implements NoticeDAO {
 		dataParam.put("keyword", pageMaker.getKeyword());
 
 		
-		List<NoticeVO> noticeList 
-			= session.selectList("Notice-Mapper.selectSearchNoticeList", dataParam);
-		return noticeList;
+		List<NoticeVO> pinnedNotice = session.selectList("Notice-Mapper.selectPinnedNotice");
+		
+		List<NoticeVO> noticeList = session.selectList("Notice-Mapper.selectSearchNoticeList", dataParam);
+		
+		List<NoticeVO> finalNotice = new ArrayList<>();
+		finalNotice.addAll(pinnedNotice);
+		finalNotice.addAll(noticeList);
+		
+		return finalNotice;
 	}
 
 	@Override
@@ -57,6 +64,16 @@ public class NoticeDAOImpl implements NoticeDAO {
 	public void updateNotice(NoticeVO notice) throws SQLException {
 		session.update("Notice-Mapper.updateNotice", notice);
 	}
+	
+	//pin 기능 추가
+	@Override
+	public void updateNoticeStatus(int nno, boolean isNotice) {
+		Map<String, Object> params = new HashMap<>();
+        params.put("nno", nno);
+        params.put("pin", isNotice ? 1 : 0); // 공지 = 1, 일반 = 0
+
+        session.update("Notice-Mapper.updateNoticeStatus", params);
+	}
 
 	@Override
 	public void deleteNotice(int nno) throws SQLException {
@@ -78,5 +95,11 @@ public class NoticeDAOImpl implements NoticeDAO {
 	public NoticeVO selectByNoticeEid(String eid) throws SQLException {
 		NoticeVO notice = session.selectOne("Notice-Mapper.selectByNoticeEid", eid);
 		return notice;
+	}
+	
+	//추가
+	@Override
+	public List<NoticeVO> selectNoticeListWithPriority(PageMaker pageMaker) throws SQLException {
+		return session.selectList("Notice-Mapper.selectNoticeListWithPriority", pageMaker);
 	}
 }

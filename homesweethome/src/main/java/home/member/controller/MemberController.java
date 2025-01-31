@@ -1,14 +1,23 @@
 package home.member.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import home.member.service.SearchMemberService;
 
 @Controller
 @RequestMapping("/member")
 public class MemberController {
+	
+	private SearchMemberService memberService;
+
+    @Autowired
+    public MemberController(SearchMemberService memberService) {
+        this.memberService = memberService;
+    }
 
 	@GetMapping("/main/header")
 	public String main_header() {
@@ -26,60 +35,29 @@ public class MemberController {
 		model.addAttribute("pageTitle", "센터소개");
 		return "member/intro/intro_main";
 	}
-
+	
 	@GetMapping("/intro/way")
 	public String way() {
 		return "member/intro/way";
 	}
-
-
-	@GetMapping("/adoption")
-	public String adoption_mmain() {
-		String url = "/member/adoption/adoption_main";
-		return url;
-	}
-
-	@GetMapping("/adoption/education")
-	public String adoption_online() {
-		String url = "/member/adoption/education";
-		return url;
-	}
-
-	@GetMapping("/adoption/suit")
-	public String adoption_suit() {
-		String url = "/member/adoption/suit";
-		return url;
-	}
-
-	@GetMapping("/adoption/suit/form")
-	public String adoption_suit_form() {
-		String url = "/member/adoption/suit_form";
-		return url;
-	}
-
-	@GetMapping("/adoption/reserve")
-	public String adoption_reserve() {
-		String url = "/member/adoption/reserve";
-		return url;
-	}
-
-	@GetMapping("/adoption/reserve/form")
-	public String adoption_reserve_form() {
-		String url = "/member/adoption/reserve_form";
-		return url;
-	}
-
-	@GetMapping("/adoption/application")
-	public String adoption_application() {
-		String url = "/member/adoption/application";
-		return url;
-	}
-
-	@GetMapping("/adoption/application/form")
-	public String adoption_application_form() {
-		String url = "/member/adoption/application_form";
-		return url;
-	}
 	
+	@GetMapping("/intro/find_way")
+	public String find_way() {
+		return "member/intro/find_way";
+	}
+	 @GetMapping("/mypage/adopt")
+	    public String mypage_adopt() {
+	    	return "member/mypage/adopt";
+	    }
+	    
+	    @GetMapping("/mypage/adopt/open_animal")
+	    public String adopt_detail() {
+	    	return "member/mypage/adopt/open_animal";
+	    }
+	    
+	    @GetMapping("/mypage/mark/list")
+	    public String mypage_mark() {
+	    	return "member/mypage/mark/list";
+	    }
 
 }

@@ -12,12 +12,12 @@
 		<if test="searchType == 'c'.toString()">
 			and content like '%'||#{keyword}||'%'
 		</if>
-		<if test="searchType == 'e'">
+		<if test="searchType == 'e'.toString()">
 			and eid like '%'||#{keyword}||'%'
 		</if>
 	</sql>
 
-	<select id="selectSearchNoticeList" resultType="notice">
+	<select id="selectSearchNoticeList" parameterType="pageMaker" resultType="notice">
 	 	select *
 		from(
 		    select rownum as rnum,SearchNoticeResult.*
@@ -26,14 +26,23 @@
 				from notice
 				where nno is not null
 				<include refid="search" />				
-				order by nno asc
+				order by regDate desc
 		    )  SearchNoticeResult
 		    <![CDATA[
-		    where rownum <= #{endRow}		 		    		    
+		    where rownum <= #{endRow} < 1 then 10 else #{endRow} end	 		    		    
 		)		 
-		where rnum >= #{startRow}			
+		where rnum >= #{startRow} < 1 then else #{startRow} end			
 		 ]]>
 	</select>
+	
+	<!-- 추가 -->
+	<select id="selectPinnedNotice" resultType="notice">
+		select nno, title, content, eid, regDate, upload_Date, pin
+		from notice
+		where pin = 1
+		order by regDate desc
+	</select>
+	
 
 	<select id="selectSearchNoticeListCount" parameterType="pageMaker" resultType="int">
 		select count (*)
@@ -42,15 +51,15 @@
 		<include refid="search"/>
 	</select>
 	
-	<select id="selectNoticeByNno" parameterType="pageMaker" resultType="int">
-		select nno, title, content, writer, regDate
+	<select id="selectNoticeByNno" parameterType="pageMaker" resultType="notice">
+		select nno, title, content, eid, regDate
 		from notice
 		where nno = #{nno}
 	</select>
 	
 	<select id="selectByNoticeEid" resultType="str">
 		select eid
-		from Notice
+		from notice
 		where nno = #{nno}
 	</select>
 
@@ -59,15 +68,22 @@
 		from dual
 	</select>
 	
-	<insert id="insertnotice" parameterType="notice">
+	<insert id="insertNotice" parameterType="notice">
 		insert into 
-		notice(nno, title)
-		values (#{nno}, #{title})
+		notice(nno, title, content, pin)
+		values (#{nno}, #{title}, #{content}, #{pin})
 	</insert>
 	
 	<update id="updateNotice" parameterType="notice">
 		update notice
 		set title = #{title}, content = #{content}, upload_Date = sysdate
+		where nno = #{nno}
+	</update>
+	
+	<!-- pin 기능 추가 -->
+	<update id="updateNoticeStatus">
+		update notice
+		set pin = #{pin}
 		where nno = #{nno}
 	</update>
 	
@@ -89,5 +105,11 @@
 	    where viewcnt = #{viewCnt}
 	</select>
 	
+	<!-- 추가 -->
+	<select id="selectNoticeListWithPriority" resultType="notice">
+		select nno, title, content, eid, regDate, upload_Date, pin
+		from notice
+		order by pin desc, regDate desc, nno desc
+	</select>
 	
 </mapper>

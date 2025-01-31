@@ -7,6 +7,7 @@ import home.commons.request.AnimalCarePageMaker;
 import home.staff.dto.AnimalCareVO;
 import home.staff.dto.AnimalVO;
 import home.staff.dto.BasicVO;
+import home.staff.dto.BreedVO;
 
 public interface AnimalCareDAO {
 	List<AnimalCareVO> selectSearchAnimalList(AnimalCarePageMaker pageMaker)throws SQLException;
@@ -19,4 +20,6 @@ public interface AnimalCareDAO {
 	void updateAnimal(AnimalVO animal)throws SQLException;
 	void deleteAnimal(Long aid)throws SQLException;
 	Long selectAnimalSeqNext()throws SQLException;
+	List<BreedVO> selectBreed()throws SQLException;
+	
 }

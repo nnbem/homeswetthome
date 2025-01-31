@@ -14,7 +14,7 @@
 		<if test="kindList != null ">
 			and kind in
 			<foreach item="kind" collection="kindList" index="index" open="(" close=")" separator=",">
-				#{kind}			
+				#{kind}
 			</foreach>
 		</if>
 		<if test="breed != null and breed != '' ">
@@ -68,14 +68,14 @@
 	
 	<select id="selectAnimalByAid" parameterType="long" resultType="animal">
 		select *
-		form animal
+		from animal
 		where aid=#{aid}
 	</select>
 	
 	<insert id="insertAnimal" parameterType="animal">
-		insert into animal(aid, name, character, color, other, state, weight, neutralization, age)
-		values aid=#{aid}, name=#{name}, character=#{character}, color=#{color}, 
-				other=#{other}, state=#{state}, weight=#{weight}, neutralization=#{neutralization}, age=#{age}
+		insert into animal(aid, name, character, color, other, state, weight, neutralization, age, eid)
+		values (#{aid}, #{name}, #{character}, #{color}, 
+				#{other}, #{state}, #{weight}, #{neutralization}, #{age}, #{eid})
 	</insert>
 	<update id="updateAnimal" parameterType="animal">
 		update animal
@@ -85,11 +85,15 @@
 	</update>
 	<delete id="deleteAnimal" parameterType="long">
 		delete
-		from board
+		from animal
 		where aid=#{aid}
 	</delete>
 	<select id="selectAnimalSeqNext" resultType="long">
 		select animal_seq.nextval as aid from dual
+	</select>
+	<select id="selectBreed" resultType="breed">
+		select *
+		from breed
 	</select>
 </mapper>
 

@@ -1,5 +1,5 @@
 <%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="home.member.dto.MemberVO" %>
+<%@ page import="home.staff.dto.NoticeVO" %>
 <%@ page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -23,15 +23,15 @@
 		<div class="right" >
 			<button class="refresh-button">⟳&nbsp;&nbsp;</button>
 		<select class="sort-select" name="perPageNum" id="perPageNum">
-	    	<option value="10"  ${pageMaker.perPageNum eq 10 ? 'selected':'' } >정렬개수</option>
-	  		<option value="20" ${pageMaker.perPageNum eq 20 ? 'selected':'' } >20개씩 정렬</option>
-	  		<option value="30" ${pageMaker.perPageNum eq 30 ? 'selected':'' } >30개씩 정렬</option>
+	    	<option class="font" value="10"  ${pageMaker.perPageNum eq 10 ? 'selected':'' } >정렬개수</option>
+	  		<option class="font" value="20" ${pageMaker.perPageNum eq 20 ? 'selected':'' } >20개씩 정렬</option>
+	  		<option class="font" value="30" ${pageMaker.perPageNum eq 30 ? 'selected':'' } >30개씩 정렬</option>
 	  	</select>
 	  	<select class="sort-select" name="searchType" id="searchType">
-		    <option value=""  >검색구분</option>
-	 		<option value="t" ${pageMaker.searchType eq 't' ? 'selected':'' } >제목</option>
-	 		<option value="c" ${pageMaker.searchType eq 'c' ? 'selected':'' } >내용</option>
-	 		<option value="i" ${pageMaker.searchType eq 'i' ? 'selected':'' } >작성자</option>								
+		    <option class="font" value=""  >검색구분</option>
+	 		<option class="font" value="t" ${pageMaker.searchType eq 't' ? 'selected':'' } >제목</option>
+	 		<option class="font" value="c" ${pageMaker.searchType eq 'c' ? 'selected':'' } >내용</option>
+	 		<option class="font" value="i" ${pageMaker.searchType eq 'i' ? 'selected':'' } >작성자</option>								
 		</select>
 		
 		<input type="text" class="search-input" placeholder="검색어를 입력해주세요."
@@ -70,7 +70,7 @@
 				        <td>${inquiry.ino}</td>
 				        <td>${inquiry.title}</td>
 				        <td>${inquiry.content}</td>
-				        <td>${inquiry.regDate}</td>
+				        <td>${regDate}</td>
 				        <td>${inquiry-request.regDate}</td>
 				    </tr>
 				</c:forEach>
@@ -112,13 +112,4 @@ function select(page) {
     searchForm.submit();
     pageForm.submit();
 }
-</script>
-
-<script>
-	function regist_go() {
-		document.getElementBtId("regist").addEventListener("clcik",
-	function() {
-			window.location.href = "/staff/board/notice/regist";
-		});
-	}
 </script>

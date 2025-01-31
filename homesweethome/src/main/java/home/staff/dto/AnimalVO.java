@@ -1,5 +1,7 @@
 package home.staff.dto;
 
+import java.util.List;
+
 public class AnimalVO {
 	private Long aid;
 	private String name;
@@ -7,11 +9,19 @@ public class AnimalVO {
 	private String character;
 	private String color;
 	private int weight;
-	private int neutralization;
+	private String neutralization;
 	private int age;
 	private String other;
 	private String eid;
 	
+	private List<AnimalImgVO> animalImgList;
+	
+	public List<AnimalImgVO> getAnimalImgList() {
+		return animalImgList;
+	}
+	public void setAnimalImgList(List<AnimalImgVO> animalImgList) {
+		this.animalImgList = animalImgList;
+	}
 	public Long getAid() {
 		return aid;
 	}
@@ -60,10 +70,10 @@ public class AnimalVO {
 	public void setWeight(int weight) {
 		this.weight = weight;
 	}
-	public int getNeutralization() {
+	public String getNeutralization() {
 		return neutralization;
 	}
-	public void setNeutralization(int neutralization) {
+	public void setNeutralization(String neutralization) {
 		this.neutralization = neutralization;
 	}
 	public int getAge() {

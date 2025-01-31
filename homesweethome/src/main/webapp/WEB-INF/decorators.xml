@@ -29,15 +29,16 @@
 		<pattern>/member/login/find/*</pattern>
 		<pattern>/member/main</pattern>
 		<pattern>/member/bmain</pattern>
-		<pattern>/member/mypage/deactivation/open_cancel</pattern>
-		<pattern>/member/mypage/adopt/open_animal</pattern>
+		<pattern>/member/mypage*</pattern>
 		<pattern>/member/checkid*</pattern>
 		<pattern>/summernote/*</pattern>
 		
 		<pattern>/member/board/sharing/regist</pattern>
 		<pattern>/member/board/sharing/modify*</pattern>
 		
+		<pattern>/staff/smain</pattern>
+		<!-- 공지등록 추가 -->
+		<pattern>/staff/board/notice/regist</pattern>
 		
-
 	</excludes>
 </decorators>

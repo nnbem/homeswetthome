@@ -10,9 +10,11 @@ import home.staff.dto.NoticeVO;
 public class NoticeServiceImpl implements NoticeService {
 	
 	private NoticeDAO noticeDAO;
+	private String summernotePath;
 
-	public NoticeServiceImpl(NoticeDAO noticeDAO) {
+	public NoticeServiceImpl(NoticeDAO noticeDAO,String summernotePath) {
 		this.noticeDAO = noticeDAO;
+		this.summernotePath = summernotePath;
 	}
 
 	@Override
@@ -37,6 +39,12 @@ public class NoticeServiceImpl implements NoticeService {
 		notice.setNno(nno);
 		noticeDAO.insertNotice(notice);
 	}
+	
+	//pin 기능 추가
+	@Override
+	public void updateNoticeStatus(int nno, boolean isNotice) throws SQLException {
+		noticeDAO.updateNoticeStatus(nno, isNotice);
+	}
 
 	@Override
 	public void modify(NoticeVO notice) throws SQLException {
@@ -50,12 +58,18 @@ public class NoticeServiceImpl implements NoticeService {
 
 	@Override
 	public void remove(int nno) throws SQLException {
-		NoticeVO notice = noticeDAO.selectNoticeByNno(nno);
+		noticeDAO.deleteNotice(nno);
 	}
 
 	@Override
 	public NoticeVO getEid(String eid) throws SQLException {
 		return noticeDAO.selectByNoticeEid(eid);
+	}
+
+	//공지먼저정렬 추가
+	@Override
+	public List<NoticeVO> selectNoticeListWithPriority(PageMaker pageMaker) throws SQLException {
+		return noticeDAO.selectNoticeListWithPriority(pageMaker);
 	}
 	
 	

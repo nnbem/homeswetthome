@@ -34,10 +34,6 @@ public class SharingController {
 		this.sharingService = sharingService;
 	}
 	
-	@GetMapping("/board/main")
-    public String board_main() {
-        return "member/board/main";
-    }
 	
 	@GetMapping("/board/sharing")
     public void sharing(@ModelAttribute PageMaker pageMaker, Model model) throws Exception {
@@ -108,19 +104,14 @@ public class SharingController {
 	    return url;
 	}
 
-
-	
-	
 	@Resource(name="summernotePath")
 	private String summernotePath;
 	
 	@GetMapping("/board/sharing/remove")
 	public String remove(@RequestParam("sno") int sno, RedirectAttributes rttr) throws Exception {
 	    sharingService.remove(sno);
-	    rttr.addFlashAttribute("message", "게시글이 성공적으로 삭제되었습니다.");
+	    rttr.addFlashAttribute("message", "게시글이 삭제되었습니다.");
 	    return "redirect:/member/board/sharing";
 	}
-
-
 
 }

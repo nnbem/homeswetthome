@@ -54,9 +54,9 @@ public class MainController {
 		return entity;
 	}
 	
-	@GetMapping("/mypageMenu")
+	@GetMapping("/subMypageMenu")
 	@ResponseBody
-	public ResponseEntity<List<MypageMenuVO>> subMypageMenuList(String tcode) throws Exception {
+	public ResponseEntity<List<MypageMenuVO>> subMypageMenu(String tcode) throws Exception {
 		ResponseEntity<List<MypageMenuVO>> entity = null;
 		
 		List<MypageMenuVO> subMypageMenuList = mypageMenuService.gettSubMypageMenuList(tcode);

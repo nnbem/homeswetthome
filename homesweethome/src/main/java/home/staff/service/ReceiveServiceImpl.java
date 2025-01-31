@@ -70,5 +70,11 @@ public class ReceiveServiceImpl implements ReceiveService{
     public void remove(int rcno) throws SQLException {
         receiveDAO.deleteReceive(rcno);
     }
+    
+    @Override
+	public int getRcnoByAid(Long aid) throws SQLException {
+		return receiveDAO.selectRcnoByAid(aid);
+	}
+
 
 }

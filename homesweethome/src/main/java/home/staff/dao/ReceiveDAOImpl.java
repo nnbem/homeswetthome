@@ -67,4 +67,21 @@ public class ReceiveDAOImpl implements ReceiveDAO{
 		return receive;
 	}
 
+
+	@Override
+	public void insertReceiveInAnimalCare(ReceiveVO receive) throws SQLException {
+		session.insert("Receive-Mapper.insertReceiveInAnimalCare", receive);
+	}
+
+	@Override
+	public int selectRcnoByAid(Long aid) throws SQLException {
+		return session.selectOne("Receive-Mapper.selectRcnoByAid", aid);
+	}
+
+	@Override
+	public void updateReceiveInAnimalCare(ReceiveVO receive) throws SQLException {
+		session.update("Receive-Mapper.updateReceiveInAnimalCare", receive);
+	}
+
+
 }

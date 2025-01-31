@@ -53,8 +53,9 @@
 						<!-- 작성자 -->
 						<tbody>
 							<tr>
-								<td><label for="mid">작성자</label> <input type="text" id="mid" name="mid" class="form-control"
-									readonly value="${loginUser}">
+								<td><label for="mid">작성자</label>
+								<input type="text" id="mid" name="mid" class="form-control"
+									readonly value="${sharing.mid}">
 								</td>
 							</tr>
 						<!-- 내용 -->

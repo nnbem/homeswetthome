@@ -5,11 +5,11 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ include file="/WEB-INF/views/module/adminlteSource.jsp" %>
 
 <head>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/member_style/board.css">
-
 </head>
 
 	<div class="content-title">
@@ -63,7 +63,7 @@
 			    
 			    <tr onclick="location.href='${detailUrl}';" style="cursor:pointer;">
 			        <td>${notice.nno}</td>
-			        <td>${notice.title}</td>
+			        <td style="text-align:left;">${notice.title}</td>
 			        <td>${regDate}</td>
 			        <td>${notice.viewcnt}</td>
 			    </tr>
@@ -72,13 +72,10 @@
 		
 		</tbody>
 	</table>
+	<br/>
 	<%@ include file="/WEB-INF/views/module/pagination.jsp" %>
+	<br/>
 </div>
-
-
-<form id="pageForm" style="display: none;">
-   <input type='text' name="page" value="" />
-</form>
 
 
 <script>
@@ -90,22 +87,7 @@ document.querySelector('.refresh-button').addEventListener('click', function(eve
     });
 });
 
-function select(page) {
-	let perPageNum = document.querySelector('select[name="perPageNum"]').value;
-	let searchType = document.querySelector('select[name="searchType"]').value;
-	let keyword = document.querySelector('input[name="keyword"]').value;
-    
-    let searchForm = document.querySelector("#searchForm");
-    let pageForm = document.querySelector("#pageForm");
-    pageForm.page.value = page;
-    
-    searchForm.perPageNum.value=perPageNum;
-    searchForm.searchType.value = searchType;
-    searchForm.keyword.value = keyword;
-    
-    searchForm.submit();
-    pageForm.submit();
-}
+
 </script>
 
 <script>

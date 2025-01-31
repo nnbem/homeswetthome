@@ -63,4 +63,21 @@
   	from receive
   	where aid = #{aid}
 	</select>
+	
+	<insert id="insertReceiveInAnimalCare" parameterType="receive">
+  		insert into receive(rcno, breed, kind, gender, aid, receive_date)
+  		values (#{rcno}, #{breed}, #{kind}, #{gender}, #{aid}, sysdate)
+  	</insert>
+  	
+  	<select id="selectRcnoByAid" parameterType="long" resultType="int">
+  		select rcno
+  		from receive
+  		where aid=#{aid}
+  	</select>
+  	<update id="updateReceiveInAnimalCare" parameterType="receive">
+  		update receive
+  		set breed=#{breed}, kind=#{kind}, gender=#{gender}, aid=#{aid}
+  		where rcno=#{rcno}
+  	</update>
+	
   </mapper>

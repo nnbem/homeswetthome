@@ -13,4 +13,6 @@ public interface SearchMemberDAO extends MemberDAO{
 	MemberVO getMemberByMid(String mid);
 	
 	int selectSearchMemberListCount(PageMaker pageMaker) throws SQLException;
+
+	String getPwdByMid(String mid);
 }

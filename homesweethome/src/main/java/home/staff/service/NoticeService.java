@@ -14,6 +14,9 @@ public interface NoticeService {
 		
 	void regist(NoticeVO notice)throws SQLException;
 	
+	//pin 기능 추가
+	void updateNoticeStatus(int nno, boolean isNotice) throws SQLException;
+	
 	void modify(NoticeVO notice)throws SQLException;
 	
 	NoticeVO getnotice(int nno)throws SQLException;
@@ -21,4 +24,7 @@ public interface NoticeService {
 	void remove(int nno)throws SQLException;
 	
 	NoticeVO getEid(String eid)throws SQLException;
+	
+	//공지먼저정렬 추가
+	List<NoticeVO> selectNoticeListWithPriority(PageMaker pageMaker) throws SQLException;
 }

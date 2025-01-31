@@ -5,7 +5,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+<head>
+<link rel="stylesheet"
+  href="<%=request.getContextPath()%>/resources/css/staff_style/staff_style.css">
+</head>
 <body>
 
 <div class="innerWrapper">
@@ -24,20 +27,20 @@
 		<form id="searchForm">
 		<div class="search-bar" style="justify-content:flex-end;">
 		<div class="left">
-			<button id="regist" class="regist-btn">등 록</button>
+			<button id="regist" class="regist-btn" onclick="regist_go();">등 록</button>
 		</div>
 		<div class="right" >
 		    <button class="refresh-button">⟳&nbsp;&nbsp;</button>
 		    <select class="sort-select" name="perPageNum" id="perPageNum">
-		    	<option value="10"  ${pageMaker.perPageNum eq 10 ? 'selected':'' } >정렬개수</option>
-		  		<option value="20" ${pageMaker.perPageNum eq 20 ? 'selected':'' } >20개씩 정렬</option>
-		  		<option value="30" ${pageMaker.perPageNum eq 30 ? 'selected':'' } >30개씩 정렬</option>
+		    	<option class="font" value="10"  ${pageMaker.perPageNum eq 10 ? 'selected':'' } >정렬개수</option>
+		  		<option class="font" value="20" ${pageMaker.perPageNum eq 20 ? 'selected':'' } >20개씩 정렬</option>
+		  		<option class="font" value="30" ${pageMaker.perPageNum eq 30 ? 'selected':'' } >30개씩 정렬</option>
 		  	</select>
 		    <select class="sort-select" name="searchType" id="searchType">
-			    <option value=""  >검색구분</option>
-		 		<option value="t" ${pageMaker.searchType eq 't' ? 'selected':'' } >제목</option>
-				<option value="c" ${pageMaker.searchType eq 'c' ? 'selected':'' } >내용</option>
-				<option value="e" ${pageMaker.searchType eq 'e' ? 'selected':'' } >작성자</option>	 									
+			    <option class="font" value=""  >검색구분</option>
+		 		<option class="font" value="t" ${pageMaker.searchType eq 't' ? 'selected':'' } >제목</option>
+				<option class="font" value="c" ${pageMaker.searchType eq 'c' ? 'selected':'' } >내용</option>
+				<option class="font" value="e" ${pageMaker.searchType eq 'e' ? 'selected':'' } >작성자</option>	 									
 			</select>
 		
 		    <input type="text" class="search-input" placeholder="검색어를 입력해주세요."
@@ -72,8 +75,15 @@
 				    </c:url>
 				    
 				    <tr onclick="location.href='${detailUrl}';" style="cursor:pointer;">
-				        <td>${notice.nno}</td>
-				        <td>${notice.title}</td>
+				        <td>
+							<c:choose>
+					            <c:when test="${notice.pin == 1}">
+					                <span style="color: red;">공지</span>
+					            </c:when>
+					            <c:otherwise> ${notice.nno} </c:otherwise>
+					        </c:choose>
+						</td>
+				        <td style="text-align:left;">${notice.title}</td>
 				        <td>${notice.eid }</td>
 				        <td>${regDate}</td>
 				        <td>${notice.viewcnt}</td>
@@ -82,17 +92,11 @@
 			</c:if>
 			</tbody>
 		</table>
+
 	</div>
 	<%@ include file="/WEB-INF/views/module/pagination.jsp" %>
 </div>
 </div>
-
-
-
-<form id="pageForm" style="display: none;">
-   <input type='text' name="page" value="" />
-</form>
-
 
 <script>
 document.querySelector('.refresh-button').addEventListener('click', function(event) {
@@ -103,32 +107,15 @@ document.querySelector('.refresh-button').addEventListener('click', function(eve
     });
 });
 
-function select(page) {
-	let perPageNum = document.querySelector('select[name="perPageNum"]').value;
-	let searchType = document.querySelector('select[name="searchType"]').value;
-	let keyword = document.querySelector('input[name="keyword"]').value;
-    
-    let searchForm = document.querySelector("#searchForm");
-    let pageForm = document.querySelector("#pageForm");
-    pageForm.page.value = page;
-    
-    searchForm.perPageNum.value=perPageNum;
-    searchForm.searchType.value = searchType;
-    searchForm.keyword.value = keyword;
-    
-    searchForm.submit();
-    pageForm.submit();
-}
+
 </script>
 
 <script>
-	function regist_go() {
-		document.getElementBtId("regist").addEventListener("clcik",
-	function() {
-			window.location.href = "/staff/board/notice/regist";
-		});
-	}
-	function goPage(url) {
-        window.location.href = url;
-    }
+function regist_go() {
+	window.open('/staff/board/notice/regist', '글등록',
+	'width=900, height=700, resizable=yes, scrollbars=yes');
+}
+
+
+
 </script>

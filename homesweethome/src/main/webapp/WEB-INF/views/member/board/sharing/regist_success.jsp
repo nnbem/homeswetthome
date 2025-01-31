@@ -3,6 +3,6 @@
 
 <script>
 	alert("게시글이 등록되었습니다.")
-	window.close();
 	window.opener.location.reload();
+	window.close();	
 </script>

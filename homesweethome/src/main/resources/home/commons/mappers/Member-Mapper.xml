@@ -19,7 +19,7 @@
 		</if>
 	</sql>
 
-	<select id="selectSearchMemberList" parameterType="pageMaker" resultType="member">
+	<select id="selectSeachMemberList" parameterType="pageMaker" resultType="member">
 		select *
 		from member
 		<include refid="search" />
@@ -35,18 +35,25 @@
 	<select id="selectMemberList" resultType="member">
 		select *
 		from member
+		order by regDate desc
 	</select>
-
-	<select id="selectMemberByMid" parameterType="str" resultType="member">
+	
+	<select id="selectMember_List" parameterType="pageMaker" resultType="memberList">
+		select *
+		from member_List
+		order by regDate desc
+	</select>
+	
+	<select id="selectMemberByMid" parameterType="str" resultType="home.member.dto.MemberVO">
 		select *
 		from member
 		where mid = #{mid}
 	</select>
-	
-	<select id="getMemberByMid" parameterType="string" resultType="member">
-        select *
-        from member
-        where mid = #{mid}
+    
+    <select id="getPwdByMid" parameterType="str" resultType="str">
+    	select pwd
+    	from member
+    	where mid = #{mid}
     </select>
 
 	<insert id="insertMember" parameterType="member">
@@ -60,16 +67,5 @@
 		set pwd = #{pwd}, phone = #{phone} address = #{address}, email = #{email}
 		where mid = #{mid}
 	</update>
-
-	<delete id="deleteMember" parameterType="str">
-		delete
-		from member
-		where mid = #{mid}
-	</delete>
-	
-	<select id="selectMemberSeqNext" resultType="int">
-		select member_seq.nextval as mid from dual	
-	</select>
-	
 
 </mapper>

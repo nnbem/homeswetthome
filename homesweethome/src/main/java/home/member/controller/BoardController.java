@@ -9,18 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/member")
 public class BoardController {
 
-	
-	@GetMapping("/board/review")
-	public String review() {
-		String url = "/member/board/review/review";
-		return url;
-	}
-	
-	@GetMapping("/board/review/detail")
-	public String reviewDetail() {
-		String url = "/member/board/review/detail";
-		return url;
-	}
 
 	@GetMapping("/board")
 	public String board_mmain() {

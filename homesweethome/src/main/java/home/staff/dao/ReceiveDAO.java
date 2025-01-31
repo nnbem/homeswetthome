@@ -24,4 +24,8 @@ public interface ReceiveDAO {
     int selectReceiveSeqNext() throws SQLException;
     // aid로 Receive 데이터 조회
     ReceiveVO selectReceiveByAid(long aid) throws SQLException;
+    
+    void insertReceiveInAnimalCare(ReceiveVO receive) throws SQLException;
+    int selectRcnoByAid(Long aid) throws SQLException;
+	void updateReceiveInAnimalCare(ReceiveVO receive)throws SQLException;
 }

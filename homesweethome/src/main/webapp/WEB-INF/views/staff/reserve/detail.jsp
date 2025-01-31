@@ -55,15 +55,15 @@
 
 <script>
 	function back_page() {
-		window.location.href = "/staff/adoption";
+		window.location.href = "/staff/reserve";
 	}
 	function approval(){
 		alert("신청이 승인되었습니다.");
-		window.location.href = "/staff/adoption";
+		window.location.href = "/staff/reserve";
 	}
 	function refusal(){
 		alert("신청이 반려되었습니다.");
-		window.location.href = "/staff/adoption";
+		window.location.href = "/staff/reserve";
 	}
 </script>
 

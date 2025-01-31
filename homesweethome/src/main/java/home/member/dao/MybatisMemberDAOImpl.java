@@ -43,9 +43,8 @@ public class MybatisMemberDAOImpl implements MemberDAO{
 	}
 
 	@Override
-	public void deleteMember(String mid) throws SQLException {
-		session.delete("Member-Mapper.deleteMember" ,mid);		
+	public String getPwdByEid(String mid) throws SQLException {
+		return session.selectOne("Member-Mapper.getPwdByMid", mid);
 	}
 	
-
 }

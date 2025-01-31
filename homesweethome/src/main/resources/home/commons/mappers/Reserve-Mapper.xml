@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="Reserve-Mapper">
+  	<sql id="search">
+  		<if test="searchType == 'm'.toString() ">
+  			and mid like '%' ||#{keyword}||'%'
+  		</if>
+  		<if test="searchType == 'p'.toString() ">
+  			and phone like '%' ||#{keyword}||'%'
+  		</if>
+  	</sql>
+  	
+  	<select id="selectSearchReserveList" parameterType="pageMaker" resultType="reserve">
+  		select *
+  		from reserve
+  		<include refid="search" />
+  		order by regDate desc
+  	</select>
+  	<select id="selectSearchReserveListCount" parameterType="pageMaker" resultType="int">
+  		select count(*)
+  		from reserve
+  		<include refid="search" />
+  	</select>
+  	<select id="selectReserveByRsno" parameterType="int" resultType="reserve">
+  		select *
+  		from reserve
+  		where rsno=#{rsno}
+  	</select>
+  	<select id="selectReserveByMid" parameterType="str" resultType="reserve">
+  		select *
+  		from reserve
+  		where mid=#{mid}
+  	</select>
+  	<select id="selectReserveSeqNext" resultType="int">
+  		select reserve_seq.nextval as rsno from dual
+  	</select>
+  	
+  	<insert id="insertReserve" parameterType="reserve">
+  		insert into reserve(rsno, regDate, schedule, content, mid)
+  		values(#{rsno},#{regDate},#{schedule},#{content},#{mid})
+  	</insert>
+  	<update id="updateReserve" parameterType="reserve">
+  		update reserve
+  		set status=#{status}, eid=#{eid}
+  		where rsno=#{rsno}
+  	</update>
+  	<update id="cancelReserve" parameterType="reserve">
+  		update reserve
+  		set status='cancel'
+  		where rsno=#{rsno}
+	</update>
+  </mapper>

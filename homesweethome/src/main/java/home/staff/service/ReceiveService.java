@@ -32,4 +32,6 @@ public interface ReceiveService {
     // Receive 데이터 삭제
     void remove(int rcno) throws SQLException;
     
+    public int getRcnoByAid(Long aid) throws SQLException;
+    
 }

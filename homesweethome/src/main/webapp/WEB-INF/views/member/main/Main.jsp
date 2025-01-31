@@ -17,13 +17,10 @@
 				<div class="top_bar">
 					<a href="/member/main/guest">로그아웃</a>
 					<c:forEach var="mypage" items="${mypageMenuList }">
-						
 							<a href="javascript:goMypage('<%=request.getContextPath() %>${mypage.turl }', '${mypage.tcode }'); SubMypageMenu_go('${mypage.tcode }');"
-							class="mypage_nav-link">${mypage.tname }
+							class="mypagenav-link">${mypage.tname }
 							</a>
-						
 					</c:forEach>
-					
 				</div>
 			</div>
 
@@ -59,7 +56,6 @@
 		<div class="inner_cent">
 			<!-- Sidebar -->
 			<div class="sidebar subMenuList">
-				
 				
 			</div>
 			<!-- sidebar -->
@@ -100,18 +96,16 @@
 
 {{/each}}
 </script>
-<script type="text/x-handlebars-template"  id="subMypageMenu-list-template" >
-{{#each .}}		
+<script type="text/x-handlebars-template" id="subMypageMenu-list-template">
+    {{#each .}}
+    <li class="list">
+        <a href="javascript:goPage('{{turl}}', '{{tcode}}');" class="mypagenav-link">
+            {{tname}}
+        </a>
+    </li>
+    {{/each}}
+</script>
 
-<li class="list">
-	
-	<a href="javascript:goPage('<%=request.getContextPath() %>{{turl}}','{{tcode }}');"	class="nav-link">
-		{{tname}}
-	</a>
-</li>
-
-{{/each}}
-</Script>
 
 <script>
 function goMypage(url, tcode){
@@ -128,20 +122,22 @@ var subMypageMenu_func = Handlebars.compile($("#subMypageMenu-list-template").ht
 
 function SubMypageMenu_go(tcode){
 	//alert(tcode);
-	
 	$.ajax({
-		url:"<%=request.getContextPath()%>/member/mypageMenu?tcode="+tcode,
-		method:"get",
-		success:function(data){
-			$('.subMypageMenuList').html(subMypageMenu_func(data));
-			console.log(subMypageMenu_func(data));
-		},
-		error:function(error){
-			AjaxErrorSecurityRedirectHandler(error.status);
-		}
-	});
+    url: "<%=request.getContextPath()%>/member/subMypageMenu?tcode=" + tcode,
+    method: "get",
+    success: function(data) {
+        var renderedHTML = subMypageMenu_func(data); // Handlebars로 렌더링
+        $('.subMenuList').html(renderedHTML); // HTML 삽입
+        console.log("삽입된 서브메뉴:", renderedHTML); // 확인용 로그
+    },
+    error: function(error) {
+        console.error("AJAX 요청 실패:", error);
+    }
+});
+	
+	
 	if(tcode=="T000000") {
-		$('.subMenuList').html("");
+		$('.subMypageMenuList').html("");
 		return;
 	}
 }

@@ -43,6 +43,11 @@ public class SearchMybatisMemberDAOImpl extends MybatisMemberDAOImpl implements 
 	public MemberVO getMemberByMid(String mid) {
 		return session.selectOne("Member-Mapper.getMemberByMid", mid);
 	}
+
+	@Override
+	public String getPwdByMid(String mid) {
+		return session.selectOne("Member-Mapper.getPwdByMid", mid);
+	}
 	
 	
 }

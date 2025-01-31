@@ -10,6 +10,7 @@ import home.commons.request.AnimalCarePageMaker;
 import home.staff.dto.AnimalCareVO;
 import home.staff.dto.AnimalVO;
 import home.staff.dto.BasicVO;
+import home.staff.dto.BreedVO;
 
 public class AnimalCareDAOImpl implements AnimalCareDAO {
 	
@@ -75,6 +76,11 @@ public class AnimalCareDAOImpl implements AnimalCareDAO {
 	@Override
 	public AnimalVO selectAnimalByAid(Long aid) throws SQLException {
 		return session.selectOne("AnimalCare-Mapper.selectAnimalByAid", aid);
+	}
+
+	@Override
+	public List<BreedVO> selectBreed() throws SQLException {
+		return session.selectList("AnimalCare-Mapper.selectBreed");
 	}
 
 	

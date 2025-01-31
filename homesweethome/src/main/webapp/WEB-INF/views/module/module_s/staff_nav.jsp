@@ -17,7 +17,7 @@
       <!-- Navigation -->
       <nav class="main_menu">
          <ul>
-            <li><a href="#">보호동물관리</a></li>
+            <li><a href="/staff/animalcare">보호동물관리</a></li>
             <li><a href="/staff/member/list">회원관리</a></li>
             <li><a href="/staff/receive/receive">인계관리</a></li>
             <li><a href="/staff/adoption">입양신청관리</a></li>

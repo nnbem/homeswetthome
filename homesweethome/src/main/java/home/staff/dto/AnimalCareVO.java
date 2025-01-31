@@ -1,6 +1,7 @@
 package home.staff.dto;
 
 import java.util.Date;
+import java.util.List;
 
 public class AnimalCareVO {
 	private Long aid;
@@ -10,7 +11,23 @@ public class AnimalCareVO {
 	private String breed;
 	private Date regdate;
 	private String eid;
+	private String gender;
+	private List<AnimalImgVO> animalImgList;
 	
+	
+	
+	public List<AnimalImgVO> getAnimalImgList() {
+		return animalImgList;
+	}
+	public void setAnimalImgList(List<AnimalImgVO> animalImgList) {
+		this.animalImgList = animalImgList;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 	public Long getAid() {
 		return aid;
 	}

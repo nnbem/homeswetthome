@@ -30,11 +30,17 @@ public class SearchMemberServiceImpl extends MemberServiceImpl implements Search
 		
 		return memberList;
 	}
-
+	
 	@Override
-	public MemberVO getMemberByMid(String mid) {
-		return searchMemberDAO.getMemberByMid(mid);
-	}
+    public boolean checkPassword(String loginUser, String password) {
+        String storedPassword = searchMemberDAO.getPwdByMid(loginUser);
+
+        if (storedPassword == null || !storedPassword.equals(password)) {
+            return false;
+        }
+
+        return true;
+    }
 
 	
 	

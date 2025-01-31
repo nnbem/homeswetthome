@@ -9,12 +9,21 @@
         class="java.lang.String"
         c:value="${savePath.member.picture}"       
    />
+   <!-- employee.picture -->
+   <bean id="employeeSavedFilePath"
+   		 class="java.lang.String"
+   		 c:value="${savePath.employee.picture}"
+   />
+    <!-- animalcare.picture -->
+    <bean id="animalImgSavedFilePath"
+		  class="java.lang.String"
+		  c:value="${savePath.animalcare.picture}"
+	/>
    <!-- summernote.image -->
 	<bean id="summernotePath"
 		  class="java.lang.String"
 		  c:value="${savePath.summernote.image}"
 	/>
-   
 	<!-- log saved path -->
 	<bean id="logSavedPath"
 	      class="java.lang.String"
@@ -37,6 +46,14 @@
 	/>
 	<bean id="EmployeeDAO"
 		  class="home.staff.dao.EmployeeDAOImpl"
+		  c:session-ref="sqlSession"
+	/>
+	<bean id="member_ListDAO"
+		  class="home.member.dao.Member_ListDAOImpl"
+		  c:session-ref="sqlSession"
+	/>
+	<bean id="adoptionInfoDAO"
+		  class="home.adoption.dao.AdoptionInfoDAOImpl"
 		  c:session-ref="sqlSession"
 	/>
 	<bean id="AnimalCareDAO"
@@ -63,6 +80,30 @@
    		 class="home.member.dao.MypageMenuDAOImpl"
    		 c:session-ref="sqlSession"
    />
+   <bean id="AdoptionDAO" 
+   		 class="home.staff.dao.AdoptionDAOImpl"
+   		 c:session-ref="sqlSession"
+   />
+   <bean id="ReserveDAO"
+   		 class="home.staff.dao.ReserveDAOImpl"
+   		 c:session-ref="sqlSession"
+   />
+   <bean id="TreatmentDAO"
+		  class="home.staff.dao.TreatmentDAOImpl"
+		  c:Session-ref="sqlSession"
+	/>
+	<bean id="InjectionDAO"
+		  class="home.staff.dao.InjectionDAOImpl"
+		  c:session-ref="sqlSession"
+	/>
+	<bean id="AnimalImgDAO"
+		  class="home.staff.dao.AnimalImgDAOImpl"
+		  c:session-ref="sqlSession"
+	/>
+	<bean id="ReviewDAO"
+		  class="home.member.dao.ReviewDAOImpl"
+		  c:session-ref="sqlSession"/>
+   
 	
 
 
@@ -70,6 +111,27 @@
 	
 	
 	<!-- service -->
+	<bean id="TreatmentService"
+		  class="home.staff.service.TreatmentServiceImpl"
+		  c:treatmentDAO-ref="TreatmentDAO"
+	/>
+	<bean id="InjectionService"
+		  class="home.staff.service.InjectionServiceImpl"
+		  c:injectionDAO-ref="InjectionDAO"
+	/>
+	<bean id="ReviewService"
+		  class="home.member.service.ReviewServiceImpl"
+		  c:reviewDAO-ref="ReviewDAO"
+		  c:summernotePath-ref="summernotePath"
+	/>
+	<bean id="ReserveService"
+		  class="home.staff.service.ReserveServiceImpl"
+		  c:reserveDAO-ref="ReserveDAO"
+	/>
+	<bean id="AdoptionService"
+		  class="home.staff.service.AdoptionServiceImpl"
+		  c:adoptionDAO-ref="AdoptionDAO"
+	/>
 	<bean id="MypageMenuService"
 		  class="home.member.service.MypageMenuServiceImpl"
 		  c:mypageMenuDAO-ref="MypageMenuDAO"
@@ -83,10 +145,19 @@
 		  class="home.staff.service.ReceiveServiceImpl"
 		  c:receiveDAO-ref="ReceiveDAO"
 	/>
+	<bean id="adoptionInfoService"
+		  class="home.adoption.service.AdoptionInfoServiceImpl"
+		  c:adoptionDAO-ref="adoptionInfoDAO"
+	/>
+	<bean id="member_ListService"
+		  class="home.member.service.Member_ListServiceImpl"
+		  c:member_ListDAO-ref="member_ListDAO"
+	/>
 	<bean id="noticeService"
-          class="home.staff.service.NoticeServiceImpl"
-          c:noticeDAO-ref="noticeDAO"
-   />
+		  class="home.staff.service.NoticeServiceImpl"
+		  c:noticeDAO-ref="noticeDAO"
+		  c:summernotePath-ref="summernotePath"
+	/>
 	<bean id="searchMemberService"
 		  class="home.member.service.SearchMemberServiceImpl"
 		  c:searchMemberDAO-ref="searchMybatisMemberDAO"
@@ -98,7 +169,10 @@
 	<bean id="AnimalCareService"
 		  class="home.staff.service.AnimalCareServiceImpl"
 		  c:animalCareDAO-ref="AnimalCareDAO"
+		  c:receiveDAO-ref="ReceiveDAO"
+		  c:animalImgDAO-ref="AnimalImgDAO"
 	/>
+
 	<bean id="EmployeeService"
 		  class="home.staff.service.EmployeeServiceImpl"
 		  c:employDAO-ref="EmployeeDAO" 

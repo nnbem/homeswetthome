@@ -10,23 +10,56 @@
 		</if>
 	</sql>
 
-	<select id="selectSearchTreatmentList" parameterType="AnimalCarePageMaker" resultType="treatment">
+	<select id="selectSearchTreatmentList" parameterType="TreatmentPageMaker" resultType="treatment">
 		select *
 		from treatment
 		where tno is not null
 		<include refid="search"/>
-		order by regdate desc
+		and aid=#{aid}
+		order by treatment_date desc
 	</select>
-	<select id="selectTreatmentBytno" parameterType="AnimalCarePageMaker" resultType="treatment">
+	
+	<select id="selectSearchTreatmentCount" parameterType="TreatmentPageMaker" resultType="int">
+		select count(*)
+		from treatment
+		where tno is not null 
+		<include refid="search"/>
+		and aid=#{aid}
+		order by treatment_date desc
+	</select>
+	
+	<select id="selectTreatmentBytno" parameterType="int" resultType="treatment">
 		select *
 		from treatment
 		where tno = #{tno}
 	</select>
+	
+	<select id="selectTreatmentListByAid" parameterType="long" resultType="treatment">
+		select *
+		from treatment
+		where aid = #{aid}
+	</select>
+	
 	<insert id="insertTreatment" parameterType="treatment">
-		
+		insert into treatment
+		(tno, treatment_date, cure, disease_date, sympton, opinion, other, aid, eid, disease)
+		values (#{tno}, #{treatment_date}, #{cure}, #{disease_date}, 
+				#{sympton}, #{opinion}, #{other}, #{aid}, #{eid}, #{disease})
 	</insert>
-	
-	
+	<update id="updateTreatment" parameterType="treatment">
+		update treatment
+		set	treatment_date=#{treatment_date}, cure=#{cure}, disease_date=#{disease_date}, 
+				sympton=#{sympton}, opinion=#{opinion}, other=#{other}, aid=#{aid}, eid=#{eid}, disease=#{disease}
+		where tno=#{tno}	
+	</update>
+	<delete id="deleteTreatment" parameterType="int">
+		delete
+		from treatment
+		where tno=#{tno}
+	</delete>
+	<select id="selectTnoSeqNext" resultType="int">
+		select treatment_seq.nextval as tno from dual
+	</select>
 </mapper>
 
 

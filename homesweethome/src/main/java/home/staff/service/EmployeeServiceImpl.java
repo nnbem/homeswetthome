@@ -24,8 +24,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public EmployeeVO getEmployee(String id) throws SQLException {
-		return employeeDAO.selectEmployeeByEid(id);
+	public EmployeeVO getEmployee(String eid) throws SQLException {
+		return employeeDAO.selectEmployeeByEid(eid);
 	}
 
 	@Override
@@ -44,18 +44,18 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public void remove(String id) throws SQLException {
-		employeeDAO.deleteEmployee(id);
+	public void remove(String eid) throws SQLException {
+		employeeDAO.deleteEmployee(eid);
 
 	}
 
 	@Override
-	public void modifyAuthority(String id, List<String> authorities) throws SQLException {
-		employeeDAO.deleteAllAuthorityByEid(id);
+	public void modifyAuthority(String eid, List<String> authorities) throws SQLException {
+		employeeDAO.deleteAllAuthorityByEid(eid);
 
 		if (authorities.size() > 0)
 			for (String authority : authorities) {
-				employeeDAO.insertEmployeeAuthorities(id, authority);
+				employeeDAO.insertEmployeeAuthorities(eid, authority);
 			}
 	}
 

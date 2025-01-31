@@ -12,7 +12,12 @@
       <typeAlias type="home.member.dto.MemberVO" alias="member" />
       <typeAlias type="home.member.dto.MenuMemberVO" alias="menuMember" />
       <typeAlias type="home.member.dto.MypageMenuVO" alias="mypageMenu"/>
+      <typeAlias type="home.member.dto.ReviewVO" alias="review"/>
 	  <typeAlias type="home.member.dto.SharingVO" alias="sharing"/>
+	  <typeAlias type="home.member.dto.Member_ListVO" alias="memberList"/>
+	  
+	  <typeAlias type="home.adoption.dto.AdoptionInfoVO" alias="adoption2"/>
+	  
 
       <typeAlias type="home.staff.dto.EmployeeVO" alias="employee" />
       <typeAlias type="home.staff.dto.AnimalVO" alias="animal" />
@@ -22,10 +27,18 @@
       <typeAlias type="home.staff.dto.ReceiveVO" alias="receive"/>
       <typeAlias type="home.staff.dto.BasicVO" alias="basic"/>
 	  <typeAlias type="home.staff.dto.TreatmentVO" alias="treatment"/>
+	  <typeAlias type="home.staff.dto.InjectionVO" alias="injection"/>
+	  <typeAlias type="home.staff.dto.BreedVO" alias="breed"/>
+	  <typeAlias type="home.staff.dto.AnimalImgVO" alias="animalImg"/>
+	  <typeAlias type="home.staff.dto.AdoptionVO" alias="adoption"/>
+	  <typeAlias type="home.staff.dto.AdoptionDetailVO" alias="adoptionDetail"/>
+	  <typeAlias type="home.staff.dto.ReserveVO" alias="reserve"/>
+	  <typeAlias type="home.staff.dto.ReserveDetailVO" alias="reserveDetail"/>
       
 
       <typeAlias type="home.commons.request.PageMaker" alias="pageMaker" />
       <typeAlias type="home.commons.request.AnimalCarePageMaker" alias="AnimalCarePageMaker"/>
-
+      <typeAlias type="home.commons.request.TreatmentPageMaker" alias="TreatmentPageMaker"/>
+      
    </typeAliases>
 </configuration>

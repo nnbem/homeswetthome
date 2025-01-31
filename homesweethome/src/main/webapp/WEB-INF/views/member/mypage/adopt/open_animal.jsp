@@ -65,13 +65,13 @@ img.detail_image {
             <table class="table" id="basic">
                 <!-- 첫 번째 행: 이미지 -->
                 <tr>
-                    <td class="image-cell"><img src="<%=request.getContextPath()%>/resources/image/k/cat_2.png"
+                    <td class="image-cell"><img src="<%=request.getContextPath()%>/resources/image/cat_2.png"
                              alt="동물 이미지" class="detail_image"></td>
-                    <td class="image-cell"><img src="<%=request.getContextPath()%>/resources/imagek//cat_2.png"
+                    <td class="image-cell"><img src="<%=request.getContextPath()%>/resources/image/cat_2.png"
                              alt="동물 이미지" class="detail_image"></td>
-                    <td class="image-cell"><img src="<%=request.getContextPath()%>/resources/image/k/cat_2.png"
+                    <td class="image-cell"><img src="<%=request.getContextPath()%>/resources/image/cat_2.png"
                              alt="동물 이미지" class="detail_image"></td>
-                    <td class="image-cell"><img src="<%=request.getContextPath()%>/resources/image/k/cat_2.png"
+                    <td class="image-cell"><img src="<%=request.getContextPath()%>/resources/image/cat_2.png"
                              alt="동물 이미지" class="detail_image"></td>
                 </tr>
                 <!-- 두 번째 행: 추가 정보 -->

@@ -8,7 +8,7 @@
 	href="<%=request.getContextPath()%>/resources/css/member_style/application.css">
 </head>
 
-<div class="content-wrapper">
+
 	<div class="content-title">
 		<h1>
 			<b>유예신청</b>
@@ -51,3 +51,4 @@
 			<a href="/member/adoption/application/form" class="action-button">신청하기
 				→</a>
 		</div>
+	</div>

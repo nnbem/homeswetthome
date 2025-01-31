@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <head>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/staff_style/adoption.css">
@@ -20,18 +22,18 @@
 				<button class="refresh-button">⟳&nbsp;&nbsp;</button>
 					<select class="sort-select">
 						<option value="">정렬개수</option>
-						<option value="all">10개</option>
-						<option value="all">20개</option>
-						<option value="all">30개</option>
+						<option value="10" ${pageMaker.perPageNum eq 10 ? 'seleceted':'' }>10개씩</option>
+						<option value="20" ${pageMaker.perPageNum eq 20 ? 'seleceted':'' }>20개씩</option>
+						<option value="30" ${pageMaker.perPageNum eq 30 ? 'seleceted':'' }>30개씩</option>
 					</select>
 					<select class="sort-select">
 						<option value="">전체</option>
-						<option value="specific">특정</option>
-						<option value="specific">사원번호</option>
+						<option value="m" ${pageMaker.searchType eq 'm' ? 'selected':'' }>아이디</option>
+						<option value="p" ${pageMaker.searchType eq 'p' ? 'selected':'' }>전화번호</option>
 					</select>
 				
 				<input type="text" class="search-input" placeholder="검색어를 입력해주세요.">
-				<button class="search-button">검　색</button>
+				<button class="search-button" onclick="select(1);" >검 색</button>
 			</div> <!-- search-bar -->
 
 			<table class="rece_table">
@@ -44,30 +46,46 @@
 						<th>전화번호</th>
 						<th>방문예정일</th>
 						<th>승인여부</th>
-						
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>04040404</td>
-						<td>2024년01월07일</td>
-						<td>가가 보러 가고 싶어요..</td>
-						<td>asdf</td>
-						<td>010-1234-1234</td>
-						<td>2024년01월13일</td>
-						<td>
-						<select class="sort-select">
-						<option value="">대기</option>
-						<option value="specific">승인</option>
-						<option value="specific">반려</option>
-					</select>
-						</td>
-					</tr>
+					<c:if test="${empty reserveList }">
+						<tr>
+							<td colspan="10" class="text-content">해당 내용이 없습니다.</td>
+						</tr>
+					</c:if>
+
+					<c:forEach var="reserve" items="${reserveList}">
+						<fmt:formatDate var="regDate" value="${reserve.regDate}" pattern="yyyy-MM-dd" />
+						<fmt:formatDate var="schedule" value="${reserve.schedule}" pattern="yyyy-MM-dd" />
+						
+						<c:url var="detailUrl" value="/staff/reserve/detail">
+							<c:param name="rsno" value="${reserve.rsno}" />
+						</c:url>
+						<tr style="cursor: pointer;" onclick="detail_go('${detailUrl}');">
+							<td>${reserve.rsno }</td>
+							<td>${regDate}</td>
+							<td>${reserve.content }</td>
+							<td>${reserve.mid }</td>
+							<td>${reserveDetail.phone }
+							<td>${schedule }</td>
+							<td>${reserve.status }</td>
+						</tr>
+					</c:forEach>
 				</tbody>
 			</table>
+			<br />
+			<%@ include file="/WEB-INF/views/module/pagination.jsp"%>
 		</div> <!-- search-container -->
 	</div> <!-- content -->
 </div> <!-- ineerWrapper -->
+
+<script>
+function detail_go(url) {
+	// 전달받은 URL로 이동
+	window.location.href = url;
+}
+</script>
 
     
     

@@ -25,10 +25,12 @@ import home.commons.exception.NotExistPictureFileException;
 import home.member.dto.MemberVO;
 import home.member.request.MemberJoinRequest;
 import home.member.service.SearchMemberService;
+
+
 @Controller
 @RequestMapping("/member")
 public class JoinController {
-	
+
     private SearchMemberService memberService;
 
     @Autowired
@@ -38,8 +40,7 @@ public class JoinController {
 
     @GetMapping("/join")
     public String join() {
-    	String url="/member/join";
-        return url; // 회원가입 페이지로 이동
+        return "member/join"; // 회원가입 페이지로 이동
     }
 
     @GetMapping("/checkid")
@@ -54,48 +55,48 @@ public class JoinController {
     }
     
     @Resource(name = "picturePath")
-    private String pricturePath;
-	private String picturePath;
+	private String picturePath = "c:/member/picture";
 
     @PostMapping(value = "/main", produces = "text/plain;charset=utf-8")
     public ModelAndView registMember(MemberJoinRequest joinRequest, ModelAndView mnv) {
-    	String url = "/member/join_success";
-    	
-    	try {
-    		//MultipartFile picture 저장
-    		MultipartFile multi = joinRequest.getPicture();
-    		String fileName = savePicture(null, multi);
-    		
-        	MemberVO member = joinRequest.toMemberVO();
-        	
-        	//picture  저장 후 파일명 member에 할당
-        	member.setPicture(fileName);
-        	
-            memberService.regist(member); 
-            url = "/member/main"; 
+        String url = "/member/join_success"; // 성공 페이지 경로
+        
+        try {
+            // MultipartFile picture 저장
+            MultipartFile multi = joinRequest.getPicture();
+            String fileName = savePicture(null, multi);
+
+            MemberVO member = joinRequest.toMemberVO();
             
+            // picture 저장 후 파일명 member에 할당
+            member.setPicture(fileName);
+            
+            memberService.regist(member); // 회원 등록
+
         } catch (Exception e) {
-        	e.printStackTrace();
-            url = "/error/500"; // 실패 시 에러메세지
+            e.printStackTrace();
+            url = "/error/500"; // 실패 시 에러 페이지로 이동
         }
-    	mnv.setViewName(url);
-		return mnv;
+        
+        mnv.setViewName(url);
+        return mnv;
     }
+
 
     @GetMapping("/getPicture")
 	@ResponseBody
 	public ResponseEntity<byte[]> getPicture(String mid) {
-		ResponseEntity entity = null;
+		ResponseEntity<byte[]> entity = null;
 		
 		MemberVO member = null;
 		try {
 			 member = memberService.getMember(mid);
 		}catch(SQLException e) {
-			return new ResponseEntity<byte[]>(HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 
 		if (member == null)
-			return new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
 		String picture = member.getPicture();
 		String imgPath = this.picturePath;
@@ -104,7 +105,7 @@ public class JoinController {
 
 		try {
 			in = new FileInputStream(new File(imgPath, picture));
-			entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(in), HttpStatus.OK);
+			entity = new ResponseEntity<>(IOUtils.toByteArray(in), HttpStatus.OK);
 			return entity;
 			
 		}catch(IOException e) {
@@ -134,7 +135,6 @@ public class JoinController {
 		String uploadPath = this.picturePath;
 
 		// 파일유무확인, 저장 파일명 결정
-
 		String uuid = UUID.randomUUID().toString().replace("-", "");
 		fileName = uuid + "$$" + multi.getOriginalFilename();
 		File storeFile = new File(uploadPath, fileName);
@@ -155,4 +155,5 @@ public class JoinController {
 
 		return fileName;
 	}
+   
 }

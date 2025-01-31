@@ -62,6 +62,7 @@
 		insert into
 		employee(eid, pwd, name, phone, email, birth, department, position, joid_date, picture)
 		values(#{eid}, #{pwd}, #{name}, #{phone}, #{email}, #{birth}, #{department}, #{position}, #{joid_date}, #{picture})
+		
 	</insert>
 	<update id="updateEmployee" parameterType="employee">
 		update employee

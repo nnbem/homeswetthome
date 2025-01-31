@@ -16,6 +16,6 @@ public interface MemberDAO {
 
 	void updateMember(MemberVO member) throws SQLException; // 회원정보 수정
 
-	void deleteMember(String mid) throws SQLException; // 회원탈퇴
+	String getPwdByEid(String mid) throws SQLException;
 
 }

@@ -16,6 +16,10 @@ public interface NoticeDAO {
 	
 	void insertNotice(NoticeVO notice) throws SQLException;
 	void updateNotice(NoticeVO notice) throws SQLException;
+	
+	//pin 기능 추가
+	void updateNoticeStatus(int nno, boolean isNotice);
+	
 	void deleteNotice(int nno) throws SQLException;
 	
 	void increaseViewCnt(int nno) throws SQLException;
@@ -23,4 +27,7 @@ public interface NoticeDAO {
 	int selectNoticeSeqNext() throws SQLException;
 	
 	NoticeVO selectByNoticeEid(String eid) throws SQLException;
+	
+	//추가: 공지먼저정렬
+	List<NoticeVO> selectNoticeListWithPriority(PageMaker pageMaker) throws SQLException;
 }

@@ -32,9 +32,9 @@ public class MemberDAOImpl implements MemberDAO {
 	public void updateMember(MemberVO member) throws SQLException {
 		session.update("Member-Mapper.updateMember", member);
 	}
-	@Override
-	public void deleteMember(String mid) throws SQLException {
-		session.delete("Member-Mapper.deleteMember", mid);
-	}
 	
+	@Override
+	public String getPwdByEid(String mid) throws SQLException {
+		return session.selectOne("Member-Mapper.getPwdByMid", mid);
+	}
 }

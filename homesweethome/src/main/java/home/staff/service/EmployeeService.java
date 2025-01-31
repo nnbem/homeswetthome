@@ -20,12 +20,12 @@ public interface EmployeeService {
 	void modify(EmployeeVO Employee) throws SQLException;
 	
 	//사원삭제
-	void remove(String id) throws SQLException;
+	void remove(String eid) throws SQLException;
 	
 	//권한수정
 	void modifyAuthority(String id,List<String> authorities) throws SQLException;
 	
 	//사원조회
-	EmployeeVO getEmployee(String id) throws SQLException;
+	EmployeeVO getEmployee(String eid) throws SQLException;
 	
 }
