@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+.find_way {
+  margin-left: 86.2%;
+}
+
+button#way-btn {
+  padding: 9% 1%;
+  width: 123%;
+  font-size: 24px;
+  background-color: #0d6efd;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button#way-btn:hover {
+  background-color: #0056b3; 
+}
+
+.content-wrapper {
+	position: relative; /* 상대 위치 기준 */
+}
+
+.content-title {
+	text-align: center; /* 제목 가운데 정렬 */
+}
+
+.back-link {
+	margin-left: 82%;
+	color: #191919;
+	font-size: 16px;
+	text-decoration: none;
+}
+
+table {
+	width: 60%;
+	border-collapse: collapse;
+	margin: 20px 0;
+	font-size: 16px;
+	text-align: left;
+}
+
+td {
+	border: 1px solid #ddd;
+	padding: 1% 2%;
+}
+
+div .map {
+	margin-top: 2%;
+	width: 100%;
+}

@@ -4,7 +4,7 @@
 
 
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/css/member_style/application.css">
+	href="<%=request.getContextPath()%>/resources/css/member_style/graceperiod.css">
 </head>
 
 <br />
@@ -13,6 +13,7 @@
 	<h1>
 		<b>유예신청</b>
 	</h1>
+	<br/>
 </div>
 <div class="info-box">
 	<img

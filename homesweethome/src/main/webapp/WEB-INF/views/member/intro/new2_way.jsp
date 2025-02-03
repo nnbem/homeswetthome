@@ -15,6 +15,7 @@
     </div>
     <div class="content-body">
       <img src="<%=request.getContextPath()%>/resources/image/k/intro_1.jpg" style="display: block; width: 60%; height: auto;">
+
       <table>
         <tbody>
           <tr>

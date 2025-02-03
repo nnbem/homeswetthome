@@ -16,29 +16,7 @@
 
 <body>
 <header>
-    <div class="header_inner">
-        <!-- 상단 바 -->
-        <div class="header_top">
-            <div class="top_bar">
-                <img id="time_img" src="<%=request.getContextPath()%>/resources/image/time_1.png" alt="time">
-                <span id="session-time" style="margin-right: 10px; font-size: 15px; color: #ffffff">60분</span>
-                
-                <a href="/member/guest">로그아웃</a>
-                <a href="/member/mypage/letterbox">우편함</a>
-                <a href="/member/mypage/deactivation">마이페이지</a>
-            </div>
-        </div>
-
-        <div class="menu_inner">
-            <div class="header_menu">
-                <!-- 로고 -->
-                <div class="logo">
-                    <img src="<%=request.getContextPath()%>/resources/image/logo.png"
-                        alt="Logo"> <a href="/member/main">HomeSweetHome</a>
-                </div>
-            </div>
-        </div>
-    </div>
+ 
 </header>
 
 <!-- 본문 -->

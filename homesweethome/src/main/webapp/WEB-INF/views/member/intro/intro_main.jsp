@@ -16,7 +16,7 @@
       </h1>
    </div>
    <div class="content-body">
-      <img src="<%=request.getContextPath()%>/resources/image/k/intro_1.jpg"
+      <img src="<%=request.getContextPath()%>/resources/image/k/intro.jpg"
          style="display: block; margin: 0 auto; width: 40%; height: auto;">
       <ul class="intro-check" style="margin-top:3%;"> 
          

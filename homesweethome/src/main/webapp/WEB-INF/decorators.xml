@@ -20,6 +20,7 @@
 		<pattern>*/modify/post</pattern>
 		<pattern>*/open_modify</pattern>
 		<pattern>*/mypage</pattern>
+		<pattern>*/deactivation</pattern>
 		
 		<pattern>/staff/login</pattern>   
 		<pattern>/staff/index</pattern>
