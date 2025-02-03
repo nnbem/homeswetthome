@@ -26,7 +26,7 @@
                 <h3>1. 입양 전 교육(온라인)</h3>
                 <p>입양을 희망하시는 분은 "입양자 교육"을 이수해 주세요.</p>
             </div>
-            <a href="#" class="step-button">입양자교육바로가기 ➔</a>
+            <a href="/member/adoption/education" class="step-button">입양자교육바로가기 ➔</a>
         </div>
 
         <!-- 화살표 -->
@@ -41,7 +41,7 @@
                 <h3>2. 적합성검진표</h3>
                 <p>온라인 교육 이수 후 검진표를 작성해주세요.</p>
             </div>
-            <a href="#" class="step-button">적합성검진표 바로가기 ➔</a>
+            <a href="/member/adoption/suit" class="step-button">적합성검진표 바로가기 ➔</a>
         </div>
 
         <!-- 화살표 -->
@@ -56,7 +56,7 @@
                 <h3>3. 센터방문예약(방문상담)</h3>
                 <p>센터 방문 예정일과 시간을 선택하여 예약해주세요.</p>
             </div>
-            <a href="#" class="step-button">예약 바로가기 ➔</a>
+            <a href="/member/adoption/reserve" class="step-button">예약 바로가기 ➔</a>
         </div>
 
         <!-- 화살표 -->
@@ -71,7 +71,7 @@
                 <h3>4. 입양신청</h3>
                 <p>앞선 절차를 진행하신 사용자만 신청이 가능합니다.</p>
             </div>
-            <a href="#" class="step-button">입양신청 ➔</a>
+            <a href="/member/adoption/application" class="step-button">입양신청 ➔</a>
         </div>
 
         <!-- 화살표 -->
@@ -86,7 +86,7 @@
                 <h3>5. 입양후기 작성</h3>
                 <p>입양후기 게시판에 입양된 동물의 행복한 일상을 공유해주세요.</p>
             </div>
-            <a href="#" class="step-button">후기 작성 ➔</a>
+            <a href="/member/board/review" class="step-button">후기 작성 ➔</a>
         </div>
     </div>
     </div>

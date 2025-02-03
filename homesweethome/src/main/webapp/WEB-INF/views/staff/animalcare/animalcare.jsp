@@ -7,7 +7,8 @@
    href="<%=request.getContextPath()%>/resources/css/staff_style/staff_style.css">
 <link rel="stylesheet"
    href="<%=request.getContextPath()%>/resources/css/staff_style/animalcare.css">
-
+<link rel="stylesheet"
+   href="<%=request.getContextPath()%>/resources/css/staff_style/staff_style.css">
 <%-- <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/table.css"> --%>
 <%@ include file="/WEB-INF/views/module/adminlteSource.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -21,8 +22,8 @@
          <b>기본 정보 리스트</b>
       </h1>
       <div class="button">
-         <button>문서 다운로드</button>
-         <button onclick="rpb_go('${loginEmployee.eid}');">전체 동물 리스트</button>
+         <button onclick="location.href='animalcare/regist?eid='+'${loginEmployee.eid}';">동물 등록</button>
+         <button onclick="rpb_go('${loginEmployee.eid}');">관리 동물 리스트</button>
       </div>
       <%@include file="/WEB-INF/views/module/module_s/animalcareSearchBar.jsp"%>
       <div class="table card-body table-responsive p-0">
@@ -60,38 +61,44 @@
             </tbody>
          </table>
       </div>
-      <%@ include file="/WEB-INF/views/module/pagination.jsp"%>
+      <%@ include file="/WEB-INF/views/module/module_s/pagination.jsp"%>
    </div>
 </div>
 
 
 
-<form id="pageForm" style="display: none;">
-   <input type='text' name="page" value="" />
-</form>
 <script>
-   function pagenation_list(page) {
-      let perPageNum = document.querySelector('select[name="perPageNum"]').value;
-      let regdateBefore = document
-            .querySelector('input[name="regdateBefore"]').value;
-      //alert(regdateBefore);
-      let regdateAfter = document.querySelector('input[name="regdateAfter"]').value;
-      //alert(regdateAfter);
-      let name = document.querySelector('input[name="name"]').value;
-      let kindList = document
-            .querySelectorAll('input[name="kindList"]:checked');
-      let stateList = document
-            .querySelectorAll('input[name="stateList"]:checked');
 
+	function refresh(page){
+	    let searchForm = document.querySelector("#jobForm");
+	    searchForm.page.value = page;
+	    const dateList = document.querySelectorAll(".date-input");
+	    dateList.forEach(date => {
+	    	date.value = "";
+	    });
+	    
+	    const inputList = document.querySelectorAll(".search-inputs");
+	    inputList.forEach(input => {
+	    	input.value = "";
+	    });
+	    
+	    const selectList = document.querySelectorAll(".search-select");
+	    selectList.forEach(select => {
+	    	select.value = "";
+	    })
+	    
+	    document.querySelector("#perPageNum").value = "10";
+	}
+
+
+   function pagenation_list(page) {
       let searchForm = document.querySelector("#jobForm");
-      let pageForm = document.querySelector("#pageForm");
-      pageForm.page.value = page;
+      
+      searchForm.page.value = page;
       searchForm.submit();
-      pageForm.submit();
    }
    
    function basic_go(aid){
-      alert(aid);
       location.href="animalcare/basic?aid="+aid;
    }
     
@@ -100,7 +107,6 @@
    }
    
 </script>
-
 </body>
 
 

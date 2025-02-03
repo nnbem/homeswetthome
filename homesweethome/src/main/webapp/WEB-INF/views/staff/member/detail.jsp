@@ -1,9 +1,11 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="home.member.dto.MemberVO" %>
+<%@ page import="home.member.dto.Member_ListVO" %>
 <%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ include file="/WEB-INF/views/module/adminlteSource.jsp" %>
 
 <head>
 <link rel="stylesheet"
@@ -71,8 +73,19 @@
 				<input type="text" id="mail" name="email" value="${member.email}" readonly>
 			</div>
 			<div class="form-group">
-				<label for="complete_Date">입양일자</label>
-				<input type="text" id="complete_Date" name="complete_Date" value="${complete_Date}" readonly>
+			    <label for="regDate">가입일자</label>
+			    <fmt:formatDate var="regDate" value="${member.regDate}" pattern="yyyy-MM-dd"/>
+			    <input type="text" id="regDate" name="regDate" value="${regDate}" readonly>
+			</div>
+			<div class="form-group">
+			    <label for="complete_Date">입양일자</label>
+				<c:forEach var="item" items="${member_List}">
+				    <c:if test="${item.mid eq param.mid}">
+				        <fmt:formatDate var="complete_Date" value="${item.complete_Date}" pattern="yyyy-MM-dd"/>
+				        <input type="text" id="complete_Date" name="complete_Date" value="${complete_Date}" readonly>
+				    </c:if>
+				</c:forEach>
+
 			</div>
 			<br/>
 			<div class="button-container">

@@ -126,6 +126,7 @@ public class StaffController {
 
     	
     	model.addAttribute("member", member);
+    	model.addAttribute("member_List", member_List);
     	return "staff/member/detail";
     }
 
@@ -146,4 +147,7 @@ public class StaffController {
 		String url = "staff/graceperiod/detail";
 		return url;
 	}
+	
+	
+	
 }

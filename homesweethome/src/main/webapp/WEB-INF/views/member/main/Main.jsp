@@ -16,11 +16,12 @@
 			<div class="header_top">
 				<div class="top_bar">
 					<a href="/member/main/guest">로그아웃</a>
-					<c:forEach var="mypage" items="${mypageMenuList }">
+					<%-- <c:forEach var="mypage" items="${mypageMenuList }">
 							<a href="javascript:goMypage('<%=request.getContextPath() %>${mypage.turl }', '${mypage.tcode }'); SubMypageMenu_go('${mypage.tcode }');"
 							class="mypagenav-link">${mypage.tname }
 							</a>
-					</c:forEach>
+					</c:forEach> --%>
+					<a href="/staff/main">관리자</a>
 				</div>
 			</div>
 

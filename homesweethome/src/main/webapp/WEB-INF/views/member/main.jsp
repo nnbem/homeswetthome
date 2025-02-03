@@ -15,12 +15,13 @@
 			<!-- 상단 바 -->
 			<div class="header_top">
 				<div class="top_bar" >
-					<img id="time_img" src="<%=request.getContextPath()%>/resources/image/time_1.png" alt="time">
+<%-- 					<img id="time_img" src="<%=request.getContextPath()%>/resources/image/time_1.png" alt="time">
 						<span id="session-time" style="margin-right: 10px; font-size: 15px; color: #ffffff">60분</span>
 					
-					<a href="/member/main/guest">로그아웃</a>
-					<a href="#">우편함</a>
-					<a href="/member/mypage/graceperiod">마이페이지</a>
+ --%>					<a href="/member/main/guest">로그아웃</a>
+					<a href="/staff/main">관리자</a>
+					<a href="#" style="display: none;">우편함</a>
+					<a href="/member/mypage/graceperiod" style="display: none;">마이페이지</a>
 				</div>
 			</div>
 
@@ -274,12 +275,13 @@
 					    </a>
 					
 					    <!-- 세 번째 카드 -->
-					    <a href="/education/online" class="button_item_link">
+					    <a href="/member/adoption/education" class="button_item_link">
 					        <div class="button_item_img">
 					            <img src="<%=request.getContextPath()%>/resources/image/adoption/online_1.png" alt="온라인교육">
 					            <div class="main_p">
 					                <p>온라인교육</p>
 					            </div>
+					            
 					        </div>
 					    </a>
 

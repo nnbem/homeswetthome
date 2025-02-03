@@ -21,7 +21,7 @@
 </style>
 
 </head>
-<div class="content-wrapper">
+
 	<div class="content-title">
 		<h1>
 			<b>게시판</b>
@@ -77,10 +77,10 @@
 				</div>
 			</div>
 			<div class="type-card" style="background-color:#d9d9d9;">
-				
+				<img alt="board_Banner" src="<%=request.getContextPath()%>/resources/image/board_1.jpg">
 				</div>
 			</div>
-		</div>
+</div>
 <br/>
 <br/>
 <br/>

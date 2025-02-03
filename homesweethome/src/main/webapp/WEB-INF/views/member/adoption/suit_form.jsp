@@ -28,184 +28,124 @@
 			<tbody>
 				<tr>
 					<td>01. 거주 지역 또는 건물의 반려동물 허용 규정을 충분히 이해하고 이를 준수할 준비가 되었습니까?</td>
-					<td class="radio-cell"><input type="radio" name="question1"
-						value="1"></td>
-					<td class="radio-cell"><input type="radio" name="question1"
-						value="2"></td>
-					<td class="radio-cell"><input type="radio" name="question1"
-						value="3"></td>
+					<td class="radio-cell"><input type="radio" name="question1" value="1"></td>
+					<td class="radio-cell"><input type="radio" name="question1" value="2"></td>
+					<td class="radio-cell"><input type="radio" name="question1" value="3"></td>
 				</tr>
 				<tr>
 					<td>02. 거주 공간에서 반려동물이 위험한 물건에 접근하지 않도록 충분히 안전하게 관리할 수 있습니까?</td>
-					<td class="radio-cell"><input type="radio" name="question2"
-						value="1"></td>
-					<td class="radio-cell"><input type="radio" name="question2"
-						value="2"></td>
-					<td class="radio-cell"><input type="radio" name="question2"
-						value="3"></td>
+					<td class="radio-cell"><input type="radio" name="question2" value="1"></td>
+					<td class="radio-cell"><input type="radio" name="question2" value="2"></td>
+					<td class="radio-cell"><input type="radio" name="question2" value="3"></td>
 				</tr>
 				<tr>
 					<td>03. 반려동물이 위험한 물건(전선, 날카로운 물건 등)에 접근하지 못하도록 정리할 계획이 있습니까?</td>
-					<td class="radio-cell"><input type="radio" name="question3"
-						value="1"></td>
-					<td class="radio-cell"><input type="radio" name="question3"
-						value="2"></td>
-					<td class="radio-cell"><input type="radio" name="question3"
-						value="3"></td>
+					<td class="radio-cell"><input type="radio" name="question3" value="1"></td>
+					<td class="radio-cell"><input type="radio" name="question3" value="2"></td>
+					<td class="radio-cell"><input type="radio" name="question3" value="3"></td>
 				</tr>
 				<tr>
 					<td>04. 거주 지역 또는 건물에서 반려동물을 키우는 것이 허용됩니까?</td>
-					<td class="radio-cell"><input type="radio" name="question4"
-						value="1"></td>
-					<td class="radio-cell"><input type="radio" name="question4"
-						value="2"></td>
-					<td class="radio-cell"><input type="radio" name="question4"
-						value="3"></td>
+					<td class="radio-cell"><input type="radio" name="question4" value="1"></td>
+					<td class="radio-cell"><input type="radio" name="question4" value="2"></td>
+					<td class="radio-cell"><input type="radio" name="question4" value="3"></td>
 				</tr>
 				<tr>
 					<td>05. 반려동물이 활동하거나 휴식할 수 있는 전용 공간을 마련할 준비가 되었습니까?</td>
-					<td class="radio-cell"><input type="radio" name="question5"
-						value="1"></td>
-					<td class="radio-cell"><input type="radio" name="question5"
-						value="2"></td>
-					<td class="radio-cell"><input type="radio" name="question5"
-						value="3"></td>
+					<td class="radio-cell"><input type="radio" name="question5" value="1"></td>
+					<td class="radio-cell"><input type="radio" name="question5" value="2"></td>
+					<td class="radio-cell"><input type="radio" name="question5" value="3"></td>
 				</tr>
 				<tr>
 					<td>06. 반려동물을 키워본 경험이 있습니까?</td>
-					<td class="radio-cell"><input type="radio" name="question6"
-						value="1"></td>
-					<td class="radio-cell"><input type="radio" name="question6"
-						value="2"></td>
-					<td class="radio-cell"><input type="radio" name="question6"
-						value="3"></td>
+					<td class="radio-cell"><input type="radio" name="question6" value="1"></td>
+					<td class="radio-cell"><input type="radio" name="question6" value="2"></td>
+					<td class="radio-cell"><input type="radio" name="question6" value="3"></td>
 				</tr>
 				<tr>
 					<td>07. 반려동물의 행동, 건강 관리 등에 대한 기본 지식을 갖추고 있습니까?</td>
-					<td class="radio-cell"><input type="radio" name="question7"
-						value="1"></td>
-					<td class="radio-cell"><input type="radio" name="question7"
-						value="2"></td>
-					<td class="radio-cell"><input type="radio" name="question7"
-						value="3"></td>
+					<td class="radio-cell"><input type="radio" name="question7" value="1"></td>
+					<td class="radio-cell"><input type="radio" name="question7" value="2"></td>
+					<td class="radio-cell"><input type="radio" name="question7" value="3"></td>
 				</tr>
 				<tr>
 					<td>08. 반려동물이 예상치 못한 행동(짖음, 물건 파손 등)을 보일 경우 적절히 대응할 수 있습니까?</td>
-					<td class="radio-cell"><input type="radio" name="question8"
-						value="1"></td>
-					<td class="radio-cell"><input type="radio" name="question8"
-						value="2"></td>
-					<td class="radio-cell"><input type="radio" name="question8"
-						value="3"></td>
+					<td class="radio-cell"><input type="radio" name="question8" value="1"></td>
+					<td class="radio-cell"><input type="radio" name="question8" value="2"></td>
+					<td class="radio-cell"><input type="radio" name="question8" value="3"></td>
 				</tr>
 				<tr>
 					<td>09. 반려동물의 건강 관리를 위해 필요한 정보(예방접종, 정기검진 등)를 충분히 숙지하고 있습니까?</td>
-					<td class="radio-cell"><input type="radio" name="question9"
-						value="1"></td>
-					<td class="radio-cell"><input type="radio" name="question9"
-						value="2"></td>
-					<td class="radio-cell"><input type="radio" name="question9"
-						value="3"></td>
+					<td class="radio-cell"><input type="radio" name="question9" value="1"></td>
+					<td class="radio-cell"><input type="radio" name="question9" value="2"></td>
+					<td class="radio-cell"><input type="radio" name="question9" value="3"></td>
 				</tr>
 				<tr>
 					<td>10. 유기견 입양 후 사회화 훈련(산책, 타인과의 교류 등)을 충분히 수행할 준비가 되었습니까?</td>
-					<td class="radio-cell"><input type="radio" name="question10"
-						value="1"></td>
-					<td class="radio-cell"><input type="radio" name="question10"
-						value="2"></td>
-					<td class="radio-cell"><input type="radio" name="question10"
-						value="3"></td>
+					<td class="radio-cell"><input type="radio" name="question10" value="1"></td>
+					<td class="radio-cell"><input type="radio" name="question10" value="2"></td>
+					<td class="radio-cell"><input type="radio" name="question10" value="3"></td>
 				</tr>
 				<tr>
 					<td>11. 가족 구성원 모두가 반려동물 입양에 동의합니까?</td>
-					<td class="radio-cell"><input type="radio" name="question11"
-						value="1"></td>
-					<td class="radio-cell"><input type="radio" name="question11"
-						value="2"></td>
-					<td class="radio-cell"><input type="radio" name="question11"
-						value="3"></td>
+					<td class="radio-cell"><input type="radio" name="question11" value="1"></td>
+					<td class="radio-cell"><input type="radio" name="question11" value="2"></td>
+					<td class="radio-cell"><input type="radio" name="question11" value="3"></td>
 				</tr>
 				<tr>
 					<td>12. 가족 중 반려동물에 대한 알레르기나 반대 의견이 있을 경우 이를 해결할 자신이 있습니까?</td>
-					<td class="radio-cell"><input type="radio" name="question12"
-						value="1"></td>
-					<td class="radio-cell"><input type="radio" name="question12"
-						value="2"></td>
-					<td class="radio-cell"><input type="radio" name="question12"
-						value="3"></td>
+					<td class="radio-cell"><input type="radio" name="question12" value="1"></td>
+					<td class="radio-cell"><input type="radio" name="question12" value="2"></td>
+					<td class="radio-cell"><input type="radio" name="question12" value="3"></td>
 				</tr>
 				<tr>
 					<td>13. 반려동물 입양으로 인한 생활 방식 변화에 충분히 적응할 수 있습니까?</td>
-					<td class="radio-cell"><input type="radio" name="question13"
-						value="1"></td>
-					<td class="radio-cell"><input type="radio" name="question13"
-						value="2"></td>
-					<td class="radio-cell"><input type="radio" name="question13"
-						value="3"></td>
+					<td class="radio-cell"><input type="radio" name="question13" value="1"></td>
+					<td class="radio-cell"><input type="radio" name="question13" value="2"></td>
+					<td class="radio-cell"><input type="radio" name="question13" value="3"></td>
 				</tr>
 				<tr>
 					<td>14. 반려동물의 입양과 함께 가족의 생활 방식 변화(일정 조정, 공간 활용 등)에 적응할 준비가
 						되었습니까?</td>
-					<td class="radio-cell"><input type="radio" name="question14"
-						value="1"></td>
-					<td class="radio-cell"><input type="radio" name="question14"
-						value="2"></td>
-					<td class="radio-cell"><input type="radio" name="question14"
-						value="3"></td>
+					<td class="radio-cell"><input type="radio" name="question14" value="1"></td>
+					<td class="radio-cell"><input type="radio" name="question14" value="2"></td>
+					<td class="radio-cell"><input type="radio" name="question14" value="3"></td>
 				</tr>
 				<tr>
 					<td>15. 예상치 못한 의료비(응급치료, 질병 치료 등) 지출을 감당할 준비가 되었습니까?</td>
-					<td class="radio-cell"><input type="radio" name="question15"
-						value="1"></td>
-					<td class="radio-cell"><input type="radio" name="question15"
-						value="2"></td>
-					<td class="radio-cell"><input type="radio" name="question15"
-						value="3"></td>
+					<td class="radio-cell"><input type="radio" name="question15" value="1"></td>
+					<td class="radio-cell"><input type="radio" name="question15" value="2"></td>
+					<td class="radio-cell"><input type="radio" name="question15" value="3"></td>
 				</tr>
 				<tr>
 					<td>16. 반려동물의 식사, 장난감, 용품 등 기본적인 생활비를 충분히 마련할 수 있습니까?</td>
-					<td class="radio-cell"><input type="radio" name="question16"
-						value="1"></td>
-					<td class="radio-cell"><input type="radio" name="question16"
-						value="2"></td>
-					<td class="radio-cell"><input type="radio" name="question16"
-						value="3"></td>
+					<td class="radio-cell"><input type="radio" name="question16" value="1"></td>
+					<td class="radio-cell"><input type="radio" name="question16" value="2"></td>
+					<td class="radio-cell"><input type="radio" name="question16" value="3"></td>
 				</tr>
 				<tr>
 					<td>17. 반려동물의 건강 유지(영양제, 보험 등)를 위해 추가적인 지출을 감수할 수 있습니까?</td>
-					<td class="radio-cell"><input type="radio" name="question17"
-						value="1"></td>
-					<td class="radio-cell"><input type="radio" name="question17"
-						value="2"></td>
-					<td class="radio-cell"><input type="radio" name="question17"
-						value="3"></td>
+					<td class="radio-cell"><input type="radio" name="question17" value="1"></td>
+					<td class="radio-cell"><input type="radio" name="question17" value="2"></td>
+					<td class="radio-cell"><input type="radio" name="question17" value="3"></td>
 				</tr>
 				<tr>
 					<td>18. 입양 후 예상되는 장기적인 경제적 부담(10년 이상)을 이해하고 준비하고 있습니까?</td>
-					<td class="radio-cell"><input type="radio" name="question18"
-						value="1"></td>
-					<td class="radio-cell"><input type="radio" name="question18"
-						value="2"></td>
-					<td class="radio-cell"><input type="radio" name="question18"
-						value="3"></td>
+					<td class="radio-cell"><input type="radio" name="question18" value="1"></td>
+					<td class="radio-cell"><input type="radio" name="question18" value="2"></td>
+					<td class="radio-cell"><input type="radio" name="question18" value="3"></td>
 				</tr>
 				<tr>
 					<td>19. 반려동물이 문제 행동을 보일 때, 이를 침착하게 관리하고 대처할 준비가 되었습니까?</td>
-					<td class="radio-cell"><input type="radio" name="question19"
-						value="1"></td>
-					<td class="radio-cell"><input type="radio" name="question19"
-						value="2"></td>
-					<td class="radio-cell"><input type="radio" name="question19"
-						value="3"></td>
+					<td class="radio-cell"><input type="radio" name="question19" value="1"></td>
+					<td class="radio-cell"><input type="radio" name="question19" value="2"></td>
+					<td class="radio-cell"><input type="radio" name="question19" value="3"></td>
 				</tr>
 				<tr>
 					<td>20. 반려동물과 신뢰 관계를 형성하며 꾸준히 노력할 준비가 되었습니까?</td>
-					<td class="radio-cell"><input type="radio" name="question20"
-						value="1"></td>
-					<td class="radio-cell"><input type="radio" name="question20"
-						value="2"></td>
-					<td class="radio-cell"><input type="radio" name="question20"
-						value="3"></td>
+					<td class="radio-cell"><input type="radio" name="question20" value="1"></td>
+					<td class="radio-cell"><input type="radio" name="question20" value="2"></td>
+					<td class="radio-cell"><input type="radio" name="question20" value="3"></td>
 				</tr>
 			</tbody>
 		</table>
@@ -232,24 +172,87 @@ document.getElementById("checklist-form").onsubmit = function (event) {
 
     let formData = {};
     let totalScore = 0;
+    let isValid = true; // 유효성 검사 상태 플래그
+    let firstErrorElement = null; // 첫 번째 에러 요소 추적
 
-    for (let i = 1; i <= 20; i++) {  // 총 20개의 질문
+    // ✅ 1. 라디오 체크 유효성 검사
+    for (let i = 1; i <= 20; i++) {
         let selectedOption = document.querySelector(`input[name="question${i}"]:checked`);
-        if (selectedOption) {
-            let score = parseInt(selectedOption.value); // 선택한 값 (1,2,3)
+
+        if (!selectedOption) {
+            isValid = false;
+
+            // 해당 질문의 첫 번째 라디오 버튼 찾기
+            let firstOption = document.querySelector(`input[name="question${i}"]`);
+            if (firstOption) {
+                let row = firstOption.closest("tr");
+                if (row) {
+                    row.style.backgroundColor = "#ffdddd"; // 빨간색 배경 강조
+                }
+            }
+
+            // 첫 번째 오류 위치 저장 (스크롤 이동을 위해)
+            if (!firstErrorElement) {
+                firstErrorElement = firstOption;
+            }
+        } else {
+            // 선택된 경우 기본 스타일로 복구
+            let row = selectedOption.closest("tr");
+            if (row) {
+                row.style.backgroundColor = "";
+            }
+
+            let score = parseInt(selectedOption.value);
             formData[`question${i}`] = score;
             totalScore += score;
-        } else {
-            alert(`모든 항목을 체크해주세요 (문항 ${i} 누락)`);
-            return;
         }
     }
 
-    // 사용자 아이디 추가 (예: MID)
-    formData["mid"] = "사용자아이디"; // 실제로는 서버에서 세션 또는 로그인 정보에서 가져와야 함
-    formData["totalScore"] = totalScore; // 총점 저장
+    // ❌ 모든 질문이 체크되지 않았으면 경고 후 중단
+    if (!isValid) {
+        alert("모든 항목을 체크해주세요!");
+        if (firstErrorElement) {
+            firstErrorElement.scrollIntoView({ behavior: "smooth", block: "center" });
+            firstErrorElement.focus();
+        }
+        return;
+    }
 
-    // AJAX 요청으로 서버에 데이터 전송
+    // ✅ 2. 파일 첨부 유효성 검사
+    const fileInputs = document.querySelectorAll('input[type="file"]');
+    let totalFiles = 0;
+
+    fileInputs.forEach((input) => {
+        totalFiles += input.files.length;
+    });
+
+    if (totalFiles < 3) { // 최소 3개 파일 필요
+        alert("최소 3장의 파일을 첨부해주세요.");
+        fileInputs[0].scrollIntoView({ behavior: "smooth", block: "center" });
+        fileInputs[0].focus();
+        return;
+    }
+
+    // ✅ 3. 파일 형식 확인
+    let invalidFiles = [];
+    fileInputs.forEach((input) => {
+        const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
+        const files = Array.from(input.files);
+        invalidFiles = invalidFiles.concat(files.filter(file => !allowedTypes.includes(file.type)));
+    });
+
+    if (invalidFiles.length > 0) {
+        alert("이미지 파일(jpg, jpeg, png)만 첨부 가능합니다.");
+        fileInputs[0].scrollIntoView({ behavior: "smooth", block: "center" });
+        fileInputs[0].focus();
+        return;
+    }
+
+    // ✅ 4. 사용자 아이디 추가 및 총점 저장
+    formData["mid"] = "사용자아이디"; // 실제로는 서버에서 세션 또는 로그인 정보에서 가져와야 함
+    formData["totalScore"] = totalScore;
+
+    // ✅ 5. 서버 전송
     fetch("/submitChecklist", {
         method: "POST",
         headers: {
@@ -270,22 +273,20 @@ document.getElementById("checklist-form").onsubmit = function (event) {
           alert("서버 통신 중 오류가 발생했습니다.");
       });
 };
-</script>
 
-<script>
+// ✅ 6. 파일 추가 버튼 (+) 정상 작동하도록 설정
 const fileInputsContainer = document.getElementById("file-inputs-container");
 const addFileButton = document.getElementById("add-file-button");
 let fileCount = 1; // 현재 파일 첨부 개수
 const maxFiles = 10; // 최대 파일 첨부 개수
 
-// 파일 추가 버튼 클릭 이벤트
 addFileButton.onclick = function () {
     if (fileCount >= maxFiles) {
-        alert(`최대 ${maxFiles}개의 파일만 첨부할 수 있습니다.`);
+        alert(`최대 10개의 파일만 첨부할 수 있습니다.`);
         return;
     }
 
-    fileCount++; // 파일 첨부 개수 증가
+    fileCount++;
 
     // 새 파일 입력 행 생성
     const fileInputRow = document.createElement("div");
@@ -301,10 +302,10 @@ addFileButton.onclick = function () {
     removeButton.classList.add("remove-file-button");
     removeButton.textContent = "−";
 
-    // 제거 버튼 클릭 이벤트
+    // 파일 제거 버튼 클릭 이벤트
     removeButton.onclick = function () {
         fileInputsContainer.removeChild(fileInputRow);
-        fileCount--; // 파일 첨부 개수 감소
+        fileCount--;
     };
 
     fileInputRow.appendChild(newFileInput);
@@ -312,43 +313,4 @@ addFileButton.onclick = function () {
     fileInputsContainer.appendChild(fileInputRow);
 };
 
-// 폼 제출 이벤트
-document.getElementById("checklist-form").onsubmit = function (event) {
-    event.preventDefault();
-
-    // 파일 첨부 확인
-    const fileInputs = document.querySelectorAll('input[type="file"]');
-    let totalFiles = 0;
-
-    // 각 파일 입력 필드의 파일 개수를 계산
-    fileInputs.forEach((input) => {
-        totalFiles += input.files.length;
-    });
-
-    if (totalFiles < 3) { // 최소 3개 파일 필요
-        alert("최소 3장의 파일을 첨부해주세요.");
-        fileInputs[0].scrollIntoView({ behavior: "smooth", block: "center" });
-        fileInputs[0].focus();
-        return;
-    }
-
-    // 파일 형식 확인
-    let invalidFiles = [];
-    fileInputs.forEach((input) => {
-        const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
-        const files = Array.from(input.files);
-        invalidFiles = invalidFiles.concat(files.filter(file => !allowedTypes.includes(file.type)));
-    });
-
-    if (invalidFiles.length > 0) {
-        alert("이미지 파일(jpg, jpeg, png)만 첨부 가능합니다.");
-        fileInputs[0].scrollIntoView({ behavior: "smooth", block: "center" });
-        fileInputs[0].focus();
-        return;
-    }
-
-    // 성공 메시지 및 페이지 이동
-    alert("검진표가 성공적으로 제출되었습니다.");
-    window.location.href = "/member/adoption/suit";
-};
 </script>

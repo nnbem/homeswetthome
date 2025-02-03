@@ -23,8 +23,8 @@
 			<ul class="menu">
 				<li><a href="#">로그인</a>
 				<li><a href="#">회원가입</a>
-				<li><a href="#">우편함</a>
-				<li><a href="#">마이페이지</a>
+				<li><a href="#" style="display: none;">우편함</a>
+				<li><a href="#" style="display: none;">마이페이지</a>
 			</ul>
 		</div>
 	</header>

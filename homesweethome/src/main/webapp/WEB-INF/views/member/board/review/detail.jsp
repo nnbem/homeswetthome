@@ -1,59 +1,75 @@
+<%@ page import="home.staff.dto.NoticeVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <head>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/staff_style/staff_member.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/common.css">
 </head>
 
-<body>
-	<div class="content-title">	
-		<h1><b>입양후기-상세</b></h1>
+<div class="content-wrapper" style="width:100%;">
+	<div class="content-title" >
+		<h1>
+			<b>입양후기</b>
+		</h1>
+		<div class="st-button-container">
+			<button type="submit" class="button" onclick="modify('${review.rno}');">수정</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<button type="submit" class="button" onclick="delete_go();">삭제</button>
+		</div>
 	</div>
+	<div class="content-body">
 	<table class="detail-table">
-		<thead>
-			<tr>
-				<th>대전 점선면
-					<div class="st-button-container">
-						<button type="submit" class="button">수정<!-- summernote구현 --></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<button type="submit" class="button" onclick="delete_go();">삭제</button>
-					</div>
-				</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>등록일: 2024-09-21</td>
-			</tr>
-			<tr>
-				<td style="padding: 10%; font-size: 20px;">
-					대전에 유일하게 한화이글스파크와 대전시내가 한 눈에 보이는 뷰가 있는 곳이 있다고 해서 우리 애기랑 같이 다녀왔어요!🐶💖<br/>
-					총 4층으로 200평 대형카페로 구성되어 있고, 1층은 주문공간, 2층은 내부 통창으로 단체석과 분리된 공간, 2층야외가 바로 강아지와
-					같이 있을 수 있는 공간이에요@!!<br/>
-					3층도 강아지랑 같이 있을 수 있는데 벽돌로 인테리어를 줘서 포근한 느낌이 있었어요~ <br/>
-					4층은 루프탑인데 여기도 강아지도 이용할 수 있다고 했어요!<br/>
-					*2층 내부 제외하고 모두 강아지와 함께 있을 수 있는 공간이니 꼭 가보세요~~💎<br/><br/>
-					▶주소: 대전 중구 부용로 44 1층<br/>
-					▶영업시간: 매일 11:00 ~ 23:00
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	<br />
-	<div class="st-list-button-container">
-		<button type="submit" class="button">목록</button>
+			<thead>
+				<tr>
+					<th>
+						<label for="title">${review.title }</label>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<fmt:formatDate var="created" value="${review.created}" pattern="yyyy-MM-dd"/>
+				<tr>
+					<td>${review.mid}</td>
+				</tr>
+				<tr>
+					<td>${created}</td>
+				</tr>
+				<tr>
+					<td style="padding: 10%; font-size: 20px;">
+						${review.content }
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<br />
+		<div class="st-list-button-container">
+			<button type="button" class="button" onclick="back_list();">목록</button>
+		</div>
 	</div>
-</body>
+</div>
 
-	<script>
-		function delete_go() {
-			if (confirm("정말로 삭제하시겠습니까?")) {
-				// "확인"을 눌렀을 때 실행할 코드
-				alert("삭제가 완료되었습니다.");
-			} else {
-				// "취소"를 눌렀을 때 실행할 코드
-				alert("글을 삭제하지 않습니다.");
-			}
-		}
-	</script>
+<script>
+
+function modify(rno) {
+	window.open('/member/board/review/modify?rno=' + rno, '글수정',
+	'width=900, height=700, resizable=yes, scrollbars=yes');
+}
+
+function delete_go() {
+	location.href="remove?rno=${review.rno}";
+}
+
+function delete_go() {
+	if (confirm("정말로 삭제하시겠습니까?")) {
+		alert(" 삭제가 완료되었습니다.");
+        location.href = "<%=request.getContextPath()%>/member/board/review/remove?rno=${review.rno}";
+    } else {
+        alert("글을 삭제하지 않습니다.");
+    }
+}
+
+function back_list() {
+	location.href="<%=request.getContextPath()%>/member/board/review";
+}
+</script>

@@ -18,7 +18,7 @@
 	<update id="updateInjection" parameterType="injection">
 		update injection 
 		set ijno=#{ijno}, vaccine=#{vaccine}, rabies=#{rabies}, covid=#{covid}, influenza=#{influenza}, kennelcough=#{kennelcough},
-			leukemia=#{leukemia}, heartworm=#{heartworm}, authelmintic=#{authelmintic}, eid=#{eid}, injection_date=#{injection_date}
+			leukemia=#{leukemia}, heartworm=#{heartworm}, authelmintic=#{authelmintic}, eid=#{eid}, injection_date=#{injection_date, jdbcType=DATE}
 		where aid=#{aid}
 	</update>
 	<delete id="deleteInjection" parameterType="long">

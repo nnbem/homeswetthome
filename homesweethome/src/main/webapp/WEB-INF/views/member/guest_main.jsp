@@ -17,8 +17,9 @@
 				<div class="top_bar" >
 					<a href="/member/login">로그인</a>
 					<a href="/member/join">회원가입</a>
-					<a href="#">우편함</a>
-					<a href="/member/mypage/graceperiod">마이페이지</a>
+					<a href="/staff/main">관리자</a>
+					<a href="#" style="display: none;">우편함</a>
+					<a href="/member/mypage/graceperiod" style="display: none;">마이페이지</a>
 				</div>
 			</div>
 

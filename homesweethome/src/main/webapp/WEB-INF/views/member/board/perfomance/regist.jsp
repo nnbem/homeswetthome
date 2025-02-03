@@ -1,50 +1,104 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <head>
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/css/member_style/slidebar.css">
 
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/css/member_style/perfomance_regist.css">
+<!-- iCheck -->
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/bootstrap/dist/css/adminlte.min.css?v=3.2.0" />
+<!-- Theme style -->
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/bootstrap/plugins/summernote/summernote-bs4.min.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/staff_style/staff_member.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/member_style/regist.css">
+
+<!-- jQuery -->
+<script src="<%=request.getContextPath() %>/resources/bootstrap/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="<%=request.getContextPath() %>/resources/bootstrap/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="<%=request.getContextPath() %>/resources/bootstrap/dist/js/adminlte.min.js?v=3.2.0"></script>
+
+<!-- Summernote -->
+<script src="<%=request.getContextPath() %>/resources/bootstrap/plugins/summernote/summernote-bs4.min.js"></script>
+
+<script src="<%=request.getContextPath()%>/resources/js/home.js" ></script>
+
+<style>
+	.note-editor{
+		width:98%;
+	}
+
+</style>
+
 </head>
 
-<div class="content-wrapper">
-	<div class="content-title">	
-	<h1><b>글 등록하기</b></h1>
-</div>
-<div class="content-body">
+<section class="reg-body">
 
-        <div class="post-container">
-    <form id="post-form">
-        <table class="post-table">
-                <td>
-                <button type="button" class="submit-btn">등록</button>
-            	<button type="submit" class="button" onclick="back_page();">목록</button>
-				<button type="submit" class="approval_button" onclick="approval();">승　인</button>
-				</td>
-            <tr>
-                <td class="label">제목</td>
-                <td><input type="text" name="title" placeholder="제목을 입력하세요" required></td>
-            </tr>
-            <tr>
-                <td class="label">작성자</td>
-                <td><input type="text" name="author" value="asdf" readonly></td>
-            </tr>
-        </table>
-        <div class="content-editor">
-            <div class="toolbar">
-                <!-- 간단한 에디터 버튼들 -->
-                <button type="button" class="tool-btn">B</button>
-                <button type="button" class="tool-btn">I</button>
-                <button type="button" class="tool-btn">U</button>
-                <button type="button" class="tool-btn">이미지 추가</button>
-                <!-- 기타 툴 버튼들 추가 가능 -->
-            </div>
-            <textarea name="content" placeholder="내용을 입력하세요" rows="10"></textarea>
-        </div>
-        <div class="image-preview">
-        </div>
- 
-            <button type="button" class="back-btn">목록</button>
-    </form>
-</div>
+	<div class="content-reg-title">
+		<h4 style="margin-right:-182%;">
+			<b>뽐내기</b>
+		</h4>
+		<div class="reg-bar" >
+				<div class="st-list-button-container" >
+					<button type="button" class="button" onclick="regist_go();">등록</button>
+				</div>
+			</div>
+	</div>
+	<div class="content-reg-body">
+		<form enctype="multipart/form-data" role="form" method="post" action="regist" name="regist" id="registForm">
+			
+			<div class="content-body">
+				<table class="detail-table">
+						<!-- 제목 -->
+						<thead>
+							<tr>
+								<td><label for="title">제목</label> <input type="text" id="title" name="title" class="form-control notNull"
+									title="제목" placeholder="제목을 입력해주세요.">
+								</td>
+							</tr>
+						</thead>
+						<!-- 작성자 -->
+						<tbody>
+							<tr>
+								<td><label for="mid">작성자</label> <input type="text" id="mid" name="mid" class="form-control"
+									readonly value="${loginUser}">
+								</td>
+							</tr>
+						<!-- 내용 -->
+							<tr>
+								<td>
+								    <label for="content">내 용</label> 
+								    <textarea id="content" name="content" rows="20" cols="90" class="textarea notNull"
+								    title="내용" placeholder="1000자 내외로 작성하세요."></textarea>
+								</td>
+
+							</tr>
+						</tbody>
+				</table>
+				<br />
+				<div class="st-list-button-container" style="margin-left:3%;" >
+					<button type="button" class="button" onclick="back_list();">목록</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</section>
+
+<script>
+Summernote_go($("textarea#content"),"<%=request.getContextPath()%> ");
+
+function regist_go(){
+	//alert("click regist");
+	var form = document.regist;
+	
+	var inputNotNull = document.querySelectorAll(".notNull");
+	for(var input of inputNotNull){
+		if(!input.value){
+			alert(input.getAttribute("title")+"은 필수입니다.");
+			input.focus();
+			return;
+		}
+	}
+	
+	form.submit();
+}
+
+</script>

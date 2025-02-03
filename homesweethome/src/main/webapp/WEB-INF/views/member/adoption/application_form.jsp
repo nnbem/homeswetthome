@@ -107,7 +107,11 @@
 		</div>
 	</div>
 </div>
-
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <script>
 	// 전화번호 유효성 검사 함수
 	function validatePhone(phone) {

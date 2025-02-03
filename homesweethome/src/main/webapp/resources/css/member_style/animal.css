@@ -120,6 +120,9 @@ div.animal-profile{
 	overflow: hidden;
 	position: relative;
 	margin: 10px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 div.animal-profile div.animal-profile-image{
@@ -176,5 +179,10 @@ div.buttons-wrapper button{
     border: 1px solid #333333;
     border-radius: 5px;
 }
-
+div.animalImg{
+	width: 80px;
+	height: 80px;	
+	margin: 10px;
+	background-size: 100% 100%;
+}
 

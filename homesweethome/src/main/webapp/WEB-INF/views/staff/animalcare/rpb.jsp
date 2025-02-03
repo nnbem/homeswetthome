@@ -15,7 +15,7 @@
 			<b>${loginEmployee.name}의 관리 동물 리스트</b>
 		</h1>
 		<div class="button">
-			<button>문서 다운로드</button>
+			<button onclick="location.href='regist?eid='+'${loginEmployee.eid}';">동물 등록</button>
 			<button onclick="animalcare_go();">전체 동물 리스트</button>
 		</div>
 		<%@include file="/WEB-INF/views/module/module_s/animalcareSearchBar.jsp" %>

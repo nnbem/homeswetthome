@@ -184,7 +184,6 @@ div.buttons-wrapper button{
     justify-content: space-between;
     align-items: center; /* 수직 가운데 정렬 */
     margin-bottom: 20px;
-    margin-bottom: 20px;
     text-align: right;
     width: 100%;
 }
@@ -207,7 +206,7 @@ div.buttons-wrapper button{
     border: none;
     border-radius: 5px;
    justify-content: flex-start;
-   margin-right: 43em;
+   margin-right: 35.67em;
 }
 
 .regist-btn:hover {
@@ -228,6 +227,10 @@ div.buttons-wrapper button{
     font-size: 14px;
     font-family: NanumSquare_ac;
     margin: 5px;
+}
+
+option.font {
+   font-family: NanumSquare_ac;
 }
 
 .search-input {

@@ -5,6 +5,7 @@ import java.util.List;
 
 import home.commons.request.AnimalCarePageMaker;
 import home.staff.dto.AnimalCareVO;
+import home.staff.dto.AnimalImgVO;
 import home.staff.dto.AnimalVO;
 import home.staff.dto.BasicVO;
 import home.staff.dto.BreedVO;

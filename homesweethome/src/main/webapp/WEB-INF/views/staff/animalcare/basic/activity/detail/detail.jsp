@@ -8,6 +8,7 @@
 </head>
 
 <body>
+<div class="innerWrapper">
 	<div class="content">
 		<h1><b>2025-01-09 ~의 생활 기록</b></h1>
 		<div class="detail">
@@ -55,5 +56,6 @@
 		        </table>
 			</div>
 		</form>
+	</div>
 	</div>
 </body>

@@ -3,14 +3,6 @@
    margin: 0;
    padding: 0;
    box-sizing: border-box;
-   font-family: NanumSquare_ac;
-}
-.header .logo a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 20px;
-    font-family: NanumSquare_ac;
 }
 
 body.body {
@@ -107,6 +99,7 @@ body.body {
 .left {
     display: flex;
     align-items: center;
+    margin-right: 51.7%;
 }
 
 .right {
@@ -125,6 +118,23 @@ body.body {
 
 .regist-btn:hover {
     background-color: #FF3300;
+}
+
+.back-btn{
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+   justify-content: flex-start;
+}
+
+/* .back-btn a {
+   color: #FFFFFF;
+} */
+
+.back-btn:hover {
+    background-color: #555;
 }
 
 .refresh-button {
@@ -377,16 +387,12 @@ div.content {
    background-color: white;
 }
 
- div.date{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-   }
-   div.date-select{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-   }
-   input.date-input{
-      border: none;
-   }
+div.a-style a {
+   text-decoration:underline;
+   padding-left:74%;
+   color:#191919;
+}
+
+div.a-style a:hover {
+   font-family: NanumSquare_ac ExtraBold;
+}
