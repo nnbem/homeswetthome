@@ -35,6 +35,7 @@ public class StaffController {
 		this.member_ListService = member_ListService;
 	}
 
+
 	
 	@GetMapping("/main")
 	public String staff() {
@@ -127,6 +128,7 @@ public class StaffController {
     	model.addAttribute("member", member);
     	return "staff/member/detail";
     }
+
     
 
 

@@ -22,19 +22,19 @@
 				<!-- <button type="submit" class="regi_button" onclick="open_regist();">등
 					록</button> -->
 				<button class="refresh-button">⟳&nbsp;&nbsp;</button>
-				<select class="sort-select">
-					<option value="">정렬개수</option>
-					<option value="10" ${pageMaker.perPageNum eq 10 ? 'seleceted':'' }>10개씩</option>
-					<option value="20" ${pageMaker.perPageNum eq 20 ? 'seleceted':'' }>20개씩</option>
-					<option value="30" ${pageMaker.perPageNum eq 30 ? 'seleceted':'' }>30개씩</option>
-				</select> <select class="sort-select">
+				<select class="sort-select" name="perPageNum" id="perPageNum">
+					<option class="font" class="font" value="10"  ${pageMaker.perPageNum eq 10 ? 'selected':'' } >정렬개수</option>
+					<option class="font" class="font" value="20" ${pageMaker.perPageNum eq 20 ? 'selected':'' }>20개씩</option>
+					<option class="font" class="font" value="30" ${pageMaker.perPageNum eq 30 ? 'selected':'' }>30개씩</option>
+				</select>
+				<select class="sort-select" name="searchType" id="searchType">
 					<option value="">전체</option>
-					<option value="i" ${pageMaker.searchType eq 'i' ? 'selected':'' }>동물칩번호</option>
-					<option value="m" ${pageMaker.searchType eq 'm' ? 'selected':'' }>아이디</option>
-					<option value="s" ${pageMaker.searchType eq 's' ? 'selected':'' }>상태</option>
+					<option class="font" value="i" ${pageMaker.searchType eq 'i' ? 'selected':'' }>동물칩번호</option>
+					<option class="font" value="m" ${pageMaker.searchType eq 'm' ? 'selected':'' }>아이디</option>
+					<option class="font" value="s" ${pageMaker.searchType eq 's' ? 'selected':'' }>상태</option>
 				</select> <input type="text" class="search-input" placeholder="검색어를 입력해주세요."
-					value="${pageMaker.keyword }">
-				<button class="search-button" onclick="select(1);">검 색</button>
+					name="keyword" value="${pageMaker.keyword }">
+				<button class="search-button" onclick="search_list(1);">검 색</button>
 			</div>
 			<!-- search-bar -->
 
@@ -57,23 +57,22 @@
 							<td colspan="10" class="text-content">해당 내용이 없습니다.</td>
 						</tr>
 					</c:if>
-
-					<c:forEach var="adoption" items="${adoptionList}">
-						<fmt:formatDate var="regDate" value="${adoption.regDate}"
-							pattern="yyyy-MM-dd" />
-
-						<c:url var="detailUrl" value="/staff/adoption/detail">
-							<c:param name="ano" value="${adoption.ano}" />
-						</c:url>
-						<tr style="cursor: pointer;" onclick="detail_go('${detailUrl}');">
-							<td>${adoption.ano }</td>
-							<td>${adoption.title }</td>
-							<td>${regDate }</td>
-							<td>${adoption.mid }</td>
-							<td>${adoption.aid }</td>
-							<td>${adoption.status }</td>
-						</tr>
-					</c:forEach>
+					<c:if test="${not empty adoptionList }">
+						<c:forEach var="adoption" items="${adoptionList}">
+							<fmt:formatDate var="regDate" value="${adoption.regDate}" pattern="yyyy-MM-dd" />
+							<c:url var="detailUrl" value="/staff/adoption/detail">
+								<c:param name="ano" value="${adoption.ano}" />
+							</c:url>
+							<tr style="cursor: pointer;" onclick="detail_go('${detailUrl}');">
+								<td>${adoption.ano }</td>
+								<td>${adoption.title }</td>
+								<td>${regDate }</td>
+								<td>${adoption.mid }</td>
+								<td>${adoption.aid }</td>
+								<td>${adoption.status }</td>
+							</tr>
+						</c:forEach>
+					</c:if>
 				</tbody>
 			</table>
 			<br />
@@ -84,6 +83,14 @@
 	<!-- content -->
 </div>
 <!-- ineerWrapper -->
+<script>
+document.querySelector('.refresh-button').addEventListener('click', function() {
+    document.querySelector('.search-input').value = '';
+    document.querySelector('select[name="searchType"]').selectedIndex = 0;
+    document.querySelector('select[name="perPageNum"]').selectedIndex = 0;
+    search_list(1, "", "", ""); 
+});
+</script>
 <script>
 function detail_go(url) {
     if (url) {

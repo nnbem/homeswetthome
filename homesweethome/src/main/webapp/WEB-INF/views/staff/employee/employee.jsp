@@ -21,21 +21,20 @@
 			<div class="search-bar">
 			<button type="submit" class="regi_button" onclick="open_regist();">등　록</button>
 				<button class="refresh-button">⟳&nbsp;&nbsp;</button>
-					<select class="sort-select">
-					<option value="">정렬개수</option>
-					<option value="10" ${pageMaker.perPageNum eq 10 ? 'seleceted':'' }>10개씩</option>
-					<option value="20" ${pageMaker.perPageNum eq 20 ? 'seleceted':'' }>20개씩</option>
-					<option value="30" ${pageMaker.perPageNum eq 30 ? 'seleceted':'' }>30개씩</option>
-				</select> <select class="sort-select">
-					<option value="">전체</option>
-					<option value="i" ${pageMaker.searchType eq 'i' ? 'selected':'' }>사원아이디</option>
-					<option value="n" ${pageMaker.searchType eq 'n' ? 'selected':'' }>이름</option>
-					<option value="p" ${pageMaker.searchType eq 'p' ? 'selected':'' }>전화번호</option>
-					<option value="e" ${pageMaker.searchType eq 'e' ? 'selected':'' }>이메일</option>
+				<select class="sort-select" name="perPageNum" id="perPageNum">
+					<option class="font" value="10"  ${pageMaker.perPageNum eq 10 ? 'selected':'' } >정렬개수</option>
+					<option class="font" value="20" ${pageMaker.perPageNum eq 20 ? 'selected':'' }>20개씩</option>
+					<option class="font" value="30" ${pageMaker.perPageNum eq 30 ? 'selected':'' }>30개씩</option>
 				</select>
-					<input type="text" class="search-input" placeholder="검색어를 입력해주세요."
-					value="${pageMaker.keyword }">
-				<button class="search-button" onclick="select(1);" >검 색</button>
+				<select class="sort-select" name="searchType" id="searchType">
+					<option value="">전체</option>
+					<option class="font" value="i" ${pageMaker.searchType eq 'i' ? 'selected':'' }>사원아이디</option>
+					<option class="font" value="n" ${pageMaker.searchType eq 'n' ? 'selected':'' }>이름</option>
+					<option class="font" value="p" ${pageMaker.searchType eq 'p' ? 'selected':'' }>전화번호</option>
+					<option class="font" value="e" ${pageMaker.searchType eq 'e' ? 'selected':'' }>이메일</option>
+				</select>
+					<input type="text" class="search-input" placeholder="검색어를 입력해주세요." name="keyword" value="${pageMaker.keyword }"/>
+				<button class="search-button" type="submit" onclick="search_list(1);">검색</button>
 			</div> <!-- search-bar -->
 
 			<table class="rece_table">
@@ -55,22 +54,22 @@
 							<td colspan="10" class="text-content">해당 내용이 없습니다.</td>
 						</tr>
 					</c:if>
-
-					<c:forEach var="employee" items="${employeeList}">
-						<fmt:formatDate var="joid_date" value="${employee.joid_date}" pattern="yyyy-MM-dd" />
-						
-						<c:url var="detailUrl" value="/staff/employee/detail">
-							<c:param name="eid" value="${employee.eid}" />
-						</c:url>
-						<tr style="cursor: pointer;" onclick="detail_go('${detailUrl}');">
-							<td>${employee.eid }</td>
-							<td>${employee.name }</td>
-							<td>${employee.department }</td>
-							<td>${employee.phone }</td>
-							<td>${employee.position }</td>
-							<td>${joid_date }</td>
-						</tr>
-					</c:forEach>
+					<c:if test="${not empty employeeList }">
+						<c:forEach var="employee" items="${employeeList}">
+							<fmt:formatDate var="joid_date" value="${employee.joid_date}" pattern="yyyy-MM-dd" />
+							<c:url var="detailUrl" value="/staff/employee/detail">
+								<c:param name="eid" value="${employee.eid}" />
+							</c:url>
+							<tr style="cursor: pointer;" onclick="detail_go('${detailUrl}');">
+								<td>${employee.eid }</td>
+								<td>${employee.name }</td>
+								<td>${employee.department }</td>
+								<td>${employee.phone }</td>
+								<td>${employee.position }</td>
+								<td>${joid_date }</td>
+							</tr>
+						</c:forEach>
+					</c:if>
 				</tbody>
 			</table>
 			<br/>
@@ -79,6 +78,18 @@
 	</div> <!-- content -->
 </div> <!-- ineerWrapper -->
 
+<script>
+document.querySelector('.refresh-button').addEventListener('click', function() {
+    // 검색어 입력창 초기화
+    document.querySelector('.search-input').value = '';
+    // 검색 유형 초기화 (첫 번째 옵션 "전체" 선택)
+    document.querySelector('select[name="searchType"]').selectedIndex = 0;
+    // 정렬 개수 초기화 (첫 번째 옵션 "정렬개수" 선택)
+    document.querySelector('select[name="perPageNum"]').selectedIndex = 0;
+    // 검색 리스트 다시 불러오기 (초기화된 값 적용)
+    search_list(1, "", "", ""); 
+});
+</script>
 <script>
 	function detail_go(url){
 	    window.location.href = url;

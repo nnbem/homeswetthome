@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <script>
-alert("등록되었습니다.");
-location.href="/staff/employee";
-
+alert("사원등록을 성공했습니다.");
+window.close();
+window.opener.location.reload();
 </script>

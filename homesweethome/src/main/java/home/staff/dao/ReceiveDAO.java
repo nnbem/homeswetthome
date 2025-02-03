@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import home.commons.request.PageMaker;
+import home.staff.dto.EmployeeVO;
 import home.staff.dto.ReceiveVO;
 
 public interface ReceiveDAO {
@@ -14,6 +15,7 @@ public interface ReceiveDAO {
     int selectSearchReceiveListCount(PageMaker pageMaker) throws SQLException;
     // rcno로 Receive 정보 조회
     ReceiveVO selectReceiveByRcno(int rcno) throws SQLException;
+    ReceiveVO selectReceiveByEid(String eid)throws SQLException;
     // Receive 데이터 추가
     void insertReceive(ReceiveVO receive) throws SQLException;
     // Receive 데이터 업데이트
@@ -23,9 +25,10 @@ public interface ReceiveDAO {
     // 시퀀스에서 다음 값 조회
     int selectReceiveSeqNext() throws SQLException;
     // aid로 Receive 데이터 조회
-    ReceiveVO selectReceiveByAid(long aid) throws SQLException;
+    int selectReceiveByAid(long aid) throws SQLException;
     
     void insertReceiveInAnimalCare(ReceiveVO receive) throws SQLException;
     int selectRcnoByAid(Long aid) throws SQLException;
 	void updateReceiveInAnimalCare(ReceiveVO receive)throws SQLException;
+	
 }

@@ -45,6 +45,7 @@ public class MemberController {
 	public String find_way() {
 		return "member/intro/find_way";
 	}
+	
 	 @GetMapping("/mypage/adopt")
 	    public String mypage_adopt() {
 	    	return "member/mypage/adopt";
@@ -59,5 +60,25 @@ public class MemberController {
 	    public String mypage_mark() {
 	    	return "member/mypage/mark/list";
 	    }
+	    
+	    
+	    @GetMapping("/mypage/graceperiod")
+		public String mypage_graceperiod() {
+			String url = "/member/mypage/graceperiod/graceperiod";
+			return url;
+		}
+
+		@GetMapping("/mypage/graceperiod/regist")
+		public String mypage_graceperiod_regist() {
+			String url = "/member/mypage/graceperiod/regist";
+			return url;
+		}
+
+		@GetMapping("/mypage/graceperiod/detail")
+		public String mypage_graceperiod_detail() {
+			String url = "/member/mypage/graceperiod/detail";
+			return url;
+		}
+
 
 }

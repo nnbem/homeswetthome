@@ -7,6 +7,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 
 import home.commons.request.PageMaker;
+import home.staff.dto.EmployeeVO;
 import home.staff.dto.ReceiveVO;
 
 public class ReceiveDAOImpl implements ReceiveDAO{
@@ -38,6 +39,10 @@ public class ReceiveDAOImpl implements ReceiveDAO{
 		ReceiveVO receive = session.selectOne("Receive-Mapper.selectReceiveByRcno", rcno);
 		return receive;
 	}
+	@Override
+	public ReceiveVO selectReceiveByEid(String eid) throws SQLException {
+		return session.selectOne("Receive-Mapper.selectReceiveByEid", eid);
+	}
 
 	@Override
 	public void insertReceive(ReceiveVO receive) throws SQLException {
@@ -62,13 +67,6 @@ public class ReceiveDAOImpl implements ReceiveDAO{
 	}
 
 	@Override
-	public ReceiveVO selectReceiveByAid(long aid) throws SQLException {
-		ReceiveVO receive = session.selectOne("Receive-Mapper.selectReceiveByAid",aid);
-		return receive;
-	}
-
-
-	@Override
 	public void insertReceiveInAnimalCare(ReceiveVO receive) throws SQLException {
 		session.insert("Receive-Mapper.insertReceiveInAnimalCare", receive);
 	}
@@ -81,6 +79,11 @@ public class ReceiveDAOImpl implements ReceiveDAO{
 	@Override
 	public void updateReceiveInAnimalCare(ReceiveVO receive) throws SQLException {
 		session.update("Receive-Mapper.updateReceiveInAnimalCare", receive);
+	}
+
+	@Override
+	public int selectReceiveByAid(long aid) throws SQLException {
+		return session.selectOne("Receive-Mapper.selectRcnoByAid", aid);
 	}
 
 

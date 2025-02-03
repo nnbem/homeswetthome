@@ -138,6 +138,7 @@
 }
 .table th, .table td {
     border: 1px solid #ddd;
+    font-size: 18px;
 }
 
 .table th {
@@ -159,7 +160,9 @@
 table.table td.middle{
 	padding-left: 20px;
 }
-
+.left_cell select{
+	padding: 10px;
+}
 /* basic-table */
 
 .td_inner{

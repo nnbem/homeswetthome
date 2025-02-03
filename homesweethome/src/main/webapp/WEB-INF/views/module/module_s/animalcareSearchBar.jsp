@@ -5,7 +5,7 @@
 <div class="search-wrapper">
    <div class="check">
       <div class="date">
-         <p>센터입소일:</p>
+         <p style=" font-size: 15px;">센터입소일:</p>
          <div class="date-select">
             <input class="date-input" type="date" name="regdateBefore" pattern="yyyy-MM-DD" value="${pageMaker.regdateBefore }">
             <p>~</p>
@@ -54,7 +54,7 @@
       <div class="search">
          <button class="back_button">
             <img alt="back"
-               src="<%=request.getContextPath()%>/resources/image/back.png">
+               src="<%=request.getContextPath()%>/resources/image/p/back.png">
          </button>
          <select name="perPageNum" id="perPageNum">
               <option value="10" ${pageMaker.perPageNum==10 ? 'selected':'' }>정렬개수</option>

@@ -12,6 +12,7 @@ public interface ReserveService {
 	List<ReserveVO> list(PageMaker pageMaker) throws SQLException;
 	
 	ReserveVO detail(int rsno) throws SQLException;
+	
 	ReserveDetailVO getReserveDetail(int rsno) throws SQLException;
 	
 	ReserveVO getReserve(int rsno) throws SQLException;

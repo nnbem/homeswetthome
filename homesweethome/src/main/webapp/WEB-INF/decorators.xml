@@ -16,7 +16,10 @@
 		<pattern>/staff/main</pattern>
 		<pattern>/member/popup</pattern>
 		<pattern>*/open_regist</pattern>
+		<pattern>*/employee/regist/post</pattern>
+		<pattern>*/modify/post</pattern>
 		<pattern>*/open_modify</pattern>
+		<pattern>*/mypage</pattern>
 		
 		<pattern>/staff/login</pattern>   
 		<pattern>/staff/index</pattern>

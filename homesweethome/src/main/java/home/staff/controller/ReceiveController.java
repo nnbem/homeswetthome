@@ -33,27 +33,31 @@ public class ReceiveController {
         this.receiveService = receiveService;
     }
 
-    /**
-     * Receive 목록 조회
-     */
+    
+	/* Receive 목록 조회 */
+     
     @GetMapping("/receive")
     public String list(@ModelAttribute PageMaker pageMaker, Model model) throws Exception {
+    	
+    	System.out.println("🔍 searchType: " + pageMaker.getSearchType());
+        System.out.println("🔍 keyword: " + pageMaker.getKeyword());
+        
         List<ReceiveVO> receiveList = receiveService.list(pageMaker);
         model.addAttribute("receiveList", receiveList);
         return "/staff/receive/receive";
     }
 
-    /**
-     * Receive 등록 폼 이동
-     */
+    
+	/* Receive 등록 폼 이동 */
+     
     @GetMapping("/regist")
     public String registForm() {
         return "/staff/receive/regist";
     }
 
-    /**
-     * Receive 등록 처리
-     */
+    
+	/* Receive 등록 처리 */
+     
     @PostMapping("/regist")
     public String regist(@ModelAttribute ReceiveRegistRequest registRequest, Model model) throws Exception {
         // 입력 데이터 검증
@@ -74,9 +78,9 @@ public class ReceiveController {
         
     }
 
-    /**
-     * Receive 상세 조회
-     */
+    
+	/* Receive 상세 조회 */
+    
     @GetMapping("/detail")
     public String detail(int rcno, Model model) throws Exception {
         ReceiveVO receive = receiveService.getReceive(rcno);

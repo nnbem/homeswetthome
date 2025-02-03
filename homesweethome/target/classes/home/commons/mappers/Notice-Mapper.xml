@@ -18,22 +18,22 @@
 	</sql>
 
 	<select id="selectSearchNoticeList" parameterType="pageMaker" resultType="notice">
-	 	select *
-		from(
-		    select rownum as rnum,SearchNoticeResult.*
-		    from ( 
-		    	select * 
-				from notice
-				where nno is not null
-				<include refid="search" />				
-				order by regDate desc
-		    )  SearchNoticeResult
-		    <![CDATA[
-		    where rownum <= #{endRow} < 1 then 10 else #{endRow} end	 		    		    
-		)		 
-		where rnum >= #{startRow} < 1 then else #{startRow} end			
-		 ]]>
-	</select>
+	    select *
+	    from(
+	        select rownum as rnum, SearchNoticeResult.*
+	        from ( 
+	            select * 
+	            from notice
+	            where nno is not null
+	            <include refid="search" />				
+	            order by regDate desc
+	        ) SearchNoticeResult
+	        <![CDATA[
+	        where rownum <= CASE WHEN #{endRow} < 1 THEN 10 ELSE #{endRow} END
+	        ) 
+	        where rnum >= CASE WHEN #{startRow} < 1 THEN 1 ELSE #{startRow} END
+	        ]]>
+	    </select>
 	
 	<!-- 추가 -->
 	<select id="selectPinnedNotice" resultType="notice">

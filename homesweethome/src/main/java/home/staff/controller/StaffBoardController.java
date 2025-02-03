@@ -160,10 +160,6 @@ public class StaffBoardController {
     public String review_detail() {
         return "staff/board/review/detail";
     }
-    @GetMapping("/board/review/complete")
-	public String review_complete() {
-		return "staff/board/review/complete";
-	}
     
     
     @GetMapping("/board/inquiry")
@@ -175,8 +171,4 @@ public class StaffBoardController {
     public String inquiry_detail() {
         return "staff/board/inquiry/detail";
     }
-    @GetMapping("/board/inquiry/complete")
-	public String inquiry_complete() {
-		return "staff/board/inquiry/complete";
-	}
 }

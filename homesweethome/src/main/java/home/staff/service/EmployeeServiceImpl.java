@@ -16,11 +16,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public List<EmployeeVO> searchList(PageMaker page) throws SQLException {
-		List<EmployeeVO> employeeList = employeeDAO.selectSearchEmployeeList(page);
-		int totalCount = employeeDAO.selectSearchEmployeeListCount(page);
-		page.setTotalCount(totalCount);
-		return employeeList;
+	public List<EmployeeVO> searchList(PageMaker pageMaker) throws SQLException {
+		
+		int totalCount = employeeDAO.selectSearchEmployeeListCount(pageMaker);
+		pageMaker.setTotalCount(totalCount);
+		
+		return employeeDAO.selectSearchEmployeeList(pageMaker);
 	}
 
 	@Override
@@ -31,10 +32,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public void regist(EmployeeVO Employee) throws SQLException {
 		employeeDAO.insertEmployee(Employee);
-		if (Employee.getAuthorities().size() > 0)
-			for (String authority : Employee.getAuthorities()) {
-				employeeDAO.insertEmployeeAuthorities(Employee.getEid(), authority);
-			}
+		
 	}
 
 	@Override

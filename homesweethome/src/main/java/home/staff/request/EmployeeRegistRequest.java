@@ -2,7 +2,9 @@ package home.staff.request;
 
 
 import java.util.Date;
+import java.util.UUID;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 import home.staff.dto.EmployeeVO;
@@ -14,10 +16,13 @@ public class EmployeeRegistRequest {
 	private String name; //이름
 	private String phone; //전화번호
 	private String email; //이메일
-	private Date birth; //생년월일
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date birth;
+
 	private String department; //주소
 	private String position; //부서
-	private Date joid_date; //입사일
+	@DateTimeFormat(pattern = "yyyy-MM-dd") 
+	private Date joid_date;
 	private MultipartFile picture; //사진경로
 	//private List<String> authority; //권한
 	
@@ -82,6 +87,7 @@ public class EmployeeRegistRequest {
 	public void setPicture(MultipartFile picture) {
 		this.picture = picture;
 	}
+	
 
 	
 	public EmployeeVO toEmployeeVO() {
@@ -95,8 +101,13 @@ public class EmployeeRegistRequest {
 		employee.setDepartment(department);
 		employee.setPosition(position);
 		employee.setJoid_date(joid_date);
-		employee.setPicture(department);
 		
+		if (picture != null && !picture.isEmpty()) {
+	        String fileName = UUID.randomUUID().toString() + "_" + picture.getOriginalFilename();
+	        employee.setPicture(fileName);
+	    } else {
+	        employee.setPicture(null); // 파일이 없는 경우
+	    }
 		
 		return employee;
 	}

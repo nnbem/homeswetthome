@@ -15,6 +15,7 @@
       <typeAlias type="home.member.dto.ReviewVO" alias="review"/>
 	  <typeAlias type="home.member.dto.SharingVO" alias="sharing"/>
 	  <typeAlias type="home.member.dto.Member_ListVO" alias="memberList"/>
+	  <typeAlias type="home.member.dto.SuitVO" alias="suit"/>
 	  
 	  <typeAlias type="home.adoption.dto.AdoptionInfoVO" alias="adoption2"/>
 	  

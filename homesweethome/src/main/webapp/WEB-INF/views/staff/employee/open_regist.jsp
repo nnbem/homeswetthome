@@ -22,8 +22,8 @@
 			<div class="main_container">
 				<div class="button_container">
 					<button type="button" class="back_button" onclick="back_page();">목록</button>
-					<button type="submit" class="regist_button"
-						onclick="regist_submit(event);">등록하기</button>
+					<button type="button" class="regist_button" onclick="regist_submit(event);">등록하기</button>
+					
 				</div>
 				<div class="inner_container">
 					<h2 style="font-size: 30px;">사원 등록</h2>
@@ -35,10 +35,8 @@
 							<div class="file_container">
 								<br />
 								<label for="inputFile" class=" label_file">파일선택</label>
-								<input id="inputFileName" class="form-control" type="text"
-									name="tempPicture" disabled /> <input type="file"
-									id="inputFile" name="picture" style="display: none;"
-									onchange="picture_go();" />
+								<input id="inputFileName" class="form-control" type="text" name="tempPicture" disabled />
+									<input type="file" id="inputFile" name="picture" style="display: none;" onchange="picture_go();" />
 							</div>
 							<!-- file_container -->
 						</div>
@@ -56,10 +54,10 @@
 								    <td class="left">
 								        <select name="position" class="input_form_notnull">
 								            <option value="">부서를 선택하세요</option>
-								            <option value="HR">일반행정</option>
-								            <option value="Care">동물보호과</option>
-								            <option value="Adoption">동물입양과</option>
-								            <option value="Vet">수의사</option>
+								            <option value="일반행정">일반행정</option>
+								            <option value="동물보호과">동물보호과</option>
+								            <option value="동물입양과">동물입양과</option>
+								            <option value="수의사">수의사</option>
 								        </select>
 								    </td>
 							<tr>
@@ -134,6 +132,7 @@ function regist_submit(event) {
     const joidDateInput = form.querySelector('input[name="joid_date"]');
     const emailInput = form.querySelector('input[name="email"]');
     const departmentInput = form.querySelector('input[name="department"]');
+    const pictureInput = form.querySelector('input[name="picture"]');
 
     // 필수 입력값 검사
     if (!nameInput.value.trim()) {
@@ -181,8 +180,15 @@ function regist_submit(event) {
         departmentInput.focus();
         return false;
     }
+    if (!pictureInput.files.length) { // 사진 등록 여부 확인
+        alert('사진을 등록해주세요.');
+        return false;
+    }
 
-    // 모든 검사 통과 시 폼 제출
+ // 모든 검사 통과 시 폼 제출 (POST 요청)
+    form.method = "POST"; // 명시적으로 POST 설정
+    form.action = "/staff/employee/regist/post"; // 액션 URL 설정
+    form.enctype = "multipart/form-data"; // 파일 업로드를 위한 인코딩 설정
     form.submit();
 }
 </script>

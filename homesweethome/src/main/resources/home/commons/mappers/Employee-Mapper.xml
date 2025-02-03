@@ -6,7 +6,7 @@
 <mapper namespace="Employee-Mapper">
 	<sql id="search">
 		<if test="searchType == 'i'.toString()">
-			where id like '%'||#{keyword}||'%'
+			where eid like '%'||#{keyword}||'%'
 		</if>
 		<if test="searchType == 'n'.toString()">
 			where name like '%'||#{keyword}||'%'
@@ -66,7 +66,7 @@
 	</insert>
 	<update id="updateEmployee" parameterType="employee">
 		update employee
-		set pwd=#{pwd},phone=#{phone},email=#{email}, birth=#{birth}, department=#{department}, position=#{position}
+		set pwd=#{pwd},phone=#{phone},email=#{email}, birth=#{birth}, department=#{department}, position=#{position}, picture=#{picture}
 		where eid=#{eid}
 	</update>
 	<delete id="deleteEmployee" parameterType="str">

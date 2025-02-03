@@ -44,9 +44,87 @@ public class EmployeeController {
 	
 	@GetMapping("/employee")
 	public String List(@ModelAttribute PageMaker pageMaker, Model model) throws Exception {
-		List<EmployeeVO> employeeList = employeeService.list(pageMaker);
+		List<EmployeeVO> employeeList = employeeService.searchList(pageMaker);
 		model.addAttribute("employeeList", employeeList);
+		
 		return "/staff/employee/employee";
+	}
+
+	@GetMapping("/employee/open_regist")
+	public String employee_open_regist() {
+		String url = "staff/employee/open_regist";
+		return url;
+	}
+	
+	@Resource(name = "employeePicturePath")
+	private String picturePath;
+	
+	@PostMapping(value = "/employee/regist/post", produces = "text/plain;charset=utf-8")
+	public ModelAndView regist(@ModelAttribute EmployeeRegistRequest regRequest, ModelAndView mnv) {
+	    String url = "/staff/employee/regist_success";
+
+	    try {
+	        // 파일 저장
+	        MultipartFile multi = regRequest.getPicture();
+	        if (multi == null || multi.isEmpty()) {
+	            mnv.setViewName("/error/400.jsp");
+	            return mnv;
+	        }
+
+	        String fileName = savePicture(null, multi);
+
+	        // DB 저장
+	        EmployeeVO employee = regRequest.toEmployeeVO();
+	        employee.setPicture(fileName);
+	        employeeService.regist(employee);
+
+	    } catch (Exception e) {
+	        url = "/error/500.jsp";
+	        e.printStackTrace();
+	    }
+
+	    mnv.setViewName(url);
+	    return mnv;
+	}
+
+	
+	@GetMapping("/getPicture")
+	@ResponseBody
+	public ResponseEntity<byte[]> getPicture(String eid) {
+		ResponseEntity entity = null;
+
+		EmployeeVO employee = null;
+		try {
+			employee = employeeService.getEmployee(eid);
+		}catch(SQLException e) {
+			return new ResponseEntity<byte[]>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+		if (employee == null)
+			return new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
+
+		String picture = employee.getPicture();
+		String imgPath = this.picturePath;
+
+		InputStream in = null;
+
+		try {
+			in = new FileInputStream(new File(imgPath, picture));
+			entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(in), HttpStatus.OK);
+			return entity;
+			
+		}catch(IOException e) {
+			System.out.println("Not Founded ::: "+employee.getEid()+":"+employee.getPicture());
+			return new ResponseEntity<byte[]>(HttpStatus.NOT_FOUND);
+		}finally {
+			if (in != null)
+				try {
+					in.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+		}
+
 	}
 	
 	@GetMapping("/employee/detail")
@@ -61,88 +139,6 @@ public class EmployeeController {
 		model.addAttribute("employee", employee);
 		return "/staff/employee/detail";
 	}
-	
-
-	@GetMapping("/employee/open_regist")
-	public String employee_open_regist() {
-		String url = "staff/employee/open_regist";
-		return url;
-	}
-	
-	@Resource(name = "employeeSavedFilePath")
-	private String savePath;
-	private String picturePath;
-
-	
-	@PostMapping(value = "/employee/regist/post")
-	public ModelAndView regist(@ModelAttribute EmployeeRegistRequest regRequest, ModelAndView mnv) {
-	    String url = "/staff/employee/regist_success";
-
-	    try {
-	        System.out.println("Received EmployeeRegistRequest: " + regRequest);
-	        System.out.println("Uploaded File Name: " + (regRequest.getPicture() != null ? regRequest.getPicture().getOriginalFilename() : "파일 없음"));
-	        System.out.println("eid: " + regRequest.getEid());
-	        System.out.println("name: " + regRequest.getName());
-	        
-	        MultipartFile multi = regRequest.getPicture();
-	        //사진 저장
-	        String fileName = savePicture(null, multi);
-
-	        //EmployeeVO 변환 및 사진 설정
-	        EmployeeVO employee = regRequest.toEmployeeVO();
-	        employee.setPicture(fileName);
-
-	        //데이터베이스에 등록
-	        employeeService.regist(employee);
-
-	        System.out.println("등록 성공: " + employee);
-	    } catch (NotExistPictureFileException e) {
-	        url = "/error/400.jsp";
-	        e.printStackTrace();
-	    } catch (Exception e) {
-	        url = "/error/500.jsp";
-	        e.printStackTrace();
-	    }
-
-	    mnv.setViewName(url);
-	    return mnv;
-	}
-	
-	@GetMapping("/getPicture")
-	@ResponseBody
-	public ResponseEntity<byte[]> getPicture(String eid){
-		ResponseEntity entity = null;
-		
-		EmployeeVO employee = null;
-		try {
-			employee = employeeService.getEmployee(eid);
-		} catch(SQLException e) {
-			return new ResponseEntity<byte[]>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-		if ( employee == null)
-			return new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
-			
-			String picture = employee.getPicture();
-			String imgPath = this.picturePath;
-			
-			InputStream in = null;
-			
-			try {
-				in = new FileInputStream(new File(imgPath, picture));
-				entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(in), HttpStatus.OK);
-				return entity;
-			} catch(IOException e) {
-				System.out.println("Not Founded ::: "+employee.getEid()+":"+employee.getPicture());
-				return new ResponseEntity<byte[]>(HttpStatus.NOT_FOUND);
-			} finally {
-				if (in != null)
-					try {
-						in.close();
-					}catch(IOException e) {
-						e.printStackTrace();
-					}
-			}
-	}
 
 	@GetMapping("/employee/modify")
 	public ModelAndView employee_modify(String eid, ModelAndView mnv) throws Exception {
@@ -155,9 +151,9 @@ public class EmployeeController {
 		
 		return mnv;
 	}
-	@PostMapping(value="/employee/modify/post", produces = "text/plain; charset=utf-8")
+	@PostMapping(value="/employee/modify/post", produces = "text/plain;charset=utf-8")
 	public ModelAndView employee_modify_post(EmployeeModifyRequest modifyRequest, ModelAndView mnv) throws Exception {
-		String url = "/staff/modify_success";
+		String url = "/staff/employee/modify_success";
 
 	    // EmployeeVO 변환
 	    EmployeeVO employee = modifyRequest.toEmployeeVO();
@@ -175,10 +171,6 @@ public class EmployeeController {
 	  			e.printStackTrace();
 	  		}
 
-	    employee.setName(employee.getName() == null ? employee.getName() : employee.getName());
-	    employee.setPwd(employee.getPwd() == null ? employee.getPwd() : employee.getPwd());
-	    employee.setBirth(employee.getBirth() == null ? employee.getBirth() : employee.getBirth());
-	    employee.setJoid_date(employee.getJoid_date() == null ? employee.getJoid_date() : employee.getJoid_date());
 
 	    employeeService.modify(employee);
 	    
@@ -186,39 +178,31 @@ public class EmployeeController {
 	    mnv.setViewName(url);
 	    return mnv;
 	}
+	
 	public String savePicture(String oldPicture, MultipartFile multi)
 	        throws NotExistPictureFileException, IllegalStateException, IOException {
 
-	    if (multi == null || multi.isEmpty() || multi.getSize() > 1024 * 1024 * 5)
+	    if (multi == null || multi.isEmpty() || multi.getSize() > 1024 * 1024 * 1)
 	        throw new NotExistPictureFileException();
 
 	    // 저장 파일명
 	    String fileName = null;
 
-	    // 파일 저장 폴더 설정
-	    String uploadPath = this.picturePath;  // 경로 확인
+	    // 파일저장폴더설정
+	    String uploadPath = this.picturePath;
 
-	    // **경로 로그 추가**
-	    System.out.println("📌 [DEBUG] 파일 저장 경로: " + uploadPath);
-
-	    if (uploadPath == null || uploadPath.isEmpty()) {
-	        throw new IllegalStateException("📌 [ERROR] 파일 저장 경로가 설정되지 않았습니다.");
-	    }
-
-	    // UUID를 사용한 파일명 생성
+	    // 파일유무확인, 저장 파일명 결정
 	    String uuid = UUID.randomUUID().toString().replace("-", "");
 	    fileName = uuid + "$$" + multi.getOriginalFilename();
 	    File storeFile = new File(uploadPath, fileName);
 
-	    // 파일 경로 생성 (존재하지 않으면 폴더 생성)
-	    if (!storeFile.getParentFile().exists()) {
-	        storeFile.getParentFile().mkdirs();
-	    }
-
-	    // 실제 파일 저장
+	    // 파일경로 생성
+	    storeFile.mkdirs();
+	    
+	    // local HDD 에 저장.
 	    multi.transferTo(storeFile);
 
-	    // 기존 파일 삭제
+	    // 기존파일 삭제
 	    if (oldPicture != null && !oldPicture.isEmpty()) {
 	        File oldFile = new File(uploadPath, oldPicture);
 	        if (oldFile.exists()) {

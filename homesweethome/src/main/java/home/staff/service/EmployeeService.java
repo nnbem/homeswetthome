@@ -11,7 +11,7 @@ public interface EmployeeService {
 	List<EmployeeVO> list(PageMaker pageMaker)throws SQLException;
 	
 	//사원목록
-	List<EmployeeVO> searchList(PageMaker page)throws SQLException;
+	List<EmployeeVO> searchList(PageMaker pageMaker)throws SQLException;
 	
 	//사원등록
 	void regist(EmployeeVO Employee) throws SQLException;
@@ -23,7 +23,7 @@ public interface EmployeeService {
 	void remove(String eid) throws SQLException;
 	
 	//권한수정
-	void modifyAuthority(String id,List<String> authorities) throws SQLException;
+	void modifyAuthority(String eid,List<String> authorities) throws SQLException;
 	
 	//사원조회
 	EmployeeVO getEmployee(String eid) throws SQLException;

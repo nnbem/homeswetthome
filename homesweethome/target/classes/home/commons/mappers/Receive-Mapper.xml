@@ -5,14 +5,17 @@
   
   <mapper namespace="Receive-Mapper">
   	<sql id="search">
-  		<if test="searchType == 'rc' ">
-  			and rcno like '%' ||#{keyword}||'%'
+  		<if test="searchType == 'i'.toString()">
+			where eid like '%'||#{keyword}||'%'
+		</if>
+  		<if test="searchType == 'k'.toString()">
+  			where kind like '%' ||#{keyword}||'%'
   		</if>
-  		<if test="searchType == 'ac' "> 
-  			and aid like '%' ||#{keyword}||'%'
+  		<if test="searchType == 'c'.toString()">
+  			where cantername like '%' ||#{keyword}||'%'
   		</if>
-  		<if test="searchType == 's' ">
-  			and spot like '%' ||#{keyword}||'%'
+  		<if test="searchType == 's'.toString()">
+  			where spot like '%' ||#{keyword}||'%'
   		</if>
   	</sql>
   	
@@ -33,6 +36,11 @@
   		select *
   		from receive
   		where rcno=#{rcno}
+  	</select>
+  	<select id="selectReceiveByEid" parameterType="str" resultType="receive">
+  		select *
+  		from receive
+  		where eid=#{eid}
   	</select>
   	
   	<insert id="insertReceive" parameterType="receive">

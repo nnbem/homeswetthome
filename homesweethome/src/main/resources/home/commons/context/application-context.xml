@@ -10,10 +10,10 @@
         c:value="${savePath.member.picture}"       
    />
    <!-- employee.picture -->
-   <bean id="employeeSavedFilePath"
-   		 class="java.lang.String"
-   		 c:value="${savePath.employee.picture}"
-   />
+   <bean id="employeePicturePath"
+      class="java.lang.String"
+      c:value="${savePath.employee.picture}" />
+   
     <!-- animalcare.picture -->
     <bean id="animalImgSavedFilePath"
 		  class="java.lang.String"
@@ -103,6 +103,10 @@
 	<bean id="ReviewDAO"
 		  class="home.member.dao.ReviewDAOImpl"
 		  c:session-ref="sqlSession"/>
+	<bean id="SuitDAO"
+		  class="home.member.dao.SuitDAOImpl"
+		  c:session-ref="sqlSession"
+	/>
    
 	
 
@@ -111,6 +115,10 @@
 	
 	
 	<!-- service -->
+	<bean id="SuitService"
+		  class="home.member.service.SuitServiceImpl"
+		  c:suitDAO-ref="SuitDAO"
+	/>
 	<bean id="TreatmentService"
 		  class="home.staff.service.TreatmentServiceImpl"
 		  c:treatmentDAO-ref="TreatmentDAO"
@@ -172,7 +180,6 @@
 		  c:receiveDAO-ref="ReceiveDAO"
 		  c:animalImgDAO-ref="AnimalImgDAO"
 	/>
-
 	<bean id="EmployeeService"
 		  class="home.staff.service.EmployeeServiceImpl"
 		  c:employDAO-ref="EmployeeDAO" 

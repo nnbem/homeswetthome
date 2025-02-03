@@ -11,7 +11,7 @@
 <div class="content-wrapper">
 	<div class="content-title">
 		<h1>
-			<b>입양신청</b>
+			<b>유예신청</b>
 		</h1>
 	</div>
 	<div class="content-body">
@@ -107,7 +107,11 @@
 		</div>
 	</div>
 </div>
-
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <script>
 	// 전화번호 유효성 검사 함수
 	function validatePhone(phone) {

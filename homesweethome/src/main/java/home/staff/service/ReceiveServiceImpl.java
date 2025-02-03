@@ -11,10 +11,9 @@ public class ReceiveServiceImpl implements ReceiveService{
 	
 	 private ReceiveDAO receiveDAO;
 
-	    // 생성자를 통한 의존성 주입
-	    public ReceiveServiceImpl(ReceiveDAO receiveDAO) {
-	        this.receiveDAO = receiveDAO;
-	    }
+    public ReceiveServiceImpl(ReceiveDAO receiveDAO) {
+        this.receiveDAO = receiveDAO;
+    }
 	    
 	@Override
 	public List<ReceiveVO> list(PageMaker pageMaker) throws SQLException {
@@ -42,7 +41,7 @@ public class ReceiveServiceImpl implements ReceiveService{
     }
 
     @Override
-    public ReceiveVO getReceiveByAid(long aid) throws SQLException {
+    public int getReceiveByAid(long aid) throws SQLException {
         return receiveDAO.selectReceiveByAid(aid);
     }
 
@@ -72,8 +71,13 @@ public class ReceiveServiceImpl implements ReceiveService{
     }
     
     @Override
-	public int getRcnoByAid(Long aid) throws SQLException {
-		return receiveDAO.selectRcnoByAid(aid);
+	public int getRcnoByAid(long aid) throws SQLException {
+		return receiveDAO.selectReceiveByAid(aid);
+	}
+
+	@Override
+	public ReceiveVO getReceiveByEid(String eid) throws SQLException {
+		return receiveDAO.selectReceiveByEid(eid);
 	}
 
 

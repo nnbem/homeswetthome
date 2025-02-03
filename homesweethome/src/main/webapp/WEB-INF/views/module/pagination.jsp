@@ -45,22 +45,22 @@
 
 <script>
 function search_list(page){
-	//alert("click search");
-	let perPageNum = document.querySelector('select[name="perPageNum"]').value;
-	let searchType = document.querySelector('select[name="searchType"]').value;
-	let keyword = document.querySelector('input[name="keyword"]').value;
-	
-	//alert(perPageNum+":"+searchType+":"+keyword);
-	let form = document.querySelector("#jobForm");
-	form.page.value=page;
-	form.perPageNum.value=perPageNum;
-	form.searchType.value = searchType;
-	form.keyword.value = keyword;
-	
-	//alert($(form).serialize());
-	
-	form.submit();
-	
+    let perPageNum = document.querySelector('select[name="perPageNum"]').value;
+    let searchType = document.querySelector('select[name="searchType"]').value;
+    let keyword = document.querySelector('input[name="keyword"]').value;
+
+    // perPageNum이 "정렬개수"일 경우 빈 값 유지 (서버에서 기본값 처리)
+    if (perPageNum === "") {
+        perPageNum = ""; // 서버가 기본값을 자동 적용하도록 유지
+    }
+
+    let form = document.querySelector("#jobForm");
+    form.page.value = page;
+    form.perPageNum.value = perPageNum;
+    form.searchType.value = searchType;
+    form.keyword.value = keyword;
+
+    form.submit();
 }
 </script>
 

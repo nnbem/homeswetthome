@@ -9,10 +9,10 @@
 			and ano like '%' ||#{keyword}||'%'
 		</if>
 		<if test="searchType == 'i' ">
-			and aid like '%' |||#{keyword}||'%'
+			and aid like '%' ||#{keyword}||'%'
 		</if>
 		<if test="searchType == 'm' ">
-			and mid like '%' |||#{keyword}||'%'
+			and mid like '%' ||#{keyword}||'%'
 		</if>
 		<if test="searchType == 's'.toString()">
 			and status like '%' ||#{keyword}||'%'

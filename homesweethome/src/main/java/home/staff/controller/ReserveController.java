@@ -31,14 +31,8 @@ public class ReserveController {
 	@GetMapping("/reserve")
 	public String List(@RequestParam(value = "rsno", required = false) Integer rsno,PageMaker pageMaker, Model model) throws Exception {
 		List<ReserveVO> reserveList = reserveService.list(pageMaker);
-		
-		ReserveDetailVO reserveDetail = null;
-	    if (rsno != null) {
-	        reserveDetail = reserveService.getReserveDetail(rsno);
-	    }
 	    
 		model.addAttribute("reserveList", reserveList);
-		model.addAttribute("reserveDetail", reserveDetail);
 		return "/staff/reserve/reserve";
 	}
 
@@ -48,7 +42,7 @@ public class ReserveController {
 	    ReserveVO reserve = reserveService.getReserve(rsno);
 	    ReserveDetailVO reserveDetail = reserveService.getReserveDetail(rsno);
 	    
-	    if (reserve == null) {
+	    if (reserve == null || reserveDetail == null) {
 	    	model.addAttribute("errorMessage", "해당 rsno(" + rsno + ")에 대한 데이터를 찾을 수 없습니다.");
 	    	return "errorPage";
 	    }

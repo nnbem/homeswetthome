@@ -7,6 +7,14 @@
 	href="<%=request.getContextPath()%>/resources/css/staff_style/regist_style.css">
 <link rel="stylesheet"
   href="<%=request.getContextPath()%>/resources/css/staff_style/staff_style2.css">
+ <style>
+div#pictureView{
+	background-image: url('<%= request.getContextPath() %>/staff/getPicture?eid=${employee.eid}');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;		
+}
+</style>
 </head>
 
 
@@ -22,6 +30,14 @@
 				<div class="inner_container">
 					<h2>사원 정보</h2>
 					<div class="table card-body table-responsive p-0">
+					<div class="row"  style="height:200px;">
+	                  <div class="mailbox-attachments clearfix col-md-12" style="text-align: center;">                     
+	                     <div id="pictureView" style="border: 1px solid green; height: 260px; width: 200px; margin: 0 auto;"></div>                                          
+	                  </div>
+               		</div>
+					<br />
+					<br />
+					<br />
 						<table class="table" id="basic">
 							<tr>
 								<td class="center_cell">이름</td>
@@ -46,11 +62,15 @@
 							<tr>
 								<td class="center_cell">생년월일</td>
 								<td class="left_cell">
-									<span style="border: none;">${employee.birth }</span> 
+									<span style="border: none;">
+									<fmt:formatDate value="${employee.birth }" pattern="yyyy-MM-dd"/>
+									</span> 
 								</td>
 								<td class="center_cell">입사일</td>
 								<td class="left_cell">
-									<span style="border: none;">${employee.joid_date }</span>
+									<span style="border: none;">
+									<fmt:formatDate value="${employee.joid_date }" pattern="yyyy-MM-dd"/>
+									</span>
 								</td>
 							</tr>
 							<tr>
@@ -70,7 +90,7 @@
 								</td>
 							</tr>
 						</table>
-						
+						<br />
 					</div> <!-- table card-body table-responsive p-0 -->
 				</div> <!-- inner_container -->
 			

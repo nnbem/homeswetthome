@@ -7,8 +7,7 @@
    href="<%=request.getContextPath()%>/resources/css/staff_style/staff_style.css">
 <link rel="stylesheet"
    href="<%=request.getContextPath()%>/resources/css/staff_style/animalcare.css">
-<link rel="stylesheet"
-   href="<%=request.getContextPath()%>/resources/css/staff_style/staff_style.css">
+
 <%-- <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/table.css"> --%>
 <%@ include file="/WEB-INF/views/module/adminlteSource.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>

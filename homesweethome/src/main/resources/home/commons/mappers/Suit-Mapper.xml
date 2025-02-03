@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Suit-Mapper">
+	<sql id="search">
+		<if test="searchType == 'm'.toString()">
+			where mid like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'cs'.toString()">
+			where consult_status like '%'||#{keyword}||'%'
+		</if>
+	</sql>
+	<select id="selectSearchSuitList" parameterType="pageMaker" resultType="suit">
+		select *
+		from suit
+		<include refid="search" />
+		order by regDate desc
+	</select>
+	<select id="selectSearchSuitListCount" parameterType="pageMaker" resultType="int">
+		select count(*)
+		from suit
+		<include refid="search" />
+	</select>
+	<select id="selectSuitList" resultType="suit">
+		select *
+		from suit
+		order by regDate desc
+	</select>
+	<select id="selectSuitByMid" parameterType="str" resultType="suit">
+		select *
+		from suit
+		where mid=#{mid}
+	</select>
+	
+	<insert id="insertSuit" parameterType="suit">
+		insert into
+		suit(stno, living_env_score, pet_experience_score, family_consent_score,
+			 financial_score, stabilty_score, consult_score, regDate, mid)
+		values(#{stno}, #{living_env_score}, #{pet_experience_score}, #{family_consent_score},
+      		   #{financial_score}, #{stabilty_score}, #{consult_score}, SYSDATE, #{mid})
+	</insert>
+	<update id="updateSuit" parameterType="suit">
+		update suit
+		set stno=#{stno}, living_env_score=#{living_env_score}, pet_experience_score=#{pet_experience_score}, family_consent_score=#{family_consent_score},
+			financial_score=#{financial_score}, stabilty_score=#{stabilty_score}, consult_score=#{consult_score}, regDate = SYSDATE
+		where mid=#{mid}
+	</update>
+	<select id="getSuitByMid" parameterType="pageMaker" resultType="suit">
+		select *
+		from suit
+		where mid = #{mid}
+	</select>
+</mapper>

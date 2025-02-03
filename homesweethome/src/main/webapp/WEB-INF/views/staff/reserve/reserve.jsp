@@ -43,7 +43,6 @@
 						<th>신청 날짜</th>
 						<th>내용</th>
 						<th>아이디</th>
-						<th>전화번호</th>
 						<th>방문예정일</th>
 						<th>승인여부</th>
 					</tr>
@@ -67,7 +66,6 @@
 							<td>${regDate}</td>
 							<td>${reserve.content }</td>
 							<td>${reserve.mid }</td>
-							<td>${reserveDetail.phone }
 							<td>${schedule }</td>
 							<td>${reserve.status }</td>
 						</tr>

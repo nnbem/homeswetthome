@@ -21,7 +21,7 @@ public interface ReceiveService {
     ReceiveVO getReceive(int rcno) throws SQLException;
 
     // aid로 Receive 데이터 조회
-    ReceiveVO getReceiveByAid(long aid) throws SQLException;
+    int getReceiveByAid(long aid) throws SQLException;
 
     // Receive 데이터 수정
     void update(ReceiveVO receive) throws SQLException;
@@ -32,6 +32,7 @@ public interface ReceiveService {
     // Receive 데이터 삭제
     void remove(int rcno) throws SQLException;
     
-    public int getRcnoByAid(Long aid) throws SQLException;
+    int getRcnoByAid(long aid) throws SQLException;
+    ReceiveVO getReceiveByEid(String eid) throws SQLException;
     
 }

@@ -34,7 +34,6 @@ public class SharingController {
 		this.sharingService = sharingService;
 	}
 	
-	
 	@GetMapping("/board/sharing")
     public void sharing(@ModelAttribute PageMaker pageMaker, Model model) throws Exception {
         List<SharingVO> sharingList = sharingService.list(pageMaker);

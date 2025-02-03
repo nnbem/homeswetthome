@@ -7,17 +7,22 @@ import java.util.Map;
 
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Repository;
 
 import home.commons.request.PageMaker;
 import home.staff.dto.EmployeeVO;
 
 public class EmployeeDAOImpl implements EmployeeDAO {
 
+	@Autowired
 	private SqlSession session;
 
 	public EmployeeDAOImpl(SqlSession session) {
 		this.session = session;
 	}
+
 
 	@Override
 	public List<EmployeeVO> selectSearchEmployeeList(PageMaker pageMaker) throws SQLException {
