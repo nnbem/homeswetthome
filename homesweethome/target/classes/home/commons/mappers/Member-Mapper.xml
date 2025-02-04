@@ -4,68 +4,65 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Member-Mapper">
 
-	<sql id="search">
-		<if test="searchType == 'i'.toString()">
-			where mid like '%'||#{keyword}||'%'
-		</if>
-		<if test="searchType == 'n'.toString()">
-			where and name like '%'||#{keyword}||'%'
-		</if>
-		<if test="searchType == 'p'.toString()">
-			where and phone like '%'||#{keyword}||'%'
-		</if>
-		<if test="searchType == 'e'.toString()">
-			where and email like '%'||#{keyword}||'%'
-		</if>
-	</sql>
+   <sql id="search">
+      <if test="searchType == 'i'.toString()">
+         and mid like '%'||#{keyword}||'%'
+      </if>
+      <if test="searchType == 'n'.toString()">
+         and name like '%'||#{keyword}||'%'
+      </if>
+      <if test="searchType == 'e'.toString()">
+         and email like '%'||#{keyword}||'%'
+      </if>
+   </sql>
 
-	<select id="selectSeachMemberList" parameterType="pageMaker" resultType="member">
-		select *
-		from member
-		<include refid="search" />
-		order by regDate desc	
-	</select>
-	
-	<select id="selectSearchMemberListCount" parameterType="pageMaker" resultType="int">
-		select count(*)
-		from member
-		<include refid="search" />
-	</select>
+   <select id="selectSeachMemberList" parameterType="pageMaker" resultType="member">
+      select *
+      from member
+      <include refid="search" />
+      order by regDate desc   
+   </select>
+   
+   <select id="selectSearchMemberListCount" parameterType="pageMaker" resultType="int">
+      select count(*)
+      from member
+      <include refid="search" />
+   </select>
 
-	<select id="selectMemberList" resultType="member">
-		select *
-		from member
-		order by regDate desc
-	</select>
-	
-	<select id="selectMember_List" parameterType="pageMaker" resultType="memberList">
-		select *
-		from member_List
-		order by regDate desc
-	</select>
-	
-	<select id="selectMemberByMid" parameterType="str" resultType="home.member.dto.MemberVO">
-		select *
-		from member
-		where mid = #{mid}
-	</select>
+   <select id="selectMemberList" resultType="member">
+      select *
+      from member
+      order by regDate desc
+   </select>
+   
+   <select id="selectMember_List" parameterType="pageMaker" resultType="memberList">
+      select *
+      from member_List
+      order by regDate desc
+   </select>
+   
+   <select id="selectMemberByMid" parameterType="str" resultType="member">
+      select *
+      from member
+      where mid = #{mid}
+   </select>
     
     <select id="getPwdByMid" parameterType="str" resultType="str">
-    	select pwd
-    	from member
-    	where mid = #{mid}
+       select pwd
+       from member
+       where mid = #{mid}
     </select>
 
-	<insert id="insertMember" parameterType="member">
-		insert into
-		member(mid, pwd, name, birth, sex, picture, phone, address, email)
-		values(#{mid}, #{pwd}, #{name}, #{birth}, #{sex}, #{picture}, #{phone}, #{address}, #{email})
-	</insert>
+   <insert id="insertMember" parameterType="member">
+      insert into
+      member(mid, pwd, name, birth, sex, picture, phone, address, email)
+      values(#{mid}, #{pwd}, #{name}, #{birth}, #{sex}, #{picture}, #{phone}, #{address}, #{email})
+   </insert>
 
-	<update id="updateMember" parameterType="member">
-		update member
-		set pwd = #{pwd}, phone = #{phone} address = #{address}, email = #{email}
-		where mid = #{mid}
-	</update>
+   <update id="updateMember" parameterType="member">
+      update member
+      set pwd = #{pwd}, phone = #{phone} address = #{address}, email = #{email}
+      where mid = #{mid}
+   </update>
 
 </mapper>

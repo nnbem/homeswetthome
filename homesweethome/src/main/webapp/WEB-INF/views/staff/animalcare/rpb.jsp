@@ -7,6 +7,29 @@
 <%@ include file="/WEB-INF/views/module/adminlteSource.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<style>
+	.wrapper{
+		overflow: scroll;
+    	height: 88vh;
+	}
+	
+	div.date{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	div.date-select{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	input.date-input{
+		border: none;
+	}
+
+</style>
+
 </head>
 <body>
 <div class="innerWrapper">
@@ -55,35 +78,44 @@
 	         </table>
 		</div>
 		
-		<%@ include file="/WEB-INF/views/module/pagination.jsp" %>
+      <%@ include file="/WEB-INF/views/module/module_s/pagination.jsp"%>
 	</div>
 </div>
 
-<form id="pageForm" style="display: none;">
-	<input type='text' name="page" value="" style="display: none;"/>
-</form>
+
 <script>
 
-	function pagenation_list(page){
-		let perPageNum = document.querySelector('select[name="perPageNum"]').value;
-		let regdateBefore = document.querySelector('input[name="regdateBefore"]').value;
-		//alert(regdateBefore);
-		let regdateAfter = document.querySelector('input[name="regdateAfter"]').value;
-		//alert(regdateAfter);
-		let name = document.querySelector('input[name="name"]').value;
-		let kindList = document.querySelectorAll('input[name="kindList"]:checked');
-		let stateList = document.querySelectorAll('input[name="stateList"]:checked');
-		let eid = "${loginEmployee.eid}"
-		
-		let searchForm = document.querySelector("#jobForm");
-		searchForm.page.value = page;
-		searchForm.eid.value = eid;		
-		searchForm.submit();
-		
+	function refresh(page){
+	    let searchForm = document.querySelector("#jobForm");
+	    searchForm.page.value = page;
+	    const dateList = document.querySelectorAll(".date-input");
+	    dateList.forEach(date => {
+	    	date.value = "";
+	    });
+	    
+	    const inputList = document.querySelectorAll(".search-inputs");
+	    inputList.forEach(input => {
+	    	input.value = "";
+	    });
+	    
+	    const selectList = document.querySelectorAll(".search-select");
+	    selectList.forEach(select => {
+	    	select.value = "";
+	    })
+	    
+	    document.querySelector("#perPageNum").value = "10";
+	}
+
+	function pagenation_list(page) {
+	    let searchForm = document.querySelector("#jobForm");
+	    let eid="${loginEmployee.eid}";
+	    
+	    searchForm.eid.value = eid;
+	    searchForm.page.value = page;
+	    searchForm.submit();
 	}
 
 	function basic_go(aid){
-		alert(aid);
 		location.href="basic?aid="+aid;
 	}
 	 

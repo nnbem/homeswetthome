@@ -7,7 +7,7 @@
 <!-- 본문 -->
 <section>
     <div class="content-title">
-      <h1><b>오시는 길</b></h1>
+      <h1><b style="font-size: 40px;">오시는 길</b></h1>
       <div class="find_way">
         <!-- 새 창으로 열기-->
         <button type="button" id="way-btn" onclick="find_way();">길찾기</button>

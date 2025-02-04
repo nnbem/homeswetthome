@@ -23,6 +23,12 @@
 	    background-size: cover;
 	    background-repeat: no-repeat;
 	  }
+
+	.wrapper{
+		overflow: scroll;
+    	height: 88vh;
+	}	  
+	  
 	</style>
    
 </head>

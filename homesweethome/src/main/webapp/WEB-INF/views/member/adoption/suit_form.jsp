@@ -20,7 +20,7 @@
 			<thead>
 				<tr>
 					<th>항목</th>
-					<th>부적합</th>
+					<th>부족</th>
 					<th>보통</th>
 					<th>충분함</th>
 				</tr>
@@ -167,126 +167,19 @@
 <br />
 <br />
 <script>
-document.getElementById("checklist-form").onsubmit = function (event) {
-    event.preventDefault(); // 기본 폼 제출 동작 방지
-
-    let formData = {};
-    let totalScore = 0;
-    let isValid = true; // 유효성 검사 상태 플래그
-    let firstErrorElement = null; // 첫 번째 에러 요소 추적
-
-    // ✅ 1. 라디오 체크 유효성 검사
-    for (let i = 1; i <= 20; i++) {
-        let selectedOption = document.querySelector(`input[name="question${i}"]:checked`);
-
-        if (!selectedOption) {
-            isValid = false;
-
-            // 해당 질문의 첫 번째 라디오 버튼 찾기
-            let firstOption = document.querySelector(`input[name="question${i}"]`);
-            if (firstOption) {
-                let row = firstOption.closest("tr");
-                if (row) {
-                    row.style.backgroundColor = "#ffdddd"; // 빨간색 배경 강조
-                }
-            }
-
-            // 첫 번째 오류 위치 저장 (스크롤 이동을 위해)
-            if (!firstErrorElement) {
-                firstErrorElement = firstOption;
-            }
-        } else {
-            // 선택된 경우 기본 스타일로 복구
-            let row = selectedOption.closest("tr");
-            if (row) {
-                row.style.backgroundColor = "";
-            }
-
-            let score = parseInt(selectedOption.value);
-            formData[`question${i}`] = score;
-            totalScore += score;
-        }
-    }
-
-    // ❌ 모든 질문이 체크되지 않았으면 경고 후 중단
-    if (!isValid) {
-        alert("모든 항목을 체크해주세요!");
-        if (firstErrorElement) {
-            firstErrorElement.scrollIntoView({ behavior: "smooth", block: "center" });
-            firstErrorElement.focus();
-        }
-        return;
-    }
-
-    // ✅ 2. 파일 첨부 유효성 검사
-    const fileInputs = document.querySelectorAll('input[type="file"]');
-    let totalFiles = 0;
-
-    fileInputs.forEach((input) => {
-        totalFiles += input.files.length;
-    });
-
-    if (totalFiles < 3) { // 최소 3개 파일 필요
-        alert("최소 3장의 파일을 첨부해주세요.");
-        fileInputs[0].scrollIntoView({ behavior: "smooth", block: "center" });
-        fileInputs[0].focus();
-        return;
-    }
-
-    // ✅ 3. 파일 형식 확인
-    let invalidFiles = [];
-    fileInputs.forEach((input) => {
-        const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
-        const files = Array.from(input.files);
-        invalidFiles = invalidFiles.concat(files.filter(file => !allowedTypes.includes(file.type)));
-    });
-
-    if (invalidFiles.length > 0) {
-        alert("이미지 파일(jpg, jpeg, png)만 첨부 가능합니다.");
-        fileInputs[0].scrollIntoView({ behavior: "smooth", block: "center" });
-        fileInputs[0].focus();
-        return;
-    }
-
-    // ✅ 4. 사용자 아이디 추가 및 총점 저장
-    formData["mid"] = "사용자아이디"; // 실제로는 서버에서 세션 또는 로그인 정보에서 가져와야 함
-    formData["totalScore"] = totalScore;
-
-    // ✅ 5. 서버 전송
-    fetch("/submitChecklist", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData)
-    }).then(response => response.json())
-      .then(data => {
-          if (data.success) {
-              alert("검진표가 성공적으로 제출되었습니다.");
-              window.location.href = "/member/adoption/suit"; // 제출 후 이동할 페이지
-          } else {
-              alert("제출 중 오류 발생. 다시 시도해주세요.");
-          }
-      })
-      .catch(error => {
-          console.error("Error:", error);
-          alert("서버 통신 중 오류가 발생했습니다.");
-      });
-};
-
-// ✅ 6. 파일 추가 버튼 (+) 정상 작동하도록 설정
 const fileInputsContainer = document.getElementById("file-inputs-container");
 const addFileButton = document.getElementById("add-file-button");
 let fileCount = 1; // 현재 파일 첨부 개수
 const maxFiles = 10; // 최대 파일 첨부 개수
 
+// 파일 추가 버튼 클릭 이벤트
 addFileButton.onclick = function () {
     if (fileCount >= maxFiles) {
-        alert(`최대 10개의 파일만 첨부할 수 있습니다.`);
+        alert(`최대 ${maxFiles}개의 파일만 첨부할 수 있습니다.`);
         return;
     }
 
-    fileCount++;
+    fileCount++; // 파일 첨부 개수 증가
 
     // 새 파일 입력 행 생성
     const fileInputRow = document.createElement("div");
@@ -302,10 +195,10 @@ addFileButton.onclick = function () {
     removeButton.classList.add("remove-file-button");
     removeButton.textContent = "−";
 
-    // 파일 제거 버튼 클릭 이벤트
+    // 제거 버튼 클릭 이벤트
     removeButton.onclick = function () {
         fileInputsContainer.removeChild(fileInputRow);
-        fileCount--;
+        fileCount--; // 파일 첨부 개수 감소
     };
 
     fileInputRow.appendChild(newFileInput);
@@ -313,4 +206,43 @@ addFileButton.onclick = function () {
     fileInputsContainer.appendChild(fileInputRow);
 };
 
+// 폼 제출 이벤트
+document.getElementById("checklist-form").onsubmit = function (event) {
+    event.preventDefault();
+
+    // 파일 첨부 확인
+    const fileInputs = document.querySelectorAll('input[type="file"]');
+    let totalFiles = 0;
+
+    // 각 파일 입력 필드의 파일 개수를 계산
+    fileInputs.forEach((input) => {
+        totalFiles += input.files.length;
+    });
+
+    if (totalFiles < 3) { // 최소 3개 파일 필요
+        alert("최소 3장의 파일을 첨부해주세요.");
+        fileInputs[0].scrollIntoView({ behavior: "smooth", block: "center" });
+        fileInputs[0].focus();
+        return;
+    }
+
+    // 파일 형식 확인
+    let invalidFiles = [];
+    fileInputs.forEach((input) => {
+        const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
+        const files = Array.from(input.files);
+        invalidFiles = invalidFiles.concat(files.filter(file => !allowedTypes.includes(file.type)));
+    });
+
+    if (invalidFiles.length > 0) {
+        alert("이미지 파일(jpg, jpeg, png)만 첨부 가능합니다.");
+        fileInputs[0].scrollIntoView({ behavior: "smooth", block: "center" });
+        fileInputs[0].focus();
+        return;
+    }
+
+    // 성공 메시지 및 페이지 이동
+    alert("검진표가 성공적으로 제출되었습니다.");
+    window.location.href = "/member/adoption/suit";
+};
 </script>

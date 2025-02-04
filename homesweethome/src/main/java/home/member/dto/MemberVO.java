@@ -14,6 +14,7 @@ public class MemberVO {
 	private String phone;
 	private String address;
 	private String email;
+	private Date regDate;
 	
 	
 	public String getMid() {
@@ -79,5 +80,11 @@ public class MemberVO {
     public String getFormatSex() {
         return sex == 0 ? "남자" : "여자";
     }
+	public Date getRegDate() {
+		return regDate;
+	}
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
+	}
 	
 }

@@ -45,6 +45,7 @@ div.type-link{
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
+	margin-left: 144px;
 }
 
 div.type-link div{

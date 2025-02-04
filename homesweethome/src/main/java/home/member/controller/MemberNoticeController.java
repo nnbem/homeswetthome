@@ -28,16 +28,14 @@ public class MemberNoticeController {
 		this.noticeService = noticeService;
 	}
 	
+	//공지먼저정렬(수정)
 	@GetMapping("/intro/notice")
-    public void notice(@ModelAttribute PageMaker pageMaker, Model model) throws Exception {
-        List<NoticeVO> noticeList = noticeService.list(pageMaker);
+    public String notice(@ModelAttribute PageMaker pageMaker, Model model) throws Exception {
+        List<NoticeVO> noticeList = noticeService.selectNoticeListWithPriority(pageMaker);
+        
         model.addAttribute("noticeList", noticeList);
+        return "/member/intro/notice";
     }
-	
-	@GetMapping("/intro/notice/regist")
-	public String notice_regist() {
-		return "member/intro/notice/regist";
-	}
 	
 	@GetMapping("/intro/notice/detail")
     public String notice_detail(@RequestParam("nno") int nno, Model model) throws Exception {

@@ -11,13 +11,13 @@
 	<div class="content-body">
 		<div class="type-top">
 			<div class="type-card">
-				<ul>
+				<!-- <ul>
 					<li class="type-title"><b>최신글</b></li>
 					<li class="type-content">1. 입양10년차 ...</li>
 					<li class="type-content">2. 입양10년차 ...</li>
 					<li class="type-content">3. 입양10년차 ...</li>
 					<li class="type-content">4. 입양10년차 ...</li>
-				</ul>
+				</ul> -->
 				<div class="type-link" onclick="location.href='animal/announcement?perPageNum=12&stateList=공고중&page=1';" style="cursor:pointer;">
 					<div>
 						<a><b>공고중 게시판 <br/>바로가기</b></a>
@@ -27,13 +27,13 @@
 				</div>
 			</div>
 			<div class="type-card">
-				<ul>
+				<!-- <ul>
 					<li class="type-title"><b>최신 치료중 게시글</b></li>
 					<li class="type-content">1. 입양10년차 ...</li>
 					<li class="type-content">2. 입양10년차 ...</li>
 					<li class="type-content">3. 입양10년차 ...</li>
 					<li class="type-content">4. 입양10년차 ...</li>
-				</ul>
+				</ul> -->
 				<div class="type-link" onclick="location.href='animal/announcement?perPageNum=12&stateList=치료중&page=1';" style="cursor:pointer;">
 					<div>
 						<a><b>치료중 게시판 <br/>바로가기</b></a>
@@ -45,13 +45,13 @@
 		</div>
 		<div class="type-bottom">
 			<div class="type-card">
-				<ul>
+				<!-- <ul>
 					<li class="type-title"><b>최신 입양가능 게시글</b></li>
 					<li class="type-content">1. 입양10년차 ...</li>
 					<li class="type-content">2. 입양10년차 ...</li>
 					<li class="type-content">3. 입양10년차 ...</li>
 					<li class="type-content">4. 입양10년차 ...</li>
-				</ul>
+				</ul> -->
 				<div class="type-link" onclick="location.href='animal/announcement?perPageNum=12&stateList=입양가능&page=1';" style="cursor:pointer;">
 					<div>
 						<a><b>입양가능 게시판 <br/>바로가기</b></a>
@@ -61,13 +61,13 @@
 				</div>
 			</div>
 			<div class="type-card">
-				<ul>
+				<!-- <ul>
 					<li class="type-title"><b>최신 입양완료 및 기타 게시글</b></li>
 					<li class="type-content">1. 입양10년차 ...</li>
 					<li class="type-content">2. 입양10년차 ...</li>
 					<li class="type-content">3. 입양10년차 ...</li>
 					<li class="type-content">4. 입양10년차 ...</li>
-				</ul>
+				</ul> -->
 				<div class="type-link" onclick="location.href='animal/announcement?perPageNum=12&stateList=입양완료&page=1';" style="cursor:pointer;">
 					<div>
 						<a><b>입양완료 및 기타 게시판 바로가기</b></a>

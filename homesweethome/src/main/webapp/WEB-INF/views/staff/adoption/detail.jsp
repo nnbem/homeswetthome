@@ -33,7 +33,7 @@
 					<hr/>
 					<div class="small_container">
 						<div class="img">
-							<img src="<%=request.getContextPath()%>/resources/image/dog_10.png" alt="보호동물 사진">
+							<img src="<%=request.getContextPath()%>/resources/image/catcat.jpg" alt="보호동물 사진">
 						</div>
 						<div class="table_2">
 							<br/>

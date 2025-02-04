@@ -36,6 +36,7 @@ public class StaffController {
 	}
 
 
+
 	
 	@GetMapping("/main")
 	public String staff() {
@@ -129,6 +130,7 @@ public class StaffController {
     	model.addAttribute("member_List", member_List);
     	return "staff/member/detail";
     }
+
 
     
 

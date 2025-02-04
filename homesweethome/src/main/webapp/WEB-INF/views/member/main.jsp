@@ -19,7 +19,7 @@
 						<span id="session-time" style="margin-right: 10px; font-size: 15px; color: #ffffff">60분</span>
 					
  --%>					<a href="/member/main/guest">로그아웃</a>
-					<a href="/staff/main">관리자</a>
+					<a href="/staff/login">관리자</a>
 					<a href="#" style="display: none;">우편함</a>
 					<a href="/member/mypage/graceperiod" style="display: none;">마이페이지</a>
 				</div>
@@ -51,7 +51,7 @@
 		<div class="inner_cent">
 			<div class="banner">
 				<div class="banner-content">
-					<img src="<%=request.getContextPath()%>/resources/image/main_Banner_3.jpg" alt="강아지 이미지">
+					<img src="<%=request.getContextPath()%>/resources/image/main_Banner_3.jpg" alt="banner">
 				</div>
 			</div>
 			<!-- banner -->
@@ -69,50 +69,50 @@
 		    			<div class="card_content">
 		        			<h3>믹스</h3>
 		        			<p>암컷</p>
-		        			<span class="status_badge">입양가능</span>
+		        			<span class="status_badge">공고중</span>
 		    			</div>
 		    			<div class="image_container">
-		        			<img src="<%=request.getContextPath()%>/resources/image/dog_10.png" alt="강아지 이미지">
+		        			<img src="<%=request.getContextPath()%>/resources/image/d_1.jpg" alt="강아지 이미지">
 		    			</div>
 					</div>
 					<div class="card">
 		    			<div class="card_content">
 		        			<h3>믹스</h3>
 		        			<p>암컷</p>
-		        			<span class="status_badge">입양가능</span>
+		        			<span class="status_badge">공고중</span>
 		    			</div>
 		    			<div class="image_container">
-		        			<img src="<%=request.getContextPath()%>/resources/image/dog_10.png" alt="강아지 이미지">
+		        			<img src="<%=request.getContextPath()%>/resources/image/d_2.jpg" alt="강아지 이미지">
 		    			</div>
 					</div>
 					<div class="card">
 		    			<div class="card_content">
 		        			<h3>믹스</h3>
 		        			<p>암컷</p>
-		        			<span class="status_badge">입양가능</span>
+		        			<span class="status_badge">공고중</span>
 		    			</div>
 		    			<div class="image_container">
-		        			<img src="<%=request.getContextPath()%>/resources/image/dog_10.png" alt="강아지 이미지">
+		        			<img src="<%=request.getContextPath()%>/resources/image/d_3.jpg" alt="강아지 이미지">
 		    			</div>
 					</div>
 					<div class="card">
 		    			<div class="card_content">
 		        			<h3>믹스</h3>
 		        			<p>암컷</p>
-		        			<span class="status_badge">입양가능</span>
+		        			<span class="status_badge">공고중</span>
 		    			</div>
 		    			<div class="image_container">
-		        			<img src="<%=request.getContextPath()%>/resources/image/dog_10.png" alt="강아지 이미지">
+		        			<img src="<%=request.getContextPath()%>/resources/image/d_4.jpg" alt="강아지 이미지">
 		    			</div>
 					</div>
 					<div class="card">
 		    			<div class="card_content">
 		        			<h3>믹스</h3>
 		        			<p>암컷</p>
-		        			<span class="status_badge">입양가능</span>
+		        			<span class="status_badge">공고중</span>
 		    			</div>
 		    			<div class="image_container">
-		        			<img src="<%=request.getContextPath()%>/resources/image/dog_10.png" alt="강아지 이미지">
+		        			<img src="<%=request.getContextPath()%>/resources/image/d_5.jpg" alt="강아지 이미지">
 		    			</div>
 					</div>
 				</div>
@@ -129,57 +129,56 @@
 				<div class="animal-card">
 					<div class="card">
 		    			<div class="card_content">
-		        			<h3>믹스</h3>
+		        			<h3>닥스훈트</h3>
 		        			<p>암컷</p>
-		        			<span class="status_badge">입양가능</span>
+		        			<span class="status_bar">입양가능</span>
 		    			</div>
 		    			<div class="image_container">
-		        			<img src="<%=request.getContextPath()%>/resources/image/dog_10.png" alt="강아지 이미지">
+		        			<img src="<%=request.getContextPath()%>/resources/image/1.jpg" alt="강아지 이미지">
 		    			</div>
 					</div>
 					<div class="card">
 		    			<div class="card_content">
-		        			<h3>믹스</h3>
-		        			<p>암컷</p>
-		        			<span class="status_badge">입양가능</span>
+		        			<h3>시베리안</h3>
+		        			<p>수컷</p>
+		        			<span class="status_bar">입양가능</span>
 		    			</div>
 		    			<div class="image_container">
-		        			<img src="<%=request.getContextPath()%>/resources/image/dog_10.png" alt="강아지 이미지">
+		        			<img src="<%=request.getContextPath()%>/resources/image/2.jpg" alt="강아지 이미지">
 		    			</div>
 					</div>
 					<div class="card">
 		    			<div class="card_content">
-		        			<h3>믹스</h3>
-		        			<p>암컷</p>
-		        			<span class="status_badge">입양가능</span>
+		        			<h3>데본렉스</h3>
+		        			<p>수컷</p>
+		        			<span class="status_bar">입양가능</span>
 		    			</div>
 		    			<div class="image_container">
-		        			<img src="<%=request.getContextPath()%>/resources/image/dog_10.png" alt="강아지 이미지">
+		        			<img src="<%=request.getContextPath()%>/resources/image/3.jpg" alt="강아지 이미지">
 		    			</div>
 					</div>
 					<div class="card">
 		    			<div class="card_content">
-		        			<h3>믹스</h3>
+		        			<h3>노르웨이숲</h3>
 		        			<p>암컷</p>
-		        			<span class="status_badge">입양가능</span>
+		        			<span class="status_bar">입양가능</span>
 		    			</div>
 		    			<div class="image_container">
-		        			<img src="<%=request.getContextPath()%>/resources/image/dog_10.png" alt="강아지 이미지">
+		        			<img src="<%=request.getContextPath()%>/resources/image/4.jpg" alt="강아지 이미지">
 		    			</div>
 					</div>
 					<div class="card">
 		    			<div class="card_content">
-		        			<h3>믹스</h3>
-		        			<p>암컷</p>
-		        			<span class="status_badge">입양가능</span>
+		        			<h3>아비시나안</h3>
+		        			<p>수컷</p>
+		        			<span class="status_bar">입양가능</span>
 		    			</div>
 		    			<div class="image_container">
-		        			<img src="<%=request.getContextPath()%>/resources/image/dog_10.png" alt="강아지 이미지">
+		        			<img src="<%=request.getContextPath()%>/resources/image/5.jpg" alt="강아지 이미지">
 		    			</div>
 					</div>
 				</div>
-			</div>
-			<!--wrap  -->
+			</div> <!--wrap  -->
 
 			<div class="additional-sections">
 				<div class="section-row">

@@ -43,6 +43,7 @@ public class AdoptionInfoController {
 		String url = "/member/adoption/reserve_form";
 		return url;
 	}
+	
 
 	@GetMapping("/adoption/application")
 	public String adoption_application() {
@@ -55,5 +56,12 @@ public class AdoptionInfoController {
 		String url = "/member/adoption/application_form";
 		return url;
 	}
+	@GetMapping("/adoption/application/detail")
+	public String adoption_application_detail() {
+		String url = "/member/adoption/application_detail";
+		return url;
+	}
+	
+	
 	
 }

@@ -30,13 +30,13 @@
                     </tr>
                     <tr>
                         <td class="center_cell">방문예정일</td>
-                        <td class="left_cell">
+                        <td colspan="3" class="left_cell">
                             <input type="date" name="visit-date" required>
                         </td>
-                        <td class="center_cell">방문예정일시</td>
+                        <!-- <td class="center_cell">방문예정일시</td>
                         <td class="left_cell">
                             <input type="time" name="visit-time" step="1800" required>
-                        </td>
+                        </td> -->
                     </tr>
                     <tr>
                         <td class="center_cell">내용</td>
@@ -103,7 +103,7 @@
         }
 
         // 유효성 검사를 모두 통과한 경우
-        alert('제출이 완료되었습니다!');
+        alert('방문예약이 신청되었습니다!');
         window.history.back(); // 페이지 뒤로 이동
     }
 

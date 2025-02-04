@@ -38,10 +38,10 @@
         <div class="step">
             <img src="<%=request.getContextPath()%>/resources/image//adoption/check_1.png" alt="Step 2 Icon" class="step-icon">
             <div class="step-content">
-                <h3>2. 적합성검진표</h3>
-                <p>온라인 교육 이수 후 검진표를 작성해주세요.</p>
+                <h3>2. 적합성점검표</h3>
+                <p>온라인 교육 이수 후 점검표를 작성해주세요.</p>
             </div>
-            <a href="/member/adoption/suit" class="step-button">적합성검진표 바로가기 ➔</a>
+            <a href="/member/adoption/suit" class="step-button">적합성점검표 바로가기 ➔</a>
         </div>
 
         <!-- 화살표 -->

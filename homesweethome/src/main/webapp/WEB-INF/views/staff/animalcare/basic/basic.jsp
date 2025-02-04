@@ -19,6 +19,12 @@
       .animal-profile-image{
       	width: 
       }
+      
+	.wrapper{
+		overflow: scroll;
+    	height: 88vh;
+	}
+	
    </style>
 </head>
 

@@ -5,6 +5,13 @@
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/staff_style/animalcare.css">
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/table.css">
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/staff_style/staff_style.css">
+<style>
+	.wrapper{
+		overflow: scroll;
+    	height: 88vh;
+	}
+	
+</style>	
 </head>
 
 <body>

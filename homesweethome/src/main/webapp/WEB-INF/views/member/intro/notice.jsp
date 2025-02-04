@@ -14,27 +14,26 @@
 
 	<div class="content-title">
 		<h1>
-			<b>공지사항</b>
+			<b style="font-size: 32px;">공지사항</b>
 		</h1>
 	</div>
 	<div class="content-body">
 	<form id="searchForm">
-		<div class="search-bar" style="padding: -5%; margin-left: 55%;">
+		<div class="search-bar" style="padding: -5%; margin-left: 51%;">
 			<button class="refresh-button">⟳&nbsp;&nbsp;</button>
 		<select class="sort-select" name="perPageNum" id="perPageNum">
-	    	<option value="10"  ${pageMaker.perPageNum eq 10 ? 'selected':'' } >정렬개수</option>
-	  		<option value="20" ${pageMaker.perPageNum eq 20 ? 'selected':'' } >20개씩 정렬</option>
-	  		<option value="30" ${pageMaker.perPageNum eq 30 ? 'selected':'' } >30개씩 정렬</option>
+	    	<option class="font" value="10"  ${pageMaker.perPageNum eq 10 ? 'selected':'' } >정렬개수</option>
+	  		<option class="font" value="20" ${pageMaker.perPageNum eq 20 ? 'selected':'' } >20개씩 정렬</option>
+	  		<option class="font" value="30" ${pageMaker.perPageNum eq 30 ? 'selected':'' } >30개씩 정렬</option>
 	  	</select>
 	 	<select class="sort-select" name="searchType" id="searchType">
-		    <option value=""  >검색구분</option>
-	 		<option value="t" ${pageMaker.searchType eq 't' ? 'selected':'' } >제목</option>
-			<option value="c" ${pageMaker.searchType eq 'c' ? 'selected':'' } >내용</option>	 									
+		    <option class="font" value=""  >검색구분</option>
+	 		<option class="font" value="t" ${pageMaker.searchType eq 't' ? 'selected':'' } >제목</option> 									
 		</select>
 		
 		<input type="text" class="search-input" placeholder="검색어를 입력해주세요."
 	    		name="keyword" value="${pageMaker.keyword }"/>
-	    <button class="search-button" type="submit" onclick="select(1);">검색</button>
+	    <button class="search-button" type="submit" onclick="search_list(1);">검색</button>
 		</div>
 	</form>
 	
@@ -50,7 +49,7 @@
 			<tbody>
 			<c:if test="${empty noticeList }">
 				<tr>
-					<td colspan="6" class="text-content">해당 내용이 없습니다.</td>
+					<td colspan="5" class="text-content">해당 내용이 없습니다.</td>
 				</tr>
 			</c:if>
 		
@@ -62,7 +61,14 @@
 			    </c:url>
 			    
 			    <tr onclick="location.href='${detailUrl}';" style="cursor:pointer;">
-			        <td>${notice.nno}</td>
+			        <td>
+						<c:choose>
+				            <c:when test="${notice.pin == 1}">
+				                <span style="color: red; font-family: NanumSquare_ac;">공지</span>
+				            </c:when>
+				            <c:otherwise> ${notice.nno} </c:otherwise>
+				        </c:choose>
+					</td>
 			        <td style="text-align:left;">${notice.title}</td>
 			        <td>${regDate}</td>
 			        <td>${notice.viewcnt}</td>
@@ -76,7 +82,11 @@
 	<%@ include file="/WEB-INF/views/module/pagination.jsp" %>
 	<br/>
 </div>
-
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
 <script>
 document.querySelector('.refresh-button').addEventListener('click', function(event) {
@@ -90,11 +100,3 @@ document.querySelector('.refresh-button').addEventListener('click', function(eve
 
 </script>
 
-<script>
-	function regist_go() {
-		document.getElementBtId("regist").addEventListener("clcik",
-	function() {
-			window.location.href = "/staff/board/notice/regist";
-		});
-	}
-</script>

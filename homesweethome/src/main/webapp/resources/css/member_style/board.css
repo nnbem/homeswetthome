@@ -206,7 +206,8 @@ div.buttons-wrapper button{
     border: none;
     border-radius: 5px;
    justify-content: flex-start;
-   margin-right: 35.67em;
+  /*  margin-right: 35.67em; */
+   margin-right: 32.9em;
 }
 
 .regist-btn:hover {

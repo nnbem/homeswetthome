@@ -8,8 +8,10 @@
 <%@ include file="/WEB-INF/views/module/adminlteSource.jsp" %>
 
 <head>
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/css/staff_style/staff_member.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/staff_style/staff_member.css">
+
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/staff_style/staff_style.css">
+
 </head>
 
 <body>

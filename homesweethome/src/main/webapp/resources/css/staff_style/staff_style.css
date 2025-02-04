@@ -3,6 +3,7 @@
    margin: 0;
    padding: 0;
    box-sizing: border-box;
+   font-family: NanumSquare_ac;
 }
 
 body.body {
@@ -30,6 +31,13 @@ body.body {
    height: 40px;
    margin-left: 20px;
    margin-right: 5px;
+}
+
+.header .logo a {
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 20px;
 }
 
 .header .logout a {

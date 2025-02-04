@@ -14,6 +14,11 @@
 		input.table-input-radio{
 			margin-right: 50px;
 		}
+		.wrapper{
+			overflow: scroll;
+	    	height: 88vh;
+		}
+			
 	</style>
 </head>
 

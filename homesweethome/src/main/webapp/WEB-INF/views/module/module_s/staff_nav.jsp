@@ -8,7 +8,7 @@
          	<a href="/staff/main" style="font-size">관리자</a>
       </div>
       <div class="logout">
-         <a href="#">로그아웃</a>
+         <a href="/staff/login">로그아웃</a>
       </div>
    </header>
    <div class="wrapper">

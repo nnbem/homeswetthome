@@ -83,7 +83,7 @@
                        </c:choose>
                   </td>
                     <td style="text-align:left;">${notice.title}</td>
-                    <td>${notice.eid }</td>
+                    <td>${loginEmployee.eid }</td>
                     <td>${regDate}</td>
                     <td>${notice.viewcnt}</td>
                 </tr>

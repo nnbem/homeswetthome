@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <head>
 
 <!-- iCheck -->
@@ -25,59 +25,59 @@
 
 <section class="reg-body">
 
-	<div class="content-reg-title">
-		<h4 style="margin-right:-182%;">
-			<b>공지사항</b>
-		</h4>
-		<div class="reg-bar" >
-				<div class="st-list-button-container" >
-					<button type="button" class="button" onclick="regist_go(true);">공지</button> 　　
-					<button type="button" class="button" onclick="regist_go(false);">등록</button>
-				</div>
-			</div>
-	</div>
-	<div class="content-reg-body">
-		<form enctype="multipart/form-data" role="form" method="post" action="regist" name="regist" id="registForm">
-			
-			<div class="content-body">
-				<table class="detail-table">
-						<!-- 제목 -->
-						<thead>
-							<tr>
-								<td><label for="title">제목</label> <input type="text" id="title" name="title" class="form-control notNull"
-									title="제목" placeholder="제목을 입력해주세요.">
-								</td>
-							</tr>
-						</thead>
-						<!-- 작성자 -->
-						<tbody>
-							<tr>
-								<td><label for="mid">작성자</label> <input type="text" id="mid" name="mid" class="form-control"
-									readonly value="${loginUser}">
-								</td>
-							</tr>
-						<!-- 내용 -->
-							<tr>
-								<td>
-								    <label for="content">내 용</label> 
-								    <textarea id="content" name="content" rows="20" cols="90" class="textarea notNull"
-								    title="내용" placeholder="1000자 내외로 작성하세요."></textarea>
-								</td>
+   <div class="content-reg-title">
+      <h4 style="margin-right:-182%;">
+         <b>공지사항</b>
+      </h4>
+      <div class="reg-bar" >
+            <div class="st-list-button-container" >
+               <button type="button" class="button" onclick="regist_go(true);">공지</button> 　　
+               <button type="button" class="button" onclick="regist_go(false);">등록</button>
+            </div>
+         </div>
+   </div>
+   <div class="content-reg-body">
+      <form enctype="multipart/form-data" role="form" method="post" action="regist" name="regist" id="registForm">
+         
+         <div class="content-body">
+            <table class="detail-table">
+                  <!-- 제목 -->
+                  <thead>
+                     <tr>
+                        <td><label for="title">제목</label> <input type="text" id="title" name="title" class="form-control notNull"
+                           title="제목" placeholder="제목을 입력해주세요.">
+                        </td>
+                     </tr>
+                  </thead>
+                  <!-- 작성자 -->
+                  <tbody>
+                     <tr>
+                        <td><label for="eid">작성자</label> <input type="text" id="eid" name="eid" class="form-control"
+                           readonly value="${loginEmployee.eid}">
+                        </td>
+                     </tr>
+                  <!-- 내용 -->
+                     <tr>
+                        <td>
+                            <label for="content">내 용</label> 
+                            <textarea id="content" name="content" rows="20" cols="90" class="textarea notNull"
+                            title="내용" placeholder="1000자 내외로 작성하세요."></textarea>
+                        </td>
 
-							</tr>
-						</tbody>
-				</table>
-				
-				<!-- 공지 여부를 저장할 hidden input 추가 -->
-				<input type="hidden" id="pin" name="pin" value="0">
-				
-				<br />
-				<div class="st-list-button-container" style="margin-left:3%;" >
-					<button type="button" class="button" onclick="back_list();">목록</button>
-				</div>
-			</div>
-		</form>
-	</div>
+                     </tr>
+                  </tbody>
+            </table>
+            
+            <!-- 공지 여부를 저장할 hidden input 추가 -->
+            <input type="hidden" id="pin" name="pin" value="0">
+            
+            <br />
+            <div class="st-list-button-container" style="margin-left:3%;" >
+               <button type="button" class="button" onclick="back_list();">목록</button>
+            </div>
+         </div>
+      </form>
+   </div>
 </section>
 
 <script>

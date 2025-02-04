@@ -7,6 +7,30 @@
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/staff_style/staff_style.css">
 	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+	
+<style>
+
+	div.date{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	div.date-select{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	input.date-input{
+		border: none;
+	}
+	.wrapper{
+		overflow: scroll;
+    	height: 88vh;
+	}
+		
+
+</style>	
+	
 </head>
 
 <body>

@@ -23,47 +23,65 @@
 				<br/>
 				<div style="display: flex; align-items: flex-start;">
 					<!-- 이미지 박스 -->
-					<div
-						style="width: 315px; height: 291px;  line-height: 200px; padding: 3%;"
-						id="animal-image-box"></div>
+					<div style="width: 315px; height: 291px;  padding: 3%;"
+						id="animal-image-box">
+						<img src="<%=request.getContextPath()%>/resources/image/catcat.jpg" alt="animal" style="width: 122%; height: 100%; margin: -14%">
+						</div>
 
 					<!-- 보호동물 정보 -->
 					<table style="margin-left: 20px;">
 						<tr>
 							<td class="center_cell">보호동물관리번호</td>
+							
 							<td class="left_cell">
 								<div class="input-group">
 									<input type="text" id="animal-id" placeholder="보호동물관리번호 입력">
-									<button type="button" id="fetch-info" onclick="detail_go();">정보 불러오기</button>
+									<button type="button" id="fetch-info">정보 불러오기</button>
 								</div>
 							</td>
 							<td class="center_cell">입양상태</td>
-							<td class="left_cell"><input type="text" id="rescue-date" disabled></td>
+							<td class="left_cell">
+							입양가능
+							</td>
 						
 						</tr>
 						<tr>
 							<td class="center_cell">구조일</td>
-							<td class="left_cell"><input type="text" id="rescue-date" disabled></td>
+							<td class="left_cell">
+							2024-12-05
+							</td>
 							<td class="center_cell">센터입소일</td>
-							<td class="left_cell"><input type="text" id="center-date" disabled></td>
+							<td class="left_cell">
+							2024-12-06
+							</td>
 						</tr>
 						<tr>
 							<td class="center_cell">이름</td>
-							<td class="left_cell"><input type="text" id="name" disabled></td>
+							<td class="left_cell">
+							공주
+							</td>
 							<td class="center_cell">성별</td>
-							<td class="left_cell"><input type="text" id="gender" disabled></td>
+							<td class="left_cell">
+							수컷
+							</td>
 						</tr>
 						<tr>
 							<td class="center_cell">중성화</td>
-							<td colspan="3" class="left_cell"><input type="text" id="name" disabled></td>
+							<td colspan="3" class="left_cell">
+							유
+							</td>
 						</tr>
 						<tr>
 							<td class="center_cell">접종</td>
-							<td colspan="3" class="left_cell"><input type="text" id="name" disabled></td>
+							<td colspan="3" class="left_cell">
+							종합백신:4차, 광견병:2차, 코로나:2차, 인플루엔자:1차 ,켄넬코프:2차
+							</td>
 						</tr>
 						<tr>
-							<td class="center_cell">좋아하는 것</td>
-							<td colspan="3" class="left_cell"><input type="text" id="name" disabled></td>
+							<td class="center_cell">기타/특이사항</td>
+							<td colspan="3" class="left_cell">
+							집을 좋아함
+							</td>
 						</tr>
 					</table>
 				</div>
@@ -114,7 +132,7 @@
 <br/>
 <script>
 function detail_go(){
-	location.href="/member/adoption/application/detail";
+	location.href="/member/reserve/application/detail";
 }
 	// 전화번호 유효성 검사 함수
 	function validatePhone(phone) {
@@ -168,7 +186,7 @@ function detail_go(){
 
 		// 유효성 검사를 모두 통과한 경우
 		alert('제출이 완료되었습니다!');
-		window.history.back(); // 페이지 뒤로 이동
+		location.href="/member/adoption/application";
 	}
 
 	// 전화번호 실시간 입력값 필터링

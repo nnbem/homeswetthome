@@ -7,6 +7,13 @@
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/table.css">
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/staff_style/staff_style.css">
 	<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<style>
+	.wrapper{
+		overflow: scroll;
+    	height: 88vh;
+	}
+	
+</style>	
 </head>
 
 <body>

@@ -13,6 +13,28 @@
 <%@ include file="/WEB-INF/views/module/adminlteSource.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<style>
+	.wrapper{
+		overflow: scroll;
+    	height: 88vh;
+	}
+	div.date{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	div.date-select{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	input.date-input{
+		border: none;
+	}
+
+</style>
+
 </head>
 
 <div class="innerWrapper">

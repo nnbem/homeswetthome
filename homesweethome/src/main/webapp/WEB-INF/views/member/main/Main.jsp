@@ -21,7 +21,7 @@
 							class="mypagenav-link">${mypage.tname }
 							</a>
 					</c:forEach> --%>
-					<a href="/staff/main">관리자</a>
+					<a href="/staff/login">관리자</a>
 				</div>
 			</div>
 

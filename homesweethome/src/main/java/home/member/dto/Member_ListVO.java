@@ -9,6 +9,7 @@ public class Member_ListVO {
 	private String name;
 	private String email;
 	private Date complete_Date;
+	private Date regDate;
 	
 	
 	public String getMid() {
@@ -40,6 +41,12 @@ public class Member_ListVO {
 	}
 	public void setComplete_Date(Date complete_Date) {
 		this.complete_Date = complete_Date;
+	}
+	public Date getRegDate() {
+		return regDate;
+	}
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
 	}
 	
 }

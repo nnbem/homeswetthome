@@ -90,14 +90,14 @@ public class TreatmentModifyRequest {
 	public Date getTreatment_date() {
 		return treatment_date;
 	}
-	@DateTimeFormat(pattern = "yyyy-MM-DD")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	public void setTreatment_date(Date treatment_date) {
 		this.treatment_date = treatment_date;
 	}
 	public Date getDisease_date() {
 		return disease_date;
 	}
-	@DateTimeFormat(pattern = "yyyy-MM-DD")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	public void setDisease_date(Date disease_date) {
 		this.disease_date = disease_date;
 	}

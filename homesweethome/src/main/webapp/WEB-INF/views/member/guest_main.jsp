@@ -17,7 +17,7 @@
 				<div class="top_bar" >
 					<a href="/member/login">로그인</a>
 					<a href="/member/join">회원가입</a>
-					<a href="/staff/main">관리자</a>
+					<a href="/staff/login">관리자</a>
 					<a href="#" style="display: none;">우편함</a>
 					<a href="/member/mypage/graceperiod" style="display: none;">마이페이지</a>
 				</div>
@@ -33,10 +33,10 @@
 
 					<!-- 메인메뉴 -->
 					<ul class="menu_main">
-						<li><a href="#">센터 소개</a></li>
-						<li><a href="/member/animal">보호동물</a></li>
-						<li><a href="/member/adoption/main">입양절차</a></li>
-						<li><a href="/member/board/main">게시판</a></li>
+						<li><a href="/member/main/iframe">센터 소개</a></li>
+						<li><a href="/member/main/iframe">보호동물</a></li>
+						<li><a href="/member/main/iframe">입양절차</a></li>
+						<li><a href="/member/main/iframe">게시판</a></li>
 						<li><a href="#">☰</a></li>
 					</ul>
 				</div>
@@ -49,7 +49,7 @@
 		<div class="inner_cent">
 			<div class="banner">
 				<div class="banner-content">
-					<img src="<%=request.getContextPath()%>/resources/image/main_Banner_3.jpg" alt="강아지 이미지">
+					<img src="<%=request.getContextPath()%>/resources/image/main_Banner_3.jpg" alt="banner">
 				</div>
 			</div>
 			<!-- banner -->
@@ -67,50 +67,50 @@
 		    			<div class="card_content">
 		        			<h3>믹스</h3>
 		        			<p>암컷</p>
-		        			<span class="status_badge">입양가능</span>
+		        			<span class="status_badge">공고중</span>
 		    			</div>
 		    			<div class="image_container">
-		        			<img src="<%=request.getContextPath()%>/resources/image/dog_10.png" alt="강아지 이미지">
+		        			<img src="<%=request.getContextPath()%>/resources/image/d_1.jpg" alt="강아지 이미지">
 		    			</div>
 					</div>
 					<div class="card">
 		    			<div class="card_content">
 		        			<h3>믹스</h3>
 		        			<p>암컷</p>
-		        			<span class="status_badge">입양가능</span>
+		        			<span class="status_badge">공고중</span>
 		    			</div>
 		    			<div class="image_container">
-		        			<img src="<%=request.getContextPath()%>/resources/image/dog_10.png" alt="강아지 이미지">
+		        			<img src="<%=request.getContextPath()%>/resources/image/d_2.jpg" alt="강아지 이미지">
 		    			</div>
 					</div>
 					<div class="card">
 		    			<div class="card_content">
 		        			<h3>믹스</h3>
 		        			<p>암컷</p>
-		        			<span class="status_badge">입양가능</span>
+		        			<span class="status_badge">공고중</span>
 		    			</div>
 		    			<div class="image_container">
-		        			<img src="<%=request.getContextPath()%>/resources/image/dog_10.png" alt="강아지 이미지">
+		        			<img src="<%=request.getContextPath()%>/resources/image/d_3.jpg" alt="강아지 이미지">
 		    			</div>
 					</div>
 					<div class="card">
 		    			<div class="card_content">
 		        			<h3>믹스</h3>
 		        			<p>암컷</p>
-		        			<span class="status_badge">입양가능</span>
+		        			<span class="status_badge">공고중</span>
 		    			</div>
 		    			<div class="image_container">
-		        			<img src="<%=request.getContextPath()%>/resources/image/dog_10.png" alt="강아지 이미지">
+		        			<img src="<%=request.getContextPath()%>/resources/image/d_4.jpg" alt="강아지 이미지">
 		    			</div>
 					</div>
 					<div class="card">
 		    			<div class="card_content">
 		        			<h3>믹스</h3>
 		        			<p>암컷</p>
-		        			<span class="status_badge">입양가능</span>
+		        			<span class="status_badge">공고중</span>
 		    			</div>
 		    			<div class="image_container">
-		        			<img src="<%=request.getContextPath()%>/resources/image/dog_10.png" alt="강아지 이미지">
+		        			<img src="<%=request.getContextPath()%>/resources/image/d_5.jpg" alt="강아지 이미지">
 		    			</div>
 					</div>
 				</div>
@@ -127,57 +127,56 @@
 				<div class="animal-card">
 					<div class="card">
 		    			<div class="card_content">
-		        			<h3>믹스</h3>
+		        			<h3>닥스훈트</h3>
 		        			<p>암컷</p>
-		        			<span class="status_badge">입양가능</span>
+		        			<span class="status_bar">입양가능</span>
 		    			</div>
 		    			<div class="image_container">
-		        			<img src="<%=request.getContextPath()%>/resources/image/dog_10.png" alt="강아지 이미지">
+		        			<img src="<%=request.getContextPath()%>/resources/image/1.jpg" alt="강아지 이미지">
 		    			</div>
 					</div>
 					<div class="card">
 		    			<div class="card_content">
-		        			<h3>믹스</h3>
-		        			<p>암컷</p>
-		        			<span class="status_badge">입양가능</span>
+		        			<h3>시베리안</h3>
+		        			<p>수컷</p>
+		        			<span class="status_bar">입양가능</span>
 		    			</div>
 		    			<div class="image_container">
-		        			<img src="<%=request.getContextPath()%>/resources/image/dog_10.png" alt="강아지 이미지">
+		        			<img src="<%=request.getContextPath()%>/resources/image/2.jpg" alt="강아지 이미지">
 		    			</div>
 					</div>
 					<div class="card">
 		    			<div class="card_content">
-		        			<h3>믹스</h3>
-		        			<p>암컷</p>
-		        			<span class="status_badge">입양가능</span>
+		        			<h3>데본렉스</h3>
+		        			<p>수컷</p>
+		        			<span class="status_bar">입양가능</span>
 		    			</div>
 		    			<div class="image_container">
-		        			<img src="<%=request.getContextPath()%>/resources/image/dog_10.png" alt="강아지 이미지">
+		        			<img src="<%=request.getContextPath()%>/resources/image/3.jpg" alt="강아지 이미지">
 		    			</div>
 					</div>
 					<div class="card">
 		    			<div class="card_content">
-		        			<h3>믹스</h3>
+		        			<h3>노르웨이숲</h3>
 		        			<p>암컷</p>
-		        			<span class="status_badge">입양가능</span>
+		        			<span class="status_bar">입양가능</span>
 		    			</div>
 		    			<div class="image_container">
-		        			<img src="<%=request.getContextPath()%>/resources/image/dog_10.png" alt="강아지 이미지">
+		        			<img src="<%=request.getContextPath()%>/resources/image/4.jpg" alt="강아지 이미지">
 		    			</div>
 					</div>
 					<div class="card">
 		    			<div class="card_content">
-		        			<h3>믹스</h3>
-		        			<p>암컷</p>
-		        			<span class="status_badge">입양가능</span>
+		        			<h3>아비시나안</h3>
+		        			<p>수컷</p>
+		        			<span class="status_bar">입양가능</span>
 		    			</div>
 		    			<div class="image_container">
-		        			<img src="<%=request.getContextPath()%>/resources/image/dog_10.png" alt="강아지 이미지">
+		        			<img src="<%=request.getContextPath()%>/resources/image/5.jpg" alt="강아지 이미지">
 		    			</div>
 					</div>
 				</div>
-			</div>
-			<!--wrap  -->
+			</div> <!--wrap  -->
 
 			<div class="additional-sections">
 				<div class="section-row">
@@ -253,27 +252,41 @@
 								alt="지도">
 						</div>
 					</div>
-				<div class="button_container">
-					<div class="button_item">
-						<img src="<%=request.getContextPath()%>/resources/image/cat_icon.png" alt="동물등록정보 연결 및 변경방법">
-						<a href="https://www.animal.go.kr/front/popup_reg_animal_modify.do">동물등록정보 연결 및 변경방법</a>
-					</div>
-					<div class="button_item">
-						<img src="<%=request.getContextPath()%>/resources/image/siren_icon.png" alt="유기동물신고처">
-						<p>유기동물신고처</p>
-					</div>
-					<div class="button_item_img">
-						<img src="<%=request.getContextPath()%>/resources/image/adoption/online_1.png" alt="온라인교육">
-						<br/>
-						<br/>
-						<br/>
-						<div class="main_p">
-						<p>온라인교육</p>
-						</div>
-					</div>
-				</div>
-				</div>
-			</div>
+					
+					<div class="button_container">
+						
+					    <!-- 첫 번째 카드 -->
+					    <a href="https://www.animal.go.kr/front/popup_reg_animal_modify.do" target="_blank" rel="noopener noreferrer" class="button_item_link">
+					        <div class="button_item">
+					            <img src="<%=request.getContextPath()%>/resources/image/cat_icon.png" alt="동물등록정보 연결 및 변경방법">
+					            <p>동물등록정보 연결 및 변경방법</p>
+					        </div>
+					    </a>
+					
+					    <!-- 두 번째 카드 -->
+					    <a href="/report/lost-animal" class="button_item_link">
+					        <div class="button_item">
+					            <img src="<%=request.getContextPath()%>/resources/image/siren_icon.png" alt="유기동물신고처">
+					            <p>유기동물신고처</p>
+					        </div>
+					    </a>
+					
+					    <!-- 세 번째 카드 -->
+					    <a href="/member/adoption/education" class="button_item_link">
+					        <div class="button_item_img">
+					            <img src="<%=request.getContextPath()%>/resources/image/adoption/online_1.png" alt="온라인교육">
+					            <div class="main_p">
+					                <p>온라인교육</p>
+					            </div>
+					            
+					        </div>
+					    </a>
+
+						
+						
+					</div> <!-- button_container -->
+				</div> <!-- container -->
+			</div> <!-- contact-section -->
 		</div>
 		<!-- inner -->
 
@@ -296,5 +309,11 @@
 				RESERVED.</p>
 		</div>
 	</footer>
+	<script>
+function goPage(url){
+	//alert(url);
+	document.querySelector("iframe[name='iframe']").src=url;
+}
+</script>
 </body>
 </html>
